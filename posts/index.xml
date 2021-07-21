@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on Liyan Tang</title>
-    <link>https://adityatelange.github.io/posts/</link>
+    <link>https://Liyan06.github.io/posts/</link>
     <description>Recent content in Posts on Liyan Tang</description>
     <image>
-      <url>https://adityatelange.github.io/papermod-cover.png</url>
-      <link>https://adityatelange.github.io/papermod-cover.png</link>
+      <url>https://Liyan06.github.io/papermod-cover.png</url>
+      <link>https://Liyan06.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 08 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://adityatelange.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Paper - Decoupling Representation and Classifier for Long-Tailed Recognition</title>
-      <link>https://adityatelange.github.io/posts/decoupling_representation/</link>
+      <link>https://Liyan06.github.io/posts/decoupling_representation/</link>
       <pubDate>Fri, 08 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/decoupling_representation/</guid>
+      <guid>https://Liyan06.github.io/posts/decoupling_representation/</guid>
       <description>Introduction When learning with long-tailed data, a common challenge is that instance-rich (or head) classes dominate the training procedure. The learned classification model tends to perform better on these classes, while performance is significantly worse for instance-scarce (or tail) classes (under-fitting).
 The general scheme for long-tailed recognition is: classifiers are either learned jointly with the representations end-to-end, or via a two-stage approach where the classifier and the representation are jointly fine-tuned with variants of class-balanced sampling as a second stage.</description>
     </item>
     
     <item>
       <title>Overlook of Relation Extraction</title>
-      <link>https://adityatelange.github.io/posts/relation_extraction/</link>
+      <link>https://Liyan06.github.io/posts/relation_extraction/</link>
       <pubDate>Sun, 03 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/relation_extraction/</guid>
+      <guid>https://Liyan06.github.io/posts/relation_extraction/</guid>
       <description>Information Extraction v.s. Relation Extraction Information Extraction: Information extraction is the task of automatically extracting structured information from unstructured and/or semi-structured machine-readable documents and other electronically represented sources.
 Relation extraction (RE) is an important task in IE. It focuses on extracting relations between entities. A complete relation RE system consists of
  a named entity recognizer to identify named entities from text. an entity linker to link entities to existing knowledge graphs.</description>
@@ -33,10 +33,10 @@ Relation extraction (RE) is an important task in IE. It focuses on extracting re
     
     <item>
       <title>Paper - Connecting the Dots: Document-level Neural Relation Extraction with Edge-oriented Graphs</title>
-      <link>https://adityatelange.github.io/posts/connecting_the_dots/</link>
+      <link>https://Liyan06.github.io/posts/connecting_the_dots/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/connecting_the_dots/</guid>
+      <guid>https://Liyan06.github.io/posts/connecting_the_dots/</guid>
       <description>Relation Extraction (RE) Relation Extraction (RE): The extraction of relations between named entities in text.
 Relation Extraction is an important task of NLP. Most existing works focus on intra-sentence RE. In fact, in real-world scenarios, a large amount of relations are expressed across sentences. The task of identifying these relations is named inter-sentence RE.
 Typically, inter-sentence relations occur in textual snippets with several sentences, such as documents. In these snippets, each entity is usually repeated with the same phrases or aliases, the occurrences of which are often named entity mentions and regarded as instances of the entity.</description>
@@ -44,29 +44,29 @@ Typically, inter-sentence relations occur in textual snippets with several sente
     
     <item>
       <title>Cross-Lingual Learning</title>
-      <link>https://adityatelange.github.io/posts/corss_lingual/</link>
+      <link>https://Liyan06.github.io/posts/corss_lingual/</link>
       <pubDate>Mon, 28 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/corss_lingual/</guid>
+      <guid>https://Liyan06.github.io/posts/corss_lingual/</guid>
       <description>Cross-lingual learning Most languages do not have training data available to create state-of-the-art models and thus our ability to create intelligent systems for these languages is limited as well.
 Cross-lingual learning (CLL) is one possible remedy to solve the lack of data for low-resource languages. In essence, it is an effort to utilize annotated data from other languages when building new NLP models. When CLL is considered, target languages usually lack resources, while source languages are resource-rich and they can be used to improve the results for the former.</description>
     </item>
     
     <item>
       <title>BERT and RoBERTa </title>
-      <link>https://adityatelange.github.io/posts/bert_roberta/</link>
+      <link>https://Liyan06.github.io/posts/bert_roberta/</link>
       <pubDate>Fri, 18 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/bert_roberta/</guid>
+      <guid>https://Liyan06.github.io/posts/bert_roberta/</guid>
       <description>BERT Recap Overview  Bert (Bidirectional Encoder Representations from Transformers) uses a &amp;ldquo;masked language model&amp;rdquo; to randomly mask some tokens from the input and predict the original vocabulary id of the masked token. Bert shows that &amp;ldquo;pre-trained representations reduce the need for many heavily-engineered task-specific architectures&amp;rdquo;.  BERT Specifics There are two steps to the BERT framework: pre-training and fine-tuning   During pre training, the model is trained on unlabeled data over different pre-training tasks.</description>
     </item>
     
     <item>
       <title>What Does BERT Look At? An Analysis of BERT’s Attention</title>
-      <link>https://adityatelange.github.io/posts/bert_attn/</link>
+      <link>https://Liyan06.github.io/posts/bert_attn/</link>
       <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/bert_attn/</guid>
+      <guid>https://Liyan06.github.io/posts/bert_attn/</guid>
       <description>Before we start In this post, I mainly focus on the conclusions the authors reach in the paper, and I think these conclusions are worth sharing.
 In this paper, the authors study the attention maps of a pre-trained BERT model. Their analysis focuses on the 144 attention heads in BERT.
 Surface-Level Patterns in Attention  There are heads that specialize to attending heavily on the next or previous token, especially in earlier layers of the network.</description>
@@ -74,10 +74,10 @@ Surface-Level Patterns in Attention  There are heads that specialize to attendin
     
     <item>
       <title>Paper - The More You Know: Using Knowledge Graphs for Image Classification </title>
-      <link>https://adityatelange.github.io/posts/the_more_you_know/</link>
+      <link>https://Liyan06.github.io/posts/the_more_you_know/</link>
       <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/the_more_you_know/</guid>
+      <guid>https://Liyan06.github.io/posts/the_more_you_know/</guid>
       <description>Overview Note: This previous post I wrote might be helpful for reading this paper summary:
  Introduction to Graph Neural Network (GNN)  This paper investigates the use of structured prior knowledge in the form of knowledge graphs and shows that using this knowledge improves performance on image classification.
 It introduce the Graph Search Neural Network (GSNN) as a way of efficiently incorporating large knowledge graphs into a vision classification pipeline, which outperforms standard neural network baselines for multi-label classification.</description>
@@ -85,39 +85,39 @@ It introduce the Graph Search Neural Network (GSNN) as a way of efficiently inco
     
     <item>
       <title>Graph Convolutional Neural Network -  Spectral Convolution</title>
-      <link>https://adityatelange.github.io/posts/spectral_conv/</link>
+      <link>https://Liyan06.github.io/posts/spectral_conv/</link>
       <pubDate>Mon, 24 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/spectral_conv/</guid>
+      <guid>https://Liyan06.github.io/posts/spectral_conv/</guid>
       <description>Fourier Transform Virtually everything in the world can be described via a waveform - a function of time, space or some other variable. For instance, sound waves, the price of a stock, etc. The Fourier Transform gives us a unique and powerful way of viewing these waveforms: All waveforms, no matter what you scribble or observe in the universe, are actually just the sum of simple sinusoids of different frequencies.</description>
     </item>
     
     <item>
       <title>Graph Convolutional Neural Network - Spatial Convolution</title>
-      <link>https://adityatelange.github.io/posts/spatial_conv/</link>
+      <link>https://Liyan06.github.io/posts/spatial_conv/</link>
       <pubDate>Thu, 20 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/spatial_conv/</guid>
+      <guid>https://Liyan06.github.io/posts/spatial_conv/</guid>
       <description>Note This is the second post of the Graph Neural Networks (GNNs) series.
 Convolutional graph neural networks (ConvGNNs) Convolutional graph neural networks (ConvGNNs) generalize the operation of convolution from grid data to graph data. The main idea is to generate a node $v$’s representation by aggregating its own features $\mathbf{x}{v}$ and neighbors’ features $\mathbf{x}{u}$, where $u \in N(v)$. Different from RecGNNs, ConvGNNs stack fixed number of multiple graph convolutional layers with different weights to extract high-level node representations.</description>
     </item>
     
     <item>
       <title>Introduction to Graph Neural Network (GNN)</title>
-      <link>https://adityatelange.github.io/posts/gnn/</link>
+      <link>https://Liyan06.github.io/posts/gnn/</link>
       <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/gnn/</guid>
+      <guid>https://Liyan06.github.io/posts/gnn/</guid>
       <description>Note This is the first post of the Graph Neural Networks (GNNs) series.
 Background and Intuition There is an increasing number of applications where data are generated from non-Euclidean domains and are represented as graphs with complex relationships and interdependency between objects. For examples, in e-commence, a graph-based learning system can exploit the interactions between users and products to make highly accurate recommendations. In chemistry, molecules are modeled as graphs.</description>
     </item>
     
     <item>
       <title>Kaggle: Jigsaw Multilingual Toxic Comment Classification - top solutions</title>
-      <link>https://adityatelange.github.io/posts/kaggle_jigsaw/</link>
+      <link>https://Liyan06.github.io/posts/kaggle_jigsaw/</link>
       <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/kaggle_jigsaw/</guid>
+      <guid>https://Liyan06.github.io/posts/kaggle_jigsaw/</guid>
       <description>Before we start Two of my previous post might be helpful in getting a general understanding of the top solutions of this competition. Please feel free to check them out.
  Knowledge Distillation clearly explained Common Multilingual Language Modeling methods (M-Bert, LASER, MultiFiT, XLM)  Jigsaw Multilingual Toxic Comment Classification  Use TPUs to identify toxicity comments across multiple languages.
  Overview of the competition Jigsaw Multilingual Toxic Comment Classification is the 3rd annual competition organized by the Jigsaw team.</description>
@@ -125,29 +125,29 @@ Background and Intuition There is an increasing number of applications where dat
     
     <item>
       <title>Multi-lingual: M-Bert, LASER, MultiFiT, XLM</title>
-      <link>https://adityatelange.github.io/posts/multilingual/</link>
+      <link>https://Liyan06.github.io/posts/multilingual/</link>
       <pubDate>Sat, 08 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/multilingual/</guid>
+      <guid>https://Liyan06.github.io/posts/multilingual/</guid>
       <description>Multilingual Models are a type of Machine Learning model that can understand different languages. In this post, I&amp;rsquo;m going to discuss four common multi-lingual language models Multilingual-Bert (M-Bert), Language-Agnostic SEntence Representations (LASER Embeddings), Efficient multi-lingual language model fine-tuning (MultiFiT) and Cross-lingual Language Model (XLM).
 Ways of tokenization Word-based tokenization Word-based tokenization works well for the morphologically poor English, but results in very large and sparse vocabularies for morphologically rich languages, such as Polish and Turkish.</description>
     </item>
     
     <item>
       <title>Knowledge Distillation</title>
-      <link>https://adityatelange.github.io/posts/distillation/</link>
+      <link>https://Liyan06.github.io/posts/distillation/</link>
       <pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/distillation/</guid>
+      <guid>https://Liyan06.github.io/posts/distillation/</guid>
       <description>Currently, especially in NLP, very large scale models are being trained. A large portion of those can’t even fit on an average person’s hardware. We can train a small network that can run on the limited computational resource of our mobile device. But small models can’t extract many complex features that can be handy in generating predictions unless you devise some elegant algorithm to do so. Plus, due to the Law of diminishing returns, a great increase in the size of model barely maps to a small increase in the accuracy.</description>
     </item>
     
     <item>
       <title>Kaggle: Tweet Sentiment Extraction - top solutions</title>
-      <link>https://adityatelange.github.io/posts/kaggle_tweet_sent2/</link>
+      <link>https://Liyan06.github.io/posts/kaggle_tweet_sent2/</link>
       <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/kaggle_tweet_sent2/</guid>
+      <guid>https://Liyan06.github.io/posts/kaggle_tweet_sent2/</guid>
       <description>Note This post is the second part of overall summarization of the competition. The first half is here.
 Noteworthy ideas in 1st place solution Idea First step:
 Use transformers to extract token level start and end probabilities.
@@ -158,10 +158,10 @@ Last step:</description>
     
     <item>
       <title>Kaggle: Tweet Sentiment Extraction - common methods</title>
-      <link>https://adityatelange.github.io/posts/kaggle_tweet_sent1/</link>
+      <link>https://Liyan06.github.io/posts/kaggle_tweet_sent1/</link>
       <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/kaggle_tweet_sent1/</guid>
+      <guid>https://Liyan06.github.io/posts/kaggle_tweet_sent1/</guid>
       <description>Note This post is the first part of overall summarization of the competition. The second half is here.
 Before we start I attended two NLP competition in June, Tweet Sentiment Extraction and Jigsaw Multilingual Toxic Comment Classification, and I&amp;rsquo;m happy to be a Kaggle Expert from now on :)
 Tweet Sentiment Extraction Goal:
@@ -170,10 +170,10 @@ The objective in this competition is to &amp;ldquo;Extract support phrases for s
     
     <item>
       <title>Recurrent Neural Network (RNN) and Long Short Term Memory (LSTM)</title>
-      <link>https://adityatelange.github.io/posts/lstm/</link>
+      <link>https://Liyan06.github.io/posts/lstm/</link>
       <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/lstm/</guid>
+      <guid>https://Liyan06.github.io/posts/lstm/</guid>
       <description>Sequence Data There are many sequence data in applications. Here are some examples
   Machine translation
  from text sequence to text sequence.    Text Summarization
@@ -184,10 +184,10 @@ The objective in this competition is to &amp;ldquo;Extract support phrases for s
     
     <item>
       <title>Intro to Deep Learning and Backpropagation</title>
-      <link>https://adityatelange.github.io/posts/dl/</link>
+      <link>https://Liyan06.github.io/posts/dl/</link>
       <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/dl/</guid>
+      <guid>https://Liyan06.github.io/posts/dl/</guid>
       <description>Deep Learning v.s. Machine Learning The major difference between Deep Learning and Machine Learning technique is the problem solving approach. Deep Learning techniques tend to solve the problem end to end, where as Machine learning techniques need the problem statements to break down to different parts to be solved first and then their results to be combine at final stage.
 Forward Propagation The general procedure is the following:
 $$ \begin{aligned} a^{(1)}(x) &amp;amp;= w^{(1)^T} \cdot x + b^{(1)} \</description>
@@ -195,10 +195,10 @@ $$ \begin{aligned} a^{(1)}(x) &amp;amp;= w^{(1)^T} \cdot x + b^{(1)} \</descript
     
     <item>
       <title>Log-Linear Model, Conditional Random Field(CRF)</title>
-      <link>https://adityatelange.github.io/posts/crf/</link>
+      <link>https://Liyan06.github.io/posts/crf/</link>
       <pubDate>Tue, 19 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/crf/</guid>
+      <guid>https://Liyan06.github.io/posts/crf/</guid>
       <description>Log-Linear model Let $x$ be an example, and let $y$ be a possible label for it. A log-linear model assumes that
 $$ p(y | x ; w)=\frac{\exp [\sum_{j=1}^J w_{j} F_{j}(x, y)]}{Z(x, w)} $$
 where the partition function
@@ -209,10 +209,10 @@ $$ \hat{y}=\underset{y}{\operatorname{argmax}} p(y | x ; w)=\underset{y}{\operat
     
     <item>
       <title>Gaussian mixture model (GMM), k-means</title>
-      <link>https://adityatelange.github.io/posts/gmm/</link>
+      <link>https://Liyan06.github.io/posts/gmm/</link>
       <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/gmm/</guid>
+      <guid>https://Liyan06.github.io/posts/gmm/</guid>
       <description>Gaussian mixture model (GMM) A Gaussian mixture model is a probabilistic model that assumes all the data points are generated from a mixture of a finite number of Gaussian distributions with unknown parameters.
 Interpretation from geometry $p(x)$ is a weighted sum of multiple Gaussian distribution.
 $$p(x)=\sum_{k=1}^{K} \alpha_{k} \cdot \mathcal{N}\left(x | \mu_{k}, \Sigma_{k}\right) $$
@@ -223,10 +223,10 @@ Interpretation from mixture model setup:
     
     <item>
       <title>Probabilistic Graphical Model (PGM)</title>
-      <link>https://adityatelange.github.io/posts/pgm/</link>
+      <link>https://Liyan06.github.io/posts/pgm/</link>
       <pubDate>Mon, 11 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/pgm/</guid>
+      <guid>https://Liyan06.github.io/posts/pgm/</guid>
       <description>Probabilistic Graphical Model (PGM) Definition: A probabilistic graphical model is a probabilistic model for which a graph expresses the conditional dependence structure between random variables.
 In general, PGM obeys following rules: $$ \begin{aligned} &amp;amp;\text {Sum Rule : } p\left(x_{1}\right)=\int p\left(x_{1}, x_{2}\right) d x_{2}\
 &amp;amp;\text {Product Rule : } p\left(x_{1}, x_{2}\right)=p\left(x_{1} | x_{2}\right) p\left(x_{2}\right)\
@@ -236,10 +236,10 @@ In general, PGM obeys following rules: $$ \begin{aligned} &amp;amp;\text {Sum Ru
     
     <item>
       <title>Hidden Markov Model (HMM)</title>
-      <link>https://adityatelange.github.io/posts/hmm/</link>
+      <link>https://Liyan06.github.io/posts/hmm/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/hmm/</guid>
+      <guid>https://Liyan06.github.io/posts/hmm/</guid>
       <description>Before reading this post, make sure you are familiar with the EM Algorithm and decent among of knowledge of convex optimization. If not, please check out my previous post
   EM Algorithm
   convex optimization primal and dual problem
@@ -249,10 +249,10 @@ Conditional independence $A$ and $B$ are conditionally independent given $C$ if 
     
     <item>
       <title>EM (Expectation–Maximization) Algorithm</title>
-      <link>https://adityatelange.github.io/posts/em/</link>
+      <link>https://Liyan06.github.io/posts/em/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/em/</guid>
+      <guid>https://Liyan06.github.io/posts/em/</guid>
       <description>Jensen’s inequality  Theorem: Let $f$ be a convex function, and let $X$ be a random variable. Then:  $$E[f(X)] \geq f(E[X])$$
 $\quad$ Moreover, if $f$ is strictly convex, then $E[f(X)] = f(E[X])$ holds true if and only if $X$ is a constant.
  Later in the post we are going to use the following fact from the Jensen&amp;rsquo;s inequality: Suppose $\lambda_j \geq 0$ for all $j$ and $\sum_j \lambda_j = 1$, then  $$ \log \sum_j \lambda_j y_j \geq \sum_j \lambda_j , log , y_j$$</description>
@@ -260,10 +260,10 @@ $\quad$ Moreover, if $f$ is strictly convex, then $E[f(X)] = f(E[X])$ holds true
     
     <item>
       <title>Skip-gram</title>
-      <link>https://adityatelange.github.io/posts/skipgram/</link>
+      <link>https://Liyan06.github.io/posts/skipgram/</link>
       <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/skipgram/</guid>
+      <guid>https://Liyan06.github.io/posts/skipgram/</guid>
       <description>Comparison between CBOW and Skip-gram The major difference is that skip-gram is better for infrequent words than CBOW in word2vec. For simplicity, suppose there is a sentence &amp;ldquo;$w_1w_2w_3w_4$&amp;rdquo;, and the window size is $1$.
 For CBOW, it learns to predict the word given a context, or to maximize the following probability
 $$ p(w_2|w_1,w_3) \cdot P(w_3|w_2,w_4)$$
@@ -272,20 +272,20 @@ This is an issue for infrequent words, since they don’t appear very often in a
     
     <item>
       <title>Distributed representation, Hyperbolic Space, Gaussian/Graph Embedding</title>
-      <link>https://adityatelange.github.io/posts/representation/</link>
+      <link>https://Liyan06.github.io/posts/representation/</link>
       <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/representation/</guid>
+      <guid>https://Liyan06.github.io/posts/representation/</guid>
       <description>Overview of various word representation and Embedding methods Local Representation v.s. Distributed Representation  One-hot encoding is local representation and is good for local generalization; distributed representation is good for global generalization.  Comparison between local generalization and global generalization:
 Here is an example for better understanding this pair of concepts. Suppose now you have a bunch of ingredients and you&amp;rsquo;re able to cook 100 different meals with these ingredients.</description>
     </item>
     
     <item>
       <title>NLP Basics, Spell Correction with Noisy Channel</title>
-      <link>https://adityatelange.github.io/posts/nlp_basic/</link>
+      <link>https://Liyan06.github.io/posts/nlp_basic/</link>
       <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/nlp_basic/</guid>
+      <guid>https://Liyan06.github.io/posts/nlp_basic/</guid>
       <description>NLP = NLU + NLG  NLU: Natural Language Understanding NLG: Natural Language Generation  NLG may be viewed as the opposite of NLU: whereas in NLU, the system needs to disambiguate the input sentence to produce the machine representation language, in NLG the system needs to make decisions about how to put a concept into human understandable words.
 Classical applications in NLP   Question Answering
   Sentiment Analysis</description>
@@ -293,10 +293,10 @@ Classical applications in NLP   Question Answering
     
     <item>
       <title>Kaggle: Google Quest Q&amp;A Labeling - my solution</title>
-      <link>https://adityatelange.github.io/posts/kaggle_google_quest/</link>
+      <link>https://Liyan06.github.io/posts/kaggle_google_quest/</link>
       <pubDate>Sat, 04 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/kaggle_google_quest/</guid>
+      <guid>https://Liyan06.github.io/posts/kaggle_google_quest/</guid>
       <description>Kaggle: Google Quest Q&amp;amp;A Labeling summary General Part Congratulations to all winners of this competition. Your hard work paid off!
 First, I have to say thanks to the authors of the following three published notebooks:
 https://www.kaggle.com/akensert/bert-base-tf2-0-now-huggingface-transformer, https://www.kaggle.com/abhishek/distilbert-use-features-oof, https://www.kaggle.com/codename007/start-from-here-quest-complete-eda-fe.
@@ -306,20 +306,20 @@ Our initial plan was to take question title, question body and answer all into a
     
     <item>
       <title>SVM, Dual SVM, Non-linear SVM</title>
-      <link>https://adityatelange.github.io/posts/svm/</link>
+      <link>https://Liyan06.github.io/posts/svm/</link>
       <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/svm/</guid>
+      <guid>https://Liyan06.github.io/posts/svm/</guid>
       <description>Linear SVM Idea We want to find a hyper-plane $w^\top x + b = 0$ that maximizes the margin.
 Set up We first show that the vector $w$ is orthogonal to this hyper-plane. Let $x_1$, $x_2$ be any element on the hyper-plane. So we have $w^\top x_1 + b = 0$ and $w^\top x_2 + b = 0$. Then $w^\top (x_1 - x_2) = 0$, which implies $w$ is orthogonal to the hyper-plane.</description>
     </item>
     
     <item>
       <title>Introduction to Convex Optimization - Primal problem to Dual problem</title>
-      <link>https://adityatelange.github.io/posts/convex2/</link>
+      <link>https://Liyan06.github.io/posts/convex2/</link>
       <pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/convex2/</guid>
+      <guid>https://Liyan06.github.io/posts/convex2/</guid>
       <description>Consider an optimization problem in the standard form (we call this a primal problem):
 We denote the optimal value of this as $p^\star$. We don&amp;rsquo;t assume the problem is convex.
 The Lagrange dual function We define the Lagrangian $L$ associated with the problem as $$ L(x,\lambda, v) = f_0(x) + \sum^m_{i=1}\lambda_if_i(x) + \sum^p_{i=1}v_ih_i(x)$$ We call vectors $\lambda$ and $v$ the *dual variables* or *Lagrange multiplier vectors* associated with the problem (1).</description>
@@ -327,10 +327,10 @@ The Lagrange dual function We define the Lagrangian $L$ associated with the prob
     
     <item>
       <title>Introduction to Convex Optimization - Basic Concepts</title>
-      <link>https://adityatelange.github.io/posts/convex1/</link>
+      <link>https://Liyan06.github.io/posts/convex1/</link>
       <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/convex1/</guid>
+      <guid>https://Liyan06.github.io/posts/convex1/</guid>
       <description>Optimization problem All optimization problems can be written as:
 Optimization Categories   convex v.s. non-convex Deep Neural Network is non-convex
   continuous v.s.discrete Most are continuous variable; tree structure is discrete
@@ -341,10 +341,10 @@ Optimization Categories   convex v.s. non-convex Deep Neural Network is non-conv
     
     <item>
       <title>XGBoost</title>
-      <link>https://adityatelange.github.io/posts/xgboost/</link>
+      <link>https://Liyan06.github.io/posts/xgboost/</link>
       <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/xgboost/</guid>
+      <guid>https://Liyan06.github.io/posts/xgboost/</guid>
       <description>Bagging v.s. Boosting: Bagging: Leverages unstable base learners that are weak because of overfitting.
 Boosting: Leverages stable base learners that are weak because of underfitting.
 XGBoost Learning Process through XGBoost:
@@ -353,10 +353,10 @@ XGBoost Learning Process through XGBoost:
     
     <item>
       <title>Maximum Likelihood Estimation (MLE) and Maximum a Posteriori (MAP)</title>
-      <link>https://adityatelange.github.io/posts/mle/</link>
+      <link>https://Liyan06.github.io/posts/mle/</link>
       <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/mle/</guid>
+      <guid>https://Liyan06.github.io/posts/mle/</guid>
       <description>MLE v.s. MAP  MLE: learn parameters from data. MAP: add a prior (experience) into the model; more reliable if data is limited. As we have more and more data, the prior becomes less useful. As data increase, MAP $\rightarrow$ MLE.  Notation: $D = {(x_1, y_1), (x_2, y_2), &amp;hellip;, (x_n, y_n)}$
 Framework:
  MLE: $\mathop{\rm arg,max} P(D ,|, \theta)$ MAP: $\mathop{\rm arg,max} P(\theta ,|, D)$  Note that taking a product of some numbers less than 1 would approaching 0 as the number of those numbers goes to infinity, it would be not practical to compute, because of computation underflow.</description>
@@ -364,10 +364,10 @@ Framework:
     
     <item>
       <title>Logistic Regression, L1, L2 regularization, Gradient/Coordinate descent</title>
-      <link>https://adityatelange.github.io/posts/logistic_regression/</link>
+      <link>https://Liyan06.github.io/posts/logistic_regression/</link>
       <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/logistic_regression/</guid>
+      <guid>https://Liyan06.github.io/posts/logistic_regression/</guid>
       <description>Generative model v.s. Discriminative model： Examples:
  Generative model: Naive Bayes, HMM, VAE, GAN. Discriminative model：Logistic Regression, CRF.  Objective function:
  Generative model: $max,, p,(x,y)$ Discriminative model：$max ,, p,(y ,|, x)$  Difference:

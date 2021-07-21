@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>COMPETITION on Liyan Tang</title>
-    <link>https://adityatelange.github.io/tags/competition/</link>
+    <link>https://Liyan06.github.io/tags/competition/</link>
     <description>Recent content in COMPETITION on Liyan Tang</description>
     <image>
-      <url>https://adityatelange.github.io/papermod-cover.png</url>
-      <link>https://adityatelange.github.io/papermod-cover.png</link>
+      <url>https://Liyan06.github.io/papermod-cover.png</url>
+      <link>https://Liyan06.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 11 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://adityatelange.github.io/tags/competition/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/competition/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kaggle: Jigsaw Multilingual Toxic Comment Classification - top solutions</title>
-      <link>https://adityatelange.github.io/posts/kaggle_jigsaw/</link>
+      <link>https://Liyan06.github.io/posts/kaggle_jigsaw/</link>
       <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/kaggle_jigsaw/</guid>
+      <guid>https://Liyan06.github.io/posts/kaggle_jigsaw/</guid>
       <description>Before we start Two of my previous post might be helpful in getting a general understanding of the top solutions of this competition. Please feel free to check them out.
  Knowledge Distillation clearly explained Common Multilingual Language Modeling methods (M-Bert, LASER, MultiFiT, XLM)  Jigsaw Multilingual Toxic Comment Classification  Use TPUs to identify toxicity comments across multiple languages.
  Overview of the competition Jigsaw Multilingual Toxic Comment Classification is the 3rd annual competition organized by the Jigsaw team.</description>
@@ -23,10 +23,10 @@
     
     <item>
       <title>Kaggle: Tweet Sentiment Extraction - top solutions</title>
-      <link>https://adityatelange.github.io/posts/kaggle_tweet_sent2/</link>
+      <link>https://Liyan06.github.io/posts/kaggle_tweet_sent2/</link>
       <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/kaggle_tweet_sent2/</guid>
+      <guid>https://Liyan06.github.io/posts/kaggle_tweet_sent2/</guid>
       <description>Note This post is the second part of overall summarization of the competition. The first half is here.
 Noteworthy ideas in 1st place solution Idea First step:
 Use transformers to extract token level start and end probabilities.
@@ -37,10 +37,10 @@ Last step:</description>
     
     <item>
       <title>Kaggle: Tweet Sentiment Extraction - common methods</title>
-      <link>https://adityatelange.github.io/posts/kaggle_tweet_sent1/</link>
+      <link>https://Liyan06.github.io/posts/kaggle_tweet_sent1/</link>
       <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/kaggle_tweet_sent1/</guid>
+      <guid>https://Liyan06.github.io/posts/kaggle_tweet_sent1/</guid>
       <description>Note This post is the first part of overall summarization of the competition. The second half is here.
 Before we start I attended two NLP competition in June, Tweet Sentiment Extraction and Jigsaw Multilingual Toxic Comment Classification, and I&amp;rsquo;m happy to be a Kaggle Expert from now on :)
 Tweet Sentiment Extraction Goal:
@@ -49,10 +49,10 @@ The objective in this competition is to &amp;ldquo;Extract support phrases for s
     
     <item>
       <title>Kaggle: Google Quest Q&amp;A Labeling - my solution</title>
-      <link>https://adityatelange.github.io/posts/kaggle_google_quest/</link>
+      <link>https://Liyan06.github.io/posts/kaggle_google_quest/</link>
       <pubDate>Sat, 04 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/kaggle_google_quest/</guid>
+      <guid>https://Liyan06.github.io/posts/kaggle_google_quest/</guid>
       <description>Kaggle: Google Quest Q&amp;amp;A Labeling summary General Part Congratulations to all winners of this competition. Your hard work paid off!
 First, I have to say thanks to the authors of the following three published notebooks:
 https://www.kaggle.com/akensert/bert-base-tf2-0-now-huggingface-transformer, https://www.kaggle.com/abhishek/distilbert-use-features-oof, https://www.kaggle.com/codename007/start-from-here-quest-complete-eda-fe.

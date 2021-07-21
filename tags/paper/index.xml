@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>PAPER on Liyan Tang</title>
-    <link>https://adityatelange.github.io/tags/paper/</link>
+    <link>https://Liyan06.github.io/tags/paper/</link>
     <description>Recent content in PAPER on Liyan Tang</description>
     <image>
-      <url>https://adityatelange.github.io/papermod-cover.png</url>
-      <link>https://adityatelange.github.io/papermod-cover.png</link>
+      <url>https://Liyan06.github.io/papermod-cover.png</url>
+      <link>https://Liyan06.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 14 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://adityatelange.github.io/tags/paper/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/paper/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What Does BERT Look At? An Analysis of BERT’s Attention</title>
-      <link>https://adityatelange.github.io/posts/bert_attn/</link>
+      <link>https://Liyan06.github.io/posts/bert_attn/</link>
       <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/bert_attn/</guid>
+      <guid>https://Liyan06.github.io/posts/bert_attn/</guid>
       <description>Before we start In this post, I mainly focus on the conclusions the authors reach in the paper, and I think these conclusions are worth sharing.
 In this paper, the authors study the attention maps of a pre-trained BERT model. Their analysis focuses on the 144 attention heads in BERT.
 Surface-Level Patterns in Attention  There are heads that specialize to attending heavily on the next or previous token, especially in earlier layers of the network.</description>
@@ -23,10 +23,10 @@ Surface-Level Patterns in Attention  There are heads that specialize to attendin
     
     <item>
       <title>Paper - The More You Know: Using Knowledge Graphs for Image Classification </title>
-      <link>https://adityatelange.github.io/posts/the_more_you_know/</link>
+      <link>https://Liyan06.github.io/posts/the_more_you_know/</link>
       <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://adityatelange.github.io/posts/the_more_you_know/</guid>
+      <guid>https://Liyan06.github.io/posts/the_more_you_know/</guid>
       <description>Overview Note: This previous post I wrote might be helpful for reading this paper summary:
  Introduction to Graph Neural Network (GNN)  This paper investigates the use of structured prior knowledge in the form of knowledge graphs and shows that using this knowledge improves performance on image classification.
 It introduce the Graph Search Neural Network (GSNN) as a way of efficiently incorporating large knowledge graphs into a vision classification pipeline, which outperforms standard neural network baselines for multi-label classification.</description>
