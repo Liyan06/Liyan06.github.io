@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>RE on Liyan Tang</title>
+    <link>https://adityatelange.github.io/tags/re/</link>
+    <description>Recent content in RE on Liyan Tang</description>
+    <image>
+      <url>https://adityatelange.github.io/papermod-cover.png</url>
+      <link>https://adityatelange.github.io/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 03 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://adityatelange.github.io/tags/re/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Overlook of Relation Extraction</title>
+      <link>https://adityatelange.github.io/posts/relation_extraction/</link>
+      <pubDate>Sun, 03 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/relation_extraction/</guid>
+      <description>Information Extraction v.s. Relation Extraction Information Extraction: Information extraction is the task of automatically extracting structured information from unstructured and/or semi-structured machine-readable documents and other electronically represented sources.
+Relation extraction (RE) is an important task in IE. It focuses on extracting relations between entities. A complete relation RE system consists of
+ a named entity recognizer to identify named entities from text. an entity linker to link entities to existing knowledge graphs.</description>
+    </item>
+    
+    <item>
+      <title>Paper - Connecting the Dots: Document-level Neural Relation Extraction with Edge-oriented Graphs</title>
+      <link>https://adityatelange.github.io/posts/connecting_the_dots/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/connecting_the_dots/</guid>
+      <description>Relation Extraction (RE) Relation Extraction (RE): The extraction of relations between named entities in text.
+Relation Extraction is an important task of NLP. Most existing works focus on intra-sentence RE. In fact, in real-world scenarios, a large amount of relations are expressed across sentences. The task of identifying these relations is named inter-sentence RE.
+Typically, inter-sentence relations occur in textual snippets with several sentences, such as documents. In these snippets, each entity is usually repeated with the same phrases or aliases, the occurrences of which are often named entity mentions and regarded as instances of the entity.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Kaggle: Jigsaw Multilingual Toxic Comment Classification - top solutions | Liyan Tang</title>
+<meta name="keywords" content="NLP, COMPETITION" />
+<meta name="description" content="Before we start Two of my previous post might be helpful in getting a general understanding of the top solutions of this competition. Please feel free to check them out.
+ Knowledge Distillation clearly explained Common Multilingual Language Modeling methods (M-Bert, LASER, MultiFiT, XLM)  Jigsaw Multilingual Toxic Comment Classification  Use TPUs to identify toxicity comments across multiple languages.
+ Overview of the competition Jigsaw Multilingual Toxic Comment Classification is the 3rd annual competition organized by the Jigsaw team.">
+<meta name="author" content="Theme PaperMod">
+<link rel="canonical" href="https://adityatelange.github.io/posts/kaggle_jigsaw/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.35cd0f65a15cafa92372b8313deef5960aae04b90ad722f2bbf509eb0468137e.css" integrity="sha256-Nc0PZaFcr6kjcrgxPe71lgquBLkK1yLyu/UJ6wRoE34=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://adityatelange.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://adityatelange.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://adityatelange.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://adityatelange.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://adityatelange.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.85.0" />
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [ ['$', '$'], ['\\(', '\\)'] ]
+  }
+  ,svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script
+  type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta property="og:title" content="Kaggle: Jigsaw Multilingual Toxic Comment Classification - top solutions" />
+<meta property="og:description" content="Before we start Two of my previous post might be helpful in getting a general understanding of the top solutions of this competition. Please feel free to check them out.
+ Knowledge Distillation clearly explained Common Multilingual Language Modeling methods (M-Bert, LASER, MultiFiT, XLM)  Jigsaw Multilingual Toxic Comment Classification  Use TPUs to identify toxicity comments across multiple languages.
+ Overview of the competition Jigsaw Multilingual Toxic Comment Classification is the 3rd annual competition organized by the Jigsaw team." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adityatelange.github.io/posts/kaggle_jigsaw/" /><meta property="og:image" content="https://adityatelange.github.io/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-08-11T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2020-08-11T00:00:00&#43;00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://adityatelange.github.io/papermod-cover.png"/>
+
+<meta name="twitter:title" content="Kaggle: Jigsaw Multilingual Toxic Comment Classification - top solutions"/>
+<meta name="twitter:description" content="Before we start Two of my previous post might be helpful in getting a general understanding of the top solutions of this competition. Please feel free to check them out.
+ Knowledge Distillation clearly explained Common Multilingual Language Modeling methods (M-Bert, LASER, MultiFiT, XLM)  Jigsaw Multilingual Toxic Comment Classification  Use TPUs to identify toxicity comments across multiple languages.
+ Overview of the competition Jigsaw Multilingual Toxic Comment Classification is the 3rd annual competition organized by the Jigsaw team."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://adityatelange.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Kaggle: Jigsaw Multilingual Toxic Comment Classification - top solutions",
+      "item": "https://adityatelange.github.io/posts/kaggle_jigsaw/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Kaggle: Jigsaw Multilingual Toxic Comment Classification - top solutions",
+  "name": "Kaggle: Jigsaw Multilingual Toxic Comment Classification - top solutions",
+  "description": "Before we start Two of my previous post might be helpful in getting a general understanding of the top solutions of this competition. Please feel free to check them out.\n Knowledge Distillation clearly explained Common Multilingual Language Modeling methods (M-Bert, LASER, MultiFiT, XLM)  Jigsaw Multilingual Toxic Comment Classification  Use TPUs to identify toxicity comments across multiple languages.\n Overview of the competition Jigsaw Multilingual Toxic Comment Classification is the 3rd annual competition organized by the Jigsaw team.",
+  "keywords": [
+    "NLP", "COMPETITION"
+  ],
+  "articleBody": "Before we start Two of my previous post might be helpful in getting a general understanding of the top solutions of this competition. Please feel free to check them out.\n Knowledge Distillation clearly explained Common Multilingual Language Modeling methods (M-Bert, LASER, MultiFiT, XLM)  Jigsaw Multilingual Toxic Comment Classification  Use TPUs to identify toxicity comments across multiple languages.\n Overview of the competition Jigsaw Multilingual Toxic Comment Classification is the 3rd annual competition organized by the Jigsaw team. It follows Toxic Comment Classification Challenge, the original 2018 competition, and Jigsaw Unintended Bias in Toxicity Classification, which required the competitors to consider biased ML predictions in their new models. This year, the goal is to use English only training data to run toxicity predictions on foreign languages (tr, ru, it, fr, pt, es).\nKagglers are predicting the probability that a comment is toxic. A toxic comment would receive a 1.0. A benign, non-toxic comment would receive a 0.0. In the test set, all comments are classified as either a 1.0 or a 0.0. The whole test set was visible in this competition.\nData  jigsaw-toxic-comment-train.csv: from Jigsaw Toxic Comment Classification Challenge (2018).      0.0 1.0 total     count 202165 21384 223549     jigsaw-unintended-bias-train.csv: from Jigsaw Unintended Bias in Toxicity Classification (2019)      0.0 1.0 total     count 1789968 112226 1902194     validation.csv: comments from Wikipedia talk pages in different non-English languages test.csv: comments from Wikipedia talk pages in different non-English languages  Here is the the value counts in valid data:\n    0.0 1.0 total     es 2078 422 2500   it 2012 488 2500   tr 2680 320 3000    Here is the the value counts in test data: As you can see, the test set comments contains 6 non-English languages (tr, ru, it, fr, pt, es) and the validation set contains only three non-English comments (es, it, tr).\n1st place solution Ensembling to mitigate Transformer training variability Since the performance of Transformer models is impacted heavily by initialization and data order, they went with an iterative blending approach, refining the test set predictions across submissions with a weighted average of the previous best submission and the current model’s predictions. They began with a simple average, and gradually increased the weight of the previous best submission.\nNote: The predictions are an exponential moving average of all past model predictions and the current model’s prediction.\nPseudo-Labeling They observed a performance improvement when they used test-set predictions as training data - the intuition being that it helps models learn the test set distribution. Using all test-set predictions as soft-labels worked better than any other version of pseudo-labelling (e.g., hard labels, confidence thresholded PLs, etc). Towards the end of the competition, we discovered a minor but material boost in LB when we upsampled the PLs.\nMultilingual XLM-Roberta models As with most teams, they began with a vanilla XLM-Roberta model, incorporating translations of the 2018 dataset in the 6 test-set languages as training data. They used a vanilla classification head on the [CLS] token of the last layer with the Adam optimizer and binary cross entropy loss function, and finetuned the entire model with a low learning rate. Given Transformer models having several hundred million trainable weights put to the relatively simple task of making a binary prediction, they didn’t spend too much time on hyper-parameter optimization, architectural tweaks, or pre-processing.\nTrain foreign language monolingual Transformer Inspired by the MultiFiT paper, they observed a dramatic performance boost when they used pretrained foreign language monolingual Transformer models from HuggingFace for the test-set languages(e.g., Camembert for french samples, Rubert for russian, BerTurk for turkish, BETO for spanish, etc).\nThey finetuned models for each of the 6 languages:\n Combining translations of the 2018 Toxic Comments together with pseudo-labels for samples from the test set and hard labels for samples from the val set in that specific language. These pseudo-labels initially come from the XLM-R multilingual models, then they are continuously refined by these monolingual transformer models.  Note: A training run would for example have 10K test set samples + 70K subsampled 2018 translations samples + 2.5K val samples. These models are quite good at few-shot learning so Training the corresponding monolingual model, predicting the same samples then blending it back with the “main branch” of all predictions. It was synergistic in that training cross-lingual model - monolingual models - cross-lingual model, etc. lead to continual performance improvements.  For each model run, they would reload weight initalizations from the pretrained models to prevent overfitting. In other words, the continuing improvements of the predictions were being driven by refinements in the pseudo-labels we were providing to the models as training data.\nFor a given monolingual model, predicting only test-set samples in that language worked best. Translating test-set samples in other languages to the model’s language and predicting them worsened performance.\nFinetuning pre-trained foreign language monolingual FastText models After they exhausted the HuggingFace monolingual model library, they trained monolingual FastText Bidirectional GRU models on 2018 Toxic Comments, using pretrained embeddings for the test-set languages, to continue refining the test set predictions (albeit with a lower weight when combined with the main branch of predictions) and saw a small but meaningful performance boost.\nPost-processing Intuition:\nThey consider the trend of subsequent submissions of a specific language (e.g. Russian) for each example in the test dataset. If the trend of that example is positive, they nudge the example further in the positive direction and vice versa.\nThey measure the trend by taking the differences of all subsequent submissions for the specific language and averaging those differences. The nudge that they give to the new submission is based on a predefined weight, typically a weight of 1 or 1.5.\nPseudo-code Given the following:\nweight = predefined weight (typically 1 or 1.5) pred_best = current best predictions on LB diff_avg = average of differences of consecutive subs (trend) Then for each example in test of the specific language (e.g. Turkish):\nif diff_avg 4th place solution special Speeding up training   One way is to downsample negative samples to get a more balanced dataset and a smaller dataset at the same time. If you only use as many negative as positive then dataset is reduced 5x roughly, same for time to run one epoch.\n  Another speedup comes from padding by batch. The main idea is to limit the amount of padding to what is necessary for the current batch. Inputs are padded to the length of the longest input in the batch rather than a fixed length. It has been used in previous competitions and it accelerates training significantly. They refined the idea by sorting the samples by their length so that the samples in a given batch have similar length. This reduces even further the need for padding. If all inputs in the batch have the same length then there is no padding at all. Given samples are sorted, they cannot be shuffled in the training mode. They rather shuffled batches. This yields an extra 2x speedup compared to the original padding by batch.\n  To learn how to implement padding by batch, read my previous summary on Tweeter Sentiment Extraction section sequence bucketing (dynamic padding).\nTraining strategy One main ingredient for their good result is a stepwise finetuning towards single language models for tr, it and es. Below is the illustration of their model architecture:\nAs input data, they used the english 2018 Toxic Comments and its six translations available as public datasets which combined are roughly 1.4M comments. Training a model directly on the combined dataset is not optimal, as each comment appears 7x in each epoch (although in different languages) and the model overfits on that. So they divided the combined dataset into 7 stratified parts, where each part contains a comment only once. For each fold they then fine-tuned a transformer in a 3 step manner:\n Step 1: finetune to all 7 languages for 2 epochs Step 2: finetune only to the full valid.csv which only has tr, it and es Step 3: 3x finetune to each language in valid resulting in 3 models  We then use the step1 model for predicting ru, the step2 model for predicting pt and fr and the respective step3 models for tr, it and es. Using the step2 model for pt and fr gave a significant boost compared to using step1 model for those due. Most likely due to the language similarity between it, es, fr and pt.\nPost-processing The competition metric is sensitive to the global rank of all predictions and not language specific. So they took care of the languages having a correct relation to each other, by shifting the predictions of each language individually.\ntest_df.loc[test_df[\"lang\"] == \"es\", \"toxic\"] *= 1.06 test_df.loc[test_df[\"lang\"] == \"fr\", \"toxic\"] *= 1.04 test_df.loc[test_df[\"lang\"] == \"it\", \"toxic\"] *= 0.97 test_df.loc[test_df[\"lang\"] == \"pt\", \"toxic\"] *= 0.96 test_df.loc[test_df[\"lang\"] == \"tr\", \"toxic\"] *= 0.98 I tried out this post-processing and it boosted my rank from 64th to top 30.\nCommons in top solutions I read through top 10 solutions and indeed they are roughtly the same. Unlike in Tweet Sentiment Extraction where every top solution has its own novel and fancy model structures, top solutions in this competition mostly share the following ideas:\n  Pseudo-Labeling (using soft labels).\n  Use monolingual Transformer models.\n  Two stage training.\n  Post-processing (each team have has different pp strategy).\n  Two stage training This is the last common ideas that I haven’t explained. The main idea is the following.\n  One stage training means that we always train the same data in training. This policy always get the lower scores.\n  Two stage training means that we will have two different data for training. e.g., firstly train on Toxic Comment Classification dataset (+ Unintended Bias in Toxicity dataset). After that train on 8k validation data. This policy always get the higher scores.\n  A checklist of contemporary NLP classification techniques 1st place author shared a checklist of contemporary NLP classification techniques. The followings are a selection of what didn’t work for them in this competition, but I still believe these ideas are worth trying in any competition or project.\n  Document-level embedders (e.g., LASER) Further MLM pretraining of Transformer models using task data Alternative ensembling mechanisms (rank-averaging, stochastic weight averaging) Alternative loss functions (e.g., focal loss, histogram loss) Alternative pooling mechanisms for the classification head (e.g., max-pool CNN across tokens, using multiple hidden layers etc.) Non-FastText pretrained embeddings (e.g., Flair, glove, bpem) Freeze-finetuning for the Transformer models Regularization (e.g., multisample dropout, input mixup, manifold mixup, sentencepiece-dropout) Backtranslation as data augmentation English translations as train/test-time augmentation Self-distilling to relabel the 2018 data Adversarial training by perturbing the embeddings layer using FGM Multi-task learning Temperature scaling on pseudo-labels Semi-supervised learning using the test data Composing two models into an encoder-decoder model Use of translation focused pretrained models (e.g., mBart)    Reference:\n 1st place solution: https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/discussion/160862, https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/discussion/160986 4th place solution: https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/discussion/160980 6th place solution: https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/discussion/161095 11st place solution: https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/discussion/160961 Jigsaw Multilingual: Quick EDA \u0026 TPU Modeling: https://www.kaggle.com/ipythonx/jigsaw-multilingual-quick-eda-tpu-modeling Jigsaw Train Multilingual Coments (Google API) For multilingual models training: https://www.kaggle.com/miklgr500/jigsaw-train-multilingual-coments-google-api  The followings are monolingual language models in huggingface communities mentioned by the 6th place solution:\n es:  https://huggingface.co/dccuchile/bert-base-spanish-wwm-uncased# https://huggingface.co/dccuchile/bert-base-spanish-wwm-cased# https://github.com/dccuchile/beto   fr:  https://huggingface.co/camembert/camembert-large https://huggingface.co/camembert-base https://huggingface.co/flaubert/flaubert-large-cased https://huggingface.co/flaubert/flaubert-base-uncased https://huggingface.co/flaubert/flaubert-base-cased   tr:  (128k vocabulary) https://huggingface.co/dbmdz/bert-base-turkish-128k-uncased (128k vocabulary) https://huggingface.co/dbmdz/bert-base-turkish-128k-cased# (32k vocabulary) https://huggingface.co/dbmdz/bert-base-turkish-uncased# (32k vocabulary) https://huggingface.co/dbmdz/bert-base-turkish-cased#   it  https://huggingface.co/dbmdz/bert-base-italian-xxl-uncased# https://huggingface.co/dbmdz/bert-base-italian-xxl-cased# https://huggingface.co/dbmdz/bert-base-italian-uncased# https://huggingface.co/dbmdz/bert-base-italian-cased#   pt  https://huggingface.co/neuralmind/bert-large-portuguese-cased# https://huggingface.co/neuralmind/bert-base-portuguese-cased#   ru  https://huggingface.co/DeepPavlov/bert-base-bg-cs-pl-ru-cased https://huggingface.co/DeepPavlov/rubert-base-cased#    ",
+  "wordCount" : "1891",
+  "inLanguage": "en",
+  "datePublished": "2020-08-11T00:00:00Z",
+  "dateModified": "2020-08-11T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Theme PaperMod"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://adityatelange.github.io/posts/kaggle_jigsaw/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Liyan Tang",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://adityatelange.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: #1d1e20;
+                --entry: #2e2e33;
+                --primary: rgba(255, 255, 255, 0.84);
+                --secondary: rgba(255, 255, 255, 0.56);
+                --tertiary: rgba(255, 255, 255, 0.16);
+                --content: rgba(255, 255, 255, 0.74);
+                --hljs-bg: #2e2e33;
+                --code-bg: #37383e;
+                --border: #333;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://adityatelange.github.io/" accesskey="h" title="Liyan Tang (Alt + H)">Liyan Tang</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://adityatelange.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://adityatelange.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://adityatelange.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://adityatelange.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://adityatelange.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://adityatelange.github.io/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Kaggle: Jigsaw Multilingual Toxic Comment Classification - top solutions
+    </h1>
+    <div class="post-meta">August 11, 2020&nbsp;·&nbsp;9 min&nbsp;·&nbsp;Theme PaperMod
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <div class="details">Table of Contents</div>
+        </summary>
+        <div class="inner"><ul>
+                <li>
+                    <a href="#before-we-start" aria-label="Before we start">Before we start</a></li>
+                <li>
+                    <a href="#jigsaw-multilingual-toxic-comment-classification" aria-label="Jigsaw Multilingual Toxic Comment Classification">Jigsaw Multilingual Toxic Comment Classification</a><ul>
+                        
+                <li>
+                    <a href="#overview-of-the-competition" aria-label="Overview of the competition">Overview of the competition</a></li>
+                <li>
+                    <a href="#data" aria-label="Data">Data</a></li></ul>
+                </li>
+                <li>
+                    <a href="#1st-place-solution" aria-label="1st place solution">1st place solution</a><ul>
+                        
+                <li>
+                    <a href="#ensembling-to-mitigate-transformer-training-variability" aria-label="Ensembling to mitigate Transformer training variability">Ensembling to mitigate Transformer training variability</a></li>
+                <li>
+                    <a href="#pseudo-labeling" aria-label="Pseudo-Labeling">Pseudo-Labeling</a></li>
+                <li>
+                    <a href="#multilingual-xlm-roberta-models" aria-label="Multilingual XLM-Roberta models">Multilingual XLM-Roberta models</a></li>
+                <li>
+                    <a href="#train-foreign-language-monolingual-transformer" aria-label="Train foreign language monolingual Transformer">Train foreign language monolingual Transformer</a></li>
+                <li>
+                    <a href="#finetuning-pre-trained-foreign-language-monolingual-fasttext-models" aria-label="Finetuning pre-trained foreign language monolingual FastText models">Finetuning pre-trained foreign language monolingual FastText models</a></li>
+                <li>
+                    <a href="#post-processing" aria-label="Post-processing">Post-processing</a><ul>
+                        
+                <li>
+                    <a href="#pseudo-code" aria-label="Pseudo-code">Pseudo-code</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#4th-place-solution-special" aria-label="4th place solution special">4th place solution special</a><ul>
+                        
+                <li>
+                    <a href="#speeding-up-training" aria-label="Speeding up training">Speeding up training</a></li>
+                <li>
+                    <a href="#training-strategy" aria-label="Training strategy">Training strategy</a></li>
+                <li>
+                    <a href="#post-processing-1" aria-label="Post-processing">Post-processing</a></li></ul>
+                </li>
+                <li>
+                    <a href="#commons-in-top-solutions" aria-label="Commons in top solutions">Commons in top solutions</a><ul>
+                        
+                <li>
+                    <a href="#two-stage-training" aria-label="Two stage training">Two stage training</a></li></ul>
+                </li>
+                <li>
+                    <a href="#a-checklist-of-contemporary-nlp-classification-techniques" aria-label="A checklist of contemporary NLP classification techniques">A checklist of contemporary NLP classification techniques</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="before-we-start">Before we start<a hidden class="anchor" aria-hidden="true" href="#before-we-start">#</a></h2>
+<p>Two of my previous post might be helpful in getting a general understanding of the top solutions of this competition. Please feel free to check them out.</p>
+<ul>
+<li><a href="./distillation.md">Knowledge Distillation clearly explained</a></li>
+<li><a href="./multilingual.md">Common Multilingual Language Modeling methods  (M-Bert, LASER, MultiFiT, XLM)</a></li>
+</ul>
+<h2 id="jigsaw-multilingual-toxic-comment-classification">Jigsaw Multilingual Toxic Comment Classification<a hidden class="anchor" aria-hidden="true" href="#jigsaw-multilingual-toxic-comment-classification">#</a></h2>
+<blockquote>
+<p>Use TPUs to identify toxicity comments across multiple languages.</p>
+</blockquote>
+<h3 id="overview-of-the-competition">Overview of the competition<a hidden class="anchor" aria-hidden="true" href="#overview-of-the-competition">#</a></h3>
+<p>Jigsaw Multilingual Toxic Comment Classification is the 3rd annual competition organized by the Jigsaw team. It follows Toxic Comment Classification Challenge, the original 2018 competition, and Jigsaw Unintended Bias in Toxicity Classification, which required the competitors to consider biased ML predictions in their new models. This year, the goal is to use English only training data to run toxicity predictions on foreign languages (tr, ru, it, fr, pt, es).</p>
+<p>Kagglers are predicting the probability that a comment is toxic. A toxic comment would receive a <code>1.0</code>. A benign, non-toxic comment would receive a <code>0.0</code>. In the test set, all comments are classified as either a <code>1.0</code> or a <code>0.0</code>. The whole test set was visible in this competition.</p>
+<h3 id="data">Data<a hidden class="anchor" aria-hidden="true" href="#data">#</a></h3>
+<ul>
+<li><code>jigsaw-toxic-comment-train.csv</code>: from <em>Jigsaw Toxic Comment Classification Challenge (2018)</em>.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>0.0</code></th>
+<th><code>1.0</code></th>
+<th>total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>count</td>
+<td>202165</td>
+<td>21384</td>
+<td>223549</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>jigsaw-unintended-bias-train.csv</code>: from <em>Jigsaw Unintended Bias in Toxicity Classification (2019)</em></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>0.0</code></th>
+<th><code>1.0</code></th>
+<th>total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>count</td>
+<td>1789968</td>
+<td>112226</td>
+<td>1902194</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>validation.csv</code>: comments from Wikipedia talk pages in different non-English languages</li>
+<li><code>test.csv</code>: comments from Wikipedia talk pages in different non-English languages</li>
+</ul>
+<p>Here is the the value counts in valid data:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>0.0</code></th>
+<th><code>1.0</code></th>
+<th>total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>es</td>
+<td>2078</td>
+<td>422</td>
+<td>2500</td>
+</tr>
+<tr>
+<td>it</td>
+<td>2012</td>
+<td>488</td>
+<td>2500</td>
+</tr>
+<tr>
+<td>tr</td>
+<td>2680</td>
+<td>320</td>
+<td>3000</td>
+</tr>
+</tbody>
+</table>
+<p>Here is the the value counts in test data:
+<img src="https://img-blog.csdnimg.cn/20200811020537850.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_1,color_FFFFFF,t_70" width=450></p>
+<p>As you can see, the test set comments contains 6 non-English languages (tr, ru, it, fr, pt, es) and the validation set contains only three non-English comments (es, it, tr).</p>
+<h2 id="1st-place-solution">1st place solution<a hidden class="anchor" aria-hidden="true" href="#1st-place-solution">#</a></h2>
+<h3 id="ensembling-to-mitigate-transformer-training-variability">Ensembling to mitigate Transformer training variability<a hidden class="anchor" aria-hidden="true" href="#ensembling-to-mitigate-transformer-training-variability">#</a></h3>
+<p>Since the performance of Transformer models is impacted heavily by initialization and data order, they went with an iterative blending approach, refining the test set predictions across submissions with a weighted average of the previous best submission and the current model’s predictions. They began with a simple average, and gradually increased the weight of the previous best submission.</p>
+<p>Note: The predictions are an exponential moving average of all past model predictions and the current model&rsquo;s prediction.</p>
+<h3 id="pseudo-labeling">Pseudo-Labeling<a hidden class="anchor" aria-hidden="true" href="#pseudo-labeling">#</a></h3>
+<p>They observed a performance improvement when they used test-set predictions as training data - the intuition being that it helps models learn the test set distribution. Using all test-set predictions as <em>soft-labels</em> worked better than any other version of pseudo-labelling (<em>e.g.</em>, hard labels, confidence thresholded PLs, <em>etc</em>). Towards the end of the competition, we discovered a minor but material boost in LB when we upsampled the PLs.</p>
+<h3 id="multilingual-xlm-roberta-models">Multilingual XLM-Roberta models<a hidden class="anchor" aria-hidden="true" href="#multilingual-xlm-roberta-models">#</a></h3>
+<p>As with most teams, they began with a vanilla XLM-Roberta model, incorporating translations of the 2018 dataset in the 6 test-set languages as training data. They used a vanilla classification head on the [CLS] token of the last layer with the Adam optimizer and binary cross entropy loss function, and finetuned the entire model with a low learning rate. Given Transformer models having several hundred million trainable weights put to the relatively simple task of making a binary prediction, they didn&rsquo;t spend too much time on hyper-parameter optimization, architectural tweaks, or pre-processing.</p>
+<h3 id="train-foreign-language-monolingual-transformer">Train foreign language monolingual Transformer<a hidden class="anchor" aria-hidden="true" href="#train-foreign-language-monolingual-transformer">#</a></h3>
+<img src="https://img-blog.csdnimg.cn/20200811020653314.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_16,color_FFFFFF,t_70" width=600>
+<p>Inspired by the MultiFiT paper, they observed a dramatic performance boost when they used pretrained foreign language monolingual Transformer models from HuggingFace for the test-set languages(<em>e.g.</em>, Camembert for french samples, Rubert for russian, BerTurk for turkish, BETO for spanish, <em>etc</em>).</p>
+<p>They finetuned models for each of the 6 languages:</p>
+<ul>
+<li>Combining translations of the 2018 Toxic Comments together with pseudo-labels for samples from the test set and hard labels for samples from the val set in that specific language. These pseudo-labels initially come from the XLM-R multilingual models, then they are continuously refined by these monolingual transformer models.</li>
+</ul>
+<p>Note: A training run would for example have 10K test set samples + 70K subsampled 2018 translations samples + 2.5K val samples. These models are quite good at few-shot learning so &lt;100K is sufficient to learn.</p>
+<ul>
+<li>Training the corresponding monolingual model, predicting the same samples then blending it back with the “main branch” of all predictions. It was synergistic in that training cross-lingual model -&gt; monolingual models -&gt; cross-lingual model, <em>etc</em>. lead to continual performance improvements.</li>
+</ul>
+<p><em>For each model run, they would reload weight initalizations from the pretrained models to prevent overfitting. In other words, the continuing improvements of the predictions were being driven by refinements in the pseudo-labels we were providing to the models as training data.</em></p>
+<p>For a given monolingual model, predicting only test-set samples in that language worked best. Translating test-set samples in other languages to the model&rsquo;s language and predicting them worsened performance.</p>
+<h3 id="finetuning-pre-trained-foreign-language-monolingual-fasttext-models">Finetuning pre-trained foreign language monolingual FastText models<a hidden class="anchor" aria-hidden="true" href="#finetuning-pre-trained-foreign-language-monolingual-fasttext-models">#</a></h3>
+<p>After they exhausted the HuggingFace monolingual model library, they trained monolingual FastText Bidirectional GRU models on 2018 Toxic Comments, using pretrained embeddings for the test-set languages, to continue refining the test set predictions (albeit with a lower weight when combined with the main branch of predictions) and saw a small but meaningful performance boost.</p>
+<h3 id="post-processing">Post-processing<a hidden class="anchor" aria-hidden="true" href="#post-processing">#</a></h3>
+<p>Intuition:</p>
+<p>They consider the <strong>trend</strong> of subsequent submissions of a specific language (<em>e.g.</em> Russian) for each example in the test dataset. If the trend of that example is positive, they nudge the example further in the positive direction and vice versa.</p>
+<p>They measure the trend by taking the differences of all subsequent submissions for the specific language and averaging those differences. The <strong>nudge</strong> that they give to the new submission is based on a predefined weight, typically a weight of 1 or 1.5.</p>
+<h4 id="pseudo-code">Pseudo-code<a hidden class="anchor" aria-hidden="true" href="#pseudo-code">#</a></h4>
+<p>Given the following:</p>
+<pre><code>weight = predefined weight (typically 1 or 1.5)
+pred_best = current best predictions on LB
+diff_avg = average of differences of consecutive subs (trend)
+</code></pre><p>Then for each example in test of the specific language (e.g. Turkish):</p>
+<pre><code>if diff_avg &lt; 0: # negative trend
+    pred_new = (1+weight*diff_avg)*pred_best  # nudge downwards
+else: # positive trend
+    pred_new = (1-weight*diff_avg)*pred_best + diff_avg # nudge upwards
+</code></pre><h2 id="4th-place-solution-special">4th place solution special<a hidden class="anchor" aria-hidden="true" href="#4th-place-solution-special">#</a></h2>
+<h3 id="speeding-up-training">Speeding up training<a hidden class="anchor" aria-hidden="true" href="#speeding-up-training">#</a></h3>
+<ul>
+<li>
+<p>One way is to downsample negative samples to get a more balanced dataset and a smaller dataset at the same time. If you only use as many negative as positive then dataset is reduced 5x roughly, same for time to run one epoch.</p>
+</li>
+<li>
+<p>Another speedup comes from padding by batch. The main idea is to limit the amount of padding to what is necessary for the current batch. Inputs are padded to the length of the longest input in the batch rather than a fixed length. It has been used in previous competitions and it accelerates training significantly. They refined the idea by sorting the samples by their length so that the samples in a given batch have similar length. This reduces even further the need for padding. If all inputs in the batch have the same length then there is no padding at all. Given samples are sorted, they cannot be shuffled in the training mode. They rather shuffled batches. This yields an extra 2x speedup compared to the original padding by batch.</p>
+</li>
+</ul>
+<p>To learn how to implement padding by batch, read my previous summary on Tweeter Sentiment Extraction section <em>sequence bucketing (dynamic padding)</em>.</p>
+<h3 id="training-strategy">Training strategy<a hidden class="anchor" aria-hidden="true" href="#training-strategy">#</a></h3>
+<p>One main ingredient for their good result is a <strong>stepwise finetuning</strong> towards single language models for tr, it and es. Below is the illustration of their model architecture:</p>
+<img src="https://img-blog.csdnimg.cn/20200811020804947.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_1,color_FFFFFF,t_70">
+<p>As input data, they used the english 2018 Toxic Comments and its six translations available as public datasets which combined are roughly 1.4M comments. Training a model directly on the combined dataset is not optimal, as each comment appears 7x in each epoch (although in different languages) and the model overfits on that. So they divided the combined dataset into 7 stratified parts, where each part contains a comment only once. For each fold they then fine-tuned a transformer in a 3 step manner:</p>
+<ul>
+<li>Step 1: finetune to all 7 languages for 2 epochs</li>
+<li>Step 2: finetune only to the full valid.csv which only has tr, it and es</li>
+<li>Step 3: 3x finetune to each language in valid resulting in 3 models</li>
+</ul>
+<p>We then use the step1 model for predicting ru, the step2 model for predicting pt and fr and the respective step3 models for tr, it and es. Using the step2 model for pt and fr gave a significant boost compared to using step1 model for those due. Most likely due to the language similarity between it, es, fr and pt.</p>
+<h3 id="post-processing-1">Post-processing<a hidden class="anchor" aria-hidden="true" href="#post-processing-1">#</a></h3>
+<p>The competition metric is sensitive to the global rank of all predictions and not language specific. So they took care of the languages having a correct relation to each other, by shifting the predictions of each language individually.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">test_df<span style="color:#f92672">.</span>loc[test_df[<span style="color:#e6db74">&#34;lang&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;es&#34;</span>, <span style="color:#e6db74">&#34;toxic&#34;</span>] <span style="color:#f92672">*=</span> <span style="color:#ae81ff">1.06</span>
+test_df<span style="color:#f92672">.</span>loc[test_df[<span style="color:#e6db74">&#34;lang&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;fr&#34;</span>, <span style="color:#e6db74">&#34;toxic&#34;</span>] <span style="color:#f92672">*=</span> <span style="color:#ae81ff">1.04</span>
+test_df<span style="color:#f92672">.</span>loc[test_df[<span style="color:#e6db74">&#34;lang&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;it&#34;</span>, <span style="color:#e6db74">&#34;toxic&#34;</span>] <span style="color:#f92672">*=</span> <span style="color:#ae81ff">0.97</span>
+test_df<span style="color:#f92672">.</span>loc[test_df[<span style="color:#e6db74">&#34;lang&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;pt&#34;</span>, <span style="color:#e6db74">&#34;toxic&#34;</span>] <span style="color:#f92672">*=</span> <span style="color:#ae81ff">0.96</span>
+test_df<span style="color:#f92672">.</span>loc[test_df[<span style="color:#e6db74">&#34;lang&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;tr&#34;</span>, <span style="color:#e6db74">&#34;toxic&#34;</span>] <span style="color:#f92672">*=</span> <span style="color:#ae81ff">0.98</span>
+</code></pre></div><p>I tried out this post-processing and it boosted my rank from 64th to top 30.</p>
+<h2 id="commons-in-top-solutions">Commons in top solutions<a hidden class="anchor" aria-hidden="true" href="#commons-in-top-solutions">#</a></h2>
+<p>I read through top 10 solutions and indeed they are roughtly the same. Unlike in Tweet Sentiment Extraction where every top solution has its own novel and fancy model structures, top solutions in this competition mostly share the following ideas:</p>
+<ul>
+<li>
+<p>Pseudo-Labeling (using soft labels).</p>
+</li>
+<li>
+<p>Use monolingual Transformer models.</p>
+</li>
+<li>
+<p>Two stage training.</p>
+</li>
+<li>
+<p>Post-processing (each team have has different pp strategy).</p>
+</li>
+</ul>
+<h3 id="two-stage-training">Two stage training<a hidden class="anchor" aria-hidden="true" href="#two-stage-training">#</a></h3>
+<p>This is the last common ideas that I haven&rsquo;t explained. The main idea is the following.</p>
+<ul>
+<li>
+<p>One stage training means that we always train the same data in training. This policy always get the lower scores.</p>
+</li>
+<li>
+<p>Two stage training means that we will have two different data for training. <em>e.g.</em>,  firstly train on Toxic Comment Classification dataset (+ Unintended Bias in Toxicity dataset). After that train on 8k validation data. This policy always get the higher scores.</p>
+</li>
+</ul>
+<h2 id="a-checklist-of-contemporary-nlp-classification-techniques">A checklist of contemporary NLP classification techniques<a hidden class="anchor" aria-hidden="true" href="#a-checklist-of-contemporary-nlp-classification-techniques">#</a></h2>
+<p>1st place author shared a checklist of contemporary NLP classification techniques. The followings are a selection of what didn&rsquo;t work for them in this competition, but I still believe these ideas are worth trying in any competition or project.</p>
+<blockquote>
+<ul>
+<li>Document-level embedders (e.g., LASER)</li>
+<li>Further MLM pretraining of Transformer models using task data</li>
+<li>Alternative ensembling mechanisms (rank-averaging, stochastic weight averaging)</li>
+<li>Alternative loss functions (e.g., focal loss, histogram loss)</li>
+<li>Alternative pooling mechanisms for the classification head (e.g., max-pool CNN across tokens, using multiple hidden layers etc.)</li>
+<li>Non-FastText pretrained embeddings (e.g., Flair, glove, bpem)</li>
+<li>Freeze-finetuning for the Transformer models</li>
+<li>Regularization (e.g., multisample dropout, input mixup, manifold mixup, sentencepiece-dropout)</li>
+<li>Backtranslation as data augmentation</li>
+<li>English translations as train/test-time augmentation</li>
+<li>Self-distilling to relabel the 2018 data</li>
+<li>Adversarial training by perturbing the embeddings layer using FGM</li>
+<li>Multi-task learning</li>
+<li>Temperature scaling on pseudo-labels</li>
+<li>Semi-supervised learning using the test data</li>
+<li>Composing two models into an encoder-decoder model</li>
+<li>Use of translation focused pretrained models (e.g., mBart)</li>
+</ul>
+</blockquote>
+<hr>
+<p>Reference:</p>
+<ul>
+<li>1st place solution: <a href="https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/discussion/160862,">https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/discussion/160862,</a> <a href="https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/discussion/160986">https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/discussion/160986</a></li>
+<li>4th place solution: <a href="https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/discussion/160980">https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/discussion/160980</a></li>
+<li>6th place solution: <a href="https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/discussion/161095">https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/discussion/161095</a></li>
+<li>11st place solution: <a href="https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/discussion/160961">https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/discussion/160961</a></li>
+<li>Jigsaw Multilingual: Quick EDA &amp; TPU Modeling: <a href="https://www.kaggle.com/ipythonx/jigsaw-multilingual-quick-eda-tpu-modeling">https://www.kaggle.com/ipythonx/jigsaw-multilingual-quick-eda-tpu-modeling</a></li>
+<li>Jigsaw Train Multilingual Coments (Google API) For multilingual models training: <a href="https://www.kaggle.com/miklgr500/jigsaw-train-multilingual-coments-google-api">https://www.kaggle.com/miklgr500/jigsaw-train-multilingual-coments-google-api</a></li>
+</ul>
+<p>The followings are monolingual language models in huggingface communities mentioned by the 6th place solution:</p>
+<ul>
+<li>es:
+<ul>
+<li><a href="https://huggingface.co/dccuchile/bert-base-spanish-wwm-uncased#">https://huggingface.co/dccuchile/bert-base-spanish-wwm-uncased#</a></li>
+<li><a href="https://huggingface.co/dccuchile/bert-base-spanish-wwm-cased#">https://huggingface.co/dccuchile/bert-base-spanish-wwm-cased#</a></li>
+<li><a href="https://github.com/dccuchile/beto">https://github.com/dccuchile/beto</a></li>
+</ul>
+</li>
+<li>fr:
+<ul>
+<li><a href="https://huggingface.co/camembert/camembert-large">https://huggingface.co/camembert/camembert-large</a></li>
+<li><a href="https://huggingface.co/camembert-base">https://huggingface.co/camembert-base</a></li>
+<li><a href="https://huggingface.co/flaubert/flaubert-large-cased">https://huggingface.co/flaubert/flaubert-large-cased</a></li>
+<li><a href="https://huggingface.co/flaubert/flaubert-base-uncased">https://huggingface.co/flaubert/flaubert-base-uncased</a></li>
+<li><a href="https://huggingface.co/flaubert/flaubert-base-cased">https://huggingface.co/flaubert/flaubert-base-cased</a></li>
+</ul>
+</li>
+<li>tr:
+<ul>
+<li>(128k vocabulary) <a href="https://huggingface.co/dbmdz/bert-base-turkish-128k-uncased">https://huggingface.co/dbmdz/bert-base-turkish-128k-uncased</a></li>
+<li>(128k vocabulary) <a href="https://huggingface.co/dbmdz/bert-base-turkish-128k-cased#">https://huggingface.co/dbmdz/bert-base-turkish-128k-cased#</a></li>
+<li>(32k vocabulary) <a href="https://huggingface.co/dbmdz/bert-base-turkish-uncased#">https://huggingface.co/dbmdz/bert-base-turkish-uncased#</a></li>
+<li>(32k vocabulary) <a href="https://huggingface.co/dbmdz/bert-base-turkish-cased#">https://huggingface.co/dbmdz/bert-base-turkish-cased#</a></li>
+</ul>
+</li>
+<li>it
+<ul>
+<li><a href="https://huggingface.co/dbmdz/bert-base-italian-xxl-uncased#">https://huggingface.co/dbmdz/bert-base-italian-xxl-uncased#</a></li>
+<li><a href="https://huggingface.co/dbmdz/bert-base-italian-xxl-cased#">https://huggingface.co/dbmdz/bert-base-italian-xxl-cased#</a></li>
+<li><a href="https://huggingface.co/dbmdz/bert-base-italian-uncased#">https://huggingface.co/dbmdz/bert-base-italian-uncased#</a></li>
+<li><a href="https://huggingface.co/dbmdz/bert-base-italian-cased#">https://huggingface.co/dbmdz/bert-base-italian-cased#</a></li>
+</ul>
+</li>
+<li>pt
+<ul>
+<li><a href="https://huggingface.co/neuralmind/bert-large-portuguese-cased#">https://huggingface.co/neuralmind/bert-large-portuguese-cased#</a></li>
+<li><a href="https://huggingface.co/neuralmind/bert-base-portuguese-cased#">https://huggingface.co/neuralmind/bert-base-portuguese-cased#</a></li>
+</ul>
+</li>
+<li>ru
+<ul>
+<li><a href="https://huggingface.co/DeepPavlov/bert-base-bg-cs-pl-ru-cased">https://huggingface.co/DeepPavlov/bert-base-bg-cs-pl-ru-cased</a></li>
+<li><a href="https://huggingface.co/DeepPavlov/rubert-base-cased#">https://huggingface.co/DeepPavlov/rubert-base-cased#</a></li>
+</ul>
+</li>
+</ul>
+
+
+  </div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://adityatelange.github.io/tags/nlp/">NLP</a></li>
+      <li><a href="https://adityatelange.github.io/tags/competition/">COMPETITION</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://adityatelange.github.io/posts/gnn/">
+    <span class="title">« Prev Page</span>
+    <br>
+    <span>Introduction to Graph Neural Network (GNN)</span>
+  </a>
+  <a class="next" href="https://adityatelange.github.io/posts/multilingual/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>Multi-lingual: M-Bert, LASER, MultiFiT, XLM</span>
+  </a>
+</nav>
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kaggle: Jigsaw Multilingual Toxic Comment Classification - top solutions on twitter"
+        href="https://twitter.com/intent/tweet/?text=Kaggle%3a%20Jigsaw%20Multilingual%20Toxic%20Comment%20Classification%20-%20top%20solutions&amp;url=https%3a%2f%2fadityatelange.github.io%2fposts%2fkaggle_jigsaw%2f&amp;hashtags=NLP%2cCOMPETITION">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kaggle: Jigsaw Multilingual Toxic Comment Classification - top solutions on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fadityatelange.github.io%2fposts%2fkaggle_jigsaw%2f&amp;title=Kaggle%3a%20Jigsaw%20Multilingual%20Toxic%20Comment%20Classification%20-%20top%20solutions&amp;summary=Kaggle%3a%20Jigsaw%20Multilingual%20Toxic%20Comment%20Classification%20-%20top%20solutions&amp;source=https%3a%2f%2fadityatelange.github.io%2fposts%2fkaggle_jigsaw%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kaggle: Jigsaw Multilingual Toxic Comment Classification - top solutions on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fadityatelange.github.io%2fposts%2fkaggle_jigsaw%2f&title=Kaggle%3a%20Jigsaw%20Multilingual%20Toxic%20Comment%20Classification%20-%20top%20solutions">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kaggle: Jigsaw Multilingual Toxic Comment Classification - top solutions on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fadityatelange.github.io%2fposts%2fkaggle_jigsaw%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kaggle: Jigsaw Multilingual Toxic Comment Classification - top solutions on whatsapp"
+        href="https://api.whatsapp.com/send?text=Kaggle%3a%20Jigsaw%20Multilingual%20Toxic%20Comment%20Classification%20-%20top%20solutions%20-%20https%3a%2f%2fadityatelange.github.io%2fposts%2fkaggle_jigsaw%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kaggle: Jigsaw Multilingual Toxic Comment Classification - top solutions on telegram"
+        href="https://telegram.me/share/url?text=Kaggle%3a%20Jigsaw%20Multilingual%20Toxic%20Comment%20Classification%20-%20top%20solutions&amp;url=https%3a%2f%2fadityatelange.github.io%2fposts%2fkaggle_jigsaw%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+
+  </footer>
+</article>
+    </main>
+    <footer class="footer">
+    <span>&copy; 2021 <a href="https://adityatelange.github.io/">Liyan Tang</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+    menu.onscroll = function () {
+        localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

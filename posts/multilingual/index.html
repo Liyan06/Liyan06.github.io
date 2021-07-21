@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Multi-lingual: M-Bert, LASER, MultiFiT, XLM | Liyan Tang</title>
+<meta name="keywords" content="NLP, MULTI-LINGUAL" />
+<meta name="description" content="Multilingual Models are a type of Machine Learning model that can understand different languages. In this post, I&rsquo;m going to discuss four common multi-lingual language models Multilingual-Bert (M-Bert), Language-Agnostic SEntence Representations (LASER Embeddings), Efficient multi-lingual language model fine-tuning (MultiFiT) and Cross-lingual Language Model (XLM).
+Ways of tokenization Word-based tokenization Word-based tokenization works well for the morphologically poor English, but results in very large and sparse vocabularies for morphologically rich languages, such as Polish and Turkish.">
+<meta name="author" content="Theme PaperMod">
+<link rel="canonical" href="https://adityatelange.github.io/posts/multilingual/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.35cd0f65a15cafa92372b8313deef5960aae04b90ad722f2bbf509eb0468137e.css" integrity="sha256-Nc0PZaFcr6kjcrgxPe71lgquBLkK1yLyu/UJ6wRoE34=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://adityatelange.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://adityatelange.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://adityatelange.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://adityatelange.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://adityatelange.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.85.0" />
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [ ['$', '$'], ['\\(', '\\)'] ]
+  }
+  ,svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script
+  type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta property="og:title" content="Multi-lingual: M-Bert, LASER, MultiFiT, XLM" />
+<meta property="og:description" content="Multilingual Models are a type of Machine Learning model that can understand different languages. In this post, I&rsquo;m going to discuss four common multi-lingual language models Multilingual-Bert (M-Bert), Language-Agnostic SEntence Representations (LASER Embeddings), Efficient multi-lingual language model fine-tuning (MultiFiT) and Cross-lingual Language Model (XLM).
+Ways of tokenization Word-based tokenization Word-based tokenization works well for the morphologically poor English, but results in very large and sparse vocabularies for morphologically rich languages, such as Polish and Turkish." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adityatelange.github.io/posts/multilingual/" /><meta property="og:image" content="https://adityatelange.github.io/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-08-08T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2020-08-08T00:00:00&#43;00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://adityatelange.github.io/papermod-cover.png"/>
+
+<meta name="twitter:title" content="Multi-lingual: M-Bert, LASER, MultiFiT, XLM"/>
+<meta name="twitter:description" content="Multilingual Models are a type of Machine Learning model that can understand different languages. In this post, I&rsquo;m going to discuss four common multi-lingual language models Multilingual-Bert (M-Bert), Language-Agnostic SEntence Representations (LASER Embeddings), Efficient multi-lingual language model fine-tuning (MultiFiT) and Cross-lingual Language Model (XLM).
+Ways of tokenization Word-based tokenization Word-based tokenization works well for the morphologically poor English, but results in very large and sparse vocabularies for morphologically rich languages, such as Polish and Turkish."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://adityatelange.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Multi-lingual: M-Bert, LASER, MultiFiT, XLM",
+      "item": "https://adityatelange.github.io/posts/multilingual/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Multi-lingual: M-Bert, LASER, MultiFiT, XLM",
+  "name": "Multi-lingual: M-Bert, LASER, MultiFiT, XLM",
+  "description": "Multilingual Models are a type of Machine Learning model that can understand different languages. In this post, I\u0026rsquo;m going to discuss four common multi-lingual language models Multilingual-Bert (M-Bert), Language-Agnostic SEntence Representations (LASER Embeddings), Efficient multi-lingual language model fine-tuning (MultiFiT) and Cross-lingual Language Model (XLM).\nWays of tokenization Word-based tokenization Word-based tokenization works well for the morphologically poor English, but results in very large and sparse vocabularies for morphologically rich languages, such as Polish and Turkish.",
+  "keywords": [
+    "NLP", "MULTI-LINGUAL"
+  ],
+  "articleBody": "Multilingual Models are a type of Machine Learning model that can understand different languages. In this post, I’m going to discuss four common multi-lingual language models Multilingual-Bert (M-Bert), Language-Agnostic SEntence Representations (LASER Embeddings), Efficient multi-lingual language model fine-tuning (MultiFiT) and Cross-lingual Language Model (XLM).\nWays of tokenization Word-based tokenization Word-based tokenization works well for the morphologically poor English, but results in very large and sparse vocabularies for morphologically rich languages, such as Polish and Turkish. Some languages such as Chinese don’t really even have the concept of a “word”, so require heuristic segmentation approaches, which tend to be complicated, slow, and inaccurate.\nCharacter-based tokenization Character-based models use individual characters as tokens. While in this case the vocabulary (and thus the number of parameters) can be small, such models require modelling longer-term dependencies and can thus be harder to train and less expressive than word-based models.\nSubword tokenization Subword tokenization strikes a balance between the two approaches above by using a mixture of character, subword and word tokens, depending on how common they are.\nsubword tokenization has two very desirable properties for multilingual language modelling:\n  Subwords more easily represent inflections (the change in the form of a word), including common prefixes and suffixes and are thus well-suited for morphologically rich languages.\n  Subword tokenization is a good fit for open-vocabulary problems and eliminates out-of-vocabulary tokens, as the coverage is close to 100% tokens.\n  Existing approaches for cross-lingual NLP   Parallel data across languages — that is, a corpus of documents with exactly the same contents, but written in different languages. This is very hard to acquire in a general setting.\n  A shared vocabulary — that is, a vocabulary that is common across multiple languages. This approach over-represents languages with a lot of data (e.g., Multi-lingual BERT, which I’ll discuss in this post).\n  Out-of-vocabulary (OOV) problem in mono/multi-lingual settings It has been shown that the performance on many NLP tasks drops dramatically on held-out data when a significant percentage of words do not appear in the training data, i.e., out-of-vocabulary (OOV) words. OOV problems have been addressed in previous works under monolingual settings, through replacing OOV words with their semantically similar in-vocabulary words or using character/word information or subword information like byte pair encoding (BPE).\nAll those monolingual pre-trained models (e.x. BERT, GPT) rely on language modeling, where a common trick is to tie the weights of softmax and word embeddings. However, in multilingual setting, due to the expensive computation of softmax and data imbalance across different languages, the vocabulary size for each language in a multilingual model is relatively small compared to the monolingual BERT models, especially for low-resource languages. Even for a high-resource language like Chinese, its vocabulary size 10k in the multilingual BERT is only half the size of that in the Chinese BERT. Just as in monolingual settings, the OOV problem also hinders the performance of a multilingual model on tasks that are sensitive to token-level or sentence-level information.\nM-BERT (Multi-lingual BERT) Multilingual BERT is pre-trained in the same way as monolingual BERT, but instead of being trained only on monolingual English data with an English-derived vocabulary, it is trained on the Wikipedia pages of 104 languages with a shared word piece vocabulary. The vocabulary is 119,547 WordPiece model, and the input is tokenized into word-pieces (also known as subwords) so that each word piece is an element of the dictionary. Non-word-initial units are prefixed with ## as a continuation symbol except for Chinese characters which are surrounded by spaces before any tokenization takes place.\nTo account for the differences in the size of Wikipedia, some languages are sub-sampled, and some are super-sampled using exponential smoothing (assigns exponentially decreasing weights as the observation get older).\nIt does not use any marker denoting the input language, and does not have any explicit mechanism to encourage translation equivalent pairs to have similar representations.\nWHY MULTILINGUAL BERT WORKS Definitions:\n  Word-piece overlap: the texts from different languages share some common word-piece vocabulary (like numbers, links, etc.. including actual words, if they have the same script).\n  structural similarity: They define the structure of a language as every property of an individual language that is invariant to the script of the language (e.g., morphology, word-ordering, word frequency are all parts of structure of a language).\n  In the paper Cross-lingual ability of multilingual bert, the authors provide a comprehensive study of the contribution of different components in M-BERT to its cross-lingual ability.\nThe most notable finding is that word-piece overlap on the one hand, and multi-head attention on the other, are both not significant, whereas structural similarity and the depth of the model are crucial for its cross-lingual ability.\nNote:\n  Previous work hypothesizes that M-BERT generalizes across languages because these shared word-pieces force the other word-pieces to be mapped to the same shared space. The paper shows that the contribution of word-piece overlap is very small, which is quite surprising and contradictory to prior hypotheses.\n  The authors' experiment results shows that the number of attention heads doesn’t have a significant effect on cross-lingual ability. B-BERT (bilingual-bert) is satisfactorily cross-lingual even with a single attention head, which is in agreement with the recent study on monolingual BERT.\n  A significant shortcoming of M-BERT The author observe a drastic drop in the entailment performance (NLI task) of B-BERT when the premise and hypothesis are in different languages. One of the possible explanations could be that BERT is learning to make textual entailment decisions by matching words or phrases in the premise to those in the hypothesis. In the following LASER model, it instead supports any combination of premises and hypotheses in different languages in the NLI task.\nLASER (Language-Agnostic SEntence Representations) Facebook open-sourced LASER (Language-Agnostic SEntence Representations) toolkit in Jan 2019. It is the first successful exploration of massively multilingual sentence representations to be shared publicly with the NLP community.\nThe toolkit now works with more than 90 languages and LASER achieves these results by embedding all languages jointly in a single shared space (rather than having a separate model for each).\nLASER also offers several additional benefits:\n  It delivers extremely fast performance, processing up to 2,000 sentences per second on GPU.\n  The sentence encoder is implemented in PyTorch with minimal external dependencies.\n  Languages with limited resources can benefit from joint training over many languages.\n  The model supports the use of multiple languages in one sentence.\n  Performance improves as new languages are added, as the system learns to recognize characteristics of language families.\n  Universal, language-agnostic sentence embeddings LASER’s vector representations maps a sentence in any language to a point in a high dimensional space with the goal that the same statement in any language will end up in the same neighborhood. This representation could be seen as a universal language in a semantic vector space. We have observed that the distance in that space correlates very well to the semantic closeness of the sentences.\nIn the following figure, the image on the left shows a monolingual embedding space. The one on the right illustrates LASER’s approach, which embeds all languages in a single, shared space.\nTheir approach builds on the same underlying technology as neural machine translation: an encoder/decoder approach. they use one shared encoder for all input languages and a shared decoder to generate the output language. The encoder is a five-layer bidirectional LSTM network. In contrast with neural machine translation, we do not use an attention mechanism but instead have a 1,024-dimension fixed-size vector to represent the input sentence. It is obtained by max-pooling over the last states of the BiLSTM. This enables us to compare sentence representations and feed them directly into a classifier.\nFor the detailed results, check out the original paper.\nZero-shot, cross-lingual natural language inference  natural language inference (NLI): the task of determining whether a “hypothesis” is true (entailment), false (contradiction), or undetermined (neutral) given a “premise”.  The table table shows LASER’s zero-shot transfer performance on the XNLI corpus.\nTheir proposed model achieves excellent results in cross-lingual natural language inference (NLI). Performance on this task is a strong indicator of how well the model represents the meaning of a sentence. They consider the zero-shot setting; in other words, they train the NLI classifier on English and then apply it to all target languages with no fine tuning or target-language resources. For 8 out of 14 languages, the zero-shot performance is within 5 percent of performance on English, including distant languages like Russian, Chinese, and Vietnamese. They also achieve strong results on low-resource languages like Swahili and Urdu. Finally, LASER outperforms all previous approaches to zero-shot transfer for 13 out of 14 languages.\nIn contrast to previous methods, which required one sentence to be in English, their system is fully multilingual and supports any combination of premises and hypotheses in different languages.\nUsage !pip install laserembeddings !python -m laserembeddings download-models  from laserembeddings import Laser  laser = Laser()  embedding = laser.embed_sentences(\"I like natural language processing.\", lang=\"en\")  embedding.shape (1, 1024) MultiFiT (Efficient multi-lingual language model fine-tuning) Main idea MultiFiT extends ULMFiT (Universal Language Model Fine-Tuning) to make it more efficient and more suitable for language modelling beyond English: It utilizes tokenization based on subwords rather than words and employs a QRNN rather than an LSTM. In addition, it leverages a number of other improvements.\nQuasi-Recurrent Neural Networks (QRNNs) Drawbacks of RNN Recurrent neural networks (RNNs) are a powerful tool for modeling sequential data, but the dependence of each timestep’s computation on the previous timestep’s output limits parallelism and makes RNNs unwieldy for very long sequences.\nQRNN The QRNN is a proposed new LM which strikes a balance between an CNN and an LSTM: It can be parallelized across time and minibatch dimensions like a CNN and inherits the LSTM’s sequential bias as the output depends on the overall order of elements in the sequence. Specifically, the QRNN alternates convolutional layers, which are parallel across timesteps and a recurrent pooling function, which is parallel across channels. Despite lacking trainable recurrent layers, stacked QRNNs have better predictive accuracy than stacked LSTMs of the same hidden size. Due to their increased parallelism, they are up to 16 times faster at train and test time.\nULMFiT ensembles the predictions of a forward and backward language model. Even though bidirectionality has been found to be important in contextual word vectors, they did not see big improvements for our downstream tasks (text classification) with ELMo-style joint training. As joint training is quite memory-intensive and they emphasize efficiency, they opted to just train forward language models for all languages.\nThe full model can be seen in the below figure. It consists of a subword embedding layer, four QRNN layers, an aggregation layer, and two linear layers. The dimensionality of each layer can be seen in each box at the top.\nFor the detailed results, check out the original paper.\nZero-shot Transfer with a Cross-lingual Teacher Definitions:\n  Source Language: the language being translated from.\n  Target Language: also called the receptor language, is the language being translated into.\n  Inductive bias: The inductive bias of a machine learning algorithm is the set of assumptions that the model makes in order to predict results given inputs it has not yet encountered (generalize to new inputs).\n  Language-agnostic representation: Sentences in different languages with the same meaning should be given similar embeddings.\n  Intuition:\nIf a powerful cross-lingual model and labeled data in a high-resource language are available, it would be nice to make use of them in some way. To this end, they propose to use the classifier that is learned on top of the cross-lingual model on the source language data as a teacher to obtain labels for training their model on the target language. This way, they can perform zero-shot transfer using the monolingual language model by bootstrapping from a cross-lingual one (uses the pre-trained model’s zero-shot predictions as pseudo labels to fine-tune the monolingual model on target language data).\nTo illustrate how this works, take a look at the following diagram:\nThe process consists of three main steps:\n  The monolingual language model is pretrained on Wikipedia data in the target language (a) and fine-tuned on in-domain data (target language documents) of the corresponding task (b).\n  Train a classifier on top of cross-lingual model such as LASER using labelled data in a high-resource source language and perform zero-shot inference as usual with this classifier to predict labels on target language documents.\n  In the final step (c), use these predicted labels to fine-tune a classifier on top of the fine-tuned monolingual language model.\n  This is similar to distillation, which has recently been used to train smaller language models or distill task-specific information into downstream models. In contrast, they do not just seek to distill the information of a big model into a small model but into one with a different inductive bias.\nIn addition to circumventing the need for labels in the target language, our approach thus brings another benefit: As the monolingual model is specialized to the target language, its inductive bias might be more suitable than the more language-agnostic representations learned by the cross-lingual model. It might thus be able to make better use of labels in the target language, even if they are noisy.\nThey’re saying that a monolingual model will be more easily fine-tunable for a particular target-language task than a cross-lingual model. Put another way: suppose you’re trying to train a POS tagger for Hindi. It’s better to have a monolingual Hindi pre-trained LM than a cross-lingual model, although that cross-lingual model could potentially do things like generalize an English tagger to work in Hindi.\nTheir results show that the monolingual language model fine-tuned on zero-shot predictions outperforms its teacher in all settings as you can see in the figure below.\nXLM (Cross-lingual Language Model) XLM uses a known pre-processing technique (BPE) and a dual-language training mechanism with BERT in order to learn relations between words in different languages. The model outperforms other models in a cross-lingual classification task (sentence entailment in 15 languages) and significantly improves machine translation when a pre-trained model is used for initialization of the translation model.\nShared sub-word vocabulary It uses Byte-Pair Encoding (BPE) that splits the input into the most common sub-words across all languages. This greatly improves the alignment of embedding spaces across languages that share either the same alphabet or anchor tokens such as digits or proper nouns. This is a common pre-processing algorithm.\nThe authors of the paper proposed three language modeling objectives CLM, MLM, and TLM. The first two only requires monolingual data, while the third one requires parallel sentences.\nCLM (Causal Language Modeling) Their causal language modeling (CLM) task consists of a Transformer language model trained to model the probability of a word given the previous words in a sentence $P(w_t|w_1, … , w_{t−1}, \\theta)$. Given the previous hidden state to the current batch, the model predicts the next word.\nNote: this technique does not scale to the cross-lingual setting.\nModified MLM (Masked Language Modeling) There are two differences between the proposed MLM and the normal MLM\n  Include the use of text streams of an arbitrary number of sentences (truncated at 256 tokens) instead of pairs of sentences.\n  Subsample the frequent subword to counter the imbalance between rare and frequent tokens (e.g. punctuations or stop words).\n  TLM (Translation Language Modeling) Both the CLM and MLM objectives are unsupervised and only require monolingual data. However, these objectives cannot be used to leverage parallel data when it is available. The objective of TLM is an extension of MLM, where instead of considering monolingual text streams, we concatenate parallel sentences as illustrated in the figure below. They randomly mask words in both the source and target sentences. To predict a word masked in an English sentence, the model can either attend to surrounding English words or to the French translation, encouraging the model to align the English and French representations. In particular, the model can leverage the French context if the English one is not sufficient to infer the masked English words. To facilitate the alignment, they also reset the positions of target sentences.\nNote: BERT use segment embeddings (represent different sentence) while XLM use language embeddings (represent different language).\nThe paper also shows that training a cross-lingual language-model can be very beneficial for low-resource languages, as they can leverage data from other languages, especially similar ones mainly due to the BPE pre-processing.\nOn the XNLI benchmark, it achieves very good performance on Zero-shot. Even better performance if translated data is used during training.\nXLM-RoBERTa The biggest update that XLM-Roberta offers over the original is a significantly increased amount of training data. The cleaned CommonCrawl data that it is trained on takes up a whopping 2.5tb of storage! It is several orders of magnitude larger than the Wiki-100 corpus that was used to train its predecessor and the scale-up is particularly noticeable in the lower resourced languages. The “RoBERTa” part comes from the fact that its training routine is the same as the monolingual RoBERTa model, specifically, that the sole training objective is the Masked Language Model.\nXLM-R significantly outperforms Multilingual-BERT (M-BERT) on a variety of cross-lingual benchmarks, including +14.6% average accuracy on XNLI, +13% average F1 score on MLQA, and +2.4% F1 score on NER. XLM-R performs particularly well on low-resource languages, improving 15.7% in XNLI accuracy for Swahili and 11.4% for Urdu over previous XLM models.\nXLM-R seems to be the best solution to date. It is very possible that the TLM (Translation Language Model) approach to train multilingual transformers will be combined with other technologies.\n Website Reference:\n Judit Ács’s blog: http://juditacs.github.io/2019/02/19/bert-tokenization-stats.html https://huggingface.co/bert-base-multilingual-cased Inductive bias 1: https://blog.aylien.com/emnlp-2018-highlights-inductive-bias-cross-lingual-learning-and-more/ Inductive bias 2: https://stackoverflow.com/questions/35655267/what-is-inductive-bias-in-machine-learning fast.ai: http://nlp.fast.ai/classification/2019/09/10/multifit.html XLM 1: https://towardsdatascience.com/xlm-enhancing-bert-for-cross-lingual-language-model-5aeed9e6f14b XLM 2: https://medium.com/towards-artificial-intelligence/cross-lingual-language-model-56a65dba9358 http://nlpprogress.com/english/natural_language_inference.html https://medium.com/deepset-ai/xlm-roberta-the-multilingual-alternative-for-non-english-nlp-cf0b889ccbbf Multilingual Transformers: https://towardsdatascience.com/multilingual-transformers-ae917b36034d  Paper Reference:\n Facebook engineering: https://engineering.fb.com/ai-research/laser-multilingual-sentence-embeddings/ MultiFiT: Efficient Multi-lingual Language Model Fine-tuning: https://arxiv.org/pdf/1909.04761.pdf QUASI-RECURRENT NEURAL NETWORKS: https://arxiv.org/pdf/1611.01576.pdf Massively Multilingual Sentence Embeddings for Zero-Shot Cross-Lingual Transfer and Beyond (LASER): https://arxiv.org/pdf/1812.10464.pdf Improving Pre-Trained Multilingual Models with Vocabulary Expansion: https://www.groundai.com/project/improving-pre-trained-multilingual-models-with-vocabulary-expansion/1 Cross-lingual ability of multilingual bert: an empirical study: https://openreview.net/pdf?id=HJeT3yrtDr Cross-lingual Language Model Pretraining: https://arxiv.org/pdf/1901.07291.pdf Unsupervised Cross-lingual Representation Learning at Scale: https://arxiv.org/pdf/1911.02116.pdf  ",
+  "wordCount" : "3001",
+  "inLanguage": "en",
+  "datePublished": "2020-08-08T00:00:00Z",
+  "dateModified": "2020-08-08T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Theme PaperMod"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://adityatelange.github.io/posts/multilingual/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Liyan Tang",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://adityatelange.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: #1d1e20;
+                --entry: #2e2e33;
+                --primary: rgba(255, 255, 255, 0.84);
+                --secondary: rgba(255, 255, 255, 0.56);
+                --tertiary: rgba(255, 255, 255, 0.16);
+                --content: rgba(255, 255, 255, 0.74);
+                --hljs-bg: #2e2e33;
+                --code-bg: #37383e;
+                --border: #333;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://adityatelange.github.io/" accesskey="h" title="Liyan Tang (Alt + H)">Liyan Tang</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://adityatelange.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://adityatelange.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://adityatelange.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://adityatelange.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://adityatelange.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://adityatelange.github.io/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Multi-lingual: M-Bert, LASER, MultiFiT, XLM
+    </h1>
+    <div class="post-meta">August 8, 2020&nbsp;·&nbsp;15 min&nbsp;·&nbsp;Theme PaperMod
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <div class="details">Table of Contents</div>
+        </summary>
+        <div class="inner"><ul>
+                <li>
+                    <a href="#ways-of-tokenization" aria-label="Ways of tokenization">Ways of tokenization</a><ul>
+                        
+                <li>
+                    <a href="#word-based-tokenization" aria-label="Word-based tokenization">Word-based tokenization</a></li>
+                <li>
+                    <a href="#character-based-tokenization" aria-label="Character-based tokenization">Character-based tokenization</a></li>
+                <li>
+                    <a href="#subword-tokenization" aria-label="Subword tokenization">Subword tokenization</a></li></ul>
+                </li>
+                <li>
+                    <a href="#existing-approaches-for-cross-lingual-nlp" aria-label="Existing approaches for cross-lingual NLP">Existing approaches for cross-lingual NLP</a><ul>
+                        
+                <li>
+                    <a href="#out-of-vocabulary-oov-problem-in-monomulti-lingual-settings" aria-label="Out-of-vocabulary (OOV) problem in mono/multi-lingual settings">Out-of-vocabulary (OOV) problem in mono/multi-lingual settings</a></li></ul>
+                </li>
+                <li>
+                    <a href="#m-bert-multi-lingual-bert" aria-label="M-BERT (Multi-lingual BERT)">M-BERT (Multi-lingual BERT)</a><ul>
+                        
+                <li>
+                    <a href="#why-multilingual-bert-works" aria-label="WHY MULTILINGUAL BERT WORKS">WHY MULTILINGUAL BERT WORKS</a></li>
+                <li>
+                    <a href="#a-significant-shortcoming-of-m-bert" aria-label="A significant shortcoming of M-BERT">A significant shortcoming of M-BERT</a></li></ul>
+                </li>
+                <li>
+                    <a href="#laser-language-agnostic-sentence-representations" aria-label="LASER (Language-Agnostic SEntence Representations)">LASER (Language-Agnostic SEntence Representations)</a><ul>
+                        
+                <li>
+                    <a href="#universal-language-agnostic-sentence-embeddings" aria-label="Universal, language-agnostic sentence embeddings">Universal, language-agnostic sentence embeddings</a></li>
+                <li>
+                    <a href="#zero-shot-cross-lingual-natural-language-inference" aria-label="Zero-shot, cross-lingual natural language inference">Zero-shot, cross-lingual natural language inference</a></li>
+                <li>
+                    <a href="#usage" aria-label="Usage">Usage</a></li></ul>
+                </li>
+                <li>
+                    <a href="#multifit-efficient-multi-lingual-language-model-fine-tuning" aria-label="MultiFiT (Efficient multi-lingual language model fine-tuning)">MultiFiT (Efficient multi-lingual language model fine-tuning)</a><ul>
+                        
+                <li>
+                    <a href="#main-idea" aria-label="Main idea">Main idea</a></li>
+                <li>
+                    <a href="#quasi-recurrent-neural-networks-qrnns" aria-label="Quasi-Recurrent Neural Networks (QRNNs)">Quasi-Recurrent Neural Networks (QRNNs)</a><ul>
+                        
+                <li>
+                    <a href="#drawbacks-of-rnn" aria-label="Drawbacks of RNN">Drawbacks of RNN</a></li>
+                <li>
+                    <a href="#qrnn" aria-label="QRNN">QRNN</a></li></ul>
+                </li>
+                <li>
+                    <a href="#zero-shot-transfer-with-a-cross-lingual-teacher" aria-label="Zero-shot Transfer with a Cross-lingual Teacher">Zero-shot Transfer with a Cross-lingual Teacher</a></li></ul>
+                </li>
+                <li>
+                    <a href="#xlm-cross-lingual-language-model" aria-label="XLM (Cross-lingual Language Model)">XLM (Cross-lingual Language Model)</a><ul>
+                        
+                <li>
+                    <a href="#shared-sub-word-vocabulary" aria-label="Shared sub-word vocabulary">Shared sub-word vocabulary</a></li>
+                <li>
+                    <a href="#clm-causal-language-modeling" aria-label="CLM (Causal Language Modeling)">CLM (Causal Language Modeling)</a></li>
+                <li>
+                    <a href="#modified-mlm-masked-language-modeling" aria-label="Modified MLM (Masked Language Modeling)">Modified MLM (Masked Language Modeling)</a></li>
+                <li>
+                    <a href="#tlm-translation-language-modeling" aria-label="TLM (Translation Language Modeling)">TLM (Translation Language Modeling)</a></li>
+                <li>
+                    <a href="#xlm-roberta" aria-label="XLM-RoBERTa">XLM-RoBERTa</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>Multilingual Models are a type of Machine Learning model that can understand different languages. In this post, I&rsquo;m going to discuss four common multi-lingual language models Multilingual-Bert (M-Bert), Language-Agnostic SEntence Representations (LASER Embeddings), Efficient multi-lingual language model fine-tuning (MultiFiT) and Cross-lingual Language Model (XLM).</p>
+<h2 id="ways-of-tokenization">Ways of tokenization<a hidden class="anchor" aria-hidden="true" href="#ways-of-tokenization">#</a></h2>
+<img src="https://img-blog.csdnimg.cn/20200808053913377.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_1,color_FFFFFF,t_70#pic_center" width=500>
+<h3 id="word-based-tokenization">Word-based tokenization<a hidden class="anchor" aria-hidden="true" href="#word-based-tokenization">#</a></h3>
+<p>Word-based tokenization works well for the morphologically poor English, but results in very large and sparse vocabularies for morphologically rich languages, such as Polish and Turkish. Some languages such as Chinese don’t really even have the concept of a “word”, so require heuristic segmentation approaches, which tend to be complicated, slow, and inaccurate.</p>
+<h3 id="character-based-tokenization">Character-based tokenization<a hidden class="anchor" aria-hidden="true" href="#character-based-tokenization">#</a></h3>
+<p>Character-based models use individual characters as tokens. While in this case the vocabulary (and thus the number of parameters) can be small, such models require modelling longer-term dependencies and can thus be harder to train and less expressive than word-based models.</p>
+<h3 id="subword-tokenization">Subword tokenization<a hidden class="anchor" aria-hidden="true" href="#subword-tokenization">#</a></h3>
+<p>Subword tokenization strikes a balance between the two approaches above by using a mixture of character, subword and word tokens, depending on how common they are.</p>
+<p>subword tokenization has two very desirable properties for multilingual language modelling:</p>
+<ul>
+<li>
+<p>Subwords more easily represent inflections (the change in the form of a word), including common prefixes and suffixes and are thus well-suited for morphologically rich languages.</p>
+</li>
+<li>
+<p>Subword tokenization is a good fit for open-vocabulary problems and eliminates out-of-vocabulary tokens, as the coverage is close to 100% tokens.</p>
+</li>
+</ul>
+<h2 id="existing-approaches-for-cross-lingual-nlp">Existing approaches for cross-lingual NLP<a hidden class="anchor" aria-hidden="true" href="#existing-approaches-for-cross-lingual-nlp">#</a></h2>
+<ul>
+<li>
+<p>Parallel data across languages — that is, a corpus of documents with exactly the same contents, but written in different languages. This is very hard to acquire in a general setting.</p>
+</li>
+<li>
+<p>A shared vocabulary — that is, a vocabulary that is common across multiple languages. This approach over-represents languages with a lot of data (<em>e.g.</em>, Multi-lingual BERT, which I&rsquo;ll discuss in this post).</p>
+</li>
+</ul>
+<h3 id="out-of-vocabulary-oov-problem-in-monomulti-lingual-settings">Out-of-vocabulary (OOV) problem in mono/multi-lingual settings<a hidden class="anchor" aria-hidden="true" href="#out-of-vocabulary-oov-problem-in-monomulti-lingual-settings">#</a></h3>
+<p>It has been shown that the performance on many NLP tasks drops dramatically on held-out data when a significant percentage of words do not appear in the training data, <em>i.e.</em>, out-of-vocabulary (OOV) words. OOV problems have been addressed in previous works under monolingual settings, through replacing OOV words with their semantically similar in-vocabulary words or using character/word information or subword information like byte pair encoding (BPE).</p>
+<p>All those monolingual pre-trained models (<em>e.x.</em> BERT, GPT) rely on language modeling, where a common trick is to tie the weights of softmax and word embeddings. However, in multilingual setting, due to the expensive computation of softmax and data imbalance across different languages, the vocabulary size for each language in a multilingual model is relatively small compared to the monolingual BERT models, especially for low-resource languages. Even for a high-resource language like Chinese, its vocabulary size 10k in the multilingual BERT is only half the size of that in the Chinese BERT. Just as in monolingual settings, the OOV problem also hinders the performance of a multilingual model on tasks that are sensitive to token-level or sentence-level information.</p>
+<h2 id="m-bert-multi-lingual-bert">M-BERT (Multi-lingual BERT)<a hidden class="anchor" aria-hidden="true" href="#m-bert-multi-lingual-bert">#</a></h2>
+<p>Multilingual BERT is pre-trained in the same way as monolingual BERT, but instead of being trained only on monolingual English data with an English-derived vocabulary, it is trained on the Wikipedia pages of 104 languages with a shared word piece vocabulary. The vocabulary is 119,547 WordPiece model, and the input is tokenized into word-pieces (also known as <strong>subwords</strong>) so that each word piece is an element of the dictionary. Non-word-initial units are prefixed with <code>##</code> as a continuation symbol except for Chinese characters which are surrounded by spaces before any tokenization takes place.</p>
+<p>To account for the differences in the size of Wikipedia, some languages are sub-sampled, and some are super-sampled using <em>exponential smoothing</em> (assigns exponentially decreasing weights as the observation get older).</p>
+<p><em>It does not use any marker denoting the input language, and does not have any explicit mechanism to encourage translation equivalent pairs to have similar representations.</em></p>
+<h3 id="why-multilingual-bert-works">WHY MULTILINGUAL BERT WORKS<a hidden class="anchor" aria-hidden="true" href="#why-multilingual-bert-works">#</a></h3>
+<p>Definitions:</p>
+<ul>
+<li>
+<p>Word-piece overlap: the texts from different languages share some common word-piece vocabulary (like numbers, links, etc.. including actual words, if they have the same script).</p>
+</li>
+<li>
+<p>structural similarity: They define the structure of a language as every property of an individual language that is invariant to the script of the language (<em>e.g.</em>, morphology, word-ordering, word frequency are all parts of structure of a language).</p>
+</li>
+</ul>
+<p>In the paper <em>Cross-lingual ability of multilingual bert</em>, the authors provide a comprehensive study of the contribution of different components in M-BERT to its cross-lingual ability.</p>
+<p><strong>The most notable finding is that word-piece overlap on the one hand, and multi-head attention on the other, are both not significant, whereas structural similarity and the depth of the model are crucial for its cross-lingual ability.</strong></p>
+<img src="https://img-blog.csdnimg.cn/20200808054004146.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_1,color_FFFFFF,t_70#pic_center" width=700>
+<p>Note:</p>
+<ul>
+<li>
+<p>Previous work hypothesizes that M-BERT generalizes across languages because these shared word-pieces force the other word-pieces to be mapped to the same shared space. The paper shows that the contribution of word-piece overlap is very small, which is quite surprising and contradictory to prior hypotheses.</p>
+</li>
+<li>
+<p>The authors' experiment results shows that the number of attention heads doesn’t have a significant effect on cross-lingual ability. B-BERT (bilingual-bert) is satisfactorily cross-lingual even with a single attention head, which is in agreement with the recent study on monolingual BERT.</p>
+</li>
+</ul>
+<h3 id="a-significant-shortcoming-of-m-bert">A significant shortcoming of M-BERT<a hidden class="anchor" aria-hidden="true" href="#a-significant-shortcoming-of-m-bert">#</a></h3>
+<p>The author observe a drastic drop in the entailment performance (NLI task) of B-BERT when the premise and hypothesis are <em>in different languages</em>. One of the possible explanations could be that BERT is learning to make textual entailment decisions by matching words or phrases in the premise to those in the hypothesis. In the following LASER model, it instead supports any combination of premises and hypotheses in different languages in the NLI task.</p>
+<h2 id="laser-language-agnostic-sentence-representations">LASER (Language-Agnostic SEntence Representations)<a hidden class="anchor" aria-hidden="true" href="#laser-language-agnostic-sentence-representations">#</a></h2>
+<p>Facebook open-sourced LASER (Language-Agnostic SEntence Representations) toolkit in Jan 2019. It is the first successful exploration of massively multilingual sentence representations to be shared publicly with the NLP community.</p>
+<p>The toolkit now works with more than 90 languages and LASER achieves these results by embedding all languages jointly in a single shared space (rather than having a separate model for each).</p>
+<p>LASER also offers several additional benefits:</p>
+<ul>
+<li>
+<p>It delivers extremely fast performance, processing up to 2,000 sentences per second on GPU.</p>
+</li>
+<li>
+<p>The sentence encoder is implemented in PyTorch with minimal external dependencies.</p>
+</li>
+<li>
+<p>Languages with limited resources can benefit from joint training over many languages.</p>
+</li>
+<li>
+<p>The model supports the use of multiple languages in one sentence.</p>
+</li>
+<li>
+<p>Performance improves as new languages are added, as the system learns to recognize characteristics of language families.</p>
+</li>
+</ul>
+<h3 id="universal-language-agnostic-sentence-embeddings">Universal, language-agnostic sentence embeddings<a hidden class="anchor" aria-hidden="true" href="#universal-language-agnostic-sentence-embeddings">#</a></h3>
+<p>LASER’s vector representations maps a sentence in any language to a point in a high dimensional space with the goal that the same statement in any language will end up in the same neighborhood. This representation could be seen as a universal language in a semantic vector space. We have observed that the distance in that space correlates very well to the semantic closeness of the sentences.</p>
+<p>In the following figure, the image on the left shows a monolingual embedding space. The one on the right illustrates LASER’s approach, which embeds all languages in a single, shared space.</p>
+<img src="https://img-blog.csdnimg.cn/20200808054120285.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_1,color_FFFFFF,t_70#pic_center" width=700>
+<p>Their approach builds on the same underlying technology as neural machine translation: an encoder/decoder approach. they use one shared encoder for all input languages and a shared decoder to generate the output language. The encoder is a five-layer bidirectional LSTM  network. In contrast with neural machine translation, we do not use an attention mechanism but instead have a <strong>1,024-dimension fixed-size vector to represent the input sentence</strong>. It is obtained by max-pooling over the last states of the BiLSTM. This enables us to compare sentence representations and feed them directly into a classifier.</p>
+<img src="https://img-blog.csdnimg.cn/20200808054224128.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_1,color_FFFFFF,t_70#pic_center" width=800>
+<p>For the detailed results, check out the original <a href="https://arxiv.org/pdf/1812.10464.pdf">paper</a>.</p>
+<h3 id="zero-shot-cross-lingual-natural-language-inference">Zero-shot, cross-lingual natural language inference<a hidden class="anchor" aria-hidden="true" href="#zero-shot-cross-lingual-natural-language-inference">#</a></h3>
+<ul>
+<li>natural language inference (NLI): the task of determining whether a “hypothesis” is true (entailment), false (contradiction), or undetermined (neutral) given a “premise”.</li>
+</ul>
+<p>The table table shows LASER’s zero-shot transfer performance on the XNLI corpus.</p>
+<img src="https://img-blog.csdnimg.cn/20200808054317601.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_1,color_FFFFFF,t_70#pic_center" width=700>
+<p>Their proposed model achieves excellent results in cross-lingual natural language inference (NLI). Performance on this task is a strong indicator of how well the model represents the meaning of a sentence. They consider the zero-shot setting; in other words, they train the NLI classifier on English and then apply it to all target languages with no fine tuning or target-language resources. For 8 out of 14 languages, the zero-shot performance is within 5 percent of performance on English, including distant languages like Russian, Chinese, and Vietnamese. They also achieve strong results on low-resource languages like Swahili and Urdu. Finally, LASER outperforms all previous approaches to zero-shot transfer for 13 out of 14 languages.</p>
+<p>In contrast to previous methods, which required one sentence to be in English, their system is fully multilingual and supports any combination of premises and hypotheses in different languages.</p>
+<img src="https://img-blog.csdnimg.cn/20200808054447172.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_1,color_FFFFFF,t_70#pic_center" width=600>
+<h3 id="usage">Usage<a hidden class="anchor" aria-hidden="true" href="#usage">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#960050;background-color:#1e0010">!</span>pip install laserembeddings
+<span style="color:#960050;background-color:#1e0010">!</span>python <span style="color:#f92672">-</span>m laserembeddings download<span style="color:#f92672">-</span>models
+
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">from</span> laserembeddings <span style="color:#f92672">import</span> Laser
+<span style="color:#f92672">&gt;&gt;&gt;</span> laser <span style="color:#f92672">=</span> Laser()
+<span style="color:#f92672">&gt;&gt;&gt;</span> embedding <span style="color:#f92672">=</span> laser<span style="color:#f92672">.</span>embed_sentences(<span style="color:#e6db74">&#34;I like natural language processing.&#34;</span>, 
+                                      lang<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>)
+<span style="color:#f92672">&gt;&gt;&gt;</span> embedding<span style="color:#f92672">.</span>shape
+(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1024</span>)
+</code></pre></div><h2 id="multifit-efficient-multi-lingual-language-model-fine-tuning">MultiFiT (Efficient multi-lingual language model fine-tuning)<a hidden class="anchor" aria-hidden="true" href="#multifit-efficient-multi-lingual-language-model-fine-tuning">#</a></h2>
+<h3 id="main-idea">Main idea<a hidden class="anchor" aria-hidden="true" href="#main-idea">#</a></h3>
+<p>MultiFiT extends ULMFiT (<em>Universal Language Model Fine-Tuning</em>) to make it more efficient and more suitable for language modelling beyond English: It utilizes tokenization based on subwords rather than words and employs a QRNN rather than an LSTM. In addition, it leverages a number of other improvements.</p>
+<h3 id="quasi-recurrent-neural-networks-qrnns">Quasi-Recurrent Neural Networks (QRNNs)<a hidden class="anchor" aria-hidden="true" href="#quasi-recurrent-neural-networks-qrnns">#</a></h3>
+<h4 id="drawbacks-of-rnn">Drawbacks of RNN<a hidden class="anchor" aria-hidden="true" href="#drawbacks-of-rnn">#</a></h4>
+<p>Recurrent neural networks (RNNs) are a powerful tool for modeling sequential data, <strong>but the dependence of each timestep&rsquo;s computation on the previous timestep’s output limits parallelism and makes RNNs unwieldy for very long sequences.</strong></p>
+<h4 id="qrnn">QRNN<a hidden class="anchor" aria-hidden="true" href="#qrnn">#</a></h4>
+<img src="https://img-blog.csdnimg.cn/20200808054810980.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_1,color_FFFFFF,t_70#pic_center" width=400>
+<p>The QRNN is a proposed new LM which strikes a balance between an CNN and an LSTM: It can be parallelized across time and minibatch dimensions like a CNN and inherits the LSTM’s sequential bias as the output depends on the overall order of elements in the sequence. Specifically, the QRNN alternates convolutional layers, which are parallel across timesteps and a recurrent pooling function, which is parallel across channels. Despite lacking trainable recurrent layers, stacked QRNNs have better predictive accuracy than stacked LSTMs of the same hidden size. Due to their increased parallelism, they are up to 16 times faster at train and test time.</p>
+<p>ULMFiT ensembles the predictions of a forward and backward language model. Even though bidirectionality has been found to be important in contextual word vectors, they did not see big improvements for our downstream tasks (text classification) with ELMo-style joint training. As joint training is quite memory-intensive and they emphasize efficiency, they opted to just train forward language models for all languages.</p>
+<p>The full model can be seen in the below figure. It consists of a subword embedding layer, four QRNN layers, an aggregation layer, and two linear layers. The dimensionality of each layer can be seen in each box at the top.</p>
+<img src="https://img-blog.csdnimg.cn/20200808060703474.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_1,color_FFFFFF,t_70#pic_center" width=600>
+<p>For the detailed results, check out the original <a href="https://arxiv.org/pdf/1611.01576.pdf">paper</a>.</p>
+<h3 id="zero-shot-transfer-with-a-cross-lingual-teacher">Zero-shot Transfer with a Cross-lingual Teacher<a hidden class="anchor" aria-hidden="true" href="#zero-shot-transfer-with-a-cross-lingual-teacher">#</a></h3>
+<p>Definitions:</p>
+<ul>
+<li>
+<p><strong>Source Language</strong>: the language being translated from.</p>
+</li>
+<li>
+<p><strong>Target Language</strong>: also called the receptor language, is the language being translated into.</p>
+</li>
+<li>
+<p><strong>Inductive bias</strong>: The inductive bias of a machine learning algorithm is the set of assumptions that the model makes in order to predict results given inputs it has not yet encountered (generalize to new inputs).</p>
+</li>
+<li>
+<p><strong>Language-agnostic representation</strong>: Sentences in different languages with the same meaning should be given similar embeddings.</p>
+</li>
+</ul>
+<p><em>Intuition:</em></p>
+<p>If a powerful cross-lingual model and labeled data in a high-resource language are available, it would be nice to make use of them in some way. To this end, they propose to use the classifier that is learned on top of the cross-lingual model on the <em>source language data</em> as a teacher to obtain labels for training their model on the <em>target language</em>. This way, they can perform zero-shot transfer using the monolingual language model by bootstrapping from a cross-lingual one (uses the pre-trained model&rsquo;s zero-shot predictions as pseudo labels to fine-tune the monolingual model on target language data).</p>
+<p>To illustrate how this works, take a look at the following diagram:</p>
+<img src="https://img-blog.csdnimg.cn/20200808054856702.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_1,color_FFFFFF,t_70#pic_center" width=550>
+<p>The process consists of three main steps:</p>
+<ol>
+<li>
+<p>The monolingual language model is pretrained on Wikipedia data in the target language (a) and fine-tuned on in-domain data (target language documents) of the corresponding task (b).</p>
+</li>
+<li>
+<p>Train a classifier on top of cross-lingual model such as <em>LASER</em> using labelled data in a high-resource source language and perform zero-shot inference as usual with this classifier to predict labels on target language documents.</p>
+</li>
+<li>
+<p>In the final step (c), use these predicted labels to fine-tune a classifier on top of the fine-tuned monolingual language model.</p>
+</li>
+</ol>
+<p>This is similar to <strong>distillation</strong>, which has recently been used to train smaller language models or distill task-specific information into downstream models. In contrast, they do not just seek to distill the information of a big model into a small model but into one with a <em>different inductive bias</em>.</p>
+<p>In addition to circumventing the need for labels in the target language, our approach thus brings another benefit: As the monolingual model is specialized to the target language, its inductive bias might be more suitable than the more language-agnostic representations learned by the cross-lingual model. It might thus be able to make better use of labels in the target language, even if they are noisy.</p>
+<p>They&rsquo;re saying that a monolingual model will be more easily fine-tunable for a particular target-language task than a cross-lingual model. Put another way: suppose you&rsquo;re trying to train a POS tagger for Hindi. It&rsquo;s better to have a monolingual Hindi pre-trained LM than a cross-lingual model, although that cross-lingual model could potentially do things like generalize an English tagger to work in Hindi.</p>
+<p>Their results show that the monolingual language model fine-tuned on zero-shot predictions outperforms its teacher in all settings as you can see in the figure below.</p>
+<img src="https://img-blog.csdnimg.cn/20200808060008613.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_1,color_FFFFFF,t_70#pic_center" width=600>
+<h2 id="xlm-cross-lingual-language-model">XLM (Cross-lingual Language Model)<a hidden class="anchor" aria-hidden="true" href="#xlm-cross-lingual-language-model">#</a></h2>
+<p>XLM uses a known pre-processing technique (BPE) and a dual-language training mechanism with BERT in order to learn relations between words in different languages. The model outperforms other models in a cross-lingual classification task (sentence entailment in 15 languages) and significantly improves machine translation when a pre-trained model is used for initialization of the translation model.</p>
+<h3 id="shared-sub-word-vocabulary">Shared sub-word vocabulary<a hidden class="anchor" aria-hidden="true" href="#shared-sub-word-vocabulary">#</a></h3>
+<p>It uses Byte-Pair Encoding (BPE) that splits the input into the most common sub-words across all languages. This greatly improves the alignment of embedding spaces across languages that share either the same alphabet or anchor tokens such as digits or proper nouns. This is a common pre-processing algorithm.</p>
+<p>The authors of the paper proposed three language modeling objectives CLM, MLM, and TLM. The first two only requires monolingual data, while the third one requires parallel sentences.</p>
+<h3 id="clm-causal-language-modeling">CLM (Causal Language Modeling)<a hidden class="anchor" aria-hidden="true" href="#clm-causal-language-modeling">#</a></h3>
+<p>Their causal language modeling (CLM) task consists of a Transformer language model trained to model the probability of a word given the previous words in a sentence $P(w_t|w_1, &hellip; , w_{t−1}, \theta)$. Given the previous hidden state to the current batch, the model predicts the next word.</p>
+<p>Note: this technique does not scale to the cross-lingual setting.</p>
+<h3 id="modified-mlm-masked-language-modeling">Modified MLM (Masked Language Modeling)<a hidden class="anchor" aria-hidden="true" href="#modified-mlm-masked-language-modeling">#</a></h3>
+<p>There are two differences between the proposed MLM and the normal MLM</p>
+<ul>
+<li>
+<p>Include the use of text streams of an arbitrary number of sentences (truncated at 256 tokens) instead of pairs of sentences.</p>
+</li>
+<li>
+<p>Subsample the frequent subword to counter the imbalance between rare and frequent tokens (<em>e.g.</em> punctuations or stop words).</p>
+</li>
+</ul>
+<h3 id="tlm-translation-language-modeling">TLM (Translation Language Modeling)<a hidden class="anchor" aria-hidden="true" href="#tlm-translation-language-modeling">#</a></h3>
+<p>Both the CLM and MLM objectives are unsupervised and only require monolingual data. However, these objectives cannot be used to leverage parallel data when it is available. The objective of TLM is an extension of MLM, where instead of considering monolingual text streams, we concatenate parallel sentences as illustrated in the figure below. They randomly mask words in both the source and target sentences. <strong>To predict a word masked in an English sentence, the model can either attend to surrounding English words or to the French translation, encouraging the model to align the English and French representations. In particular, the model can leverage the French context if the English one is not sufficient to infer the masked English words. To facilitate the alignment, they also reset the positions of target sentences.</strong></p>
+<img src="https://img-blog.csdnimg.cn/20200808060059402.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_1,color_FFFFFF,t_70#pic_center">
+<p>Note: BERT use segment embeddings (represent different sentence) while XLM use language embeddings (represent different language).</p>
+<p>The paper also shows that training a cross-lingual language-model can be very beneficial for low-resource languages, as they can leverage data from other languages, especially similar ones mainly due to the BPE pre-processing.</p>
+<p>On the XNLI benchmark, it achieves very good performance on Zero-shot. Even better performance if translated data is used during training.</p>
+<h3 id="xlm-roberta">XLM-RoBERTa<a hidden class="anchor" aria-hidden="true" href="#xlm-roberta">#</a></h3>
+<p>The biggest update that XLM-Roberta offers over the original is a significantly increased amount of training data. The cleaned CommonCrawl data that it is trained on takes up a whopping 2.5tb of storage! It is several orders of magnitude larger than the Wiki-100 corpus that was used to train its predecessor and the scale-up is particularly noticeable in the lower resourced languages. The &ldquo;RoBERTa&rdquo; part comes from the fact that its training routine is the same as the monolingual RoBERTa model, specifically, that the sole training objective is the Masked Language Model.</p>
+<img src="https://img-blog.csdnimg.cn/2020080806022126.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_1,color_FFFFFF,t_70#pic_center">
+<p><strong>XLM-R significantly outperforms Multilingual-BERT (M-BERT) on a variety of cross-lingual benchmarks</strong>, including +14.6% average accuracy on XNLI, +13% average F1 score on MLQA, and +2.4% F1 score on NER. <strong>XLM-R performs particularly well on low-resource languages</strong>, improving 15.7% in XNLI accuracy for Swahili and 11.4% for Urdu over previous XLM models.</p>
+<p>XLM-R seems to be the best solution to date. It is very possible that the TLM (Translation Language Model) approach to train multilingual transformers will be combined with other technologies.</p>
+<hr>
+<p>Website Reference:</p>
+<ul>
+<li>Judit Ács&rsquo;s blog: <a href="http://juditacs.github.io/2019/02/19/bert-tokenization-stats.html">http://juditacs.github.io/2019/02/19/bert-tokenization-stats.html</a></li>
+<li><a href="https://huggingface.co/bert-base-multilingual-cased">https://huggingface.co/bert-base-multilingual-cased</a></li>
+<li>Inductive bias 1: <a href="https://blog.aylien.com/emnlp-2018-highlights-inductive-bias-cross-lingual-learning-and-more/">https://blog.aylien.com/emnlp-2018-highlights-inductive-bias-cross-lingual-learning-and-more/</a></li>
+<li>Inductive bias 2: <a href="https://stackoverflow.com/questions/35655267/what-is-inductive-bias-in-machine-learning">https://stackoverflow.com/questions/35655267/what-is-inductive-bias-in-machine-learning</a></li>
+<li>fast.ai: <a href="http://nlp.fast.ai/classification/2019/09/10/multifit.html">http://nlp.fast.ai/classification/2019/09/10/multifit.html</a></li>
+<li>XLM 1: <a href="https://towardsdatascience.com/xlm-enhancing-bert-for-cross-lingual-language-model-5aeed9e6f14b">https://towardsdatascience.com/xlm-enhancing-bert-for-cross-lingual-language-model-5aeed9e6f14b</a></li>
+<li>XLM 2: <a href="https://medium.com/towards-artificial-intelligence/cross-lingual-language-model-56a65dba9358">https://medium.com/towards-artificial-intelligence/cross-lingual-language-model-56a65dba9358</a></li>
+<li><a href="http://nlpprogress.com/english/natural_language_inference.html">http://nlpprogress.com/english/natural_language_inference.html</a></li>
+<li><a href="https://medium.com/deepset-ai/xlm-roberta-the-multilingual-alternative-for-non-english-nlp-cf0b889ccbbf">https://medium.com/deepset-ai/xlm-roberta-the-multilingual-alternative-for-non-english-nlp-cf0b889ccbbf</a></li>
+<li>Multilingual Transformers: <a href="https://towardsdatascience.com/multilingual-transformers-ae917b36034d">https://towardsdatascience.com/multilingual-transformers-ae917b36034d</a></li>
+</ul>
+<p>Paper Reference:</p>
+<ul>
+<li>Facebook engineering: <a href="https://engineering.fb.com/ai-research/laser-multilingual-sentence-embeddings/">https://engineering.fb.com/ai-research/laser-multilingual-sentence-embeddings/</a></li>
+<li>MultiFiT: Efficient Multi-lingual Language Model Fine-tuning: <a href="https://arxiv.org/pdf/1909.04761.pdf">https://arxiv.org/pdf/1909.04761.pdf</a></li>
+<li>QUASI-RECURRENT NEURAL NETWORKS: <a href="https://arxiv.org/pdf/1611.01576.pdf">https://arxiv.org/pdf/1611.01576.pdf</a></li>
+<li>Massively Multilingual Sentence Embeddings for Zero-Shot Cross-Lingual Transfer and Beyond (LASER): <a href="https://arxiv.org/pdf/1812.10464.pdf">https://arxiv.org/pdf/1812.10464.pdf</a></li>
+<li>Improving Pre-Trained Multilingual Models with Vocabulary Expansion: <a href="https://www.groundai.com/project/improving-pre-trained-multilingual-models-with-vocabulary-expansion/1">https://www.groundai.com/project/improving-pre-trained-multilingual-models-with-vocabulary-expansion/1</a></li>
+<li>Cross-lingual ability of multilingual bert: an empirical study: <a href="https://openreview.net/pdf?id=HJeT3yrtDr">https://openreview.net/pdf?id=HJeT3yrtDr</a></li>
+<li>Cross-lingual Language Model Pretraining: <a href="https://arxiv.org/pdf/1901.07291.pdf">https://arxiv.org/pdf/1901.07291.pdf</a></li>
+<li>Unsupervised Cross-lingual Representation Learning at Scale: <a href="https://arxiv.org/pdf/1911.02116.pdf">https://arxiv.org/pdf/1911.02116.pdf</a></li>
+</ul>
+
+
+  </div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://adityatelange.github.io/tags/nlp/">NLP</a></li>
+      <li><a href="https://adityatelange.github.io/tags/multi-lingual/">MULTI-LINGUAL</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://adityatelange.github.io/posts/kaggle_jigsaw/">
+    <span class="title">« Prev Page</span>
+    <br>
+    <span>Kaggle: Jigsaw Multilingual Toxic Comment Classification - top solutions</span>
+  </a>
+  <a class="next" href="https://adityatelange.github.io/posts/distillation/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>Knowledge Distillation</span>
+  </a>
+</nav>
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Multi-lingual: M-Bert, LASER, MultiFiT, XLM on twitter"
+        href="https://twitter.com/intent/tweet/?text=Multi-lingual%3a%20M-Bert%2c%20LASER%2c%20MultiFiT%2c%20XLM&amp;url=https%3a%2f%2fadityatelange.github.io%2fposts%2fmultilingual%2f&amp;hashtags=NLP%2cMULTI-LINGUAL">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Multi-lingual: M-Bert, LASER, MultiFiT, XLM on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fadityatelange.github.io%2fposts%2fmultilingual%2f&amp;title=Multi-lingual%3a%20M-Bert%2c%20LASER%2c%20MultiFiT%2c%20XLM&amp;summary=Multi-lingual%3a%20M-Bert%2c%20LASER%2c%20MultiFiT%2c%20XLM&amp;source=https%3a%2f%2fadityatelange.github.io%2fposts%2fmultilingual%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Multi-lingual: M-Bert, LASER, MultiFiT, XLM on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fadityatelange.github.io%2fposts%2fmultilingual%2f&title=Multi-lingual%3a%20M-Bert%2c%20LASER%2c%20MultiFiT%2c%20XLM">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Multi-lingual: M-Bert, LASER, MultiFiT, XLM on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fadityatelange.github.io%2fposts%2fmultilingual%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Multi-lingual: M-Bert, LASER, MultiFiT, XLM on whatsapp"
+        href="https://api.whatsapp.com/send?text=Multi-lingual%3a%20M-Bert%2c%20LASER%2c%20MultiFiT%2c%20XLM%20-%20https%3a%2f%2fadityatelange.github.io%2fposts%2fmultilingual%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Multi-lingual: M-Bert, LASER, MultiFiT, XLM on telegram"
+        href="https://telegram.me/share/url?text=Multi-lingual%3a%20M-Bert%2c%20LASER%2c%20MultiFiT%2c%20XLM&amp;url=https%3a%2f%2fadityatelange.github.io%2fposts%2fmultilingual%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+
+  </footer>
+</article>
+    </main>
+    <footer class="footer">
+    <span>&copy; 2021 <a href="https://adityatelange.github.io/">Liyan Tang</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+    menu.onscroll = function () {
+        localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

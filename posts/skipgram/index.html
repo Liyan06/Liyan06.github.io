@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Skip-gram | Liyan Tang</title>
+<meta name="keywords" content="NLP, MATH" />
+<meta name="description" content="Comparison between CBOW and Skip-gram The major difference is that skip-gram is better for infrequent words than CBOW in word2vec. For simplicity, suppose there is a sentence &ldquo;$w_1w_2w_3w_4$&rdquo;, and the window size is $1$.
+For CBOW, it learns to predict the word given a context, or to maximize the following probability
+$$ p(w_2|w_1,w_3) \cdot P(w_3|w_2,w_4)$$
+This is an issue for infrequent words, since they don’t appear very often in a given context.">
+<meta name="author" content="Theme PaperMod">
+<link rel="canonical" href="https://adityatelange.github.io/posts/skipgram/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.35cd0f65a15cafa92372b8313deef5960aae04b90ad722f2bbf509eb0468137e.css" integrity="sha256-Nc0PZaFcr6kjcrgxPe71lgquBLkK1yLyu/UJ6wRoE34=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://adityatelange.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://adityatelange.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://adityatelange.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://adityatelange.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://adityatelange.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.85.0" />
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [ ['$', '$'], ['\\(', '\\)'] ]
+  }
+  ,svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script
+  type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta property="og:title" content="Skip-gram" />
+<meta property="og:description" content="Comparison between CBOW and Skip-gram The major difference is that skip-gram is better for infrequent words than CBOW in word2vec. For simplicity, suppose there is a sentence &ldquo;$w_1w_2w_3w_4$&rdquo;, and the window size is $1$.
+For CBOW, it learns to predict the word given a context, or to maximize the following probability
+$$ p(w_2|w_1,w_3) \cdot P(w_3|w_2,w_4)$$
+This is an issue for infrequent words, since they don’t appear very often in a given context." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adityatelange.github.io/posts/skipgram/" /><meta property="og:image" content="https://adityatelange.github.io/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-04-18T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2020-04-18T00:00:00&#43;00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://adityatelange.github.io/papermod-cover.png"/>
+
+<meta name="twitter:title" content="Skip-gram"/>
+<meta name="twitter:description" content="Comparison between CBOW and Skip-gram The major difference is that skip-gram is better for infrequent words than CBOW in word2vec. For simplicity, suppose there is a sentence &ldquo;$w_1w_2w_3w_4$&rdquo;, and the window size is $1$.
+For CBOW, it learns to predict the word given a context, or to maximize the following probability
+$$ p(w_2|w_1,w_3) \cdot P(w_3|w_2,w_4)$$
+This is an issue for infrequent words, since they don’t appear very often in a given context."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://adityatelange.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Skip-gram",
+      "item": "https://adityatelange.github.io/posts/skipgram/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Skip-gram",
+  "name": "Skip-gram",
+  "description": "Comparison between CBOW and Skip-gram The major difference is that skip-gram is better for infrequent words than CBOW in word2vec. For simplicity, suppose there is a sentence \u0026ldquo;$w_1w_2w_3w_4$\u0026rdquo;, and the window size is $1$.\nFor CBOW, it learns to predict the word given a context, or to maximize the following probability\n$$ p(w_2|w_1,w_3) \\cdot P(w_3|w_2,w_4)$$\nThis is an issue for infrequent words, since they don’t appear very often in a given context.",
+  "keywords": [
+    "NLP", "MATH"
+  ],
+  "articleBody": "Comparison between CBOW and Skip-gram The major difference is that skip-gram is better for infrequent words than CBOW in word2vec. For simplicity, suppose there is a sentence “$w_1w_2w_3w_4$”, and the window size is $1$.\nFor CBOW, it learns to predict the word given a context, or to maximize the following probability\n$$ p(w_2|w_1,w_3) \\cdot P(w_3|w_2,w_4)$$\nThis is an issue for infrequent words, since they don’t appear very often in a given context. As a result, the model will assign them a low probabilities.\nFor Skip-gram, it learns to predict the context given a word, or to maximize the following probability\n$$ P(w_2|w_1) \\cdot P(w_1|w_2) \\cdot P(w_3|w_2) \\cdot P(w_2|w_3) \\cdot P(w_4|w_3) \\cdot P(w_3|w_4)$$\nIn this case, two words (one infrequent and the other frequent) are treated the same. Both are treated as word AND context observations. Hence, the model will learn to understand even rare words.\nSkip-gram Main idea of Skip-gram   Goal: The Skip-gram model aims to learn continuous feature representations for words by optimizing a neighborhood preserving likelihood objective.\n  Assumption: The Skip-gram objective is based on the distributional hypothesis which states that words in similar contexts tend to have similar meanings. That is, similar words tend to appear in similar word neighborhoods.\n  Algorithm: It scans over the words of a document, and for every word it aims to embed it such that the word’s features can predict nearby words (i.e., words inside some context window). The word feature representations are learned by optmizing the likelihood objective using SGD with negative sampling.\n  Skip-gram model formulation Skip-gram learns to predict the context given a word by optimizing the likelihood objective. Suppose now we have a sentence\n$$\\text{“I am writing a summary for NLP.\"}$$\nand the model is trying to predict context words given a target word “summary” with window size $2$:\n$$ \\text {I am [ ] [ ] summary [ ] [ ] . }$$\nThen the model tries to optimize the likelihood\n$$ P(\\text{“writing”}|\\text{“summary”}) \\cdot P(\\text{“a”}|\\text{“summary”}) \\cdot P(\\text{“for”}|\\text{“summary”}) \\cdot P(\\text{“NLP”}|\\text{“summary”})$$\nIn fact, given a sentence, Skip-gram is going to, in turn, treat every word as a target word and predict context words. So the objective function is\n$$\\mathop{\\rm argmax} , P(\\text{“am”}|\\text{“I”}) \\cdot P(\\text{“writing”}|\\text{“I”}) \\cdot P(\\text{“I”}|\\text{“am”}) , … , P(\\text{“for”}|\\text{“NLP”})$$\nTo put it in a formal way: given a corpus of words $w$ and their contexts $c$, we consider the conditional probabilities $p(c|w)$, and given a corpus $\\text{text}$, the goal is to set the parameters $\\theta$ of $p(c|w; \\theta)$ so as to maximize the corpus probability:\n$$\\mathop{\\rm argmax}\\limits_{\\theta} , \\prod_{w ,\\in ,\\text{text}} \\prod_{c ,\\in ,\\text{context($w$)}} p(c|w;\\theta) \\tag{1}$$\nAlternatively, we can write it as\n$$\\mathop{\\rm argmax}\\limits_{\\theta} , \\prod_{(w,c),\\in, D} p(c|w;\\theta) \\tag{2}$$\nwhere $D$ is the set of all word and context pairs we extract from the text. Now we rewrite the objective by taking the $\\log$:\n$$\\mathop{\\rm argmax}\\limits_{\\theta} , \\sum_{(w,c),\\in, D} \\log p(c|w;\\theta) \\tag{3}$$\nThe follow-up question comes immediately: how to define the term $p(c|w;\\theta)$? It must satisfy the following two conditions:\n  $0 \\le p(c|w;\\theta) \\le 1$;\n  $\\sum_{c , \\in , \\text{context(w)} } \\log p(c|w;\\theta) = 1$\n  A natural way is to use the softmax function, so we define it to be\n$$ p(c|w;\\theta) = \\frac{e^{u_c \\cdot v_w}}{\\sum_{c' , \\in , U}e^{u_{c'} \\cdot v_w}} \\tag{4}$$\nwhere $v_w, u_c \\in \\mathbb{R}^k$ are vector representations for $w$ and $c$ respectively, and $U$ is the set of all available contexts. Throughout this post, we assume that the target words and the contexts come from distinct vocabulary matrices $V$ and $U$ respectively, so that, for example, the vector associated with the word lunch will be different from the vector associated with the context lunch. One motivation is that every word plays two rules in the model, one as a target word and one as a context word. That’s why we need two separate matrices $U$ and $V$. Note that they must have the same dimension $|\\text{Vocab}| \\times k$, where $k$ is a hyperparameter and is the dimension of each word vector representation. We would like to set the parameters $\\theta$ such that the objective function $(3)$ is maximized.\nHere, we use the inner product to measure the similarity between two vectors $v_w$ and $u_c$. If they have a similar meaning, meaning they should have similar vector representation, then $p(c|w;\\theta)$ should be assigned for a high probability.\n(Side note: Comparison of cosine similarity and inner product as distance metrics – Cosine similarity only cares about angle difference, while dot product cares about angle and magnitude. If you normalize your data to have the same magnitude, the two are indistinguishable.)\nBy plugging in our definition of $p(c|w;\\theta)$, we can write the objective function as\nWhile the objective can be computed, it is computationally expensive to do so, because the term $p(c|w;\\theta)$ is very expensive to compute due to the summation\n$$\\log (\\sum_{c' \\in U}e^{u_{c'} \\cdot v_w})$$\nover all the contexts $c'$ (there can be hundreds of thousands of them). The time complexity is $O(|\\text{Vocab}|)$.\nWhy prefer taking log inside the sum rather than outside Note: Usually we prefer having the $\\log$ inside the sum rather than outside. The log and the sum are part of a function that you want to optimize. That means that, at some point, you will be looking to set the gradient of that function to $0$. The derivative is a linear operator, so when you have the sum of the log, the derivative of the sum is a sum of derivatives. By contrast, the derivative of the log of the sum will have, as seen via the chain rule, a form like $1/\\text{(your sum)} \\cdot \\text{(derivative of the sum)}$. Finding zeros of this function will likely be a much more challenging task, especially if done analytically. On the other hand, since the summation is computational expensive, $\\log$ outside the sum often requires technique of approximation, such as using Jensen’s Inequality. Check out my post to know more about Jensen’s inequality.\nNow, it’s time to re-formulate the objective function and try to approximate it!\nNegative Sampling – Skip-gram model RE-formulation\nIn our previous Skip-gram model formulation, we assume that if $(w,c)$ is a word and context pair in the training data, then the probability $p(c|w,\\theta)$ should be high. Now we can think about this backward and ask: if we have a high (low) probability $p(c|w,\\theta)$, is $(w,c)$ really (not) a word and context pair in the training data? In this way of thinking, we formulate a binary classification problem.\nLet $p(D=1|w,c)$ be the probability that the pair $(w,c)$ comes from the corpus and $p(D=0|w,c) = 1 - p(D=1|w,c)$ be the probability that the pair $(w,c)$ is not from the corpus.\nAs before, assume there are parameters $\\theta$ controlling the distribution: $p(D = 1|w,c;\\theta)$. Since it’s a binary classification problem, we can define it using sigmoid function\n$$ p(D=1| w,c;\\theta) = \\frac{1}{1 + exp(-u_c \\cdot v_w)} = \\sigma {(u_c \\cdot v_w)}$$\nOur goal is now finding parameters to maximize the following objective function:\nwhere the set $\\tilde D$ consists of random $(w,c)$ pairs not in $D$. We call a pair $(w,c)$ not in the corpus a negative sample (the name negative-sampling stems from the set $\\tilde D$ of randomly sampled negative examples). There are a few points worth mentioning:\n  $1 - \\sigma (x) = \\sigma (-x)$\n  This objective function looks quite similar to the objective function of logistic regression.\n  In this formulation, we successfully avoid having the $\\log$ outside the sum.\n  Usually, $|D| « |\\tilde D|$, so we only pick $k$ negative samples for each data sample. From the original paper, the author suggested that values of $k$ in the range $5$-$20$ are useful for small training datasets, while for large datasets the $k$ can be as small as $2$–$5$.\nSo if we choose k negative samples for each data sample and denote these negative samples by $N(w)$, then out objective function becomes\n$$ L(\\theta) = \\mathop{\\rm argmax}\\limits_{\\theta} \\sum_{(w,c) ,\\in,D } \\left[\\log \\sigma(u_w \\cdot v_c) + \\sum_{c' \\in N(w)} \\log \\sigma (-u_w \\cdot v_{c'}) \\right] \\tag 5$$\nSGD for Skip-gram objective function\nConclusion\nLet’s end the topic of Skip-gram model with some details of code implementation:\n  Dynamic window size: the window size that is being used is dynamic – the parameter $k$ denotes the maximal window size. For each word in the corpus, a window size $k′$ is sampled uniformly from $1, . . . , k$.\n  Effect of subsampling and rare-word pruning: words appearing less than min-count times are not considered as either words or contexts, and frequent words (as defined by the sample parameter) are down-sampled. Importantly, these words are removed from the text before generating the contexts. This has the effect of increasing the effective window size for certain words. The motivation for sub-sampling is that frequent words are less informative.\n   reference:\n http://www.davidsbatista.net/blog/2018/12/06/Word_Embeddings/ https://www.quora.com/Why-is-it-preferential-to-have-the-log-inside-the-sum-rather-than-outside https://www.quora.com/Is-cosine-similarity-effective https://datascience.stackexchange.com/questions/744/cosine-similarity-versus-dot-product-as-distance-metrics https://stats.stackexchange.com/questions/180548/why-is-skip-gram-better-for-infrequent-words-than-cbow Aditya Grover and Jure Leskovec. node2vec: Scalable feature learning for networks. In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. ACM, 2016. Yoav Goldberg and Omer Levy. word2vec explained: deriving Mikolov et al.’s negative-sampling wordembedding method. arXiv preprint arXiv:1402.3722, 2014. Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean. 2013b. Distributed representations of words and phrases and their compositionality. In NIPS, pages 3111–3119. Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. 2013a. Efficient Estimation of Word Representations in Vector Space. In ICLR Workshop Papers.  ",
+  "wordCount" : "1548",
+  "inLanguage": "en",
+  "datePublished": "2020-04-18T00:00:00Z",
+  "dateModified": "2020-04-18T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Theme PaperMod"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://adityatelange.github.io/posts/skipgram/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Liyan Tang",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://adityatelange.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: #1d1e20;
+                --entry: #2e2e33;
+                --primary: rgba(255, 255, 255, 0.84);
+                --secondary: rgba(255, 255, 255, 0.56);
+                --tertiary: rgba(255, 255, 255, 0.16);
+                --content: rgba(255, 255, 255, 0.74);
+                --hljs-bg: #2e2e33;
+                --code-bg: #37383e;
+                --border: #333;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://adityatelange.github.io/" accesskey="h" title="Liyan Tang (Alt + H)">Liyan Tang</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://adityatelange.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://adityatelange.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://adityatelange.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://adityatelange.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://adityatelange.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://adityatelange.github.io/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Skip-gram
+    </h1>
+    <div class="post-meta">April 18, 2020&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Theme PaperMod
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <div class="details">Table of Contents</div>
+        </summary>
+        <div class="inner"><ul>
+                <li>
+                    <a href="#comparison-between-cbow-and-skip-gram" aria-label="Comparison between CBOW and Skip-gram">Comparison between CBOW and Skip-gram</a></li>
+                <li>
+                    <a href="#skip-gram" aria-label="Skip-gram">Skip-gram</a><ul>
+                        
+                <li>
+                    <a href="#main-idea-of-skip-gram" aria-label="Main idea of Skip-gram">Main idea of Skip-gram</a></li>
+                <li>
+                    <a href="#skip-gram-model-formulation" aria-label="Skip-gram model formulation">Skip-gram model formulation</a></li>
+                <li>
+                    <a href="#why-prefer-taking-log-inside-the-sum-rather-than-outside" aria-label="Why prefer taking log inside the sum rather than outside">Why prefer taking log inside the sum rather than outside</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="comparison-between-cbow-and-skip-gram">Comparison between CBOW and Skip-gram<a hidden class="anchor" aria-hidden="true" href="#comparison-between-cbow-and-skip-gram">#</a></h2>
+<img src="https://img-blog.csdnimg.cn/20200417114804592.png" width=700>
+<p>The major difference is that <strong>skip-gram is better for infrequent words than CBOW</strong> in word2vec. For simplicity, suppose there is a sentence &ldquo;$w_1w_2w_3w_4$&rdquo;, and the window size is $1$.</p>
+<p>For CBOW, it learns to predict the word given a context, or to maximize the following probability</p>
+<p>$$ p(w_2|w_1,w_3) \cdot P(w_3|w_2,w_4)$$</p>
+<p>This is an issue for infrequent words, since they don’t appear very often in a given context. As a result, the model will assign them a low probabilities.</p>
+<p>For Skip-gram, it learns to predict the context given a word, or to maximize the following probability</p>
+<p>$$ P(w_2|w_1) \cdot P(w_1|w_2) \cdot P(w_3|w_2) \cdot P(w_2|w_3) \cdot P(w_4|w_3) \cdot P(w_3|w_4)$$</p>
+<p>In this case, two words (one infrequent and the other frequent) are treated the same. Both are treated as word AND context observations. Hence, the model will learn to understand even rare words.</p>
+<h2 id="skip-gram">Skip-gram<a hidden class="anchor" aria-hidden="true" href="#skip-gram">#</a></h2>
+<h3 id="main-idea-of-skip-gram">Main idea of Skip-gram<a hidden class="anchor" aria-hidden="true" href="#main-idea-of-skip-gram">#</a></h3>
+<ul>
+<li>
+<p><em>Goal</em>: The Skip-gram model aims to learn continuous feature representations for words by optimizing a neighborhood preserving likelihood objective.</p>
+</li>
+<li>
+<p><em>Assumption</em>: The Skip-gram objective is based on the distributional hypothesis which states that words in similar contexts tend to have similar meanings. That is, similar words tend to appear in similar word neighborhoods.</p>
+</li>
+<li>
+<p><em>Algorithm</em>: It scans over the words of a document, and for every word it aims to embed it such that the word’s features can predict nearby words (<em>i.e.</em>, words inside some context window). The word feature representations are learned by optmizing the likelihood objective using SGD with negative sampling.</p>
+</li>
+</ul>
+<h3 id="skip-gram-model-formulation">Skip-gram model formulation<a hidden class="anchor" aria-hidden="true" href="#skip-gram-model-formulation">#</a></h3>
+<p>Skip-gram learns to predict the context given a word by optimizing the likelihood objective. Suppose now we have a sentence</p>
+<p>$$\text{&ldquo;I am writing a summary for NLP.&quot;}$$</p>
+<p>and the model is trying to predict context words given a target word &ldquo;summary&rdquo; with window size $2$:</p>
+<p>$$ \text {I am [  ] [ ] summary [ ] [ ] . }$$</p>
+<p>Then the model tries to optimize the likelihood</p>
+<p>$$ P(\text{&ldquo;writing&rdquo;}|\text{&ldquo;summary&rdquo;}) \cdot P(\text{&ldquo;a&rdquo;}|\text{&ldquo;summary&rdquo;}) \cdot P(\text{&ldquo;for&rdquo;}|\text{&ldquo;summary&rdquo;}) \cdot P(\text{&ldquo;NLP&rdquo;}|\text{&ldquo;summary&rdquo;})$$</p>
+<p>In fact, given a sentence, Skip-gram is going to, in turn, treat every word as a target word and predict context words. So the objective function is</p>
+<p>$$\mathop{\rm argmax} , P(\text{&ldquo;am&rdquo;}|\text{&ldquo;I&rdquo;}) \cdot P(\text{&ldquo;writing&rdquo;}|\text{&ldquo;I&rdquo;}) \cdot P(\text{&ldquo;I&rdquo;}|\text{&ldquo;am&rdquo;}) , &hellip; , P(\text{&ldquo;for&rdquo;}|\text{&ldquo;NLP&rdquo;})$$</p>
+<p>To put it in a formal way: given a corpus of words $w$ and their contexts $c$, we consider the conditional probabilities $p(c|w)$, and given a corpus $\text{text}$, the goal is to set the parameters $\theta$ of $p(c|w; \theta)$ so as to maximize the corpus probability:</p>
+<p>$$\mathop{\rm argmax}\limits_{\theta} , \prod_{w ,\in ,\text{text}} \prod_{c ,\in ,\text{context($w$)}} p(c|w;\theta) \tag{1}$$</p>
+<p>Alternatively, we can write it as</p>
+<p>$$\mathop{\rm argmax}\limits_{\theta} , \prod_{(w,c),\in, D} p(c|w;\theta) \tag{2}$$</p>
+<p>where $D$ is the set of all word and context pairs we extract from the text. Now we rewrite the objective by taking the $\log$:</p>
+<p>$$\mathop{\rm argmax}\limits_{\theta} , \sum_{(w,c),\in, D} \log p(c|w;\theta) \tag{3}$$</p>
+<p>The follow-up question comes immediately: <em>how to define the term $p(c|w;\theta)$</em>? It must satisfy the following two conditions:</p>
+<ul>
+<li>
+<p>$0 \le p(c|w;\theta) \le 1$;</p>
+</li>
+<li>
+<p>$\sum_{c , \in , \text{context(w)} } \log p(c|w;\theta) = 1$</p>
+</li>
+</ul>
+<p>A natural way is to use the softmax function, so we define it to be</p>
+<p>$$ p(c|w;\theta) = \frac{e^{u_c \cdot v_w}}{\sum_{c' , \in , U}e^{u_{c'} \cdot v_w}} \tag{4}$$</p>
+<p>where $v_w, u_c \in \mathbb{R}^k$ are vector representations for $w$ and $c$ respectively, and $U$ is the set of all available contexts. Throughout this post, we assume that the target words and the contexts come from distinct vocabulary matrices $V$ and $U$ respectively, so that, for example, the vector associated with the word <em>lunch</em> will be different from the vector associated with the context <em>lunch</em>. One motivation is that every word plays two rules in the model, one as a target word and one as a context word. That&rsquo;s why we need two separate matrices $U$ and $V$. Note that they must have the same dimension $|\text{Vocab}| \times k$, where $k$ is a hyperparameter and is the dimension of each word vector representation. We would like to set the parameters $\theta$ such that the objective function $(3)$ is maximized.</p>
+<p>Here, we use the inner product to measure the similarity between two vectors $v_w$ and $u_c$. If they have a similar meaning, meaning they should have similar vector representation, then $p(c|w;\theta)$ should be assigned for a high probability.</p>
+<p><em>(Side note: Comparison of cosine similarity and inner product as distance metrics &ndash; Cosine similarity only cares about angle difference, while dot product cares about angle and magnitude. If you normalize your data to have the same magnitude, the two are indistinguishable.)</em></p>
+<p>By plugging in our definition of $p(c|w;\theta)$, we can write the objective function as</p>
+<p><img loading="lazy" src="https://img-blog.csdnimg.cn/20200417115422510.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_30,color_FFFFFF,t_70" alt="在这里插入图片描述"  />
+</p>
+<p>While the objective can be computed, it is computationally expensive to do so, because the term $p(c|w;\theta)$ is very expensive to compute due to the summation</p>
+<p>$$\log (\sum_{c' \in U}e^{u_{c'} \cdot v_w})$$</p>
+<p>over all the contexts $c'$ (there can be hundreds of thousands of them). The time complexity is $O(|\text{Vocab}|)$.</p>
+<h3 id="why-prefer-taking-log-inside-the-sum-rather-than-outside">Why prefer taking log inside the sum rather than outside<a hidden class="anchor" aria-hidden="true" href="#why-prefer-taking-log-inside-the-sum-rather-than-outside">#</a></h3>
+<p><strong>Note:</strong> Usually we prefer having the $\log$ inside the sum rather than outside. The log and the sum are part of a function that you want to optimize. That means that, at some point, you will be looking to set the gradient of that function to $0$. The derivative is a linear operator, so <em>when you have the sum of the log, the derivative of the sum is a sum of derivatives</em>. By contrast, the derivative of the log of the sum will have, as seen via the chain rule, a form like $1/\text{(your sum)} \cdot \text{(derivative of the sum)}$. Finding zeros of this function will likely be a much more challenging task, especially if done analytically. On the other hand, since the summation is computational expensive, $\log$ outside the sum often requires technique of approximation, such as using <em>Jensen&rsquo;s Inequality</em>. Check out <a href="https://blog.csdn.net/Jay_Tang/article/details/105722481">my post</a> to know more about Jensen&rsquo;s inequality.</p>
+<p>Now, it&rsquo;s time to re-formulate the objective function and try to approximate it!</p>
+<p><em><strong>Negative Sampling &ndash; Skip-gram model RE-formulation</strong></em></p>
+<p>In our previous Skip-gram model formulation, we assume that if $(w,c)$ is a word and context pair in the training data, then the probability $p(c|w,\theta)$ should be high. Now we can think about this backward and ask: if we have a high (low) probability $p(c|w,\theta)$, is $(w,c)$ really (not) a word and context pair in the training data? In this way of thinking, we formulate a binary classification problem.</p>
+<p>Let $p(D=1|w,c)$ be the probability that the pair $(w,c)$ comes from the corpus and $p(D=0|w,c) = 1 - p(D=1|w,c)$ be the probability that the pair $(w,c)$ is not from the corpus.</p>
+<p>As before, assume there are parameters $\theta$ controlling the distribution: $p(D = 1|w,c;\theta)$. Since it&rsquo;s a binary classification problem, we can define it using sigmoid function</p>
+<p>$$ p(D=1| w,c;\theta) = \frac{1}{1 + exp(-u_c \cdot v_w)} = \sigma {(u_c \cdot v_w)}$$</p>
+<p>Our goal is now finding parameters to maximize the following objective function:</p>
+<p><img loading="lazy" src="https://img-blog.csdnimg.cn/20200417115030126.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_30,color_FFFFFF,t_70" alt="在这里插入图片描述"  />
+</p>
+<p>where the set $\tilde D$ consists of random $(w,c)$ pairs not in $D$. We call a pair $(w,c)$ not in the corpus a negative sample (the name <em>negative-sampling</em> stems from the set $\tilde D$ of randomly sampled negative examples). There are a few points worth mentioning:</p>
+<ul>
+<li>
+<p>$1 - \sigma (x) = \sigma (-x)$</p>
+</li>
+<li>
+<p>This objective function looks quite similar to the objective function of logistic regression.</p>
+</li>
+<li>
+<p>In this formulation, we successfully avoid having the $\log$ outside the sum.</p>
+</li>
+</ul>
+<p>Usually, $|D| &laquo; |\tilde D|$, so we only pick $k$ negative samples for each data sample. From the original paper, the author suggested that values of $k$ in the range $5$-$20$ are useful for small training datasets, while for large datasets the $k$ can be as small as $2$–$5$.</p>
+<p>So if we choose k negative samples for each data sample and denote these negative samples by $N(w)$, then out objective function becomes</p>
+<p>$$ L(\theta) = \mathop{\rm argmax}\limits_{\theta} \sum_{(w,c) ,\in,D } \left[\log \sigma(u_w \cdot v_c) + \sum_{c' \in N(w)} \log \sigma (-u_w \cdot v_{c'}) \right] \tag 5$$</p>
+<p><em><strong>SGD for Skip-gram objective function</strong></em></p>
+<p><img loading="lazy" src="https://img-blog.csdnimg.cn/20200417115227838.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_30,color_FFFFFF,t_70" alt="在这里插入图片描述"  />
+</p>
+<p><em><strong>Conclusion</strong></em></p>
+<p>Let&rsquo;s end the topic of Skip-gram model with some details of code implementation:</p>
+<ul>
+<li>
+<p><strong>Dynamic window size</strong>: the window size that is being used is dynamic – the parameter $k$ denotes the <em>maximal</em> window size. For each word in the corpus, a window size $k′$ is sampled uniformly from $1, . . . , k$.</p>
+</li>
+<li>
+<p><strong>Effect of subsampling and rare-word pruning</strong>: words appearing less than <code>min-count</code> times are not considered as either words or contexts, and frequent words (as defined by the sample parameter) are down-sampled. Importantly, these words are removed from the text before generating the contexts. This has the effect of increasing the effective window size for certain words. The motivation for sub-sampling is that frequent words are less informative.</p>
+</li>
+</ul>
+<hr>
+<p>reference:</p>
+<ul>
+<li><a href="http://www.davidsbatista.net/blog/2018/12/06/Word_Embeddings/">http://www.davidsbatista.net/blog/2018/12/06/Word_Embeddings/</a></li>
+<li><a href="https://www.quora.com/Why-is-it-preferential-to-have-the-log-inside-the-sum-rather-than-outside">https://www.quora.com/Why-is-it-preferential-to-have-the-log-inside-the-sum-rather-than-outside</a></li>
+<li><a href="https://www.quora.com/Is-cosine-similarity-effective">https://www.quora.com/Is-cosine-similarity-effective</a></li>
+<li><a href="https://datascience.stackexchange.com/questions/744/cosine-similarity-versus-dot-product-as-distance-metrics">https://datascience.stackexchange.com/questions/744/cosine-similarity-versus-dot-product-as-distance-metrics</a></li>
+<li><a href="https://stats.stackexchange.com/questions/180548/why-is-skip-gram-better-for-infrequent-words-than-cbow">https://stats.stackexchange.com/questions/180548/why-is-skip-gram-better-for-infrequent-words-than-cbow</a></li>
+<li>Aditya Grover and Jure Leskovec. node2vec: Scalable feature learning for networks. In <em>Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining.</em> ACM, 2016.</li>
+<li>Yoav Goldberg and Omer Levy. word2vec explained: deriving Mikolov et al.’s negative-sampling wordembedding method. <em>arXiv preprint arXiv:1402.3722, 2014.</em></li>
+<li>Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean. 2013b. Distributed representations of words and phrases and their compositionality. In <em>NIPS</em>, pages 3111–3119.</li>
+<li>Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. 2013a. Efficient Estimation of Word Representations in Vector Space. In <em>ICLR Workshop Papers</em>.</li>
+</ul>
+
+
+  </div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://adityatelange.github.io/tags/nlp/">NLP</a></li>
+      <li><a href="https://adityatelange.github.io/tags/math/">MATH</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://adityatelange.github.io/posts/em/">
+    <span class="title">« Prev Page</span>
+    <br>
+    <span>EM (Expectation–Maximization) Algorithm</span>
+  </a>
+  <a class="next" href="https://adityatelange.github.io/posts/representation/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>Distributed representation, Hyperbolic Space, Gaussian/Graph Embedding</span>
+  </a>
+</nav>
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Skip-gram on twitter"
+        href="https://twitter.com/intent/tweet/?text=Skip-gram&amp;url=https%3a%2f%2fadityatelange.github.io%2fposts%2fskipgram%2f&amp;hashtags=NLP%2cMATH">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Skip-gram on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fadityatelange.github.io%2fposts%2fskipgram%2f&amp;title=Skip-gram&amp;summary=Skip-gram&amp;source=https%3a%2f%2fadityatelange.github.io%2fposts%2fskipgram%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Skip-gram on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fadityatelange.github.io%2fposts%2fskipgram%2f&title=Skip-gram">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Skip-gram on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fadityatelange.github.io%2fposts%2fskipgram%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Skip-gram on whatsapp"
+        href="https://api.whatsapp.com/send?text=Skip-gram%20-%20https%3a%2f%2fadityatelange.github.io%2fposts%2fskipgram%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Skip-gram on telegram"
+        href="https://telegram.me/share/url?text=Skip-gram&amp;url=https%3a%2f%2fadityatelange.github.io%2fposts%2fskipgram%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+
+  </footer>
+</article>
+    </main>
+    <footer class="footer">
+    <span>&copy; 2021 <a href="https://adityatelange.github.io/">Liyan Tang</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+    menu.onscroll = function () {
+        localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>NLP on Liyan Tang</title>
+    <link>https://adityatelange.github.io/tags/nlp/</link>
+    <description>Recent content in NLP on Liyan Tang</description>
+    <image>
+      <url>https://adityatelange.github.io/papermod-cover.png</url>
+      <link>https://adityatelange.github.io/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 03 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://adityatelange.github.io/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Overlook of Relation Extraction</title>
+      <link>https://adityatelange.github.io/posts/relation_extraction/</link>
+      <pubDate>Sun, 03 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/relation_extraction/</guid>
+      <description>Information Extraction v.s. Relation Extraction Information Extraction: Information extraction is the task of automatically extracting structured information from unstructured and/or semi-structured machine-readable documents and other electronically represented sources.
+Relation extraction (RE) is an important task in IE. It focuses on extracting relations between entities. A complete relation RE system consists of
+ a named entity recognizer to identify named entities from text. an entity linker to link entities to existing knowledge graphs.</description>
+    </item>
+    
+    <item>
+      <title>Paper - Connecting the Dots: Document-level Neural Relation Extraction with Edge-oriented Graphs</title>
+      <link>https://adityatelange.github.io/posts/connecting_the_dots/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/connecting_the_dots/</guid>
+      <description>Relation Extraction (RE) Relation Extraction (RE): The extraction of relations between named entities in text.
+Relation Extraction is an important task of NLP. Most existing works focus on intra-sentence RE. In fact, in real-world scenarios, a large amount of relations are expressed across sentences. The task of identifying these relations is named inter-sentence RE.
+Typically, inter-sentence relations occur in textual snippets with several sentences, such as documents. In these snippets, each entity is usually repeated with the same phrases or aliases, the occurrences of which are often named entity mentions and regarded as instances of the entity.</description>
+    </item>
+    
+    <item>
+      <title>Cross-Lingual Learning</title>
+      <link>https://adityatelange.github.io/posts/corss_lingual/</link>
+      <pubDate>Mon, 28 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/corss_lingual/</guid>
+      <description>Cross-lingual learning Most languages do not have training data available to create state-of-the-art models and thus our ability to create intelligent systems for these languages is limited as well.
+Cross-lingual learning (CLL) is one possible remedy to solve the lack of data for low-resource languages. In essence, it is an effort to utilize annotated data from other languages when building new NLP models. When CLL is considered, target languages usually lack resources, while source languages are resource-rich and they can be used to improve the results for the former.</description>
+    </item>
+    
+    <item>
+      <title>BERT and RoBERTa </title>
+      <link>https://adityatelange.github.io/posts/bert_roberta/</link>
+      <pubDate>Fri, 18 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/bert_roberta/</guid>
+      <description>BERT Recap Overview  Bert (Bidirectional Encoder Representations from Transformers) uses a &amp;ldquo;masked language model&amp;rdquo; to randomly mask some tokens from the input and predict the original vocabulary id of the masked token. Bert shows that &amp;ldquo;pre-trained representations reduce the need for many heavily-engineered task-specific architectures&amp;rdquo;.  BERT Specifics There are two steps to the BERT framework: pre-training and fine-tuning   During pre training, the model is trained on unlabeled data over different pre-training tasks.</description>
+    </item>
+    
+    <item>
+      <title>What Does BERT Look At? An Analysis of BERT’s Attention</title>
+      <link>https://adityatelange.github.io/posts/bert_attn/</link>
+      <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/bert_attn/</guid>
+      <description>Before we start In this post, I mainly focus on the conclusions the authors reach in the paper, and I think these conclusions are worth sharing.
+In this paper, the authors study the attention maps of a pre-trained BERT model. Their analysis focuses on the 144 attention heads in BERT.
+Surface-Level Patterns in Attention  There are heads that specialize to attending heavily on the next or previous token, especially in earlier layers of the network.</description>
+    </item>
+    
+    <item>
+      <title>Kaggle: Jigsaw Multilingual Toxic Comment Classification - top solutions</title>
+      <link>https://adityatelange.github.io/posts/kaggle_jigsaw/</link>
+      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/kaggle_jigsaw/</guid>
+      <description>Before we start Two of my previous post might be helpful in getting a general understanding of the top solutions of this competition. Please feel free to check them out.
+ Knowledge Distillation clearly explained Common Multilingual Language Modeling methods (M-Bert, LASER, MultiFiT, XLM)  Jigsaw Multilingual Toxic Comment Classification  Use TPUs to identify toxicity comments across multiple languages.
+ Overview of the competition Jigsaw Multilingual Toxic Comment Classification is the 3rd annual competition organized by the Jigsaw team.</description>
+    </item>
+    
+    <item>
+      <title>Multi-lingual: M-Bert, LASER, MultiFiT, XLM</title>
+      <link>https://adityatelange.github.io/posts/multilingual/</link>
+      <pubDate>Sat, 08 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/multilingual/</guid>
+      <description>Multilingual Models are a type of Machine Learning model that can understand different languages. In this post, I&amp;rsquo;m going to discuss four common multi-lingual language models Multilingual-Bert (M-Bert), Language-Agnostic SEntence Representations (LASER Embeddings), Efficient multi-lingual language model fine-tuning (MultiFiT) and Cross-lingual Language Model (XLM).
+Ways of tokenization Word-based tokenization Word-based tokenization works well for the morphologically poor English, but results in very large and sparse vocabularies for morphologically rich languages, such as Polish and Turkish.</description>
+    </item>
+    
+    <item>
+      <title>Kaggle: Tweet Sentiment Extraction - top solutions</title>
+      <link>https://adityatelange.github.io/posts/kaggle_tweet_sent2/</link>
+      <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/kaggle_tweet_sent2/</guid>
+      <description>Note This post is the second part of overall summarization of the competition. The first half is here.
+Noteworthy ideas in 1st place solution Idea First step:
+Use transformers to extract token level start and end probabilities.
+Second step:
+Feed these probabilities to a character level model. This step gives the team a huge improve on the final score since it handled the &amp;ldquo;noise&amp;rdquo; in the data properly.
+Last step:</description>
+    </item>
+    
+    <item>
+      <title>Kaggle: Tweet Sentiment Extraction - common methods</title>
+      <link>https://adityatelange.github.io/posts/kaggle_tweet_sent1/</link>
+      <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/kaggle_tweet_sent1/</guid>
+      <description>Note This post is the first part of overall summarization of the competition. The second half is here.
+Before we start I attended two NLP competition in June, Tweet Sentiment Extraction and Jigsaw Multilingual Toxic Comment Classification, and I&amp;rsquo;m happy to be a Kaggle Expert from now on :)
+Tweet Sentiment Extraction Goal:
+The objective in this competition is to &amp;ldquo;Extract support phrases for sentiment labels&amp;rdquo;. More precisely, this competition asks kagglers to construct a model that can figure out what word or phrase best supports the given tweet from the labeled sentiment.</description>
+    </item>
+    
+    <item>
+      <title>Recurrent Neural Network (RNN) and Long Short Term Memory (LSTM)</title>
+      <link>https://adityatelange.github.io/posts/lstm/</link>
+      <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/lstm/</guid>
+      <description>Sequence Data There are many sequence data in applications. Here are some examples
+  Machine translation
+ from text sequence to text sequence.    Text Summarization
+ from text sequence to text sequence.    Sentiment classification
+ from text sequence to categories.    Music Generation
+ from nothing or some simple stuff (character, integer, etc) to wave sequence.    Name entity recognition (NER)</description>
+    </item>
+    
+    <item>
+      <title>Log-Linear Model, Conditional Random Field(CRF)</title>
+      <link>https://adityatelange.github.io/posts/crf/</link>
+      <pubDate>Tue, 19 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/crf/</guid>
+      <description>Log-Linear model Let $x$ be an example, and let $y$ be a possible label for it. A log-linear model assumes that
+$$ p(y | x ; w)=\frac{\exp [\sum_{j=1}^J w_{j} F_{j}(x, y)]}{Z(x, w)} $$
+where the partition function
+$$ Z(x, w)=\sum_{y^{\prime}} \exp [\sum_{j=1}^J w_{j} F_{j}\left(x, y^{\prime}\right)] $$
+Note that in $\sum_{y^{\prime}}$, we make a summation over all possible $y$. Therefore, given $x$, the label predicted by the model is
+$$ \hat{y}=\underset{y}{\operatorname{argmax}} p(y | x ; w)=\underset{y}{\operatorname{argmax}} \sum_{j=1}^J w_{j} F_{j}(x, y) $$</description>
+    </item>
+    
+    <item>
+      <title>Hidden Markov Model (HMM)</title>
+      <link>https://adityatelange.github.io/posts/hmm/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/hmm/</guid>
+      <description>Before reading this post, make sure you are familiar with the EM Algorithm and decent among of knowledge of convex optimization. If not, please check out my previous post
+  EM Algorithm
+  convex optimization primal and dual problem
+  Let&amp;rsquo;s get started!
+Conditional independence $A$ and $B$ are conditionally independent given $C$ if and only if, given knowledge that $C$ occurs, knowledge of whether $A$ occurs provides no information on the likelihood of $B$ occurring, and knowledge of whether $B$ occurs provides no information on the likelihood of $A$ occurring.</description>
+    </item>
+    
+    <item>
+      <title>Skip-gram</title>
+      <link>https://adityatelange.github.io/posts/skipgram/</link>
+      <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/skipgram/</guid>
+      <description>Comparison between CBOW and Skip-gram The major difference is that skip-gram is better for infrequent words than CBOW in word2vec. For simplicity, suppose there is a sentence &amp;ldquo;$w_1w_2w_3w_4$&amp;rdquo;, and the window size is $1$.
+For CBOW, it learns to predict the word given a context, or to maximize the following probability
+$$ p(w_2|w_1,w_3) \cdot P(w_3|w_2,w_4)$$
+This is an issue for infrequent words, since they don’t appear very often in a given context.</description>
+    </item>
+    
+    <item>
+      <title>NLP Basics, Spell Correction with Noisy Channel</title>
+      <link>https://adityatelange.github.io/posts/nlp_basic/</link>
+      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/nlp_basic/</guid>
+      <description>NLP = NLU + NLG  NLU: Natural Language Understanding NLG: Natural Language Generation  NLG may be viewed as the opposite of NLU: whereas in NLU, the system needs to disambiguate the input sentence to produce the machine representation language, in NLG the system needs to make decisions about how to put a concept into human understandable words.
+Classical applications in NLP   Question Answering
+  Sentiment Analysis</description>
+    </item>
+    
+    <item>
+      <title>Kaggle: Google Quest Q&amp;A Labeling - my solution</title>
+      <link>https://adityatelange.github.io/posts/kaggle_google_quest/</link>
+      <pubDate>Sat, 04 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/kaggle_google_quest/</guid>
+      <description>Kaggle: Google Quest Q&amp;amp;A Labeling summary General Part Congratulations to all winners of this competition. Your hard work paid off!
+First, I have to say thanks to the authors of the following three published notebooks:
+https://www.kaggle.com/akensert/bert-base-tf2-0-now-huggingface-transformer, https://www.kaggle.com/abhishek/distilbert-use-features-oof, https://www.kaggle.com/codename007/start-from-here-quest-complete-eda-fe.
+These notebooks showed awesome ways to build models, visualize the dataset and extract features from non-text data.
+Our initial plan was to take question title, question body and answer all into a Bert based model.</description>
+    </item>
+    
+  </channel>
+</rss>

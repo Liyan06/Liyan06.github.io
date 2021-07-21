@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Introduction to Convex Optimization - Basic Concepts | Liyan Tang</title>
+<meta name="keywords" content="ML, MATH, OPTIMIZATION" />
+<meta name="description" content="Optimization problem All optimization problems can be written as:
+Optimization Categories   convex v.s. non-convex Deep Neural Network is non-convex
+  continuous v.s.discrete Most are continuous variable; tree structure is discrete
+  constrained v.s. non-constrained We add prior to make it a constrained problem
+  smooth v.s.non-smooth Most are smooth optimization
+  Different initialization brings different optimum (if not convex) Idea: Give up global optimal and find a good local optimal.">
+<meta name="author" content="Theme PaperMod">
+<link rel="canonical" href="https://adityatelange.github.io/posts/convex1/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.35cd0f65a15cafa92372b8313deef5960aae04b90ad722f2bbf509eb0468137e.css" integrity="sha256-Nc0PZaFcr6kjcrgxPe71lgquBLkK1yLyu/UJ6wRoE34=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://adityatelange.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://adityatelange.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://adityatelange.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://adityatelange.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://adityatelange.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.85.0" />
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [ ['$', '$'], ['\\(', '\\)'] ]
+  }
+  ,svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script
+  type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta property="og:title" content="Introduction to Convex Optimization - Basic Concepts" />
+<meta property="og:description" content="Optimization problem All optimization problems can be written as:
+Optimization Categories   convex v.s. non-convex Deep Neural Network is non-convex
+  continuous v.s.discrete Most are continuous variable; tree structure is discrete
+  constrained v.s. non-constrained We add prior to make it a constrained problem
+  smooth v.s.non-smooth Most are smooth optimization
+  Different initialization brings different optimum (if not convex) Idea: Give up global optimal and find a good local optimal." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adityatelange.github.io/posts/convex1/" /><meta property="og:image" content="https://adityatelange.github.io/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-03-28T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2020-03-28T00:00:00&#43;00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://adityatelange.github.io/papermod-cover.png"/>
+
+<meta name="twitter:title" content="Introduction to Convex Optimization - Basic Concepts"/>
+<meta name="twitter:description" content="Optimization problem All optimization problems can be written as:
+Optimization Categories   convex v.s. non-convex Deep Neural Network is non-convex
+  continuous v.s.discrete Most are continuous variable; tree structure is discrete
+  constrained v.s. non-constrained We add prior to make it a constrained problem
+  smooth v.s.non-smooth Most are smooth optimization
+  Different initialization brings different optimum (if not convex) Idea: Give up global optimal and find a good local optimal."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://adityatelange.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Introduction to Convex Optimization - Basic Concepts",
+      "item": "https://adityatelange.github.io/posts/convex1/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Introduction to Convex Optimization - Basic Concepts",
+  "name": "Introduction to Convex Optimization - Basic Concepts",
+  "description": "Optimization problem All optimization problems can be written as:\nOptimization Categories   convex v.s. non-convex Deep Neural Network is non-convex\n  continuous v.s.discrete Most are continuous variable; tree structure is discrete\n  constrained v.s. non-constrained We add prior to make it a constrained problem\n  smooth v.s.non-smooth Most are smooth optimization\n  Different initialization brings different optimum (if not convex) Idea: Give up global optimal and find a good local optimal.",
+  "keywords": [
+    "ML", "MATH", "OPTIMIZATION"
+  ],
+  "articleBody": "Optimization problem All optimization problems can be written as:\nOptimization Categories   convex v.s. non-convex Deep Neural Network is non-convex\n  continuous v.s.discrete Most are continuous variable; tree structure is discrete\n  constrained v.s. non-constrained We add prior to make it a constrained problem\n  smooth v.s.non-smooth Most are smooth optimization\n  Different initialization brings different optimum (if not convex) Idea: Give up global optimal and find a good local optimal.\n  Purpose of pre-training: Find a good initialization to start training, and then find a better local optimal.\n  Relaxation: Convert to a convex optimization problem.\n  Brute force: If a problem is small, we can use brute force.\n  Affine sets A set $C \\subseteq \\mathbf R^n$ is affine if the line through any two distinct points in $C$ lies in $C$, i.e., if for any $x1$, $x2 \\in C$ and $\\theta \\in \\mathbf R$, we have $$\\theta x_1 + (1-\\theta) x_2 \\in C.$$\nNote: The line passing throught $x_1$ and $x_2$: $y=\\theta x_1 + (1-\\theta)x_2$.\nAffine combination We refer to a point of the form $\\theta_1 x_1 + \\theta_2 x_2 + … + \\theta_k x_k$, where $\\theta_1 + \\theta_2 + … + \\theta_k = 1$ as an affine combination of the points $x_1, x_2, …, x_k$. An affine set contains every affine combination of its points.\nAffine hull The set of all affine combinations of points in some set $C \\subseteq \\mathbf R^n$ is called the affine hull of $C$, and denoted $\\mathbf{aff}, C$:\n$$ \\mathbf{aff}, C ={\\theta_1 x_1 + \\theta_2 x_2 + … + \\theta_k x_k , | x_1, x_2, …, x_k \\in C, \\theta_1 + \\theta_2 + … + \\theta_k = 1}.$$\nThe affine hull is the smallest affine set that contains $C$, in the following sense: if $S$ is any affine set with $C \\subseteq S$, then $\\operatorname{aff} C \\subseteq S$.\nAffine dimension: We define the affine dimension of a set $C$ as the dimension of its affine hull.\nConvex Sets A set $C$ is convex if the line segment between any two points in $C$ lies in $C$, i.e., if for any $x1$, $x2 \\in C$ and any $\\theta$ with $0 \\leq \\theta \\leq 1$, we have $$\\theta x_1 + (1-\\theta) x_2 \\in C.$$\nRoughly speaking, a set is convex if every point in the set can be seen by every other point. Every affine set is also convex, since it contains the entire line between any two distinct points in it, and therefore also the line segment between the points.\nConvex combination We call a point of the form $\\theta_1 x_1 + \\theta_2 x_2 + … + \\theta_k x_k$, where $\\theta_1 + \\theta_2 + … + \\theta_k = 1$ and $\\theta_i \\geq 0, i = 1,2,…k$, a convex combination of the points $x_1, …, x_k$.\nConvex hull The convex hull of a set $C$, denoted $\\mathbf{conv} , C$, is the set of all convex combinations of points in $C$:\n$$ \\mathbf{conv}, C ={\\theta_1 x_1 + \\theta_2 x_2 + … + \\theta_k x_k , | x_i \\in C, \\theta_i \\geq 0, i=1,…,k, \\theta_1 + \\theta_2 + … + \\theta_k = 1}.$$\nThe convex hull $\\operatorname{conv} C$ is always convex. It is the smallest convex set that contains $C$: If $B$ is any convex set that contains $C$, then $\\operatorname{conv} C \\subseteq B$.\nCones A set $C$ is called a cone, or nonnegative homogeneous, if for every $x \\in C$ and $\\theta \\geq 0$ we have $\\theta x \\in C$. A set $C$ is a convex cone if it is convex and a cone, which means that for any $x_1, x_2 \\in C$ and $\\theta_1, \\theta_2 \\geq 0$, we have\n$$\\theta_1 x_1 + \\theta_2 x_2 \\in C$$\nHyperplanes and halfspaces A hyperplane is a set of the form $${ x , | a^T x = b},$$\nwhere $a \\in \\mathbf R^n, a \\neq 0$, and $b \\in \\mathbf R$.\nThis geometric interpretation can be understood by expressing the hyperplane in the form\n$$ { x , | a^T (x - x_0) = 0}, $$ where $x_0$ is any point in the hyperplane.\nA hyperplane divides $\\mathbf R^n$ into two halfspaces. A (closed) halfspace is a set of the form\n$$ {x , | a^T x \\leq b }.$$\nwhere $x_0 \\neq 0$. Halfspaces are convex but not affine. The set $ {x | a^T Polyhedra A polyhedron is defined as the solution set of a finite number of linear equalities and inequalities:\n$$ P = { x, | a_j^T \\leq b_j, j=1,…,m, c_j^T x = d_j, j = 1, …, p}$$\nA polyhedron is thus the intersection of a finite number of halfspaces and hyperplanes. Here is the compact notations:\n$$ P = { x, | Ax \\preceq b, Cx=d}$$ Linearly Independent v.s. Affinely Independent Consider the vectors (1,0), (0,1) and (1,1). These are affinely independent, but not independent. If you remove any one of them, their affine hull has dimension one. In contrast, the span of any two of them is all of $\\mathbf R^2$, and hence these are not independent.\nSimplexes Suppose the $k+1$ points $v_0, …, v_k \\in \\mathbf R^n$ are affinely independent, which means $v_1 - v_0, …, v_k - v_0$ are linearly independent. The simplex determined by them is given by\n$$ C = \\mathbf{conv}{ v_0, …, v_k} = { \\theta_0 v_0 + … + \\theta_k v_k ,| \\theta \\succeq 0, \\mathbf 1^T \\theta = 1}$$\nNote:\n The affine dimension of this simplex is $k$.  A 1-dimensional simplex is a line segment; a 2-dimensional simplex is a triangle (including its interior); and a 3-dimensional simplex is a tetrahedron.\nWhat is the key distinction between a convex hull and a simplex? If the elements of the set on which the convex hull is defined are affinely independent, then the convex hull and the simplex defined on this set are the same. Otherwise, simplex can’t be defined on this set, but convex hull can.\nConvex Functions  A function $f: \\mathbf{R}^n \\rightarrow \\mathbf{R}$ is convex if dom $f$ is a convex set and if for all $x$, $y \\in \\mathbf{dom} , f$, and $\\theta$ with $ 0 \\leq \\theta \\leq 1$, we have  $$f(\\theta x + (1-\\theta)y) \\leq \\theta f(x) + (1-\\theta) f(y).$$\n  We say $f$ is concave is $-f$ is convex, and strictly concave if $-f$ is strictly convex.\n  A function is convex if and only if it is convex when restricted to any line that intersects its domain. In other words f is convex if and only if for all $x \\in \\mathbf{dom} , f$ and all $v$, the function $g(t) = f(x + tv)$ is convex (on its domain, ${t , | , x + tv \\in \\mathbf{dom} , f }$).\n  First-order conditions  Suppose $f$ is differentiable, then $f$ is convex if and only if $\\mathbf{dom} , f$ is convex and $$ f(y) \\geq f(x) + \\nabla f(x)^{T}(y-x)$$ holds for all $x,y \\in \\mathbf{dom} , f$    For a convex function, the first-order Taylor approximation is in fact a global underestimator of the function. Conversely, if the first-order Taylor approximation of a function is always a global underestimator of the function, then the function is convex.\n  The inequality shows that from local information about a convex function (i.e., its value and derivative at a point) we can derive global information (i.e., a global underestimator of it).\n  Second-order conditions   Suppose that $f$ is twice differentiable. The $f$ is convex if and only if $\\mathbf{dom} , f$ is convex and its Hessian is positive semidefinite: for all $x \\in \\mathbf{dom} f$, $$ \\nabla^2f(x) \\succeq 0.$$\n  $f$ is concave if and only if $\\mathbf{dom} f$ is convex and $\\nabla^2f(x) \\preceq 0$ for all $x \\in \\mathbf{dom} , f$.\n  If $ \\nabla^2f(x) \\succ 0$ for all $x \\in \\mathbf{dom} , f$, then $f$ is strictly convex. The converse is not true. e.x. $f(x) = x^4$ has zero second derivative at $x=0$ but is strictly convex.\n  Quadratic functions: Consider the quadratic function $f:\\mathbf{R}^n \\rightarrow \\mathbf{R}$, with $\\mathbf{dom} , f = \\mathbf{R}^n$, given by $$ f(x) = (1/2)x^{T}Px + q^Tx + r,$$ with $P \\in \\mathbf{S}^n, q \\in \\mathbf R^n$, and $r \\in \\mathbf{R}$. Since $\\nabla^2f(x) = P$ for all x, f is convex if and only if $P \\succeq 0$ (and concave if and only if $P \\preceq 0$).\n  Examples of Convex and Concave Functions   Exponential. $e^{ax}$ is convex on $\\mathbf{R}$, for any $a \\in \\mathbf{R}$.\n  Powers. $x^a$ is convex on $\\mathbf R_{++}$ when $a \\geq 1$ or $a \\leq 0$, and concave for $0 \\leq a \\leq 1$.\n  Powers of absolute value. $|x|^p$, for $p \\geq 1$, is convex on $\\mathbf R$.\n  Logarithm. $log , x$ is concave on $R_{++}$.\n  Negative Entropy. $x,log,x$ (either on $\\mathbf{R}{++}$, or on $\\mathbf R+$, defined as $0$ for $x = 0$) is convex.\n  Norms. Every norm on $\\mathbf{R}^n$ is convex.\n  Max function. $f(x) = max { x_1, …, x_n}$ is convex on $\\mathbf R^n$.\n  Quadratic-over-linear function. The function $f(x,y) = x^2/y$, with $$ \\mathbf{dom} , f = \\mathbf R \\times \\mathbf R_{++} = { (x,y) \\in \\mathbf R^2, | y  0},$$ is convex.\n  Log-sum-exp. The function $f(x) = log (e^{x_1} + · · · + e^{x_n} )$ is convex on $\\mathbf R^n$.\n  Geometric mean. The geometric mean $f(x) = (\\prod^n_{i = 1} x_i)^{1/n}$ is concave on $\\mathbf {dom} , f = \\mathbf S^n_{++}$\n  Log-determinant. The function $f(X) =\\mathrm{log , det ,} X$ is concave.\n   Reference:\n Convex Optimization* by Stephen Boyd and Lieven Vandenberghe.  ",
+  "wordCount" : "1565",
+  "inLanguage": "en",
+  "datePublished": "2020-03-28T00:00:00Z",
+  "dateModified": "2020-03-28T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Theme PaperMod"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://adityatelange.github.io/posts/convex1/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Liyan Tang",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://adityatelange.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: #1d1e20;
+                --entry: #2e2e33;
+                --primary: rgba(255, 255, 255, 0.84);
+                --secondary: rgba(255, 255, 255, 0.56);
+                --tertiary: rgba(255, 255, 255, 0.16);
+                --content: rgba(255, 255, 255, 0.74);
+                --hljs-bg: #2e2e33;
+                --code-bg: #37383e;
+                --border: #333;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://adityatelange.github.io/" accesskey="h" title="Liyan Tang (Alt + H)">Liyan Tang</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://adityatelange.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://adityatelange.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://adityatelange.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://adityatelange.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://adityatelange.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://adityatelange.github.io/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Introduction to Convex Optimization - Basic Concepts
+    </h1>
+    <div class="post-meta">March 28, 2020&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Theme PaperMod
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <div class="details">Table of Contents</div>
+        </summary>
+        <div class="inner"><ul>
+                <li>
+                    <a href="#optimization-problem" aria-label="Optimization problem">Optimization problem</a></li>
+                <li>
+                    <a href="#optimization-categories" aria-label="Optimization Categories">Optimization Categories</a></li>
+                <li>
+                    <a href="#different-initialization-brings-different-optimum-if-not-convex" aria-label="Different initialization brings different optimum (if not convex)">Different initialization brings different optimum (if not convex)</a></li>
+                <li>
+                    <a href="#affine-sets" aria-label="Affine sets">Affine sets</a></li>
+                <li>
+                    <a href="#affine-combination" aria-label="Affine combination">Affine combination</a></li>
+                <li>
+                    <a href="#affine-hull" aria-label="Affine hull">Affine hull</a></li>
+                <li>
+                    <a href="#convex-sets" aria-label="Convex Sets">Convex Sets</a></li>
+                <li>
+                    <a href="#convex-combination" aria-label="Convex combination">Convex combination</a></li>
+                <li>
+                    <a href="#convex-hull" aria-label="Convex hull">Convex hull</a></li>
+                <li>
+                    <a href="#cones" aria-label="Cones">Cones</a></li>
+                <li>
+                    <a href="#hyperplanes-and-halfspaces" aria-label="Hyperplanes and halfspaces">Hyperplanes and halfspaces</a></li>
+                <li>
+                    <a href="#polyhedra" aria-label="Polyhedra">Polyhedra</a></li>
+                <li>
+                    <a href="#linearly-independent-vs-affinely-independent" aria-label="Linearly Independent v.s. Affinely Independent">Linearly Independent v.s. Affinely Independent</a></li>
+                <li>
+                    <a href="#simplexes" aria-label="Simplexes">Simplexes</a></li>
+                <li>
+                    <a href="#what-is-the-key-distinction-between-a-convex-hull-and-a-simplex" aria-label="What is the key distinction between a convex hull and a simplex?">What is the key distinction between a convex hull and a simplex?</a></li>
+                <li>
+                    <a href="#convex-functions" aria-label="Convex Functions">Convex Functions</a></li>
+                <li>
+                    <a href="#first-order-conditions" aria-label="First-order conditions">First-order conditions</a></li>
+                <li>
+                    <a href="#second-order-conditions" aria-label="Second-order conditions">Second-order conditions</a></li>
+                <li>
+                    <a href="#examples-of-convex-and-concave-functions" aria-label="Examples of Convex and Concave Functions">Examples of Convex and Concave Functions</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="optimization-problem">Optimization problem<a hidden class="anchor" aria-hidden="true" href="#optimization-problem">#</a></h2>
+<p>All optimization problems can be written as:</p>
+<img src="https://img-blog.csdnimg.cn/20200327230137113.png" width="500">
+<h2 id="optimization-categories">Optimization Categories<a hidden class="anchor" aria-hidden="true" href="#optimization-categories">#</a></h2>
+<ol>
+<li>
+<p>convex v.s. non-convex
+Deep Neural Network is non-convex</p>
+</li>
+<li>
+<p>continuous v.s.discrete
+Most are continuous variable; tree structure is discrete</p>
+</li>
+<li>
+<p>constrained v.s. non-constrained
+We add prior to make it a constrained problem</p>
+</li>
+<li>
+<p>smooth v.s.non-smooth
+Most are smooth optimization</p>
+</li>
+</ol>
+<h2 id="different-initialization-brings-different-optimum-if-not-convex">Different initialization brings different optimum (if not convex)<a hidden class="anchor" aria-hidden="true" href="#different-initialization-brings-different-optimum-if-not-convex">#</a></h2>
+<p><strong>Idea:</strong> Give up global optimal and find a good local optimal.</p>
+<ul>
+<li>
+<p>Purpose of pre-training: Find a good initialization to start training, and then find a better local optimal.</p>
+</li>
+<li>
+<p>Relaxation: Convert to a convex optimization problem.</p>
+</li>
+<li>
+<p>Brute force: If a problem is small, we can use brute force.</p>
+</li>
+</ul>
+<h2 id="affine-sets">Affine sets<a hidden class="anchor" aria-hidden="true" href="#affine-sets">#</a></h2>
+<p>A set $C \subseteq \mathbf R^n$ is affine if the line through any two distinct points in $C$ lies in $C$, i.e., if for any $x1$, $x2 \in C$ and $\theta \in \mathbf R$, we have $$\theta x_1 + (1-\theta) x_2 \in C.$$</p>
+<p>Note: The line passing throught $x_1$ and $x_2$: $y=\theta x_1 + (1-\theta)x_2$.</p>
+<h2 id="affine-combination">Affine combination<a hidden class="anchor" aria-hidden="true" href="#affine-combination">#</a></h2>
+<p>We refer to a point of the form $\theta_1 x_1 + \theta_2 x_2 + &hellip; + \theta_k x_k$, where $\theta_1 + \theta_2 + &hellip; + \theta_k = 1$ as an affine combination of the points $x_1, x_2, &hellip;, x_k$. An affine set contains every affine combination of its points.</p>
+<h2 id="affine-hull">Affine hull<a hidden class="anchor" aria-hidden="true" href="#affine-hull">#</a></h2>
+<p>The set of all affine combinations of points in some set $C \subseteq \mathbf R^n$ is called the affine hull of $C$, and denoted $\mathbf{aff}, C$:</p>
+<p>$$ \mathbf{aff}, C ={\theta_1 x_1 + \theta_2 x_2 + &hellip; + \theta_k x_k , | x_1, x_2, &hellip;, x_k \in C, \theta_1 + \theta_2 + &hellip; + \theta_k = 1}.$$</p>
+<p>The affine hull is the smallest affine set that contains $C$, in the following sense: if
+$S$ is any affine set with $C \subseteq S$, then $\operatorname{aff} C \subseteq S$.</p>
+<p><em>Affine dimension</em>: We define the affine dimension of a set $C$ as the dimension of its affine hull.</p>
+<h2 id="convex-sets">Convex Sets<a hidden class="anchor" aria-hidden="true" href="#convex-sets">#</a></h2>
+<p>A set $C$ is convex if the line segment between any two points in $C$ lies in $C$, i.e., if for any $x1$, $x2 \in C$ and any $\theta$ with $0 \leq \theta \leq 1$, we have
+$$\theta x_1 + (1-\theta) x_2 \in C.$$</p>
+<p>Roughly speaking, a set is convex if every point in the set can be seen by every other
+point. Every affine set is also convex, since it contains the entire line between any two distinct points in it, and therefore also the line segment between the points.</p>
+<h2 id="convex-combination">Convex combination<a hidden class="anchor" aria-hidden="true" href="#convex-combination">#</a></h2>
+<p>We call a point of the form $\theta_1 x_1 + \theta_2 x_2 + &hellip; + \theta_k x_k$, where $\theta_1 + \theta_2 + &hellip; + \theta_k = 1$ and $\theta_i \geq 0, i = 1,2,&hellip;k$, a convex combination of the points $x_1, &hellip;, x_k$.</p>
+<h2 id="convex-hull">Convex hull<a hidden class="anchor" aria-hidden="true" href="#convex-hull">#</a></h2>
+<p>The convex hull of a set $C$, denoted $\mathbf{conv} , C$, is the set of all convex combinations of points in $C$:</p>
+<p>$$ \mathbf{conv}, C ={\theta_1 x_1 + \theta_2 x_2 + &hellip; + \theta_k x_k , | x_i \in C, \theta_i \geq 0, i=1,&hellip;,k, \theta_1 + \theta_2 + &hellip; + \theta_k = 1}.$$</p>
+<p>The convex hull $\operatorname{conv} C$ is always convex. It is the smallest convex set that contains $C$: If $B$ is any convex set that contains $C$, then $\operatorname{conv} C \subseteq B$.</p>
+<h2 id="cones">Cones<a hidden class="anchor" aria-hidden="true" href="#cones">#</a></h2>
+<p>A set $C$ is called a cone, or <em>nonnegative homogeneous</em>, if for every $x \in C$ and $\theta \geq 0$ we have $\theta x \in C$. A set $C$ is a <em>convex cone</em> if it is convex and a cone, which means that for any $x_1, x_2 \in C$ and $\theta_1, \theta_2 \geq 0$, we have</p>
+<p>$$\theta_1 x_1 + \theta_2 x_2 \in C$$</p>
+<img src="https://img-blog.csdnimg.cn/20200327230208288.PNG" width="500">
+<h2 id="hyperplanes-and-halfspaces">Hyperplanes and halfspaces<a hidden class="anchor" aria-hidden="true" href="#hyperplanes-and-halfspaces">#</a></h2>
+<p>A hyperplane is a set of the form
+$${ x , | a^T x = b},$$</p>
+<p>where $a \in \mathbf R^n, a \neq 0$, and $b \in \mathbf R$.</p>
+<p>This geometric interpretation can be understood by expressing the hyperplane in the form</p>
+<p>$$ { x , | a^T (x - x_0) = 0}, $$
+where $x_0$ is any point in the hyperplane.</p>
+<p>A hyperplane divides $\mathbf R^n$ into two halfspaces. A (closed) halfspace is a set of the form</p>
+<p>$$ {x , | a^T x \leq b }.$$</p>
+<p>where $x_0 \neq 0$. Halfspaces are convex but not affine. The set $ {x | a^T &lt; b }$ is called an open halfspace.</p>
+<img src="https://img-blog.csdnimg.cn/20200327230249310.PNG" width="500">
+<h2 id="polyhedra">Polyhedra<a hidden class="anchor" aria-hidden="true" href="#polyhedra">#</a></h2>
+<p>A polyhedron is defined as the solution set of a finite number of linear equalities and inequalities:</p>
+<p>$$ P = { x, | a_j^T \leq b_j, j=1,&hellip;,m, c_j^T x = d_j, j = 1, &hellip;, p}$$</p>
+<p>A polyhedron is thus the intersection of a finite number of halfspaces and hyperplanes. Here is the compact notations:</p>
+<p>$$ P = { x, | Ax \preceq b, Cx=d}$$
+<img src="https://img-blog.csdnimg.cn/20200327230313357.PNG" width="500"></p>
+<h2 id="linearly-independent-vs-affinely-independent">Linearly Independent v.s. Affinely Independent<a hidden class="anchor" aria-hidden="true" href="#linearly-independent-vs-affinely-independent">#</a></h2>
+<p>Consider the vectors (1,0), (0,1) and (1,1). These are affinely independent, but not independent. If you remove any one of them, their affine hull has dimension one. In contrast, the span of any two of them is all of $\mathbf R^2$, and hence these are not independent.</p>
+<h2 id="simplexes">Simplexes<a hidden class="anchor" aria-hidden="true" href="#simplexes">#</a></h2>
+<p>Suppose the $k+1$ points $v_0, &hellip;, v_k \in \mathbf R^n$ are affinely independent, which means $v_1 - v_0, &hellip;, v_k - v_0$ are linearly independent. The simplex determined by them is given by</p>
+<p>$$ C = \mathbf{conv}{ v_0, &hellip;, v_k} = { \theta_0 v_0 + &hellip; + \theta_k v_k ,| \theta \succeq 0, \mathbf 1^T \theta = 1}$$</p>
+<p><em>Note:</em></p>
+<ul>
+<li>The affine dimension of this simplex is $k$.</li>
+</ul>
+<p>A 1-dimensional simplex is a line segment; a 2-dimensional simplex is a triangle (including its interior); and a 3-dimensional simplex is a tetrahedron.</p>
+<h2 id="what-is-the-key-distinction-between-a-convex-hull-and-a-simplex">What is the key distinction between a convex hull and a simplex?<a hidden class="anchor" aria-hidden="true" href="#what-is-the-key-distinction-between-a-convex-hull-and-a-simplex">#</a></h2>
+<p>If the elements of the set on which the convex hull is defined are affinely independent, then the convex hull and the simplex defined on this set are the same. Otherwise, simplex can’t be defined on this set, but convex hull can.</p>
+<h2 id="convex-functions">Convex Functions<a hidden class="anchor" aria-hidden="true" href="#convex-functions">#</a></h2>
+<ul>
+<li>A function $f: \mathbf{R}^n \rightarrow \mathbf{R}$ is <em>convex</em> if <strong>dom</strong> $f$ is a convex set and if for all $x$, $y \in \mathbf{dom} , f$, and $\theta$ with $ 0 \leq \theta \leq 1$, we have</li>
+</ul>
+<p>$$f(\theta x + (1-\theta)y) \leq \theta f(x) + (1-\theta) f(y).$$</p>
+<ul>
+<li>
+<p>We say $f$ is <em>concave</em> is $-f$ is convex, and <em>strictly concave</em> if $-f$ is strictly convex.</p>
+</li>
+<li>
+<p>A function is convex if and only if it is convex when restricted to any line that intersects its domain. In other words f is convex if and only if for all $x \in \mathbf{dom} , f$ and all $v$, the function $g(t) = f(x + tv)$ is convex (on its domain, ${t , | , x + tv \in \mathbf{dom} , f }$).</p>
+</li>
+</ul>
+<h2 id="first-order-conditions">First-order conditions<a hidden class="anchor" aria-hidden="true" href="#first-order-conditions">#</a></h2>
+<ul>
+<li>Suppose $f$ is differentiable, then $f$ is convex if and only if $\mathbf{dom} , f$ is convex and
+$$ f(y) \geq f(x) + \nabla f(x)^{T}(y-x)$$ holds for all $x,y \in \mathbf{dom} , f$</li>
+</ul>
+<img src="https://img-blog.csdnimg.cn/2020032723034211.PNG" width="500">
+<ul>
+<li>
+<p>For a convex function, the first-order Taylor approximation is in fact a <em>global underestimator</em> of the function. Conversely, if the first-order Taylor approximation of a function is always a global underestimator of the function, then the function is convex.</p>
+</li>
+<li>
+<p>The inequality shows that from local information about a convex function (<em>i.e.</em>, its value and derivative at a point) we can derive global information (<em>i.e.</em>, a global underestimator of it).</p>
+</li>
+</ul>
+<h2 id="second-order-conditions">Second-order conditions<a hidden class="anchor" aria-hidden="true" href="#second-order-conditions">#</a></h2>
+<ul>
+<li>
+<p>Suppose that $f$ is twice differentiable. The $f$ is convex if and only if $\mathbf{dom} , f$ is convex and its Hessian is positive semidefinite: for all $x \in \mathbf{dom} f$,
+$$ \nabla^2f(x) \succeq 0.$$</p>
+</li>
+<li>
+<p>$f$ is concave if and only if $\mathbf{dom} f$ is convex and $\nabla^2f(x) \preceq 0$ for all $x \in \mathbf{dom} , f$.</p>
+</li>
+<li>
+<p>If $ \nabla^2f(x) \succ 0$ for all $x \in \mathbf{dom} , f$, then $f$ is strictly convex. The converse is not true. e.x. $f(x) = x^4$ has zero second derivative at $x=0$ but is strictly convex.</p>
+</li>
+<li>
+<p><em>Quadratic functions</em>: Consider the quadratic function $f:\mathbf{R}^n \rightarrow \mathbf{R}$, with $\mathbf{dom} , f = \mathbf{R}^n$, given by
+$$ f(x) = (1/2)x^{T}Px + q^Tx + r,$$
+with $P \in \mathbf{S}^n, q \in \mathbf R^n$, and $r \in \mathbf{R}$. Since $\nabla^2f(x) = P$ for all x, f is convex if and only if $P \succeq 0$ (and concave if and only if $P \preceq 0$).</p>
+</li>
+</ul>
+<h2 id="examples-of-convex-and-concave-functions">Examples of Convex and Concave Functions<a hidden class="anchor" aria-hidden="true" href="#examples-of-convex-and-concave-functions">#</a></h2>
+<ul>
+<li>
+<p><em>Exponential</em>. $e^{ax}$ is convex on $\mathbf{R}$, for any $a \in \mathbf{R}$.</p>
+</li>
+<li>
+<p><em>Powers</em>. $x^a$ is convex on $\mathbf R_{++}$ when $a \geq 1$ or $a \leq 0$, and concave for $0 \leq a \leq 1$.</p>
+</li>
+<li>
+<p><em>Powers of absolute value</em>. $|x|^p$, for $p \geq 1$, is convex on $\mathbf R$.</p>
+</li>
+<li>
+<p><em>Logarithm</em>. $log , x$ is concave on $R_{++}$.</p>
+</li>
+<li>
+<p><em>Negative Entropy</em>. $x,log,x$ (either on $\mathbf{R}<em>{++}$, or on $\mathbf R</em>+$, defined as $0$ for $x = 0$) is convex.</p>
+</li>
+<li>
+<p><em>Norms</em>. Every norm on $\mathbf{R}^n$ is convex.</p>
+</li>
+<li>
+<p><em>Max function</em>. $f(x) = max { x_1, &hellip;, x_n}$ is convex on $\mathbf R^n$.</p>
+</li>
+<li>
+<p><em>Quadratic-over-linear function</em>. The function $f(x,y) = x^2/y$, with
+$$ \mathbf{dom} , f = \mathbf R \times \mathbf R_{++} = { (x,y) \in \mathbf R^2, | y &gt; 0},$$  is convex.</p>
+</li>
+<li>
+<p><em>Log-sum-exp</em>. The function $f(x) = log (e^{x_1} + · · · + e^{x_n} )$ is convex on $\mathbf R^n$.</p>
+</li>
+<li>
+<p><em>Geometric mean</em>. The geometric mean $f(x) = (\prod^n_{i = 1} x_i)^{1/n}$ is concave on $\mathbf {dom} , f = \mathbf S^n_{++}$</p>
+</li>
+<li>
+<p><em>Log-determinant</em>. The function $f(X) =\mathrm{log , det ,} X$ is concave.</p>
+</li>
+</ul>
+<hr>
+<p>Reference:</p>
+<ul>
+<li>Convex Optimization* by Stephen Boyd and Lieven Vandenberghe.</li>
+</ul>
+
+
+  </div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://adityatelange.github.io/tags/ml/">ML</a></li>
+      <li><a href="https://adityatelange.github.io/tags/math/">MATH</a></li>
+      <li><a href="https://adityatelange.github.io/tags/optimization/">OPTIMIZATION</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://adityatelange.github.io/posts/convex2/">
+    <span class="title">« Prev Page</span>
+    <br>
+    <span>Introduction to Convex Optimization - Primal problem to Dual problem</span>
+  </a>
+  <a class="next" href="https://adityatelange.github.io/posts/xgboost/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>XGBoost</span>
+  </a>
+</nav>
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Introduction to Convex Optimization - Basic Concepts on twitter"
+        href="https://twitter.com/intent/tweet/?text=Introduction%20to%20Convex%20Optimization%20-%20Basic%20Concepts&amp;url=https%3a%2f%2fadityatelange.github.io%2fposts%2fconvex1%2f&amp;hashtags=ML%2cMATH%2cOPTIMIZATION">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Introduction to Convex Optimization - Basic Concepts on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fadityatelange.github.io%2fposts%2fconvex1%2f&amp;title=Introduction%20to%20Convex%20Optimization%20-%20Basic%20Concepts&amp;summary=Introduction%20to%20Convex%20Optimization%20-%20Basic%20Concepts&amp;source=https%3a%2f%2fadityatelange.github.io%2fposts%2fconvex1%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Introduction to Convex Optimization - Basic Concepts on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fadityatelange.github.io%2fposts%2fconvex1%2f&title=Introduction%20to%20Convex%20Optimization%20-%20Basic%20Concepts">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Introduction to Convex Optimization - Basic Concepts on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fadityatelange.github.io%2fposts%2fconvex1%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Introduction to Convex Optimization - Basic Concepts on whatsapp"
+        href="https://api.whatsapp.com/send?text=Introduction%20to%20Convex%20Optimization%20-%20Basic%20Concepts%20-%20https%3a%2f%2fadityatelange.github.io%2fposts%2fconvex1%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Introduction to Convex Optimization - Basic Concepts on telegram"
+        href="https://telegram.me/share/url?text=Introduction%20to%20Convex%20Optimization%20-%20Basic%20Concepts&amp;url=https%3a%2f%2fadityatelange.github.io%2fposts%2fconvex1%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+
+  </footer>
+</article>
+    </main>
+    <footer class="footer">
+    <span>&copy; 2021 <a href="https://adityatelange.github.io/">Liyan Tang</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+    menu.onscroll = function () {
+        localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

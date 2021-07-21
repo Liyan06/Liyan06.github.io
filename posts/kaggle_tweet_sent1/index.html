@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Kaggle: Tweet Sentiment Extraction - common methods | Liyan Tang</title>
+<meta name="keywords" content="NLP, COMPETITION" />
+<meta name="description" content="Note This post is the first part of overall summarization of the competition. The second half is here.
+Before we start I attended two NLP competition in June, Tweet Sentiment Extraction and Jigsaw Multilingual Toxic Comment Classification, and I&rsquo;m happy to be a Kaggle Expert from now on :)
+Tweet Sentiment Extraction Goal:
+The objective in this competition is to &ldquo;Extract support phrases for sentiment labels&rdquo;. More precisely, this competition asks kagglers to construct a model that can figure out what word or phrase best supports the given tweet from the labeled sentiment.">
+<meta name="author" content="Theme PaperMod">
+<link rel="canonical" href="https://adityatelange.github.io/posts/kaggle_tweet_sent1/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.35cd0f65a15cafa92372b8313deef5960aae04b90ad722f2bbf509eb0468137e.css" integrity="sha256-Nc0PZaFcr6kjcrgxPe71lgquBLkK1yLyu/UJ6wRoE34=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://adityatelange.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://adityatelange.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://adityatelange.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://adityatelange.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://adityatelange.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.85.0" />
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [ ['$', '$'], ['\\(', '\\)'] ]
+  }
+  ,svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script
+  type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta property="og:title" content="Kaggle: Tweet Sentiment Extraction - common methods" />
+<meta property="og:description" content="Note This post is the first part of overall summarization of the competition. The second half is here.
+Before we start I attended two NLP competition in June, Tweet Sentiment Extraction and Jigsaw Multilingual Toxic Comment Classification, and I&rsquo;m happy to be a Kaggle Expert from now on :)
+Tweet Sentiment Extraction Goal:
+The objective in this competition is to &ldquo;Extract support phrases for sentiment labels&rdquo;. More precisely, this competition asks kagglers to construct a model that can figure out what word or phrase best supports the given tweet from the labeled sentiment." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adityatelange.github.io/posts/kaggle_tweet_sent1/" /><meta property="og:image" content="https://adityatelange.github.io/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-07-01T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2020-07-01T00:00:00&#43;00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://adityatelange.github.io/papermod-cover.png"/>
+
+<meta name="twitter:title" content="Kaggle: Tweet Sentiment Extraction - common methods"/>
+<meta name="twitter:description" content="Note This post is the first part of overall summarization of the competition. The second half is here.
+Before we start I attended two NLP competition in June, Tweet Sentiment Extraction and Jigsaw Multilingual Toxic Comment Classification, and I&rsquo;m happy to be a Kaggle Expert from now on :)
+Tweet Sentiment Extraction Goal:
+The objective in this competition is to &ldquo;Extract support phrases for sentiment labels&rdquo;. More precisely, this competition asks kagglers to construct a model that can figure out what word or phrase best supports the given tweet from the labeled sentiment."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://adityatelange.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Kaggle: Tweet Sentiment Extraction - common methods",
+      "item": "https://adityatelange.github.io/posts/kaggle_tweet_sent1/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Kaggle: Tweet Sentiment Extraction - common methods",
+  "name": "Kaggle: Tweet Sentiment Extraction - common methods",
+  "description": "Note This post is the first part of overall summarization of the competition. The second half is here.\nBefore we start I attended two NLP competition in June, Tweet Sentiment Extraction and Jigsaw Multilingual Toxic Comment Classification, and I\u0026rsquo;m happy to be a Kaggle Expert from now on :)\nTweet Sentiment Extraction Goal:\nThe objective in this competition is to \u0026ldquo;Extract support phrases for sentiment labels\u0026rdquo;. More precisely, this competition asks kagglers to construct a model that can figure out what word or phrase best supports the given tweet from the labeled sentiment.",
+  "keywords": [
+    "NLP", "COMPETITION"
+  ],
+  "articleBody": "Note This post is the first part of overall summarization of the competition. The second half is here.\nBefore we start I attended two NLP competition in June, Tweet Sentiment Extraction and Jigsaw Multilingual Toxic Comment Classification, and I’m happy to be a Kaggle Expert from now on :)\nTweet Sentiment Extraction Goal:\nThe objective in this competition is to “Extract support phrases for sentiment labels”. More precisely, this competition asks kagglers to construct a model that can figure out what word or phrase best supports the given tweet from the labeled sentiment. In other word, kagglers’re attempting to predict the word or phrase from the tweet that exemplifies the provided sentiment. The word or phrase should include all characters within that span (i.e. including commas, spaces, etc).\nFor example:\ntext : \"Sooo SAD I will miss you here in San Diego!!!\" sentiment : negative selected_text: \"Sooo SAD\" In this competition, the state-of-the-art (SOTA) transformer models were not so bad in extracting the selected_text. The main problem was to capture the “noise” in the dataset.\nThe organizer of this competition did not introduce the “noise” (magic of the competition) on purpose but probably by some regex mistake (I’ll talk about the “noise” in the next section). When I analyzed the data, I found some weird selected_text like most other teams did. For example,\ntext : \" ROFLMAO for the funny web portal =D\" sentiment : positive selected_text: \"e funny\" --------------------------------------------------------------- text : \" yea i just got outta one too....i want him back tho but i feel the same way...i`m cool on dudes for a lil while\" sentiment : positive selected_text: \"m cool\" However, most teams (including my team) did not strive to figure out how such weird selected_text are selected or just treated it as a mistake such that they chose to ignore it in the consideration of overfitting if trying to correct it.\nThis turns out to be a watershed of this competition. Teams solved this problem were still among the top ranked positions in the private leaderboard but those who did not fix this problem had shakes on their ranks to some degree. I found that the scores of top $30$ teams are mostly stable but other than those, the private LB had a huge shake that was out of my expectation. The fun part is: I know there would be a shake in the competition, so I gave my team the name Hope no shake, but it didn’t help at all :( . My team was in the silver medal range in the public LB but our rank dropped to almost $800$th in the private LB! What a shame! There are teams even more unfortunate than us and dropped their ranks from top 50 to bottom 200…\nAnyway, there are still some fancy and interesting solution among top ranked teams and their solutions can be divided into three categories:\n Solution with character-level model only (First place solution! Awesome!). solution with well-designed post-processing. Bolution with both character-level model and well-designed post-processing.  After the competition, I spend one week trying to understand their solutions and unique ideas and really learned a lot. So here I would like to share their ideas to those who are interested.\nIn the rest of the post, I made a summary of the top solutions and also add some of my understanding. The reference are at the bottom. So let’s get started!\nWhat is the MAGIC? This is just a bug introduced when the competition holder created this task. Here shows a representative example and we call this the “noise” in the labels.\nThe given original annotation is “onna” but it is too weird. The true annotation should be “miss” (this is a negative sentence). We think that the host applied a wrong slice obtained on the normalized text without consequence spaces for the original text with plenty of spaces, emojis, or emoticons.\nHere is how to solve it theoretically:\n Recover true annotation from the buggy annotation (pre-processing). Train model with true annotation. Predict the right annotation. Project back the right annotation to the buggy annotation (post-processing).  Here is the visualization:\nCommon Methods Most Kagglers use the following model structure (from public notebook) as a baseline and here is the illustration (I copied it from the author, the link in at the bottom of the post). This is the tensorflow version:\nWe are given text, selected_text, and sentiment. For roBERTa model, we prepare question answer as  text  sentiment . Note that roBERTa tokenizer sometimes creates more than 1 token for 1 word. Let’s take the example “Kaggle is a fun webplace!”. The word “webplace” will be split into two tokens “[web][place]” by roBERTa tokenizer.\nAfter converting text and selected_text into tokens, we can then determine the start index and end index of selected_text within text. We will one hot encode these indices. Below are the required inputs and targets for roBERTa. In this example, we have chosen roBERTa with max_len=16, so our input_ids have 2  tokens.\nWe begin with vanilla TFRobertaModel. This model takes our 16 (max_len) input_ids and outputs $16$ vectors each of length 768. Each vector is a representation of one input token.\nWe then apply tf.keras.layers.Conv1D(filters=1, kernel_size=1) which transforms this matrix of size ($768, 16$) into a vector of size (1, 16). Next we apply softmax to this length $16$ vector and get a one hot encoding of our start_index. We build another head for our end_index.\nMost top ranked kagglers implemented the following two methods: Label Smoothing and Multi-sample Dropout. SO I would like to talk about this methods first before I go forward.\nLabel Smoothing When we apply the cross-entropy loss to a classification task, we’re expecting true labels to have 1, while the others 0. In other words, we have no doubts that the true labels are true, and the others are not. Is that always true in our case? As a result, the ground truth labels we have had perfect beliefs on are possibly wrong.\nOne possible solution to this is to relax our confidence on the labels. For instance, we can slightly lower the loss target values from 1 to, say, 0.9. And naturally, we increase the target value of 0 for the others slightly as such. This idea is called label smoothing.\nThe smoothed labels are calculated by\nnew_onehot_labels = onehot_labels * (1 – label_smoothing) + label_smoothing / num_classes\nFoe example, suppose we are training a model for binary classification, and our labels are $0$ for Non-toxic, $1$ for toxic. Now, say you set label_smoothing = 0.2, then using the equation above, we get:\nnew_labels = [0, 1] * (1 — 0.2) + 0.2 / 2 = [0, 1]*(0.8) + 0.1 = [0.1 ,0.9]\nImplementation of Label Smoothing In tensorflow tf.keras.losses.binary_crossentropy( y_true, y_pred, from_logits=False, label_smoothing=0 ) In pytorch There are multiple ways to achieve this, I list two here.\n way 1  class LabelSmoothing(nn.Module): def __init__(self, smoothing = 0.1): super(LabelSmoothing, self).__init__() self.confidence = 1.0 - smoothing self.smoothing = smoothing def forward(self, x, target): if self.training: x = x.float() target = target.float() logprobs = torch.nn.functional.log_softmax(x, dim = -1) nll_loss = -logprobs * target nll_loss = nll_loss.sum(-1) smooth_loss = -logprobs.mean(dim=-1) loss = self.confidence * nll_loss + self.smoothing * smooth_loss return loss.mean() else: return torch.nn.functional.cross_entropy(x, target) Somehow in the training step, you would use label smoothing like this:\ncriterion = LabelSmoothing() loss = criterion(outputs, targets)  way 2  class LabelSmoothing(nn.Module): def __init__(self, classes, smoothing=0.0, dim=-1): super(LabelSmoothing, self).__init__() self.confidence = 1.0 - smoothing self.smoothing = smoothing self.cls = classes self.dim = dim def forward(self, pred, target): pred = pred.log_softmax(dim=self.dim) with torch.no_grad(): # true_dist = pred.data.clone() true_dist = torch.zeros_like(pred) true_dist.fill_(self.smoothing / (self.cls - 1)) true_dist.scatter_(1, target.data.unsqueeze(1), self.confidence) return torch.mean(torch.sum(-true_dist * pred, dim=self.dim)) Multi-sample dropout This is also an idea from the 1st place solution of the last competition I attended (Google QUEST Q\u0026A Labeling). The idea came from a paper called Multi-Sample Dropout for Accelerated Training and Better Generalization.\nThe original dropout creates a randomly selected subset (called a dropout sample) from the input in each training iteration while the multi-sample dropout creates multiple dropout samples. The loss is calculated for each sample, and then the sample losses are averaged to obtain the final loss. Experimental results showed that multi-sample dropout significantly accelerates training by reducing the number of iterations until convergence Experiments also showed that networks trained using multi-sample dropout achieved lower error rates and losses for both the training set and validation set.\nImplementation The implementation is not that hard and the following is part of my code used in the competition.\ndef forward(self, input_ids, attention_mask): # `hs` is the 12 hidden layers. Later we uses hs[-1], hs[-2] # which are the last 2 hidden layers. batch_size=16. _, _, hs = self.roberta(input_ids, attention_mask) # x = torch.stack([hs[-1], hs[-2]]) # torch.Size([2, 16, 96, 768]) # x = x[0] * 0.9 + x[1] * 0.1 # torch.Size([16, 96, 768]) stacked = torch.stack([hs[-1], hs[-2]]) # torch.Size([2, 16, 96, 768]) apool= torch.mean(stacked, 0) # torch.Size([16, 96, 768]) mpool, _ = torch.max(stacked, 0) # torch.Size([16, 96, 768]) x = torch.cat((apool, mpool), -1) # torch.Size([16, 96, 768 * 2])  # Multisample Dropout: https://arxiv.org/abs/1905.09788 logits = torch.mean( torch.stack( [self.fc(self.high_dropout(x)) for _ in range(5)], dim=0, ), dim=0, ) start_logits, end_logits = logits.split(1, dim=-1) # torch.Size([16, 96, 1]) start_logits = start_logits.squeeze(-1) # torch.Size([16, 96]) end_logits = end_logits.squeeze(-1) # torch.Size([16, 96]) return start_logits, end_logits Stochastic Weight Averaging (SWA) Author: by Pavel Izmailov and Andrew Gordon Wilson\nStochastic Weight Averaging (SWA) is a simple procedure that improves generalization in deep learning over Stochastic Gradient Descent (SGD) at no additional cost, and can be used as a drop-in replacement for any other optimizer in PyTorch.\nIn short, SWA performs an equal average of the weights traversed by SGD with a modified learning rate schedule. SWA solutions end up in the center of a wide flat region of loss, while SGD tends to converge to the boundary of the low-loss region, making it susceptible to the shift between train and test error surfaces (see the middle and right panels in the figure below):\nWith the implementation in torchcontrib, using SWA is as easy as using any other optimizer in PyTorch:\nfrom torchcontrib.optim import SWA # training loop base_opt = torch.optim.SGD(model.parameters(), lr=0.1) opt = torchcontrib.optim.SWA(base_opt, swa_start=10, swa_freq=5, swa_lr=0.05) for _ in range(100): opt.zero_grad() loss_fn(model(input), target).backward() opt.step() opt.swap_swa_sgd() You can wrap any optimizer from torch.optim using the SWA class, and then train your model as usual. When training is complete you simply call swap_swa_sgd() to set the weights of your model to their SWA averages. Below we explain the SWA procedure and the parameters of the SWA class in detail. We emphasize that SWA can be combined with any optimization procedure, such as Adam, in the same way that it can be combined with SGD.\nFor the following methods, we assume that we are writing a customized roberta model and here is the beginning of the customized roberta class\nclass CustomRoberta(nn.Module): def __init__(self, path='path/to/roberta-base/pytorch_model.bin'): super(CustomRoberta, self).__init__() config = RobertaConfig.from_pretrained( 'path/to/roberta-base/config.json', output_hidden_states=True) self.roberta = RobertaModel.from_pretrained(path, config=config) self.weights_init_custom() # ignore the detail def forward(*args): pass Different learning rate settings for encoder and head This is an idea from the last competition I attended called Google QUEST Q\u0026A Labeling, and this idea is mentioned in the 1st place solution.\nparam_optimizer = list(model.named_parameters()) no_decay = ['bias', 'LayerNorm.bias', 'LayerNorm.weight'] optimizer_grouped_parameters = [ {'params': [p for n, p in param_optimizer if not any(nd in n for nd in no_decay)], 'weight_decay': 0.01}, {'params': [p for n, p in param_optimizer if any(nd in n for nd in no_decay)], 'weight_decay': 0.0} ] num_train_optimization_steps = int(EPOCHS*len(train_df)/batch_size/accumulation_steps) optimizer = AdamW(optimizer_grouped_parameters, lr=lr, correct_bias=False) scheduler1 = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=0.1*num_train_optimization_steps, num_training_steps=num_train_optimization_steps) scheduler2 = get_constant_schedule(optimizer) Customized Layer Initialization The following code is an initialization of the last three layers of the model.\ndef weights_init_custom(self): init_layers = [9, 10, 11] dense_names = [\"query\", \"key\", \"value\", \"dense\"] layernorm_names = [\"LayerNorm\"] for name, module in self.roberta.named_parameters(): if any(f\".{i}.\" in name for i in init_layers): if any(n in name for n in dense_names): if \"bias\" in name: module.data.zero_() elif \"weight\" in name: module.data.normal_(mean=0.0, std=0.02) elif any(n in name for n in layernorm_names): if \"bias\" in name: module.data.zero_() elif \"weight\" in name: module.data.fill_(1.0) Let’s break it into parts. Let’s see an example of a pair of name and module in self.roberta.named_parameters():\n name, module ('embeddings.word_embeddings.weight', Parameter containing: tensor([[ 0.1476, -0.0365, 0.0753, ..., -0.0023, 0.0172, -0.0016], [ 0.0156, 0.0076, -0.0118, ..., -0.0022, 0.0081, -0.0156], [-0.0347, -0.0873, -0.0180, ..., 0.1174, -0.0098, -0.0355], ..., [ 0.0304, 0.0504, -0.0307, ..., 0.0377, 0.0096, 0.0084], [ 0.0623, -0.0596, 0.0307, ..., -0.0920, 0.1080, -0.0183], [ 0.1259, -0.0145, 0.0332, ..., 0.0121, 0.0342, 0.0168]], requires_grad=True)) The followings are some examples of weights in the last three layers that they want to initialize:\nencoder.layer.9.attention.self.query.weight\nencoder.layer.9.attention.self.query.bias\nencoder.layer.9.attention.self.key.weight\nencoder.layer.9.attention.self.key.bias\nencoder.layer.9.attention.self.value.weight\nencoder.layer.9.attention.self.value.bias\nencoder.layer.9.attention.output.dense.weight\nencoder.layer.9.attention.output.dense.bias\nencoder.layer.9.attention.output.LayerNorm.weight\nencoder.layer.9.attention.output.LayerNorm.bias\n Reference:\n 1st place solution: https://www.kaggle.com/c/tweet-sentiment-extraction/discussion/159254 1st place solution code: https://www.kaggle.com/theoviel/character-level-model-magic 2nd place solution: https://www.kaggle.com/c/tweet-sentiment-extraction/discussion/159310 2nd place solution code: https://www.kaggle.com/hiromoon166/inference-8models-seed100101-bucketing-2-ver2/input?select=pre_processed.txt#Inference-of-Reranking-model 2nd place post-processing: https://www.kaggle.com/futureboykid/2nd-place-post-processing 3rd place solution: https://www.kaggle.com/c/tweet-sentiment-extraction/discussion/159910 3rd place solution code: https://github.com/suicao/tweet-extraction 4th place solution: https://www.kaggle.com/c/tweet-sentiment-extraction/discussion/159499 5th place solution: https://www.kaggle.com/c/tweet-sentiment-extraction/discussion/159268 Label Smoothing code: https://www.kaggle.com/shonenkov/tpu-training-super-fast-xlmroberta, https://github.com/pytorch/pytorch/issues/7455 Label Smoothing: https://www.flixstock.com/label-smoothing-an-ingredient-of-higher-model-accuracy, https://www.kaggle.com/shahules/tackle-with-label-smoothing-proved Multi-Sample Dropout for Accelerated Training and Better Generalization: https://arxiv.org/pdf/1905.09788.pdf https://stackoverflow.com/questions/50747947/embedding-in-pytorch sequence-bucketing: https://www.kaggle.com/bminixhofer/speed-up-your-rnn-with-sequence-bucketing#Implementation-\u0026-comparing-static-padding-with-sequence-bucketing Re-ranking in QA paper: https://arxiv.org/pdf/1906.03008.pdf Common model structure: https://www.kaggle.com/c/tweet-sentiment-extraction/discussion/143281 SWA: https://pytorch.org/blog/stochastic-weight-averaging-in-pytorch/  ",
+  "wordCount" : "2193",
+  "inLanguage": "en",
+  "datePublished": "2020-07-01T00:00:00Z",
+  "dateModified": "2020-07-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Theme PaperMod"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://adityatelange.github.io/posts/kaggle_tweet_sent1/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Liyan Tang",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://adityatelange.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: #1d1e20;
+                --entry: #2e2e33;
+                --primary: rgba(255, 255, 255, 0.84);
+                --secondary: rgba(255, 255, 255, 0.56);
+                --tertiary: rgba(255, 255, 255, 0.16);
+                --content: rgba(255, 255, 255, 0.74);
+                --hljs-bg: #2e2e33;
+                --code-bg: #37383e;
+                --border: #333;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://adityatelange.github.io/" accesskey="h" title="Liyan Tang (Alt + H)">Liyan Tang</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://adityatelange.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://adityatelange.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://adityatelange.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://adityatelange.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://adityatelange.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://adityatelange.github.io/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Kaggle: Tweet Sentiment Extraction - common methods
+    </h1>
+    <div class="post-meta">July 1, 2020&nbsp;·&nbsp;11 min&nbsp;·&nbsp;Theme PaperMod
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <div class="details">Table of Contents</div>
+        </summary>
+        <div class="inner"><ul>
+                <li>
+                    <a href="#note" aria-label="Note">Note</a></li>
+                <li>
+                    <a href="#before-we-start" aria-label="Before we start">Before we start</a></li>
+                <li>
+                    <a href="#tweet-sentiment-extraction" aria-label="Tweet Sentiment Extraction">Tweet Sentiment Extraction</a></li>
+                <li>
+                    <a href="#what-is-the-magic" aria-label="What is the MAGIC?">What is the MAGIC?</a></li>
+                <li>
+                    <a href="#common-methods" aria-label="Common Methods">Common Methods</a><ul>
+                        
+                <li>
+                    <a href="#label-smoothing" aria-label="Label Smoothing">Label Smoothing</a><ul>
+                        
+                <li>
+                    <a href="#implementation-of-label-smoothing" aria-label="Implementation of Label Smoothing">Implementation of Label Smoothing</a><ul>
+                        
+                <li>
+                    <a href="#in-tensorflow" aria-label="In tensorflow">In tensorflow</a></li>
+                <li>
+                    <a href="#in-pytorch" aria-label="In pytorch">In pytorch</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#multi-sample-dropout" aria-label="Multi-sample dropout">Multi-sample dropout</a><ul>
+                        
+                <li>
+                    <a href="#implementation" aria-label="Implementation">Implementation</a></li></ul>
+                </li>
+                <li>
+                    <a href="#stochastic-weight-averaging-swa" aria-label="Stochastic Weight Averaging (SWA)">Stochastic Weight Averaging (SWA)</a></li>
+                <li>
+                    <a href="#different-learning-rate-settings-for-encoder-and-head" aria-label="Different learning rate settings for encoder and head">Different learning rate settings for encoder and head</a></li>
+                <li>
+                    <a href="#customized-layer-initialization" aria-label="Customized Layer Initialization">Customized Layer Initialization</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="note">Note<a hidden class="anchor" aria-hidden="true" href="#note">#</a></h2>
+<p>This post is the first part of overall summarization of the competition. The second half is <a href="https://liyantang.blog.csdn.net/article/details/107059971">here</a>.</p>
+<h2 id="before-we-start">Before we start<a hidden class="anchor" aria-hidden="true" href="#before-we-start">#</a></h2>
+<p>I attended two NLP competition in June, <em>Tweet Sentiment Extraction</em> and <em>Jigsaw Multilingual Toxic Comment Classification</em>, and I&rsquo;m happy to be a Kaggle Expert from now on :)</p>
+<img src="https://img-blog.csdnimg.cn/20200701110928846.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_16,color_FFFFFF,t_70#pic_center" width=300>
+<h2 id="tweet-sentiment-extraction">Tweet Sentiment Extraction<a hidden class="anchor" aria-hidden="true" href="#tweet-sentiment-extraction">#</a></h2>
+<p><em><strong>Goal:</strong></em></p>
+<p>The objective in this competition is to &ldquo;Extract support phrases for sentiment labels&rdquo;. More precisely, this competition asks kagglers to construct a model that can figure out what word or phrase best supports the given tweet from the labeled sentiment. In other word, kagglers&rsquo;re attempting to predict the word or phrase from the tweet that exemplifies the provided sentiment. The word or phrase should include all characters within that span (<em>i.e.</em> including commas, spaces, <em>etc</em>).</p>
+<p>For example:</p>
+<pre><code>text         : &quot;Sooo SAD I will miss you here in San Diego!!!&quot;
+sentiment    : negative
+selected_text: &quot;Sooo SAD&quot;
+</code></pre><p>In this competition, the state-of-the-art (SOTA) transformer models were not so bad in extracting the <code>selected_text</code>. The main problem was to capture the &ldquo;<strong>noise</strong>&rdquo; in the dataset.</p>
+<p>The organizer of this competition did not introduce the &ldquo;<em>noise</em>&rdquo; (<em>magic</em> of the competition) on purpose but probably by some regex mistake (I&rsquo;ll talk about the &ldquo;<em>noise</em>&rdquo; in the next section). When I analyzed the data, I found some weird <code>selected_text</code> like most other teams did. For example,</p>
+<pre><code>text         : &quot;  ROFLMAO for the funny web portal  =D&quot;
+sentiment    : positive
+selected_text: &quot;e funny&quot;
+---------------------------------------------------------------
+text         : &quot; yea i just got outta one too....i want him 
+                 back tho  but i feel the same way...i`m cool 
+                 on dudes for a lil while&quot;
+sentiment    : positive
+selected_text: &quot;m cool&quot;
+</code></pre><p>However, most teams (including my team) did not strive to figure out how such weird <code>selected_text</code> are selected or just treated it as a mistake such that they chose to ignore it in the consideration of overfitting if trying to correct it.</p>
+<p>This turns out to be a watershed of this competition. Teams solved this problem were still among the top ranked positions in the private leaderboard but those who did not fix this problem had shakes on their ranks to some degree. I found that the scores of top $30$ teams are mostly stable but other than those, the private LB had a huge shake that was out of my expectation. The fun part is: I know there would be a shake in the competition, so I gave my team the name <em>Hope no shake</em>, but it didn&rsquo;t help at all :( . My team was in the silver medal range in the public LB but our rank dropped to almost $800$th in the private LB! What a shame! There are teams even more unfortunate than us and dropped their ranks from top 50 to bottom 200&hellip;</p>
+<p>Anyway, there are still some fancy and interesting solution among top ranked teams and their solutions can be divided into three categories:</p>
+<ul>
+<li>Solution with character-level model only (First place solution! Awesome!).</li>
+<li>solution with well-designed post-processing.</li>
+<li>Bolution with both character-level model and well-designed post-processing.</li>
+</ul>
+<p>After the competition, I spend one week trying to understand their solutions and unique ideas and really learned a lot. So here I would like to share their ideas to those who are interested.</p>
+<p>In the rest of the post, I made a summary of the top solutions and also add some of my understanding. The reference are at the bottom. So let&rsquo;s get started!</p>
+<h2 id="what-is-the-magic">What is the MAGIC?<a hidden class="anchor" aria-hidden="true" href="#what-is-the-magic">#</a></h2>
+<p>This is just a bug introduced when the competition holder created this task. Here shows a representative example and we call this the &ldquo;noise&rdquo; in the labels.</p>
+<img src='https://img-blog.csdnimg.cn/20200701111203841.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_1,color_FFFFFF,t_70#pic_center' width=800>
+<p>The given original annotation is “onna” but it is too weird. The true annotation should be “miss” (this is a negative sentence). We think that the host applied a wrong slice obtained on the normalized text without consequence spaces for the original text with plenty of spaces, emojis, or emoticons.</p>
+<p>Here is how to solve it theoretically:</p>
+<ul>
+<li>Recover true annotation from the buggy annotation (pre-processing).</li>
+<li>Train model with true annotation.</li>
+<li>Predict the right annotation.</li>
+<li>Project back the right annotation to the buggy annotation (post-processing).</li>
+</ul>
+<p>Here is the visualization:</p>
+<img src='https://img-blog.csdnimg.cn/20200701111254670.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_1,color_FFFFFF,t_70#pic_center' width=800>
+<h2 id="common-methods">Common Methods<a hidden class="anchor" aria-hidden="true" href="#common-methods">#</a></h2>
+<p>Most Kagglers use the following model structure (from public notebook) as a baseline and here is the illustration (I copied it from the author, the link in at the bottom of the post). This is the tensorflow version:</p>
+<p>We are given <code>text</code>, <code>selected_text</code>, and <code>sentiment</code>. For roBERTa model, we prepare question answer as <code>&lt;s&gt; text &lt;/s&gt;&lt;/s&gt; sentiment &lt;/s&gt;</code>. Note that roBERTa tokenizer sometimes creates more than 1 token for 1 word. Let&rsquo;s take the example &ldquo;Kaggle is a fun webplace!&rdquo;. The word &ldquo;webplace&rdquo; will be split into two tokens &ldquo;[web][place]&rdquo; by roBERTa tokenizer.</p>
+<p>After converting <code>text</code> and <code>selected_text</code> into tokens, we can then determine the start index and end index of <code>selected_text</code> within <code>text</code>. We will one hot encode these indices. Below are the required inputs and targets for roBERTa. In this example, we have chosen roBERTa with <code>max_len=16</code>, so our <code>input_ids</code> have 2 <code>&lt;pad&gt;</code> tokens.</p>
+<img src="https://img-blog.csdnimg.cn/20200701111336246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_1,color_FFFFFF,t_70#pic_center" width=900>
+<p>We begin with vanilla TFRobertaModel. This model takes our 16 (<code>max_len</code>) <code>input_ids</code> and outputs $16$ vectors each of length 768. Each vector is a representation of one input token.</p>
+<p>We then apply <code>tf.keras.layers.Conv1D(filters=1, kernel_size=1)</code> which transforms this matrix of size ($768, 16$) into a vector of size (1, 16). Next we apply softmax to this length $16$ vector and get a one hot encoding of our start_index. We build another head for our end_index.</p>
+<img src="https://img-blog.csdnimg.cn/20200701111441109.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_1,color_FFFFFF,t_70#pic_center" width=800>
+<p>Most top ranked kagglers implemented the following two methods: Label Smoothing and Multi-sample Dropout. SO I would like to talk about this methods first before I go forward.</p>
+<h3 id="label-smoothing">Label Smoothing<a hidden class="anchor" aria-hidden="true" href="#label-smoothing">#</a></h3>
+<p>When we apply the cross-entropy loss to a classification task, we’re expecting true labels to have 1, while the others 0. In other words, we have no doubts that the true labels are true, and the others are not. Is that always true in our case? As a result, the ground truth labels we have had perfect beliefs on are possibly wrong.</p>
+<img src='https://img-blog.csdnimg.cn/20200701111603995.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_1,color_FFFFFF,t_70#pic_center' width=500>
+<p>One possible solution to this is to relax our confidence on the labels. For instance, we can slightly lower the loss target values from 1 to, say, 0.9. And naturally, we increase the target value of 0 for the others slightly as such. This idea is called label smoothing.</p>
+<p>The smoothed labels are calculated by</p>
+<p><code>new_onehot_labels = onehot_labels * (1 – label_smoothing) + label_smoothing / num_classes</code></p>
+<p>Foe example, suppose we are training a model for binary classification, and our labels are $0$ for Non-toxic, $1$ for toxic. Now, say you set <code>label_smoothing = 0.2</code>, then using the equation above, we get:</p>
+<p><code>new_labels = [0, 1] * (1 — 0.2) + 0.2 / 2 = [0, 1]*(0.8) + 0.1 = [0.1 ,0.9]</code></p>
+<h4 id="implementation-of-label-smoothing">Implementation of Label Smoothing<a hidden class="anchor" aria-hidden="true" href="#implementation-of-label-smoothing">#</a></h4>
+<h5 id="in-tensorflow">In tensorflow<a hidden class="anchor" aria-hidden="true" href="#in-tensorflow">#</a></h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">tf<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>losses<span style="color:#f92672">.</span>binary_crossentropy(
+    y_true, y_pred,
+    from_logits<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>,
+    label_smoothing<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+)
+</code></pre></div><h5 id="in-pytorch">In pytorch<a hidden class="anchor" aria-hidden="true" href="#in-pytorch">#</a></h5>
+<p>There are multiple ways to achieve this, I list two here.</p>
+<ul>
+<li>way 1</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LabelSmoothing</span>(nn<span style="color:#f92672">.</span>Module):
+    <span style="color:#66d9ef">def</span> __init__(self, smoothing <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.1</span>):
+        super(LabelSmoothing, self)<span style="color:#f92672">.</span>__init__()
+        self<span style="color:#f92672">.</span>confidence <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span> <span style="color:#f92672">-</span> smoothing
+        self<span style="color:#f92672">.</span>smoothing <span style="color:#f92672">=</span> smoothing
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">forward</span>(self, x, target):
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>training:
+            x <span style="color:#f92672">=</span> x<span style="color:#f92672">.</span>float()
+            target <span style="color:#f92672">=</span> target<span style="color:#f92672">.</span>float()
+            logprobs <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>functional<span style="color:#f92672">.</span>log_softmax(x, dim <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+            nll_loss <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>logprobs <span style="color:#f92672">*</span> target
+            nll_loss <span style="color:#f92672">=</span> nll_loss<span style="color:#f92672">.</span>sum(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+            smooth_loss <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>logprobs<span style="color:#f92672">.</span>mean(dim<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>)
+            loss <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>confidence <span style="color:#f92672">*</span> nll_loss <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>smoothing <span style="color:#f92672">*</span> smooth_loss
+            <span style="color:#66d9ef">return</span> loss<span style="color:#f92672">.</span>mean()
+        <span style="color:#66d9ef">else</span>:
+            <span style="color:#66d9ef">return</span> torch<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>functional<span style="color:#f92672">.</span>cross_entropy(x, target)
+</code></pre></div><p>Somehow in the training step, you would use label smoothing like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">criterion <span style="color:#f92672">=</span> LabelSmoothing()
+loss <span style="color:#f92672">=</span> criterion(outputs, targets)
+</code></pre></div><ul>
+<li>way 2</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LabelSmoothing</span>(nn<span style="color:#f92672">.</span>Module):
+    <span style="color:#66d9ef">def</span> __init__(self, classes, smoothing<span style="color:#f92672">=</span><span style="color:#ae81ff">0.0</span>, dim<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>):
+        super(LabelSmoothing, self)<span style="color:#f92672">.</span>__init__()
+        self<span style="color:#f92672">.</span>confidence <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span> <span style="color:#f92672">-</span> smoothing
+        self<span style="color:#f92672">.</span>smoothing <span style="color:#f92672">=</span> smoothing
+        self<span style="color:#f92672">.</span>cls <span style="color:#f92672">=</span> classes
+        self<span style="color:#f92672">.</span>dim <span style="color:#f92672">=</span> dim
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">forward</span>(self, pred, target):
+        pred <span style="color:#f92672">=</span> pred<span style="color:#f92672">.</span>log_softmax(dim<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>dim)
+        <span style="color:#66d9ef">with</span> torch<span style="color:#f92672">.</span>no_grad():
+            <span style="color:#75715e"># true_dist = pred.data.clone()</span>
+            true_dist <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>zeros_like(pred)
+            true_dist<span style="color:#f92672">.</span>fill_(self<span style="color:#f92672">.</span>smoothing <span style="color:#f92672">/</span> (self<span style="color:#f92672">.</span>cls <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>))
+            true_dist<span style="color:#f92672">.</span>scatter_(<span style="color:#ae81ff">1</span>, target<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>unsqueeze(<span style="color:#ae81ff">1</span>), self<span style="color:#f92672">.</span>confidence)
+        <span style="color:#66d9ef">return</span> torch<span style="color:#f92672">.</span>mean(torch<span style="color:#f92672">.</span>sum(<span style="color:#f92672">-</span>true_dist <span style="color:#f92672">*</span> pred, dim<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>dim))
+</code></pre></div><h3 id="multi-sample-dropout">Multi-sample dropout<a hidden class="anchor" aria-hidden="true" href="#multi-sample-dropout">#</a></h3>
+<p>This is also an idea from the <em>1st place solution</em> of the last competition I attended (<em>Google QUEST Q&amp;A Labeling</em>). The idea came from a paper called <em>Multi-Sample Dropout for Accelerated Training and Better Generalization</em>.</p>
+<p>The original dropout creates a randomly selected subset (called a dropout sample) from the input in each training iteration while the multi-sample dropout creates multiple dropout samples. The loss is calculated for each sample, and then the sample losses are averaged to obtain the final loss. Experimental results showed that multi-sample dropout significantly accelerates training by reducing the number of iterations until convergence  Experiments also showed that networks trained using multi-sample dropout achieved lower error rates and losses for both the training set and validation set.</p>
+<h4 id="implementation">Implementation<a hidden class="anchor" aria-hidden="true" href="#implementation">#</a></h4>
+<p>The implementation is not that hard and the following is part of my code used in the competition.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">forward</span>(self, input_ids, attention_mask):
+        
+    <span style="color:#75715e"># `hs` is the 12 hidden layers. Later we uses hs[-1], hs[-2]</span>
+    <span style="color:#75715e"># which are the last 2 hidden layers. batch_size=16.</span>
+    _, _, hs <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>roberta(input_ids, attention_mask)
+        
+<span style="color:#75715e">#     x = torch.stack([hs[-1], hs[-2]])   # torch.Size([2, 16, 96, 768])</span>
+<span style="color:#75715e">#     x = x[0] * 0.9 + x[1] * 0.1         # torch.Size([16, 96, 768])</span>
+        
+    stacked <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>stack([hs[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>], hs[<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>]])    <span style="color:#75715e"># torch.Size([2, 16, 96, 768])</span>
+    apool<span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>mean(stacked, <span style="color:#ae81ff">0</span>)              <span style="color:#75715e"># torch.Size([16, 96, 768])</span>
+    mpool, _ <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>max(stacked, <span style="color:#ae81ff">0</span>)           <span style="color:#75715e"># torch.Size([16, 96, 768])</span>
+    x <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>cat((apool, mpool), <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)          <span style="color:#75715e"># torch.Size([16, 96, 768 * 2])        </span>
+
+    <span style="color:#75715e"># Multisample Dropout: https://arxiv.org/abs/1905.09788</span>
+    logits <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>mean(
+        torch<span style="color:#f92672">.</span>stack(
+            [self<span style="color:#f92672">.</span>fc(self<span style="color:#f92672">.</span>high_dropout(x)) <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">5</span>)],
+            dim<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,
+        ),
+        dim<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,
+    )
+        
+    start_logits, end_logits <span style="color:#f92672">=</span> logits<span style="color:#f92672">.</span>split(<span style="color:#ae81ff">1</span>, dim<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>)    <span style="color:#75715e"># torch.Size([16, 96, 1])</span>
+    start_logits <span style="color:#f92672">=</span> start_logits<span style="color:#f92672">.</span>squeeze(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)               <span style="color:#75715e"># torch.Size([16, 96])</span>
+    end_logits <span style="color:#f92672">=</span> end_logits<span style="color:#f92672">.</span>squeeze(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)                   <span style="color:#75715e"># torch.Size([16, 96])</span>
+                
+    <span style="color:#66d9ef">return</span> start_logits, end_logits
+</code></pre></div><h3 id="stochastic-weight-averaging-swa">Stochastic Weight Averaging (SWA)<a hidden class="anchor" aria-hidden="true" href="#stochastic-weight-averaging-swa">#</a></h3>
+<p><em>Author: by Pavel Izmailov and Andrew Gordon Wilson</em></p>
+<p>Stochastic Weight Averaging (SWA) is a simple procedure that improves generalization in deep learning over Stochastic Gradient Descent (SGD) at no additional cost, and can be used as a drop-in replacement for any other optimizer in PyTorch.</p>
+<p>In short, SWA performs an equal average of the weights traversed by SGD with a modified learning rate schedule. SWA solutions end up in the center of a wide flat region of loss, while SGD tends to converge to the boundary of the low-loss region, making it susceptible to the shift between train and test error surfaces (see the middle and right panels in the figure below):</p>
+<img src="https://img-blog.csdnimg.cn/20200701115203234.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_1,color_FFFFFF,t_70#pic_center">
+<p>With the implementation in <code>torchcontrib</code>, using SWA is as easy as using any other optimizer in PyTorch:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> torchcontrib.optim <span style="color:#f92672">import</span> SWA
+<span style="color:#75715e"># training loop</span>
+base_opt <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>optim<span style="color:#f92672">.</span>SGD(model<span style="color:#f92672">.</span>parameters(), lr<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
+opt <span style="color:#f92672">=</span> torchcontrib<span style="color:#f92672">.</span>optim<span style="color:#f92672">.</span>SWA(base_opt, swa_start<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, swa_freq<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, swa_lr<span style="color:#f92672">=</span><span style="color:#ae81ff">0.05</span>)
+<span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">100</span>):
+     opt<span style="color:#f92672">.</span>zero_grad()
+     loss_fn(model(input), target)<span style="color:#f92672">.</span>backward()
+     opt<span style="color:#f92672">.</span>step()
+opt<span style="color:#f92672">.</span>swap_swa_sgd()
+</code></pre></div><p>You can wrap any optimizer from <code>torch.optim</code> using the SWA class, and then train your model as usual. When training is complete you simply call <code>swap_swa_sgd()</code> to set the weights of your model to their SWA averages. Below we explain the SWA procedure and the parameters of the SWA class in detail. We emphasize that SWA can be combined with any optimization procedure, such as Adam, in the same way that it can be combined with SGD.</p>
+<p><strong>For the following methods, we assume that we are writing a customized roberta model and here is the beginning of the customized roberta class</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomRoberta</span>(nn<span style="color:#f92672">.</span>Module):
+
+    <span style="color:#66d9ef">def</span> __init__(self, path<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;path/to/roberta-base/pytorch_model.bin&#39;</span>):
+        super(CustomRoberta, self)<span style="color:#f92672">.</span>__init__()
+        
+        config <span style="color:#f92672">=</span> RobertaConfig<span style="color:#f92672">.</span>from_pretrained(
+            <span style="color:#e6db74">&#39;path/to/roberta-base/config.json&#39;</span>, output_hidden_states<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>) 
+
+        self<span style="color:#f92672">.</span>roberta <span style="color:#f92672">=</span> RobertaModel<span style="color:#f92672">.</span>from_pretrained(path, config<span style="color:#f92672">=</span>config)
+        self<span style="color:#f92672">.</span>weights_init_custom()
+     
+    <span style="color:#75715e"># ignore the detail</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">forward</span>(<span style="color:#f92672">*</span>args):
+        <span style="color:#66d9ef">pass</span>
+</code></pre></div><h3 id="different-learning-rate-settings-for-encoder-and-head">Different learning rate settings for encoder and head<a hidden class="anchor" aria-hidden="true" href="#different-learning-rate-settings-for-encoder-and-head">#</a></h3>
+<p>This is an idea from the last competition I attended called <em>Google QUEST Q&amp;A Labeling</em>, and this idea is mentioned in the <em>1st place solution</em>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">param_optimizer <span style="color:#f92672">=</span> list(model<span style="color:#f92672">.</span>named_parameters())
+no_decay <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;bias&#39;</span>, <span style="color:#e6db74">&#39;LayerNorm.bias&#39;</span>, <span style="color:#e6db74">&#39;LayerNorm.weight&#39;</span>]
+optimizer_grouped_parameters <span style="color:#f92672">=</span> [
+    {<span style="color:#e6db74">&#39;params&#39;</span>: [p <span style="color:#66d9ef">for</span> n, p <span style="color:#f92672">in</span> param_optimizer <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> any(nd <span style="color:#f92672">in</span> n <span style="color:#66d9ef">for</span> nd <span style="color:#f92672">in</span> no_decay)], <span style="color:#e6db74">&#39;weight_decay&#39;</span>: <span style="color:#ae81ff">0.01</span>},
+    {<span style="color:#e6db74">&#39;params&#39;</span>: [p <span style="color:#66d9ef">for</span> n, p <span style="color:#f92672">in</span> param_optimizer <span style="color:#66d9ef">if</span> any(nd <span style="color:#f92672">in</span> n <span style="color:#66d9ef">for</span> nd <span style="color:#f92672">in</span> no_decay)], <span style="color:#e6db74">&#39;weight_decay&#39;</span>: <span style="color:#ae81ff">0.0</span>}
+   ]
+
+num_train_optimization_steps <span style="color:#f92672">=</span> int(EPOCHS<span style="color:#f92672">*</span>len(train_df)<span style="color:#f92672">/</span>batch_size<span style="color:#f92672">/</span>accumulation_steps)
+
+optimizer <span style="color:#f92672">=</span> AdamW(optimizer_grouped_parameters, lr<span style="color:#f92672">=</span>lr, correct_bias<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>) 
+
+scheduler1 <span style="color:#f92672">=</span> get_linear_schedule_with_warmup(optimizer, num_warmup_steps<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span><span style="color:#f92672">*</span>num_train_optimization_steps, num_training_steps<span style="color:#f92672">=</span>num_train_optimization_steps) 
+scheduler2 <span style="color:#f92672">=</span> get_constant_schedule(optimizer)
+</code></pre></div><h3 id="customized-layer-initialization">Customized Layer Initialization<a hidden class="anchor" aria-hidden="true" href="#customized-layer-initialization">#</a></h3>
+<p>The following code is an initialization of the last three layers of the model.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">weights_init_custom</span>(self):
+    init_layers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">11</span>]
+    dense_names <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;query&#34;</span>, <span style="color:#e6db74">&#34;key&#34;</span>, <span style="color:#e6db74">&#34;value&#34;</span>, <span style="color:#e6db74">&#34;dense&#34;</span>]
+    layernorm_names <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;LayerNorm&#34;</span>]
+    <span style="color:#66d9ef">for</span> name, module <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>roberta<span style="color:#f92672">.</span>named_parameters():
+        <span style="color:#66d9ef">if</span> any(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;.</span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">.&#34;</span> <span style="color:#f92672">in</span> name <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> init_layers):
+            <span style="color:#66d9ef">if</span> any(n <span style="color:#f92672">in</span> name <span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> dense_names):
+                <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;bias&#34;</span> <span style="color:#f92672">in</span> name:
+                    module<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>zero_()
+                <span style="color:#66d9ef">elif</span> <span style="color:#e6db74">&#34;weight&#34;</span> <span style="color:#f92672">in</span> name:
+                    module<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>normal_(mean<span style="color:#f92672">=</span><span style="color:#ae81ff">0.0</span>, std<span style="color:#f92672">=</span><span style="color:#ae81ff">0.02</span>)
+            <span style="color:#66d9ef">elif</span> any(n <span style="color:#f92672">in</span> name <span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> layernorm_names):
+                <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;bias&#34;</span> <span style="color:#f92672">in</span> name:
+                        module<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>zero_()
+                <span style="color:#66d9ef">elif</span> <span style="color:#e6db74">&#34;weight&#34;</span> <span style="color:#f92672">in</span> name:
+                    module<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>fill_(<span style="color:#ae81ff">1.0</span>) 
+</code></pre></div><p>Let&rsquo;s break it into parts. Let&rsquo;s see an example of a pair of <code>name</code> and <code>module</code> in <code>self.roberta.named_parameters()</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> name, module
+(<span style="color:#e6db74">&#39;embeddings.word_embeddings.weight&#39;</span>, Parameter containing:
+ tensor([[ <span style="color:#ae81ff">0.1476</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.0365</span>,  <span style="color:#ae81ff">0.0753</span>,  <span style="color:#f92672">...</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.0023</span>,  <span style="color:#ae81ff">0.0172</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.0016</span>],
+         [ <span style="color:#ae81ff">0.0156</span>,  <span style="color:#ae81ff">0.0076</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.0118</span>,  <span style="color:#f92672">...</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.0022</span>,  <span style="color:#ae81ff">0.0081</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.0156</span>],
+         [<span style="color:#f92672">-</span><span style="color:#ae81ff">0.0347</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.0873</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.0180</span>,  <span style="color:#f92672">...</span>,  <span style="color:#ae81ff">0.1174</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.0098</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.0355</span>],
+         <span style="color:#f92672">...</span>,
+         [ <span style="color:#ae81ff">0.0304</span>,  <span style="color:#ae81ff">0.0504</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.0307</span>,  <span style="color:#f92672">...</span>,  <span style="color:#ae81ff">0.0377</span>,  <span style="color:#ae81ff">0.0096</span>,  <span style="color:#ae81ff">0.0084</span>],
+         [ <span style="color:#ae81ff">0.0623</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.0596</span>,  <span style="color:#ae81ff">0.0307</span>,  <span style="color:#f92672">...</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.0920</span>,  <span style="color:#ae81ff">0.1080</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.0183</span>],
+         [ <span style="color:#ae81ff">0.1259</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.0145</span>,  <span style="color:#ae81ff">0.0332</span>,  <span style="color:#f92672">...</span>,  <span style="color:#ae81ff">0.0121</span>,  <span style="color:#ae81ff">0.0342</span>,  <span style="color:#ae81ff">0.0168</span>]],
+        requires_grad<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>))
+</code></pre></div><p>The followings are some examples of weights in the last three layers that they want to initialize:</p>
+<p><code>encoder.layer.9.attention.self.query.weight</code><br>
+<code>encoder.layer.9.attention.self.query.bias</code><br>
+<code>encoder.layer.9.attention.self.key.weight</code><br>
+<code>encoder.layer.9.attention.self.key.bias</code><br>
+<code>encoder.layer.9.attention.self.value.weight</code><br>
+<code>encoder.layer.9.attention.self.value.bias</code><br>
+<code>encoder.layer.9.attention.output.dense.weight</code><br>
+<code>encoder.layer.9.attention.output.dense.bias</code><br>
+<code>encoder.layer.9.attention.output.LayerNorm.weight</code><br>
+<code>encoder.layer.9.attention.output.LayerNorm.bias</code></p>
+<hr>
+<p>Reference:</p>
+<ul>
+<li>1st place solution: <a href="https://www.kaggle.com/c/tweet-sentiment-extraction/discussion/159254">https://www.kaggle.com/c/tweet-sentiment-extraction/discussion/159254</a></li>
+<li>1st place solution code: <a href="https://www.kaggle.com/theoviel/character-level-model-magic">https://www.kaggle.com/theoviel/character-level-model-magic</a></li>
+<li>2nd place solution: <a href="https://www.kaggle.com/c/tweet-sentiment-extraction/discussion/159310">https://www.kaggle.com/c/tweet-sentiment-extraction/discussion/159310</a></li>
+<li>2nd place solution code: <a href="https://www.kaggle.com/hiromoon166/inference-8models-seed100101-bucketing-2-ver2/input?select=pre_processed.txt#Inference-of-Reranking-model">https://www.kaggle.com/hiromoon166/inference-8models-seed100101-bucketing-2-ver2/input?select=pre_processed.txt#Inference-of-Reranking-model</a></li>
+<li>2nd place post-processing: <a href="https://www.kaggle.com/futureboykid/2nd-place-post-processing">https://www.kaggle.com/futureboykid/2nd-place-post-processing</a></li>
+<li>3rd place solution: <a href="https://www.kaggle.com/c/tweet-sentiment-extraction/discussion/159910">https://www.kaggle.com/c/tweet-sentiment-extraction/discussion/159910</a></li>
+<li>3rd place solution code: <a href="https://github.com/suicao/tweet-extraction">https://github.com/suicao/tweet-extraction</a></li>
+<li>4th place solution: <a href="https://www.kaggle.com/c/tweet-sentiment-extraction/discussion/159499">https://www.kaggle.com/c/tweet-sentiment-extraction/discussion/159499</a></li>
+<li>5th place solution: <a href="https://www.kaggle.com/c/tweet-sentiment-extraction/discussion/159268">https://www.kaggle.com/c/tweet-sentiment-extraction/discussion/159268</a></li>
+<li>Label Smoothing code: <a href="https://www.kaggle.com/shonenkov/tpu-training-super-fast-xlmroberta,">https://www.kaggle.com/shonenkov/tpu-training-super-fast-xlmroberta,</a> <a href="https://github.com/pytorch/pytorch/issues/7455">https://github.com/pytorch/pytorch/issues/7455</a></li>
+<li>Label Smoothing: <a href="https://www.flixstock.com/label-smoothing-an-ingredient-of-higher-model-accuracy,">https://www.flixstock.com/label-smoothing-an-ingredient-of-higher-model-accuracy,</a> <a href="https://www.kaggle.com/shahules/tackle-with-label-smoothing-proved">https://www.kaggle.com/shahules/tackle-with-label-smoothing-proved</a></li>
+<li><em>Multi-Sample Dropout for Accelerated Training and Better Generalization</em>: <a href="https://arxiv.org/pdf/1905.09788.pdf">https://arxiv.org/pdf/1905.09788.pdf</a></li>
+<li><a href="https://stackoverflow.com/questions/50747947/embedding-in-pytorch">https://stackoverflow.com/questions/50747947/embedding-in-pytorch</a></li>
+<li>sequence-bucketing: <a href="https://www.kaggle.com/bminixhofer/speed-up-your-rnn-with-sequence-bucketing#Implementation-&amp;-comparing-static-padding-with-sequence-bucketing">https://www.kaggle.com/bminixhofer/speed-up-your-rnn-with-sequence-bucketing#Implementation-&amp;-comparing-static-padding-with-sequence-bucketing</a></li>
+<li>Re-ranking in QA paper: <a href="https://arxiv.org/pdf/1906.03008.pdf">https://arxiv.org/pdf/1906.03008.pdf</a></li>
+<li>Common model structure: <a href="https://www.kaggle.com/c/tweet-sentiment-extraction/discussion/143281">https://www.kaggle.com/c/tweet-sentiment-extraction/discussion/143281</a></li>
+<li>SWA: <a href="https://pytorch.org/blog/stochastic-weight-averaging-in-pytorch/">https://pytorch.org/blog/stochastic-weight-averaging-in-pytorch/</a></li>
+</ul>
+
+
+  </div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://adityatelange.github.io/tags/nlp/">NLP</a></li>
+      <li><a href="https://adityatelange.github.io/tags/competition/">COMPETITION</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://adityatelange.github.io/posts/kaggle_tweet_sent2/">
+    <span class="title">« Prev Page</span>
+    <br>
+    <span>Kaggle: Tweet Sentiment Extraction - top solutions</span>
+  </a>
+  <a class="next" href="https://adityatelange.github.io/posts/lstm/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>Recurrent Neural Network (RNN) and Long Short Term Memory (LSTM)</span>
+  </a>
+</nav>
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kaggle: Tweet Sentiment Extraction - common methods on twitter"
+        href="https://twitter.com/intent/tweet/?text=Kaggle%3a%20Tweet%20Sentiment%20Extraction%20-%20common%20methods&amp;url=https%3a%2f%2fadityatelange.github.io%2fposts%2fkaggle_tweet_sent1%2f&amp;hashtags=NLP%2cCOMPETITION">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kaggle: Tweet Sentiment Extraction - common methods on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fadityatelange.github.io%2fposts%2fkaggle_tweet_sent1%2f&amp;title=Kaggle%3a%20Tweet%20Sentiment%20Extraction%20-%20common%20methods&amp;summary=Kaggle%3a%20Tweet%20Sentiment%20Extraction%20-%20common%20methods&amp;source=https%3a%2f%2fadityatelange.github.io%2fposts%2fkaggle_tweet_sent1%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kaggle: Tweet Sentiment Extraction - common methods on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fadityatelange.github.io%2fposts%2fkaggle_tweet_sent1%2f&title=Kaggle%3a%20Tweet%20Sentiment%20Extraction%20-%20common%20methods">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kaggle: Tweet Sentiment Extraction - common methods on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fadityatelange.github.io%2fposts%2fkaggle_tweet_sent1%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kaggle: Tweet Sentiment Extraction - common methods on whatsapp"
+        href="https://api.whatsapp.com/send?text=Kaggle%3a%20Tweet%20Sentiment%20Extraction%20-%20common%20methods%20-%20https%3a%2f%2fadityatelange.github.io%2fposts%2fkaggle_tweet_sent1%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Kaggle: Tweet Sentiment Extraction - common methods on telegram"
+        href="https://telegram.me/share/url?text=Kaggle%3a%20Tweet%20Sentiment%20Extraction%20-%20common%20methods&amp;url=https%3a%2f%2fadityatelange.github.io%2fposts%2fkaggle_tweet_sent1%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+
+  </footer>
+</article>
+    </main>
+    <footer class="footer">
+    <span>&copy; 2021 <a href="https://adityatelange.github.io/">Liyan Tang</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+    menu.onscroll = function () {
+        localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

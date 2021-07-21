@@ -162,89 +162,77 @@ MathJax = {
     </nav>
 </header>
 <main class="main"> 
-<article class="first-entry home-info">
-    <header class="entry-header">
-        <h1>PaperMod</h1>
-    </header>
-    <section class="entry-content">
-        <p><p>Welcome to demo of hugo&rsquo;s theme PaperMod.</p>
-<ul>
-<li><strong>PaperMod</strong> is a simple but fast and responsive theme with useful feature-set that enhances UX.</li>
-<li>Do give a 🌟 on Github !</li>
-<li>PaperMod is based on theme <a href="https://github.com/nanxiaobei/hugo-paper">Paper</a>.</li>
-</ul>
-</p>
-    </section>
-    <footer class="entry-footer">
-        <div class="social-icons">
-</div>
 
-    </footer>
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Hidden Markov Model (HMM)</h2>
+  </header>
+  <section class="entry-content">
+    <p>Before reading this post, make sure you are familiar with the EM Algorithm and decent among of knowledge of convex optimization. If not, please check out my previous post
+  EM Algorithm
+  convex optimization primal and dual problem
+  Let’s get started!
+Conditional independence $A$ and $B$ are conditionally independent given $C$ if and only if, given knowledge that $C$ occurs, knowledge of whether $A$ occurs provides no information on the likelihood of $B$ occurring, and knowledge of whether $B$ occurs provides no information on the likelihood of $A$ occurring....</p>
+  </section>
+  <footer class="entry-footer">May 3, 2020&nbsp;·&nbsp;14 min&nbsp;·&nbsp;Theme PaperMod</footer>
+  <a class="entry-link" aria-label="post link to Hidden Markov Model (HMM)" href="https://adityatelange.github.io/posts/hmm/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Paper - Decoupling Representation and Classifier for Long-Tailed Recognition</h2>
+    <h2>EM (Expectation–Maximization) Algorithm</h2>
   </header>
   <section class="entry-content">
-    <p>Introduction When learning with long-tailed data, a common challenge is that instance-rich (or head) classes dominate the training procedure. The learned classification model tends to perform better on these classes, while performance is significantly worse for instance-scarce (or tail) classes (under-fitting).
-The general scheme for long-tailed recognition is: classifiers are either learned jointly with the representations end-to-end, or via a two-stage approach where the classifier and the representation are jointly fine-tuned with variants of class-balanced sampling as a second stage....</p>
+    <p>Jensen’s inequality  Theorem: Let $f$ be a convex function, and let $X$ be a random variable. Then:  $$E[f(X)] \geq f(E[X])$$
+$\quad$ Moreover, if $f$ is strictly convex, then $E[f(X)] = f(E[X])$ holds true if and only if $X$ is a constant.
+ Later in the post we are going to use the following fact from the Jensen’s inequality: Suppose $\lambda_j \geq 0$ for all $j$ and $\sum_j \lambda_j = 1$, then  $$ \log \sum_j \lambda_j y_j \geq \sum_j \lambda_j , log , y_j$$...</p>
   </section>
-  <footer class="entry-footer">January 8, 2021&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Theme PaperMod</footer>
-  <a class="entry-link" aria-label="post link to Paper - Decoupling Representation and Classifier for Long-Tailed Recognition" href="https://adityatelange.github.io/posts/decoupling_representation/"></a>
+  <footer class="entry-footer">April 24, 2020&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Theme PaperMod</footer>
+  <a class="entry-link" aria-label="post link to EM (Expectation–Maximization) Algorithm" href="https://adityatelange.github.io/posts/em/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Overlook of Relation Extraction</h2>
+    <h2>Skip-gram</h2>
   </header>
   <section class="entry-content">
-    <p>Information Extraction v.s. Relation Extraction Information Extraction: Information extraction is the task of automatically extracting structured information from unstructured and/or semi-structured machine-readable documents and other electronically represented sources.
-Relation extraction (RE) is an important task in IE. It focuses on extracting relations between entities. A complete relation RE system consists of
- a named entity recognizer to identify named entities from text. an entity linker to link entities to existing knowledge graphs....</p>
+    <p>Comparison between CBOW and Skip-gram The major difference is that skip-gram is better for infrequent words than CBOW in word2vec. For simplicity, suppose there is a sentence “$w_1w_2w_3w_4$”, and the window size is $1$.
+For CBOW, it learns to predict the word given a context, or to maximize the following probability
+$$ p(w_2|w_1,w_3) \cdot P(w_3|w_2,w_4)$$
+This is an issue for infrequent words, since they don’t appear very often in a given context....</p>
   </section>
-  <footer class="entry-footer">January 3, 2021&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Theme PaperMod</footer>
-  <a class="entry-link" aria-label="post link to Overlook of Relation Extraction" href="https://adityatelange.github.io/posts/relation_extraction/"></a>
+  <footer class="entry-footer">April 18, 2020&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Theme PaperMod</footer>
+  <a class="entry-link" aria-label="post link to Skip-gram" href="https://adityatelange.github.io/posts/skipgram/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Paper - Connecting the Dots: Document-level Neural Relation Extraction with Edge-oriented Graphs</h2>
+    <h2>Distributed representation, Hyperbolic Space, Gaussian/Graph Embedding</h2>
   </header>
   <section class="entry-content">
-    <p>Relation Extraction (RE) Relation Extraction (RE): The extraction of relations between named entities in text.
-Relation Extraction is an important task of NLP. Most existing works focus on intra-sentence RE. In fact, in real-world scenarios, a large amount of relations are expressed across sentences. The task of identifying these relations is named inter-sentence RE.
-Typically, inter-sentence relations occur in textual snippets with several sentences, such as documents. In these snippets, each entity is usually repeated with the same phrases or aliases, the occurrences of which are often named entity mentions and regarded as instances of the entity....</p>
+    <p>Overview of various word representation and Embedding methods Local Representation v.s. Distributed Representation  One-hot encoding is local representation and is good for local generalization; distributed representation is good for global generalization.  Comparison between local generalization and global generalization:
+Here is an example for better understanding this pair of concepts. Suppose now you have a bunch of ingredients and you’re able to cook 100 different meals with these ingredients....</p>
   </section>
-  <footer class="entry-footer">January 1, 2021&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Theme PaperMod</footer>
-  <a class="entry-link" aria-label="post link to Paper - Connecting the Dots: Document-level Neural Relation Extraction with Edge-oriented Graphs" href="https://adityatelange.github.io/posts/connecting_the_dots/"></a>
+  <footer class="entry-footer">April 17, 2020&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Theme PaperMod</footer>
+  <a class="entry-link" aria-label="post link to Distributed representation, Hyperbolic Space, Gaussian/Graph Embedding" href="https://adityatelange.github.io/posts/representation/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Cross-Lingual Learning</h2>
+    <h2>NLP Basics, Spell Correction with Noisy Channel</h2>
   </header>
   <section class="entry-content">
-    <p>Cross-lingual learning Most languages do not have training data available to create state-of-the-art models and thus our ability to create intelligent systems for these languages is limited as well.
-Cross-lingual learning (CLL) is one possible remedy to solve the lack of data for low-resource languages. In essence, it is an effort to utilize annotated data from other languages when building new NLP models. When CLL is considered, target languages usually lack resources, while source languages are resource-rich and they can be used to improve the results for the former....</p>
+    <p>NLP = NLU &#43; NLG  NLU: Natural Language Understanding NLG: Natural Language Generation  NLG may be viewed as the opposite of NLU: whereas in NLU, the system needs to disambiguate the input sentence to produce the machine representation language, in NLG the system needs to make decisions about how to put a concept into human understandable words.
+Classical applications in NLP   Question Answering
+  Sentiment Analysis...</p>
   </section>
-  <footer class="entry-footer">December 28, 2020&nbsp;·&nbsp;13 min&nbsp;·&nbsp;Theme PaperMod</footer>
-  <a class="entry-link" aria-label="post link to Cross-Lingual Learning" href="https://adityatelange.github.io/posts/corss_lingual/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>BERT and RoBERTa </h2>
-  </header>
-  <section class="entry-content">
-    <p>BERT Recap Overview  Bert (Bidirectional Encoder Representations from Transformers) uses a “masked language model” to randomly mask some tokens from the input and predict the original vocabulary id of the masked token. Bert shows that “pre-trained representations reduce the need for many heavily-engineered task-specific architectures”.  BERT Specifics There are two steps to the BERT framework: pre-training and fine-tuning   During pre training, the model is trained on unlabeled data over different pre-training tasks....</p>
-  </section>
-  <footer class="entry-footer">September 18, 2020&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Theme PaperMod</footer>
-  <a class="entry-link" aria-label="post link to BERT and RoBERTa " href="https://adityatelange.github.io/posts/bert_roberta/"></a>
+  <footer class="entry-footer">April 10, 2020&nbsp;·&nbsp;9 min&nbsp;·&nbsp;Theme PaperMod</footer>
+  <a class="entry-link" aria-label="post link to NLP Basics, Spell Correction with Noisy Channel" href="https://adityatelange.github.io/posts/nlp_basic/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
-    <a class="next" href="https://adityatelange.github.io/page/2/">Next Page »</a>
+    <a class="prev" href="https://adityatelange.github.io/page/4/">« Prev Page</a>
+    <a class="next" href="https://adityatelange.github.io/page/6/">Next Page »</a>
   </nav>
 </footer>
     </main>

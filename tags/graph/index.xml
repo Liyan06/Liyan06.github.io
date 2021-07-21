@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>GRAPH on Liyan Tang</title>
+    <link>https://adityatelange.github.io/tags/graph/</link>
+    <description>Recent content in GRAPH on Liyan Tang</description>
+    <image>
+      <url>https://adityatelange.github.io/papermod-cover.png</url>
+      <link>https://adityatelange.github.io/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://adityatelange.github.io/tags/graph/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper - Connecting the Dots: Document-level Neural Relation Extraction with Edge-oriented Graphs</title>
+      <link>https://adityatelange.github.io/posts/connecting_the_dots/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/connecting_the_dots/</guid>
+      <description>Relation Extraction (RE) Relation Extraction (RE): The extraction of relations between named entities in text.
+Relation Extraction is an important task of NLP. Most existing works focus on intra-sentence RE. In fact, in real-world scenarios, a large amount of relations are expressed across sentences. The task of identifying these relations is named inter-sentence RE.
+Typically, inter-sentence relations occur in textual snippets with several sentences, such as documents. In these snippets, each entity is usually repeated with the same phrases or aliases, the occurrences of which are often named entity mentions and regarded as instances of the entity.</description>
+    </item>
+    
+    <item>
+      <title>Graph Convolutional Neural Network -  Spectral Convolution</title>
+      <link>https://adityatelange.github.io/posts/spectral_conv/</link>
+      <pubDate>Mon, 24 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/spectral_conv/</guid>
+      <description>Fourier Transform Virtually everything in the world can be described via a waveform - a function of time, space or some other variable. For instance, sound waves, the price of a stock, etc. The Fourier Transform gives us a unique and powerful way of viewing these waveforms: All waveforms, no matter what you scribble or observe in the universe, are actually just the sum of simple sinusoids of different frequencies.</description>
+    </item>
+    
+    <item>
+      <title>Graph Convolutional Neural Network - Spatial Convolution</title>
+      <link>https://adityatelange.github.io/posts/spatial_conv/</link>
+      <pubDate>Thu, 20 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/spatial_conv/</guid>
+      <description>Note This is the second post of the Graph Neural Networks (GNNs) series.
+Convolutional graph neural networks (ConvGNNs) Convolutional graph neural networks (ConvGNNs) generalize the operation of convolution from grid data to graph data. The main idea is to generate a node $v$’s representation by aggregating its own features $\mathbf{x}{v}$ and neighbors’ features $\mathbf{x}{u}$, where $u \in N(v)$. Different from RecGNNs, ConvGNNs stack fixed number of multiple graph convolutional layers with different weights to extract high-level node representations.</description>
+    </item>
+    
+    <item>
+      <title>Introduction to Graph Neural Network (GNN)</title>
+      <link>https://adityatelange.github.io/posts/gnn/</link>
+      <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/gnn/</guid>
+      <description>Note This is the first post of the Graph Neural Networks (GNNs) series.
+Background and Intuition There is an increasing number of applications where data are generated from non-Euclidean domains and are represented as graphs with complex relationships and interdependency between objects. For examples, in e-commence, a graph-based learning system can exploit the interactions between users and products to make highly accurate recommendations. In chemistry, molecules are modeled as graphs.</description>
+    </item>
+    
+  </channel>
+</rss>

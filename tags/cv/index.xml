@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>CV on Liyan Tang</title>
+    <link>https://adityatelange.github.io/tags/cv/</link>
+    <description>Recent content in CV on Liyan Tang</description>
+    <image>
+      <url>https://adityatelange.github.io/papermod-cover.png</url>
+      <link>https://adityatelange.github.io/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 08 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://adityatelange.github.io/tags/cv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper - Decoupling Representation and Classifier for Long-Tailed Recognition</title>
+      <link>https://adityatelange.github.io/posts/decoupling_representation/</link>
+      <pubDate>Fri, 08 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/decoupling_representation/</guid>
+      <description>Introduction When learning with long-tailed data, a common challenge is that instance-rich (or head) classes dominate the training procedure. The learned classification model tends to perform better on these classes, while performance is significantly worse for instance-scarce (or tail) classes (under-fitting).
+The general scheme for long-tailed recognition is: classifiers are either learned jointly with the representations end-to-end, or via a two-stage approach where the classifier and the representation are jointly fine-tuned with variants of class-balanced sampling as a second stage.</description>
+    </item>
+    
+    <item>
+      <title>Paper - The More You Know: Using Knowledge Graphs for Image Classification </title>
+      <link>https://adityatelange.github.io/posts/the_more_you_know/</link>
+      <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://adityatelange.github.io/posts/the_more_you_know/</guid>
+      <description>Overview Note: This previous post I wrote might be helpful for reading this paper summary:
+ Introduction to Graph Neural Network (GNN)  This paper investigates the use of structured prior knowledge in the form of knowledge graphs and shows that using this knowledge improves performance on image classification.
+It introduce the Graph Search Neural Network (GSNN) as a way of efficiently incorporating large knowledge graphs into a vision classification pipeline, which outperforms standard neural network baselines for multi-label classification.</description>
+    </item>
+    
+  </channel>
+</rss>
