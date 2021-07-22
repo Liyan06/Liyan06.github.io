@@ -37,7 +37,7 @@ Typically, inter-sentence relations occur in textual snippets with several sente
       
       <guid>https://Liyan06.github.io/posts/spatial_conv/</guid>
       <description>Note This is the second post of the Graph Neural Networks (GNNs) series.
-Convolutional graph neural networks (ConvGNNs) Convolutional graph neural networks (ConvGNNs) generalize the operation of convolution from grid data to graph data. The main idea is to generate a node $v$’s representation by aggregating its own features $\mathbf{x}{v}$ and neighbors’ features $\mathbf{x}{u}$, where $u \in N(v)$. Different from RecGNNs, ConvGNNs stack fixed number of multiple graph convolutional layers with different weights to extract high-level node representations.</description>
+Convolutional graph neural networks (ConvGNNs) Convolutional graph neural networks (ConvGNNs) generalize the operation of convolution from grid data to graph data. The main idea is to generate a node $v$’s representation by aggregating its own features $\mathbf{x}_{v}$ and neighbors’ features $\mathbf{x}_{u}$, where $u \in N(v)$. Different from RecGNNs, ConvGNNs stack fixed number of multiple graph convolutional layers with different weights to extract high-level node representations.</description>
     </item>
     
     <item>

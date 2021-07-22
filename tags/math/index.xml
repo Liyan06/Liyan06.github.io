@@ -26,7 +26,7 @@
       
       <guid>https://Liyan06.github.io/posts/spatial_conv/</guid>
       <description>Note This is the second post of the Graph Neural Networks (GNNs) series.
-Convolutional graph neural networks (ConvGNNs) Convolutional graph neural networks (ConvGNNs) generalize the operation of convolution from grid data to graph data. The main idea is to generate a node $v$’s representation by aggregating its own features $\mathbf{x}{v}$ and neighbors’ features $\mathbf{x}{u}$, where $u \in N(v)$. Different from RecGNNs, ConvGNNs stack fixed number of multiple graph convolutional layers with different weights to extract high-level node representations.</description>
+Convolutional graph neural networks (ConvGNNs) Convolutional graph neural networks (ConvGNNs) generalize the operation of convolution from grid data to graph data. The main idea is to generate a node $v$’s representation by aggregating its own features $\mathbf{x}_{v}$ and neighbors’ features $\mathbf{x}_{u}$, where $u \in N(v)$. Different from RecGNNs, ConvGNNs stack fixed number of multiple graph convolutional layers with different weights to extract high-level node representations.</description>
     </item>
     
     <item>
@@ -61,7 +61,7 @@ Background and Intuition There is an increasing number of applications where dat
       <guid>https://Liyan06.github.io/posts/dl/</guid>
       <description>Deep Learning v.s. Machine Learning The major difference between Deep Learning and Machine Learning technique is the problem solving approach. Deep Learning techniques tend to solve the problem end to end, where as Machine learning techniques need the problem statements to break down to different parts to be solved first and then their results to be combine at final stage.
 Forward Propagation The general procedure is the following:
-$$ \begin{aligned} a^{(1)}(x) &amp;amp;= w^{(1)^T} \cdot x + b^{(1)} \</description>
+$$ \begin{aligned} a^{(1)}(x) &amp;amp;= w^{(1)^T} \cdot x + b^{(1)} \\ h^{(1)}(x) &amp;amp;= g_1(a^{(1)}(x)) \\ a^{(2)}(x) &amp;amp;= w^{(2)^T} \cdot h^{(1)}(x) + b^{(2)} \\ h^{(2)}(x) &amp;amp;= g_2(a^{(2)}(x)) \\ &amp;amp;&amp;hellip;&amp;hellip; \\ a^{(L+1)}(x) &amp;amp;= w^{(L+1)^T} \cdot h^{(L)}(x) + b^{(L+1)} \\ h^{(L+1)}(x) &amp;amp;= g_{L+1}(a^{(L+1)}(x)) \end{aligned} $$</description>
     </item>
     
     <item>
@@ -99,10 +99,7 @@ Interpretation from mixture model setup:
       
       <guid>https://Liyan06.github.io/posts/pgm/</guid>
       <description>Probabilistic Graphical Model (PGM) Definition: A probabilistic graphical model is a probabilistic model for which a graph expresses the conditional dependence structure between random variables.
-In general, PGM obeys following rules: $$ \begin{aligned} &amp;amp;\text {Sum Rule : } p\left(x_{1}\right)=\int p\left(x_{1}, x_{2}\right) d x_{2}\
-&amp;amp;\text {Product Rule : } p\left(x_{1}, x_{2}\right)=p\left(x_{1} | x_{2}\right) p\left(x_{2}\right)\
-&amp;amp;\text {Chain Rule: } p\left(x_{1}, x_{2}, \cdots, x_{p}\right)=\prod_{i=1}^{p} p\left(x_{i} | x_{i+1, x_{i+2}} \ldots x_{p}\right)\
-&amp;amp;\text {Bayesian Rule: } p\left(x_{1} | x_{2}\right)=\frac{p\left(x_{2} | x_{1}\right) p\left(x_{1}\right)}{p\left(x_{2}\right)} \end{aligned} $$</description>
+In general, PGM obeys following rules: $$ \begin{aligned} &amp;amp;\text {Sum Rule : } p\left(x_{1}\right)=\int p\left(x_{1}, x_{2}\right) d x_{2}\\ &amp;amp;\text {Product Rule : } p\left(x_{1}, x_{2}\right)=p\left(x_{1} | x_{2}\right) p\left(x_{2}\right)\\ &amp;amp;\text {Chain Rule: } p\left(x_{1}, x_{2}, \cdots, x_{p}\right)=\prod_{i=1}^{p} p\left(x_{i} | x_{i+1, x_{i+2}} \ldots x_{p}\right)\\ &amp;amp;\text {Bayesian Rule: } p\left(x_{1} | x_{2}\right)=\frac{p\left(x_{2} | x_{1}\right) p\left(x_{1}\right)}{p\left(x_{2}\right)} \end{aligned} $$</description>
     </item>
     
     <item>
@@ -196,7 +193,7 @@ Optimization Categories   convex v.s. non-convex Deep Neural Network is non-conv
       <description>Bagging v.s. Boosting: Bagging: Leverages unstable base learners that are weak because of overfitting.
 Boosting: Leverages stable base learners that are weak because of underfitting.
 XGBoost Learning Process through XGBoost:
- How to set a objective function. Hard to solve directly, how to approximate. How to add tree structures into the objective function. Still hard to optimize, then have to use greedy algorithms.  Step 1. How to set an objective function Suppose we trained $K$ trees, then the prediction for the ith sample is $$\hat{y}i = \sum{k=1}^K f_k(x_i), f_k \in \mathcal{F}$$ where $K$ is the number of trees, $f$ is a function in the functional space $\mathcal{F}$, and $\mathcal{F}$ is the set of all possible CARTs.</description>
+ How to set a objective function. Hard to solve directly, how to approximate. How to add tree structures into the objective function. Still hard to optimize, then have to use greedy algorithms.  Step 1. How to set an objective function Suppose we trained $K$ trees, then the prediction for the ith sample is $$\hat{y}_i = \sum_{k=1}^K f_k(x_i), f_k \in \mathcal{F}$$ where $K$ is the number of trees, $f$ is a function in the functional space $\mathcal{F}$, and $\mathcal{F}$ is the set of all possible CARTs.</description>
     </item>
     
     <item>
@@ -207,7 +204,7 @@ XGBoost Learning Process through XGBoost:
       <guid>https://Liyan06.github.io/posts/mle/</guid>
       <description>MLE v.s. MAP  MLE: learn parameters from data. MAP: add a prior (experience) into the model; more reliable if data is limited. As we have more and more data, the prior becomes less useful. As data increase, MAP $\rightarrow$ MLE.  Notation: $D = {(x_1, y_1), (x_2, y_2), &amp;hellip;, (x_n, y_n)}$
 Framework:
- MLE: $\mathop{\rm arg,max} P(D ,|, \theta)$ MAP: $\mathop{\rm arg,max} P(\theta ,|, D)$  Note that taking a product of some numbers less than 1 would approaching 0 as the number of those numbers goes to infinity, it would be not practical to compute, because of computation underflow.</description>
+ MLE: $\mathop{\rm arg\ max} P(D \ |\ \theta)$ MAP: $\mathop{\rm arg\ max} P(\theta \ |\ D)$  Note that taking a product of some numbers less than 1 would approaching 0 as the number of those numbers goes to infinity, it would be not practical to compute, because of computation underflow.</description>
     </item>
     
     <item>
@@ -218,8 +215,8 @@ Framework:
       <guid>https://Liyan06.github.io/posts/logistic_regression/</guid>
       <description>Generative model v.s. Discriminative model： Examples:
  Generative model: Naive Bayes, HMM, VAE, GAN. Discriminative model：Logistic Regression, CRF.  Objective function:
- Generative model: $max,, p,(x,y)$ Discriminative model：$max ,, p,(y ,|, x)$  Difference:
- Generative model: We first assume a distribution of the data in the consideration of computation efficiency and features of the data. Next, the model will learn the parameters of distribution of the data. Then, we can use the model to generate new data.</description>
+ Generative model: $max \ p \ (x,y)$ Discriminative model：$max \ p \ (y \ |\ x)$  Difference:
+ Generative model: We first assume a distribution of the data in the consideration of computation efficiency and features of the data. Next, the model will learn the parameters of distribution of the data.</description>
     </item>
     
   </channel>

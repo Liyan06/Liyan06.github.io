@@ -190,7 +190,7 @@ MathJax = {
   <section class="entry-content">
     <p>Deep Learning v.s. Machine Learning The major difference between Deep Learning and Machine Learning technique is the problem solving approach. Deep Learning techniques tend to solve the problem end to end, where as Machine learning techniques need the problem statements to break down to different parts to be solved first and then their results to be combine at final stage.
 Forward Propagation The general procedure is the following:
-$$ \begin{aligned} a^{(1)}(x) &amp;= w^{(1)^T} \cdot x &#43; b^{(1)} \...</p>
+$$ \begin{aligned} a^{(1)}(x) &amp;= w^{(1)^T} \cdot x &#43; b^{(1)} \\ h^{(1)}(x) &amp;= g_1(a^{(1)}(x)) \\ a^{(2)}(x) &amp;= w^{(2)^T} \cdot h^{(1)}(x) &#43; b^{(2)} \\ h^{(2)}(x) &amp;= g_2(a^{(2)}(x)) \\ &amp;…… \\ a^{(L&#43;1)}(x) &amp;= w^{(L&#43;1)^T} \cdot h^{(L)}(x) &#43; b^{(L&#43;1)} \\ h^{(L&#43;1)}(x) &amp;= g_{L&#43;1}(a^{(L&#43;1)}(x)) \end{aligned} $$...</p>
   </section>
   <footer class="entry-footer">May 26, 2020&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Theme PaperMod</footer>
   <a class="entry-link" aria-label="post link to Intro to Deep Learning and Backpropagation" href="https://Liyan06.github.io/posts/dl/"></a>
@@ -234,10 +234,7 @@ Interpretation from mixture model setup:
   </header>
   <section class="entry-content">
     <p>Probabilistic Graphical Model (PGM) Definition: A probabilistic graphical model is a probabilistic model for which a graph expresses the conditional dependence structure between random variables.
-In general, PGM obeys following rules: $$ \begin{aligned} &amp;\text {Sum Rule : } p\left(x_{1}\right)=\int p\left(x_{1}, x_{2}\right) d x_{2}\
-&amp;\text {Product Rule : } p\left(x_{1}, x_{2}\right)=p\left(x_{1} | x_{2}\right) p\left(x_{2}\right)\
-&amp;\text {Chain Rule: } p\left(x_{1}, x_{2}, \cdots, x_{p}\right)=\prod_{i=1}^{p} p\left(x_{i} | x_{i&#43;1, x_{i&#43;2}} \ldots x_{p}\right)\
-&amp;\text {Bayesian Rule: } p\left(x_{1} | x_{2}\right)=\frac{p\left(x_{2} | x_{1}\right) p\left(x_{1}\right)}{p\left(x_{2}\right)} \end{aligned} $$...</p>
+In general, PGM obeys following rules: $$ \begin{aligned} &amp;\text {Sum Rule : } p\left(x_{1}\right)=\int p\left(x_{1}, x_{2}\right) d x_{2}\\ &amp;\text {Product Rule : } p\left(x_{1}, x_{2}\right)=p\left(x_{1} | x_{2}\right) p\left(x_{2}\right)\\ &amp;\text {Chain Rule: } p\left(x_{1}, x_{2}, \cdots, x_{p}\right)=\prod_{i=1}^{p} p\left(x_{i} | x_{i&#43;1, x_{i&#43;2}} \ldots x_{p}\right)\\ &amp;\text {Bayesian Rule: } p\left(x_{1} | x_{2}\right)=\frac{p\left(x_{2} | x_{1}\right) p\left(x_{1}\right)}{p\left(x_{2}\right)} \end{aligned} $$...</p>
   </section>
   <footer class="entry-footer">May 11, 2020&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Theme PaperMod</footer>
   <a class="entry-link" aria-label="post link to Probabilistic Graphical Model (PGM)" href="https://Liyan06.github.io/posts/pgm/"></a>

@@ -160,7 +160,7 @@ MathJax = {
     <p>Bagging v.s. Boosting: Bagging: Leverages unstable base learners that are weak because of overfitting.
 Boosting: Leverages stable base learners that are weak because of underfitting.
 XGBoost Learning Process through XGBoost:
- How to set a objective function. Hard to solve directly, how to approximate. How to add tree structures into the objective function. Still hard to optimize, then have to use greedy algorithms.  Step 1. How to set an objective function Suppose we trained $K$ trees, then the prediction for the ith sample is $$\hat{y}i = \sum{k=1}^K f_k(x_i), f_k \in \mathcal{F}$$ where $K$ is the number of trees, $f$ is a function in the functional space $\mathcal{F}$, and $\mathcal{F}$ is the set of all possible CARTs....</p>
+ How to set a objective function. Hard to solve directly, how to approximate. How to add tree structures into the objective function. Still hard to optimize, then have to use greedy algorithms.  Step 1. How to set an objective function Suppose we trained $K$ trees, then the prediction for the ith sample is $$\hat{y}_i = \sum_{k=1}^K f_k(x_i), f_k \in \mathcal{F}$$ where $K$ is the number of trees, $f$ is a function in the functional space $\mathcal{F}$, and $\mathcal{F}$ is the set of all possible CARTs....</p>
   </section>
   <footer class="entry-footer">March 27, 2020&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Theme PaperMod</footer>
   <a class="entry-link" aria-label="post link to XGBoost" href="https://Liyan06.github.io/posts/xgboost/"></a>
@@ -173,7 +173,7 @@ XGBoost Learning Process through XGBoost:
   <section class="entry-content">
     <p>MLE v.s. MAP  MLE: learn parameters from data. MAP: add a prior (experience) into the model; more reliable if data is limited. As we have more and more data, the prior becomes less useful. As data increase, MAP $\rightarrow$ MLE.  Notation: $D = {(x_1, y_1), (x_2, y_2), …, (x_n, y_n)}$
 Framework:
- MLE: $\mathop{\rm arg,max} P(D ,|, \theta)$ MAP: $\mathop{\rm arg,max} P(\theta ,|, D)$  Note that taking a product of some numbers less than 1 would approaching 0 as the number of those numbers goes to infinity, it would be not practical to compute, because of computation underflow....</p>
+ MLE: $\mathop{\rm arg\ max} P(D \ |\ \theta)$ MAP: $\mathop{\rm arg\ max} P(\theta \ |\ D)$  Note that taking a product of some numbers less than 1 would approaching 0 as the number of those numbers goes to infinity, it would be not practical to compute, because of computation underflow....</p>
   </section>
   <footer class="entry-footer">March 26, 2020&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Theme PaperMod</footer>
   <a class="entry-link" aria-label="post link to Maximum Likelihood Estimation (MLE) and Maximum a Posteriori (MAP)" href="https://Liyan06.github.io/posts/mle/"></a>
@@ -186,8 +186,8 @@ Framework:
   <section class="entry-content">
     <p>Generative model v.s. Discriminative model： Examples:
  Generative model: Naive Bayes, HMM, VAE, GAN. Discriminative model：Logistic Regression, CRF.  Objective function:
- Generative model: $max,, p,(x,y)$ Discriminative model：$max ,, p,(y ,|, x)$  Difference:
- Generative model: We first assume a distribution of the data in the consideration of computation efficiency and features of the data. Next, the model will learn the parameters of distribution of the data. Then, we can use the model to generate new data....</p>
+ Generative model: $max \ p \ (x,y)$ Discriminative model：$max \ p \ (y \ |\ x)$  Difference:
+ Generative model: We first assume a distribution of the data in the consideration of computation efficiency and features of the data. Next, the model will learn the parameters of distribution of the data....</p>
   </section>
   <footer class="entry-footer">March 25, 2020&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Theme PaperMod</footer>
   <a class="entry-link" aria-label="post link to Logistic Regression, L1, L2 regularization, Gradient/Coordinate descent" href="https://Liyan06.github.io/posts/logistic_regression/"></a>

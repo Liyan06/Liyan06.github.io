@@ -9,7 +9,7 @@
 <meta name="keywords" content="ML, MATH" />
 <meta name="description" content="MLE v.s. MAP  MLE: learn parameters from data. MAP: add a prior (experience) into the model; more reliable if data is limited. As we have more and more data, the prior becomes less useful. As data increase, MAP $\rightarrow$ MLE.  Notation: $D = {(x_1, y_1), (x_2, y_2), &hellip;, (x_n, y_n)}$
 Framework:
- MLE: $\mathop{\rm arg,max} P(D ,|, \theta)$ MAP: $\mathop{\rm arg,max} P(\theta ,|, D)$  Note that taking a product of some numbers less than 1 would approaching 0 as the number of those numbers goes to infinity, it would be not practical to compute, because of computation underflow.">
+ MLE: $\mathop{\rm arg\ max} P(D \ |\ \theta)$ MAP: $\mathop{\rm arg\ max} P(\theta \ |\ D)$  Note that taking a product of some numbers less than 1 would approaching 0 as the number of those numbers goes to infinity, it would be not practical to compute, because of computation underflow.">
 <meta name="author" content="Theme PaperMod">
 <link rel="canonical" href="https://Liyan06.github.io/posts/mle/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.35cd0f65a15cafa92372b8313deef5960aae04b90ad722f2bbf509eb0468137e.css" integrity="sha256-Nc0PZaFcr6kjcrgxPe71lgquBLkK1yLyu/UJ6wRoE34=" rel="preload stylesheet" as="style">
@@ -40,7 +40,7 @@ MathJax = {
 <meta property="og:title" content="Maximum Likelihood Estimation (MLE) and Maximum a Posteriori (MAP)" />
 <meta property="og:description" content="MLE v.s. MAP  MLE: learn parameters from data. MAP: add a prior (experience) into the model; more reliable if data is limited. As we have more and more data, the prior becomes less useful. As data increase, MAP $\rightarrow$ MLE.  Notation: $D = {(x_1, y_1), (x_2, y_2), &hellip;, (x_n, y_n)}$
 Framework:
- MLE: $\mathop{\rm arg,max} P(D ,|, \theta)$ MAP: $\mathop{\rm arg,max} P(\theta ,|, D)$  Note that taking a product of some numbers less than 1 would approaching 0 as the number of those numbers goes to infinity, it would be not practical to compute, because of computation underflow." />
+ MLE: $\mathop{\rm arg\ max} P(D \ |\ \theta)$ MAP: $\mathop{\rm arg\ max} P(\theta \ |\ D)$  Note that taking a product of some numbers less than 1 would approaching 0 as the number of those numbers goes to infinity, it would be not practical to compute, because of computation underflow." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Liyan06.github.io/posts/mle/" /><meta property="og:image" content="https://Liyan06.github.io/papermod-cover.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-03-26T00:00:00&#43;00:00" />
@@ -52,7 +52,7 @@ Framework:
 <meta name="twitter:title" content="Maximum Likelihood Estimation (MLE) and Maximum a Posteriori (MAP)"/>
 <meta name="twitter:description" content="MLE v.s. MAP  MLE: learn parameters from data. MAP: add a prior (experience) into the model; more reliable if data is limited. As we have more and more data, the prior becomes less useful. As data increase, MAP $\rightarrow$ MLE.  Notation: $D = {(x_1, y_1), (x_2, y_2), &hellip;, (x_n, y_n)}$
 Framework:
- MLE: $\mathop{\rm arg,max} P(D ,|, \theta)$ MAP: $\mathop{\rm arg,max} P(\theta ,|, D)$  Note that taking a product of some numbers less than 1 would approaching 0 as the number of those numbers goes to infinity, it would be not practical to compute, because of computation underflow."/>
+ MLE: $\mathop{\rm arg\ max} P(D \ |\ \theta)$ MAP: $\mathop{\rm arg\ max} P(\theta \ |\ D)$  Note that taking a product of some numbers less than 1 would approaching 0 as the number of those numbers goes to infinity, it would be not practical to compute, because of computation underflow."/>
 
 
 <script type="application/ld+json">
@@ -81,12 +81,12 @@ Framework:
   "@type": "BlogPosting",
   "headline": "Maximum Likelihood Estimation (MLE) and Maximum a Posteriori (MAP)",
   "name": "Maximum Likelihood Estimation (MLE) and Maximum a Posteriori (MAP)",
-  "description": "MLE v.s. MAP  MLE: learn parameters from data. MAP: add a prior (experience) into the model; more reliable if data is limited. As we have more and more data, the prior becomes less useful. As data increase, MAP $\\rightarrow$ MLE.  Notation: $D = {(x_1, y_1), (x_2, y_2), \u0026hellip;, (x_n, y_n)}$\nFramework:\n MLE: $\\mathop{\\rm arg,max} P(D ,|, \\theta)$ MAP: $\\mathop{\\rm arg,max} P(\\theta ,|, D)$  Note that taking a product of some numbers less than 1 would approaching 0 as the number of those numbers goes to infinity, it would be not practical to compute, because of computation underflow.",
+  "description": "MLE v.s. MAP  MLE: learn parameters from data. MAP: add a prior (experience) into the model; more reliable if data is limited. As we have more and more data, the prior becomes less useful. As data increase, MAP $\\rightarrow$ MLE.  Notation: $D = {(x_1, y_1), (x_2, y_2), \u0026hellip;, (x_n, y_n)}$\nFramework:\n MLE: $\\mathop{\\rm arg\\ max} P(D \\ |\\ \\theta)$ MAP: $\\mathop{\\rm arg\\ max} P(\\theta \\ |\\ D)$  Note that taking a product of some numbers less than 1 would approaching 0 as the number of those numbers goes to infinity, it would be not practical to compute, because of computation underflow.",
   "keywords": [
     "ML", "MATH"
   ],
-  "articleBody": "MLE v.s. MAP  MLE: learn parameters from data. MAP: add a prior (experience) into the model; more reliable if data is limited. As we have more and more data, the prior becomes less useful. As data increase, MAP $\\rightarrow$ MLE.  Notation: $D = {(x_1, y_1), (x_2, y_2), …, (x_n, y_n)}$\nFramework:\n MLE: $\\mathop{\\rm arg,max} P(D ,|, \\theta)$ MAP: $\\mathop{\\rm arg,max} P(\\theta ,|, D)$  Note that taking a product of some numbers less than 1 would approaching 0 as the number of those numbers goes to infinity, it would be not practical to compute, because of computation underflow. Hence, we will instead work in the log space.\nComparing both MLE and MAP equation, the only thing differs is the inclusion of prior $P(\\theta)$ in MAP, otherwise they are identical. What it means is that, the likelihood is now weighted with some weight coming from the prior.\nIf the prior follows the normal distribution, then it is the same as adding a $L2$ regularization.\nWe assume $P(\\theta) \\sim \\mathcal{N}(0, \\sigma^2)$, then $P(x) = \\frac{1}{\\sigma \\sqrt {2\\pi}}exp(-\\frac{\\theta^2}{2\\sigma^2})$\nIf the prior follows the Laplace distribution, then it is the same as adding a $L1$ regularization.\nWe assume $P(\\theta) \\sim Laplace ,(\\mu=0, b)$, then $P(\\theta) = \\frac{1}{2b}exp(-\\frac{|\\theta|}{b})$\n",
-  "wordCount" : "202",
+  "articleBody": "MLE v.s. MAP  MLE: learn parameters from data. MAP: add a prior (experience) into the model; more reliable if data is limited. As we have more and more data, the prior becomes less useful. As data increase, MAP $\\rightarrow$ MLE.  Notation: $D = {(x_1, y_1), (x_2, y_2), …, (x_n, y_n)}$\nFramework:\n MLE: $\\mathop{\\rm arg\\ max} P(D \\ |\\ \\theta)$ MAP: $\\mathop{\\rm arg\\ max} P(\\theta \\ |\\ D)$  Note that taking a product of some numbers less than 1 would approaching 0 as the number of those numbers goes to infinity, it would be not practical to compute, because of computation underflow. Hence, we will instead work in the log space.\nComparing both MLE and MAP equation, the only thing differs is the inclusion of prior $P(\\theta)$ in MAP, otherwise they are identical. What it means is that, the likelihood is now weighted with some weight coming from the prior.\nIf the prior follows the normal distribution, then it is the same as adding a $L2$ regularization.\nWe assume $P(\\theta) \\sim \\mathcal{N}(0, \\sigma^2)$, then $P(x) = \\frac{1}{\\sigma \\sqrt {2\\pi}}exp(-\\frac{\\theta^2}{2\\sigma^2})$\nIf the prior follows the Laplace distribution, then it is the same as adding a $L1$ regularization.\nWe assume $P(\\theta) \\sim Laplace \\ (\\mu=0, b)$, then $P(\\theta) = \\frac{1}{2b}exp(-\\frac{|\\theta|}{b})$\n",
+  "wordCount" : "207",
   "inLanguage": "en",
   "datePublished": "2020-03-26T00:00:00Z",
   "dateModified": "2020-03-26T00:00:00Z",
@@ -243,8 +243,8 @@ Framework:
 <p><em>Notation</em>: $D = {(x_1, y_1), (x_2, y_2), &hellip;, (x_n, y_n)}$</p>
 <p><strong>Framework:</strong></p>
 <ul>
-<li>MLE: $\mathop{\rm arg,max} P(D ,|, \theta)$</li>
-<li>MAP: $\mathop{\rm arg,max} P(\theta ,|, D)$</li>
+<li>MLE: $\mathop{\rm arg\ max} P(D \ |\  \theta)$</li>
+<li>MAP: $\mathop{\rm arg\ max} P(\theta \ |\  D)$</li>
 </ul>
 <img src="https://img-blog.csdnimg.cn/20200327130558143.png" width=500>
 <p>Note that taking a product of some numbers less than 1 would approaching 0 as the number of those numbers goes to infinity, it would be not practical to compute, because of computation underflow. Hence, we will instead work in the log space.</p>
@@ -255,7 +255,7 @@ $P(\theta)$ in MAP, otherwise they are identical. What it means is that, the lik
 <p>We assume $P(\theta) \sim \mathcal{N}(0, \sigma^2)$, then $P(x) = \frac{1}{\sigma \sqrt {2\pi}}exp(-\frac{\theta^2}{2\sigma^2})$</p>
 <img src="https://img-blog.csdnimg.cn/20200327130800945.png" width=500>
 <p><strong>If the prior follows the Laplace distribution, then it is the same as adding a $L1$ regularization.</strong></p>
-<p>We assume $P(\theta) \sim Laplace ,(\mu=0, b)$, then $P(\theta) = \frac{1}{2b}exp(-\frac{|\theta|}{b})$</p>
+<p>We assume $P(\theta) \sim Laplace \ (\mu=0, b)$, then $P(\theta) = \frac{1}{2b}exp(-\frac{|\theta|}{b})$</p>
 <img src="https://img-blog.csdnimg.cn/20200327131027888.png" width=500>
 
 

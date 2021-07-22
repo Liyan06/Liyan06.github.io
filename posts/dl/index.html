@@ -9,7 +9,7 @@
 <meta name="keywords" content="ML, MATH" />
 <meta name="description" content="Deep Learning v.s. Machine Learning The major difference between Deep Learning and Machine Learning technique is the problem solving approach. Deep Learning techniques tend to solve the problem end to end, where as Machine learning techniques need the problem statements to break down to different parts to be solved first and then their results to be combine at final stage.
 Forward Propagation The general procedure is the following:
-$$ \begin{aligned} a^{(1)}(x) &amp;= w^{(1)^T} \cdot x &#43; b^{(1)} \">
+$$ \begin{aligned} a^{(1)}(x) &amp;= w^{(1)^T} \cdot x &#43; b^{(1)} \\ h^{(1)}(x) &amp;= g_1(a^{(1)}(x)) \\ a^{(2)}(x) &amp;= w^{(2)^T} \cdot h^{(1)}(x) &#43; b^{(2)} \\ h^{(2)}(x) &amp;= g_2(a^{(2)}(x)) \\ &amp;&hellip;&hellip; \\ a^{(L&#43;1)}(x) &amp;= w^{(L&#43;1)^T} \cdot h^{(L)}(x) &#43; b^{(L&#43;1)} \\ h^{(L&#43;1)}(x) &amp;= g_{L&#43;1}(a^{(L&#43;1)}(x)) \end{aligned} $$">
 <meta name="author" content="Theme PaperMod">
 <link rel="canonical" href="https://Liyan06.github.io/posts/dl/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.35cd0f65a15cafa92372b8313deef5960aae04b90ad722f2bbf509eb0468137e.css" integrity="sha256-Nc0PZaFcr6kjcrgxPe71lgquBLkK1yLyu/UJ6wRoE34=" rel="preload stylesheet" as="style">
@@ -40,7 +40,7 @@ MathJax = {
 <meta property="og:title" content="Intro to Deep Learning and Backpropagation" />
 <meta property="og:description" content="Deep Learning v.s. Machine Learning The major difference between Deep Learning and Machine Learning technique is the problem solving approach. Deep Learning techniques tend to solve the problem end to end, where as Machine learning techniques need the problem statements to break down to different parts to be solved first and then their results to be combine at final stage.
 Forward Propagation The general procedure is the following:
-$$ \begin{aligned} a^{(1)}(x) &amp;= w^{(1)^T} \cdot x &#43; b^{(1)} \" />
+$$ \begin{aligned} a^{(1)}(x) &amp;= w^{(1)^T} \cdot x &#43; b^{(1)} \\ h^{(1)}(x) &amp;= g_1(a^{(1)}(x)) \\ a^{(2)}(x) &amp;= w^{(2)^T} \cdot h^{(1)}(x) &#43; b^{(2)} \\ h^{(2)}(x) &amp;= g_2(a^{(2)}(x)) \\ &amp;&hellip;&hellip; \\ a^{(L&#43;1)}(x) &amp;= w^{(L&#43;1)^T} \cdot h^{(L)}(x) &#43; b^{(L&#43;1)} \\ h^{(L&#43;1)}(x) &amp;= g_{L&#43;1}(a^{(L&#43;1)}(x)) \end{aligned} $$" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Liyan06.github.io/posts/dl/" /><meta property="og:image" content="https://Liyan06.github.io/papermod-cover.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-05-26T00:00:00&#43;00:00" />
@@ -52,7 +52,7 @@ $$ \begin{aligned} a^{(1)}(x) &amp;= w^{(1)^T} \cdot x &#43; b^{(1)} \" />
 <meta name="twitter:title" content="Intro to Deep Learning and Backpropagation"/>
 <meta name="twitter:description" content="Deep Learning v.s. Machine Learning The major difference between Deep Learning and Machine Learning technique is the problem solving approach. Deep Learning techniques tend to solve the problem end to end, where as Machine learning techniques need the problem statements to break down to different parts to be solved first and then their results to be combine at final stage.
 Forward Propagation The general procedure is the following:
-$$ \begin{aligned} a^{(1)}(x) &amp;= w^{(1)^T} \cdot x &#43; b^{(1)} \"/>
+$$ \begin{aligned} a^{(1)}(x) &amp;= w^{(1)^T} \cdot x &#43; b^{(1)} \\ h^{(1)}(x) &amp;= g_1(a^{(1)}(x)) \\ a^{(2)}(x) &amp;= w^{(2)^T} \cdot h^{(1)}(x) &#43; b^{(2)} \\ h^{(2)}(x) &amp;= g_2(a^{(2)}(x)) \\ &amp;&hellip;&hellip; \\ a^{(L&#43;1)}(x) &amp;= w^{(L&#43;1)^T} \cdot h^{(L)}(x) &#43; b^{(L&#43;1)} \\ h^{(L&#43;1)}(x) &amp;= g_{L&#43;1}(a^{(L&#43;1)}(x)) \end{aligned} $$"/>
 
 
 <script type="application/ld+json">
@@ -81,12 +81,12 @@ $$ \begin{aligned} a^{(1)}(x) &amp;= w^{(1)^T} \cdot x &#43; b^{(1)} \"/>
   "@type": "BlogPosting",
   "headline": "Intro to Deep Learning and Backpropagation",
   "name": "Intro to Deep Learning and Backpropagation",
-  "description": "Deep Learning v.s. Machine Learning The major difference between Deep Learning and Machine Learning technique is the problem solving approach. Deep Learning techniques tend to solve the problem end to end, where as Machine learning techniques need the problem statements to break down to different parts to be solved first and then their results to be combine at final stage.\nForward Propagation The general procedure is the following:\n$$ \\begin{aligned} a^{(1)}(x) \u0026amp;= w^{(1)^T} \\cdot x + b^{(1)} \\",
+  "description": "Deep Learning v.s. Machine Learning The major difference between Deep Learning and Machine Learning technique is the problem solving approach. Deep Learning techniques tend to solve the problem end to end, where as Machine learning techniques need the problem statements to break down to different parts to be solved first and then their results to be combine at final stage.\nForward Propagation The general procedure is the following:\n$$ \\begin{aligned} a^{(1)}(x) \u0026amp;= w^{(1)^T} \\cdot x + b^{(1)} \\\\ h^{(1)}(x) \u0026amp;= g_1(a^{(1)}(x)) \\\\ a^{(2)}(x) \u0026amp;= w^{(2)^T} \\cdot h^{(1)}(x) + b^{(2)} \\\\ h^{(2)}(x) \u0026amp;= g_2(a^{(2)}(x)) \\\\ \u0026amp;\u0026hellip;\u0026hellip; \\\\ a^{(L+1)}(x) \u0026amp;= w^{(L+1)^T} \\cdot h^{(L)}(x) + b^{(L+1)} \\\\ h^{(L+1)}(x) \u0026amp;= g_{L+1}(a^{(L+1)}(x)) \\end{aligned} $$",
   "keywords": [
     "ML", "MATH"
   ],
-  "articleBody": "Deep Learning v.s. Machine Learning The major difference between Deep Learning and Machine Learning technique is the problem solving approach. Deep Learning techniques tend to solve the problem end to end, where as Machine learning techniques need the problem statements to break down to different parts to be solved first and then their results to be combine at final stage.\nForward Propagation The general procedure is the following:\n$$ \\begin{aligned} a^{(1)}(x) \u0026= w^{(1)^T} \\cdot x + b^{(1)} \\\nh^{(1)}(x) \u0026= g_1(a^{(1)}(x)) \\\na^{(2)}(x) \u0026= w^{(2)^T} \\cdot h^{(1)}(x) + b^{(2)} \\\nh^{(2)}(x) \u0026= g_2(a^{(2)}(x)) \\\n\u0026…… \\\na^{(L+1)}(x) \u0026= w^{(L+1)^T} \\cdot h^{(L)}(x) + b^{(L+1)} \\\nh^{(L+1)}(x) \u0026= g_{L+1}(a^{(L+1)}(x)) \\end{aligned} $$\nNote:\n  $w^{(i)}$ has dimension: (# of (hidden) units in layer $i$) $\\times$ (# of (hidden) units in layer $i-1$).\n  $b^{(i)}, a^{(i)}, h^{(i)}$ have the same dimension: (# of (hidden) units in layer $i$, $1$).\n  $g_{i}$ is an activation function. *Sigmoid*, *tanh*, *relu* are common activation functions. In the last layer, the choose of activation function $g_{(L+1)}$ depends on problems, usually *sigmoid*, and *softmax*.\n  Loss functions of neural network Common loss functions are cross-entropy loss, hinge loss, triple loss, etc. In fact, depending on specifice problems, we can define arbitrarily loss functions. We can also use AUC as a loss.\nIn this post, we focus on the cross-entropy loss.\nFor example, let the output of the neural network be $(0.6, 0.2, 0.1, 0.1)$, and the true label $(0, 1, 0, 0)$, then we can write the cross-entropy loss as\n$$ \\ell \\left(\\left[\\begin{array}{l} 0.6 \\\n0.2 \\\n0.1 \\\n0.1 \\end{array}\\right],\\left[\\begin{array}{l} 0 \\\n1 \\\n0 \\\n0 \\end{array}\\right]\\right) = -(0 \\cdot \\log 0.6 + 1 \\cdot \\log 0.2 + 0 \\cdot \\log 0.1 + 0 \\cdot \\log 0.1) = -\\log 0.2 $$\nFrom now on, we call the output of the neural network $f(x)$, and the true label w.r.t $x$ is y, then the corss-entropy loss is written by\n$$\\ell \\left( f(x), y\\right) = - \\log f(x)_y$$\nwhere $f(x)_y$ is the $y$-th entry of $f(x)$.\nBack-propagation In fitting a neural network, backpropagation computes the gradient of the loss function with respect to the weights of the network. The backpropagation algorithm works by computing the gradient of the loss function with respect to each weight by the chain rule, computing the gradient one layer at a time, iterating backward from the last layer to avoid redundant calculations of intermediate terms in the chain rule.\nIn the following, we would try to compute $\\frac{\\partial \\ell}{\\partial f(x)}, \\frac{\\partial \\ell}{\\partial a^{(L+1)}(x)}, \\frac{\\partial \\ell}{\\partial h^{(k)}(x)}, \\frac{\\partial \\ell}{\\partial a^{(k)}(x)}, \\frac{\\partial \\ell}{\\partial w^{(k)}}, \\frac{\\partial \\ell}{\\partial b^{(k)}}$, and then make a summary of the back-propagation process.\ncompute $\\frac{\\partial \\ell}{\\partial f(x)}$ First consider single element: $$ \\begin{aligned} \\frac{\\partial \\ell}{\\partial f(x)_j} \u0026= \\frac{\\partial -\\log f(x)_y}{\\partial f(x)_j} \\\n\u0026= \\frac{-1}{f(x)_y} \\cdot \\frac{\\partial f(x)_y}{\\partial f(x)_j} \\\n\u0026= \\frac{-1\\cdot I(y=j)}{f(x)_y} \\end{aligned} $$\nPut it into vector form:\n$$ \\frac{\\partial \\ell}{\\partial f(x)} = \\frac{\\partial -\\log f(x)_y}{\\partial f(x)} = \\frac{-1}{f(x)_y} \\cdot\\left(\\begin{array}{l} I(y=1) \\\nI(y=2) \\\n\\quad … \\\nI(y=n) \\\n\\end{array}\\right) = \\frac{-e(y)}{f(x)_y} \\tag 1 $$\nwhere $e(y)$ is the one-hot encoding of label $y$.\ncompute $\\frac{\\partial \\ell}{\\partial a^{(L+1)}(x)}$ First consider single element:\n$$ \\begin{aligned} \\frac{\\partial \\ell}{\\partial a^{(L+1)}(x)_j} \u0026= \\frac{\\partial -\\log f(x)_y}{\\partial a^{(L+1)}(x)_j} \\\n\u0026= \\frac{-1}{f(x)_y} \\cdot \\frac{\\partial f(x)_y}{\\partial a^{(L+1)}(x)_j}\\\n\u0026= \\frac{-1}{f(x)_y} \\cdot \\frac{\\partial}{\\partial a^{(L+1)}(x)j} \\cdot \\frac{\\exp (a^{(L+1)}(x)y)}{\\sum{j'} \\exp (a^{(L+1)}(x){j'})} \\\n\u0026= f(x)_j - I(y=j) \\\n\\end{aligned} $$\nPut it into vector form:\n$$\\frac{\\partial \\ell}{\\partial a^{(L+1)}(x)} = \\left(\\begin{array}{l} f(x)_1 - I(y=1) \\\nf(x)_2 - I(y=2) \\\n\\quad … \\\nf(x)_n - I(y=n) \\\n\\end{array}\\right) = f(x) - e(y) \\tag 2 $$\nNote that here, we assume the last activation function is softmax.\ncompute $\\frac{\\partial \\ell}{\\partial h^{(k)}(x)}$ $$ \\begin{aligned} \\frac{\\partial \\ell}{\\partial h^{(k)}(x)_j} \u0026= \\sum_i \\frac{\\partial \\ell}{\\partial a^{(k+1)}(x)_i} \\cdot \\frac{\\partial a^{(k+1)}(x)_i}{\\partial h^{(k)}(x)_j} \\\n\u0026= \\sum_i \\frac{\\partial \\ell}{\\partial a^{(k+1)}(x)i} \\cdot \\frac{\\partial \\sum_j w{ij}^{(k+1)}h^{(k)}(x)_j + b^{(k+1)}_i}{\\partial h^{(k)}(x)j} \\\n\u0026= \\sum_i \\frac{\\partial \\ell}{\\partial a^{(k+1)}(x)i} \\cdot w{ij}^{(k+1)} \\\n\u0026= w{ij}^{(k+1)^T} \\cdot \\frac{\\partial -\\log f(x)_y}{\\partial a^{(k+1)}(x)} \\end{aligned} $$\nwhere $a^{(k+1)}(x) = w^{(k+1)}h^{(k)}(x) + b^{(k+1)}$.\nPut it into vector form:\n$$ \\frac{\\partial \\ell}{\\partial h^{(k)}(x)} = w^{(k+1)^T} \\cdot \\frac{\\partial -\\log f(x)_y}{\\partial a^{(k+1)}(x)} \\tag 3$$\ncompute $\\frac{\\partial \\ell}{\\partial a^{(k)}(x)}$ $$ \\begin{aligned} \\frac{\\partial \\ell}{\\partial a^{(k)}(x)_j} \u0026= \\frac{\\partial \\ell}{\\partial h^{(k)}(x)_j} \\cdot \\frac{\\partial h^{(k)}(x)_j}{\\partial a^{(k)}(x)_j} \\\n\u0026= \\frac{\\partial \\ell}{\\partial h^{(k)}(x)_j} \\cdot g'_k(a^{(k)}(x)_j) \\end{aligned} $$\nwhere $ h^{(k)}(x) = g_k(a^{(k)}(x))$. Now put it into vector form:\n$$ \\begin{aligned} \\frac{\\partial \\ell}{\\partial a^{(k)}(x)} \u0026= \\left( \\frac{\\partial \\ell}{\\partial h^{(k)}(x)_1} \\cdot g'_k(a^{(k)}(x)_1), ,… , ,, \\frac{\\partial \\ell}{\\partial h^{(k)}(x)_n} \\cdot g'_k(a^{(k)}(x)_n) \\right) \\\n\u0026= \\left(\\begin{array}{l} \\frac{\\partial \\ell}{\\partial h^{(k)}(x)_1} \\\n\\quad … \\\n\\frac{\\partial \\ell}{\\partial h^{(k)}(x)_n} \\\n\\end{array}\\right) \\odot \\left(\\begin{array}{l} g'_k(a^{(k)}(x)_1) \\\n\\quad … \\\ng'_k(a^{(k)}(x)_n) \\\n\\end{array}\\right) \\\n\u0026= \\frac{\\partial \\ell}{\\partial h^{(k)}(x)} \\odot g'(a^{(k)}(x)) \\end{aligned} \\tag 4 $$\nwhere “$\\odot$” means the element-wise product.\ncompute $\\frac{\\partial \\ell}{\\partial w^{(k)}}$ $$ \\begin{aligned} \\frac{\\partial \\ell}{\\partial w_{ij}^{(k)}} \u0026= \\frac{\\partial \\ell}{\\partial a^{(k)}(x)_i} \\cdot \\frac{\\partial a^{(k)}(x)_i}{\\partial w_{ij}^{(k)}} \\\n\u0026= \\frac{\\partial \\ell}{\\partial a^{(k)}(x)_i} \\cdot \\frac{\\sum_j w_{ij}^{(k)}h^{(k-1)}(x)_j + b^{(k)}_i}{\\partial w_{ij}^{(k)}} \\\n\u0026= \\frac{\\partial \\ell}{\\partial a^{(k)}(x)_i} \\cdot h^{(k-1)}(x)_j \\end{aligned} $$\nput it into vector form:\n$$ \\begin{aligned} \\frac{\\partial \\ell}{\\partial w^{(k)}} \u0026= \\frac{\\partial -\\log f(x)_y}{\\partial a^{(k)}(x)} \\cdot( h^{(k-1)}(x))^T \\\n\u0026= \\left(\\begin{array}{l} \\frac{\\partial -\\log f(x)_y}{\\partial a^{(k)}(x)_1} \\\n\\quad … \\\n\\frac{\\partial -\\log f(x)_y}{\\partial a^{(k)}(x)_m} \\\n\\end{array}\\right) \\cdot \\left( h^{(k-1)}(x)_1, ,… , , , h^{(k-1)}(x)_n\\right) \\end{aligned} \\tag 5 $$\ncompute $\\frac{\\partial \\ell}{\\partial b^{(k)}}$ $$ \\begin{aligned} \\frac{\\partial \\ell}{\\partial b_{i}^{(k)}} \u0026= \\frac{\\partial \\ell}{\\partial a^{(k)}(x)_i} \\cdot \\frac{\\partial a^{(k)}(x)_i}{\\partial b_i^{(k)}} \\\n\u0026= \\frac{\\partial \\ell}{\\partial a^{(k)}(x)_i} \\cdot 1 \\\n\u0026= \\frac{\\partial \\ell}{\\partial a^{(k)}(x)_i} \\end{aligned} $$\nput it into vector form:\n$$ \\frac{\\partial \\ell}{\\partial b^{(k)}} = \\frac{\\partial \\ell}{\\partial a^{(k)}(x)} = \\frac{\\partial -\\log f(x)_y}{\\partial a^{(k)}(x)} \\tag 6 $$\nBack-propagation Precedure (using SGD) Summary For each data (x,y):\n  Forward progagation: Compute $a^{(k)}(x), h^{(k)}(x)$, loss.\n  Back Propagation:\n Compute output gradient: $$ \\nabla_{a^{(L+1)}(x)} -\\log f(x)_y = f(x) - e(y)$$ for $k = L+1$ to $1$:  Compute the gradients of parameters: $$ \\begin{aligned} \\nabla_{w^{(k)}(x)} -\\log f(x)_y \u0026= (\\nabla_{a^{(k)}(x)} -\\log f(x)_y) \\cdot (h^{(k-1)}(x))^T \\\n\\nabla_{b^{(k)}(x)} -\\log f(x)_y \u0026= \\nabla_{a^{(k)}(x)} -\\log f(x)_y \\end{aligned} $$ Compute the gradients of hidden layers: $$ \\begin{aligned} \\nabla_{h^{(k-1)}(x)} -\\log f(x)_y \u0026= (w^{(k)}(x))^T \\cdot (\\nabla_{a^{(k)}(x)} -\\log f(x)_y) \\\n\\nabla_{a^{(k-1)}(x)} -\\log f(x)_y \u0026= (\\nabla_{h^{(k-1)}(x)} -\\log f(x)_y) \\odot g'(a^{(k-1)}(x)) \\end{aligned} $$      Debugging: Gradient Checking Since gradient computation can be notoriously difficult to debug and get right, even with a buggy implementation, it may not at all be apparent that anything is amiss. Gradient checking is a method for numerically checking the derivatives computed by your code to make sure that your implementation is correct.\nRecall the mathematical definition of the derivative as:\n$$ \\frac{d}{d\\theta}J(\\theta) = \\lim_{\\epsilon \\rightarrow 0} \\frac{J(\\theta+ \\epsilon) - J(\\theta-\\epsilon)}{2 \\epsilon}$$\nSuppose we have a function $g_i(\\theta)$ that computes $\\textstyle \\frac{\\partial}{\\partial \\theta_i} J(\\theta)$; we’d like to check if $g_i$ is outputting correct derivative values. We would choose a very small $\\epsilon$ and choose a threshold $\\delta$ and check if the following is true:\n$$ | \\frac{J(\\theta+ \\epsilon) - J(\\theta-\\epsilon)}{2 \\epsilon} - g_i(\\theta)| Dropout Dropout refers to ignoring units during the training phase of certain set of neurons which is chosen at random. “ignoring” means these units are not considered during a particular forward or backward pass. More technically, at each training stage, individual nodes are either dropped out of the net with probability $1-p$ or kept with probability $p$, so that a reduced network is left; incoming and outgoing edges to a dropped-out node are also removed.\nDropout is an approach of regularization in neural networks which helps reducing interdependent learning amongst the neurons.\nTraining Phase \u0026 Testing Phase: For each hidden layer, for each training sample, for each iteration, ignore (zero out) a random fraction, $p$, of nodes (and corresponding activations).\nIn testing phase, we won’t use dropout.\nNote: Dropout roughly doubles the number of iterations required to converge. However, training time for each epoch is less.\nEarly Stopping Early stopping is a form of regularization used to avoid overfitting when training a learner with an iterative method, such as gradient descent. Such methods update the learner so as to make it better fit the training data with each iteration. Up to a point, this improves the learner’s performance on data outside of the training set. Past that point, however, improving the learner’s fit to the training data comes at the expense of increased generalization error. Early stopping rules provide guidance as to how many iterations can be run before the learner begins to over-fit.\nSGD with Converge Theoretically. SGD would converge if it satisfies\n$$ \\sum_{t=1}^{+\\infty} \\eta_t = +\\infty \\tag 7$$ $$\\sum_{t=1}^{+\\infty} \\eta_t^2 where $\\eta$ is the learning rate.\n Reference:\n https://en.wikipedia.org/wiki/Backpropagation http://deeplearning.stanford.edu/tutorial/supervised/DebuggingGradientChecking/ https://medium.com/@amarbudhiraja/https-medium-com-amarbudhiraja-learning-less-to-learn-better-dropout-in-deep-machine-learning-74334da4bfc5 https://en.wikipedia.org/wiki/Early_stopping https://www.researchgate.net/figure/Cross-validation-Early-stopping-Principe-2000_fig4_228469923 https://towardsdatascience.com/why-deep-learning-is-needed-over-traditional-machine-learning-1b6a99177063  ",
-  "wordCount" : "1397",
+  "articleBody": "Deep Learning v.s. Machine Learning The major difference between Deep Learning and Machine Learning technique is the problem solving approach. Deep Learning techniques tend to solve the problem end to end, where as Machine learning techniques need the problem statements to break down to different parts to be solved first and then their results to be combine at final stage.\nForward Propagation The general procedure is the following:\n$$ \\begin{aligned} a^{(1)}(x) \u0026= w^{(1)^T} \\cdot x + b^{(1)} \\\\ h^{(1)}(x) \u0026= g_1(a^{(1)}(x)) \\\\ a^{(2)}(x) \u0026= w^{(2)^T} \\cdot h^{(1)}(x) + b^{(2)} \\\\ h^{(2)}(x) \u0026= g_2(a^{(2)}(x)) \\\\ \u0026…… \\\\ a^{(L+1)}(x) \u0026= w^{(L+1)^T} \\cdot h^{(L)}(x) + b^{(L+1)} \\\\ h^{(L+1)}(x) \u0026= g_{L+1}(a^{(L+1)}(x)) \\end{aligned} $$\nNote:\n  $w^{(i)}$ has dimension: (# of (hidden) units in layer $i$) $\\times$ (# of (hidden) units in layer $i-1$).\n  $b^{(i)}, a^{(i)}, h^{(i)}$ have the same dimension: (# of (hidden) units in layer $i$, $1$).\n  $g_{i}$ is an activation function. Sigmoid, tanh, relu are common activation functions. In the last layer, the choose of activation function $g_{(L+1)}$ depends on problems, usually sigmoid, and softmax.\n  Loss functions of neural network Common loss functions are cross-entropy loss, hinge loss, triple loss, etc. In fact, depending on specifice problems, we can define arbitrarily loss functions. We can also use AUC as a loss.\nIn this post, we focus on the cross-entropy loss.\nFor example, let the output of the neural network be $(0.6, 0.2, 0.1, 0.1)$, and the true label $(0, 1, 0, 0)$, then we can write the cross-entropy loss as\n$$ \\ell \\left(\\left[\\begin{array}{l} 0.6 \\\\ 0.2 \\\\ 0.1 \\\\ 0.1 \\end{array}\\right],\\left[\\begin{array}{l} 0 \\\\ 1 \\\\ 0 \\\\ 0 \\end{array}\\right]\\right) = -(0 \\cdot \\log 0.6 + 1 \\cdot \\log 0.2 + 0 \\cdot \\log 0.1 + 0 \\cdot \\log 0.1) = -\\log 0.2 $$\nFrom now on, we call the output of the neural network $f(x)$, and the true label w.r.t $x$ is y, then the corss-entropy loss is written by\n$$\\ell \\left( f(x), y\\right) = - \\log f(x)_y$$\nwhere $f(x)_y$ is the $y$-th entry of $f(x)$.\nBack-propagation In fitting a neural network, backpropagation computes the gradient of the loss function with respect to the weights of the network. The backpropagation algorithm works by computing the gradient of the loss function with respect to each weight by the chain rule, computing the gradient one layer at a time, iterating backward from the last layer to avoid redundant calculations of intermediate terms in the chain rule.\nIn the following, we would try to compute $\\frac{\\partial \\ell}{\\partial f(x)}, \\frac{\\partial \\ell}{\\partial a^{(L+1)}(x)}, \\frac{\\partial \\ell}{\\partial h^{(k)}(x)}, \\frac{\\partial \\ell}{\\partial a^{(k)}(x)}, \\frac{\\partial \\ell}{\\partial w^{(k)}}, \\frac{\\partial \\ell}{\\partial b^{(k)}}$, and then make a summary of the back-propagation process.\ncompute $\\frac{\\partial \\ell}{\\partial f(x)}$ First consider single element: $$ \\begin{aligned} \\frac{\\partial \\ell}{\\partial f(x)_j} \u0026= \\frac{\\partial -\\log f(x)_y}{\\partial f(x)_j} \\\\ \u0026= \\frac{-1}{f(x)_y} \\cdot \\frac{\\partial f(x)_y}{\\partial f(x)_j} \\\\ \u0026= \\frac{-1\\cdot I(y=j)}{f(x)_y} \\end{aligned} $$\nPut it into vector form:\n$$ \\frac{\\partial \\ell}{\\partial f(x)} = \\frac{\\partial -\\log f(x)_y}{\\partial f(x)} = \\frac{-1}{f(x)_y} \\cdot\\left(\\begin{array}{l} I(y=1) \\\\ I(y=2) \\\\ \\quad … \\\\ I(y=n) \\\n\\end{array}\\right) = \\frac{-e(y)}{f(x)_y} \\tag 1 $$\nwhere $e(y)$ is the one-hot encoding of label $y$.\ncompute $\\frac{\\partial \\ell}{\\partial a^{(L+1)}(x)}$ First consider single element:\n$$ \\begin{aligned} \\frac{\\partial \\ell}{\\partial a^{(L+1)}(x)_j} \u0026= \\frac{\\partial -\\log f(x)_y}{\\partial a^{(L+1)}(x)_j} \\\\ \u0026= \\frac{-1}{f(x)_y} \\cdot \\frac{\\partial f(x)_y}{\\partial a^{(L+1)}(x)_j}\\\\ \u0026= \\frac{-1}{f(x)_y} \\cdot \\frac{\\partial}{\\partial a^{(L+1)}(x)_j} \\cdot \\frac{\\exp (a^{(L+1)}(x)_y)}{\\sum_{j'} \\exp (a^{(L+1)}(x)_{j'})} \\\\ \u0026= f(x)_j - I(y=j) \\\n\\end{aligned} $$\nPut it into vector form:\n$$\\frac{\\partial \\ell}{\\partial a^{(L+1)}(x)} = \\left(\\begin{array}{l} f(x)_1 - I(y=1) \\\\ f(x)_2 - I(y=2) \\\\ \\quad … \\\\ f(x)_n - I(y=n) \\\n\\end{array}\\right) = f(x) - e(y) \\tag 2 $$\nNote that here, we assume the last activation function is softmax.\ncompute $\\frac{\\partial \\ell}{\\partial h^{(k)}(x)}$ $$ \\begin{aligned} \\frac{\\partial \\ell}{\\partial h^{(k)}(x)_j} \u0026= \\sum_i \\frac{\\partial \\ell}{\\partial a^{(k+1)}(x)_i} \\cdot \\frac{\\partial a^{(k+1)}(x)_i}{\\partial h^{(k)}(x)_j} \\\\ \u0026= \\sum_i \\frac{\\partial \\ell}{\\partial a^{(k+1)}(x)_i} \\cdot \\frac{\\partial \\sum_j w_{ij}^{(k+1)}h^{(k)}(x)_j + b^{(k+1)}_i}{\\partial h^{(k)}(x)_j} \\\\ \u0026= \\sum_i \\frac{\\partial \\ell}{\\partial a^{(k+1)}(x)_i} \\cdot w_{ij}^{(k+1)} \\\\ \u0026= w_{ij}^{(k+1)^T} \\cdot \\frac{\\partial -\\log f(x)_y}{\\partial a^{(k+1)}(x)} \\end{aligned} $$\nwhere $a^{(k+1)}(x) = w^{(k+1)}h^{(k)}(x) + b^{(k+1)}$.\nPut it into vector form:\n$$ \\frac{\\partial \\ell}{\\partial h^{(k)}(x)} = w^{(k+1)^T} \\cdot \\frac{\\partial -\\log f(x)_y}{\\partial a^{(k+1)}(x)} \\tag 3$$\ncompute $\\frac{\\partial \\ell}{\\partial a^{(k)}(x)}$ $$ \\begin{aligned} \\frac{\\partial \\ell}{\\partial a^{(k)}(x)_j} \u0026= \\frac{\\partial \\ell}{\\partial h^{(k)}(x)_j} \\cdot \\frac{\\partial h^{(k)}(x)_j}{\\partial a^{(k)}(x)_j} \\\\ \u0026= \\frac{\\partial \\ell}{\\partial h^{(k)}(x)_j} \\cdot g'_k(a^{(k)}(x)_j) \\end{aligned} $$\nwhere $ h^{(k)}(x) = g_k(a^{(k)}(x))$. Now put it into vector form:\n$$ \\begin{aligned} \\frac{\\partial \\ell}{\\partial a^{(k)}(x)} \u0026= \\left( \\frac{\\partial \\ell}{\\partial h^{(k)}(x)_1} \\cdot g'_k(a^{(k)}(x)_1), \\ … \\ ,\\ \\frac{\\partial \\ell}{\\partial h^{(k)}(x)_n} \\cdot g'_k(a^{(k)}(x)_n) \\right) \\\\ \u0026= \\left(\\begin{array}{l} \\frac{\\partial \\ell}{\\partial h^{(k)}(x)_1} \\\\ \\quad … \\\\ \\frac{\\partial \\ell}{\\partial h^{(k)}(x)_n} \\\\ \\end{array}\\right) \\odot \\left(\\begin{array}{l} g'_k(a^{(k)}(x)_1) \\\\ \\quad … \\\\ g'_k(a^{(k)}(x)_n) \\\n\\end{array}\\right) \\\\ \u0026= \\frac{\\partial \\ell}{\\partial h^{(k)}(x)} \\odot g'(a^{(k)}(x)) \\end{aligned} \\tag 4 $$\nwhere “$\\odot$” means the element-wise product.\ncompute $\\frac{\\partial \\ell}{\\partial w^{(k)}}$ $$ \\begin{aligned} \\frac{\\partial \\ell}{\\partial w_{ij}^{(k)}} \u0026= \\frac{\\partial \\ell}{\\partial a^{(k)}(x)_i} \\cdot \\frac{\\partial a^{(k)}(x)_i}{\\partial w_{ij}^{(k)}} \\\\ \u0026= \\frac{\\partial \\ell}{\\partial a^{(k)}(x)_i} \\cdot \\frac{\\sum_j w_{ij}^{(k)}h^{(k-1)}(x)_j + b^{(k)}_i}{\\partial w_{ij}^{(k)}} \\\\ \u0026= \\frac{\\partial \\ell}{\\partial a^{(k)}(x)_i} \\cdot h^{(k-1)}(x)_j \\end{aligned} $$\nput it into vector form:\n$$ \\begin{aligned} \\frac{\\partial \\ell}{\\partial w^{(k)}} \u0026= \\frac{\\partial -\\log f(x)_y}{\\partial a^{(k)}(x)} \\cdot( h^{(k-1)}(x))^T \\\\ \u0026= \\left(\\begin{array}{l} \\frac{\\partial -\\log f(x)_y}{\\partial a^{(k)}(x)_1} \\\\ \\quad … \\\\ \\frac{\\partial -\\log f(x)_y}{\\partial a^{(k)}(x)_m} \\\n\\end{array}\\right) \\cdot \\left( h^{(k-1)}(x)_1, ,… , , , h^{(k-1)}(x)_n\\right) \\end{aligned} \\tag 5 $$\ncompute $\\frac{\\partial \\ell}{\\partial b^{(k)}}$ $$ \\begin{aligned} \\frac{\\partial \\ell}{\\partial b_{i}^{(k)}} \u0026= \\frac{\\partial \\ell}{\\partial a^{(k)}(x)_i} \\cdot \\frac{\\partial a^{(k)}(x)_i}{\\partial b_i^{(k)}} \\\\ \u0026= \\frac{\\partial \\ell}{\\partial a^{(k)}(x)_i} \\cdot 1 \\\\ \u0026= \\frac{\\partial \\ell}{\\partial a^{(k)}(x)_i} \\end{aligned} $$\nput it into vector form:\n$$ \\frac{\\partial \\ell}{\\partial b^{(k)}} = \\frac{\\partial \\ell}{\\partial a^{(k)}(x)} = \\frac{\\partial -\\log f(x)_y}{\\partial a^{(k)}(x)} \\tag 6 $$\nBack-propagation Precedure (using SGD) Summary For each data (x,y):\n  Forward progagation: Compute $a^{(k)}(x), h^{(k)}(x)$, loss.\n  Back Propagation:\n Compute output gradient: $$ \\nabla_{a^{(L+1)}(x)} -\\log f(x)_y = f(x) - e(y)$$ for $k = L+1$ to $1$:  Compute the gradients of parameters: $$ \\begin{aligned} \\nabla_{w^{(k)}(x)} -\\log f(x)_y \u0026= (\\nabla_{a^{(k)}(x)} -\\log f(x)_y) \\cdot (h^{(k-1)}(x))^T \\\\ \\nabla_{b^{(k)}(x)} -\\log f(x)_y \u0026= \\nabla_{a^{(k)}(x)} -\\log f(x)_y \\end{aligned} $$ Compute the gradients of hidden layers: $$ \\begin{aligned} \\nabla_{h^{(k-1)}(x)} -\\log f(x)_y \u0026= (w^{(k)}(x))^T \\cdot (\\nabla_{a^{(k)}(x)} -\\log f(x)_y) \\\\ \\nabla_{a^{(k-1)}(x)} -\\log f(x)_y \u0026= (\\nabla_{h^{(k-1)}(x)} -\\log f(x)_y) \\odot g'(a^{(k-1)}(x)) \\end{aligned} $$      Debugging: Gradient Checking Since gradient computation can be notoriously difficult to debug and get right, even with a buggy implementation, it may not at all be apparent that anything is amiss. Gradient checking is a method for numerically checking the derivatives computed by your code to make sure that your implementation is correct.\nRecall the mathematical definition of the derivative as:\n$$ \\frac{d}{d\\theta}J(\\theta) = \\lim_{\\epsilon \\rightarrow 0} \\frac{J(\\theta+ \\epsilon) - J(\\theta-\\epsilon)}{2 \\epsilon}$$\nSuppose we have a function $g_i(\\theta)$ that computes $\\textstyle \\frac{\\partial}{\\partial \\theta_i} J(\\theta)$; we’d like to check if $g_i$ is outputting correct derivative values. We would choose a very small $\\epsilon$ and choose a threshold $\\delta$ and check if the following is true:\n$$ | \\frac{J(\\theta+ \\epsilon) - J(\\theta-\\epsilon)}{2 \\epsilon} - g_i(\\theta)| Dropout Dropout refers to ignoring units during the training phase of certain set of neurons which is chosen at random. “ignoring” means these units are not considered during a particular forward or backward pass. More technically, at each training stage, individual nodes are either dropped out of the net with probability $1-p$ or kept with probability $p$, so that a reduced network is left; incoming and outgoing edges to a dropped-out node are also removed.\nDropout is an approach of regularization in neural networks which helps reducing interdependent learning amongst the neurons.\nTraining Phase \u0026 Testing Phase: For each hidden layer, for each training sample, for each iteration, ignore (zero out) a random fraction, $p$, of nodes (and corresponding activations).\nIn testing phase, we won’t use dropout.\nNote: Dropout roughly doubles the number of iterations required to converge. However, training time for each epoch is less.\nEarly Stopping Early stopping is a form of regularization used to avoid overfitting when training a learner with an iterative method, such as gradient descent. Such methods update the learner so as to make it better fit the training data with each iteration. Up to a point, this improves the learner’s performance on data outside of the training set. Past that point, however, improving the learner’s fit to the training data comes at the expense of increased generalization error. Early stopping rules provide guidance as to how many iterations can be run before the learner begins to over-fit.\nSGD with Converge Theoretically. SGD would converge if it satisfies\n$$ \\sum_{t=1}^{+\\infty} \\eta_t = +\\infty \\tag 7$$ $$\\sum_{t=1}^{+\\infty} \\eta_t^2 where $\\eta$ is the learning rate.\n Reference:\n https://en.wikipedia.org/wiki/Backpropagation http://deeplearning.stanford.edu/tutorial/supervised/DebuggingGradientChecking/ https://medium.com/@amarbudhiraja/https-medium-com-amarbudhiraja-learning-less-to-learn-better-dropout-in-deep-machine-learning-74334da4bfc5 https://en.wikipedia.org/wiki/Early_stopping https://www.researchgate.net/figure/Cross-validation-Early-stopping-Principe-2000_fig4_228469923 https://towardsdatascience.com/why-deep-learning-is-needed-over-traditional-machine-learning-1b6a99177063  ",
+  "wordCount" : "1398",
   "inLanguage": "en",
   "datePublished": "2020-05-26T00:00:00Z",
   "dateModified": "2020-05-26T00:00:00Z",
@@ -276,13 +276,7 @@ $$ \begin{aligned} a^{(1)}(x) &amp;= w^{(1)^T} \cdot x &#43; b^{(1)} \"/>
 <p>The general procedure is the following:</p>
 <p>$$
 \begin{aligned}
-a^{(1)}(x) &amp;= w^{(1)^T} \cdot x + b^{(1)} \<br>
-h^{(1)}(x) &amp;= g_1(a^{(1)}(x))  \<br>
-a^{(2)}(x) &amp;= w^{(2)^T} \cdot h^{(1)}(x) + b^{(2)} \<br>
-h^{(2)}(x) &amp;= g_2(a^{(2)}(x))  \<br>
-&amp;&hellip;&hellip; \<br>
-a^{(L+1)}(x) &amp;= w^{(L+1)^T} \cdot h^{(L)}(x) + b^{(L+1)} \<br>
-h^{(L+1)}(x) &amp;= g_{L+1}(a^{(L+1)}(x))
+a^{(1)}(x) &amp;= w^{(1)^T} \cdot x + b^{(1)} \\ h^{(1)}(x) &amp;= g_1(a^{(1)}(x))  \\ a^{(2)}(x) &amp;= w^{(2)^T} \cdot h^{(1)}(x) + b^{(2)} \\ h^{(2)}(x) &amp;= g_2(a^{(2)}(x))  \\ &amp;&hellip;&hellip; \\ a^{(L+1)}(x) &amp;= w^{(L+1)^T} \cdot h^{(L)}(x) + b^{(L+1)} \\ h^{(L+1)}(x) &amp;= g_{L+1}(a^{(L+1)}(x))
 \end{aligned}
 $$</p>
 <img src="https://img-blog.csdnimg.cn/20200526042156728.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pheV9UYW5n,size_25,color_FFFFFF,t_70#pic_center" width=700>
@@ -295,7 +289,7 @@ $$</p>
 <p>$b^{(i)}, a^{(i)}, h^{(i)}$ have the same dimension: (# of (hidden) units in layer $i$, $1$).</p>
 </li>
 <li>
-<p>$g_{i}$ is an activation function. *Sigmoid*, *tanh*, *relu* are common activation functions. In the last layer, the choose of activation function $g_{(L+1)}$ depends on problems, usually *sigmoid*, and *softmax*.</p>
+<p>$g_{i}$ is an activation function. <strong>Sigmoid</strong>, <strong>tanh</strong>, <strong>relu</strong> are common activation functions. In the last layer, the choose of activation function $g_{(L+1)}$ depends on problems, usually <em>sigmoid</em>, and <em>softmax</em>.</p>
 </li>
 </ul>
 <h2 id="loss-functions-of-neural-network">Loss functions of neural network<a hidden class="anchor" aria-hidden="true" href="#loss-functions-of-neural-network">#</a></h2>
@@ -304,15 +298,9 @@ $$</p>
 <p>For example, let the output of the neural network be $(0.6, 0.2, 0.1, 0.1)$, and the true label $(0, 1, 0, 0)$, then we can write the cross-entropy loss as</p>
 <p>$$ \ell
 \left(\left[\begin{array}{l}
-0.6 \<br>
-0.2 \<br>
-0.1 \<br>
-0.1
+0.6 \\ 0.2 \\ 0.1 \\ 0.1
 \end{array}\right],\left[\begin{array}{l}
-0 \<br>
-1 \<br>
-0 \<br>
-0
+0 \\ 1 \\ 0 \\ 0
 \end{array}\right]\right)
 = -(0 \cdot \log 0.6 + 1 \cdot \log 0.2 + 0 \cdot \log 0.1 + 0 \cdot \log 0.1) = -\log 0.2
 $$</p>
@@ -327,18 +315,13 @@ $$</p>
 $$
 \begin{aligned}
 \frac{\partial \ell}{\partial f(x)_j}
-&amp;= \frac{\partial  -\log f(x)_y}{\partial f(x)_j} \<br>
-&amp;= \frac{-1}{f(x)_y} \cdot \frac{\partial f(x)_y}{\partial f(x)_j} \<br>
-&amp;= \frac{-1\cdot I(y=j)}{f(x)_y}
+&amp;= \frac{\partial  -\log f(x)_y}{\partial f(x)_j} \\ &amp;= \frac{-1}{f(x)_y} \cdot \frac{\partial f(x)_y}{\partial f(x)_j} \\ &amp;= \frac{-1\cdot I(y=j)}{f(x)_y}
 \end{aligned}
 $$</p>
 <p>Put it into vector form:</p>
 <p>$$ \frac{\partial \ell}{\partial f(x)} = \frac{\partial  -\log f(x)_y}{\partial f(x)} =
 \frac{-1}{f(x)_y} \cdot\left(\begin{array}{l}
-I(y=1) \<br>
-I(y=2) \<br>
-\quad &hellip; \<br>
-I(y=n) \<br>
+I(y=1) \\ I(y=2) \\ \quad &hellip; \\ I(y=n) \<br>
 \end{array}\right)
 = \frac{-e(y)}{f(x)_y} \tag 1
 $$</p>
@@ -348,19 +331,13 @@ $$</p>
 <p>$$
 \begin{aligned}
 \frac{\partial \ell}{\partial a^{(L+1)}(x)_j}
-&amp;= \frac{\partial -\log f(x)_y}{\partial a^{(L+1)}(x)_j} \<br>
-&amp;= \frac{-1}{f(x)_y} \cdot \frac{\partial f(x)_y}{\partial a^{(L+1)}(x)_j}\<br>
-&amp;= \frac{-1}{f(x)_y} \cdot \frac{\partial}{\partial a^{(L+1)}(x)<em>j} \cdot \frac{\exp (a^{(L+1)}(x)<em>y)}{\sum</em>{j'} \exp (a^{(L+1)}(x)</em>{j'})} \<br>
-&amp;= f(x)_j - I(y=j) \<br>
+&amp;= \frac{\partial -\log f(x)_y}{\partial a^{(L+1)}(x)_j} \\ &amp;= \frac{-1}{f(x)_y} \cdot \frac{\partial f(x)_y}{\partial a^{(L+1)}(x)_j}\\ &amp;= \frac{-1}{f(x)_y} \cdot \frac{\partial}{\partial a^{(L+1)}(x)_j} \cdot \frac{\exp (a^{(L+1)}(x)_y)}{\sum_{j'} \exp (a^{(L+1)}(x)_{j'})} \\ &amp;= f(x)_j - I(y=j) \<br>
 \end{aligned}
 $$</p>
 <p>Put it into vector form:</p>
 <p>$$\frac{\partial \ell}{\partial a^{(L+1)}(x)} =
 \left(\begin{array}{l}
-f(x)_1 - I(y=1) \<br>
-f(x)_2 - I(y=2) \<br>
-\quad &hellip; \<br>
-f(x)_n - I(y=n) \<br>
+f(x)_1 - I(y=1) \\ f(x)_2 - I(y=2) \\ \quad &hellip; \\ f(x)_n - I(y=n) \<br>
 \end{array}\right) = f(x) - e(y) \tag 2
 $$</p>
 <p>Note that here, we assume the last activation function is <em>softmax</em>.</p>
@@ -368,10 +345,7 @@ $$</p>
 <p>$$
 \begin{aligned}
 \frac{\partial \ell}{\partial h^{(k)}(x)_j}
-&amp;= \sum_i \frac{\partial \ell}{\partial a^{(k+1)}(x)_i} \cdot \frac{\partial a^{(k+1)}(x)_i}{\partial h^{(k)}(x)_j} \<br>
-&amp;= \sum_i \frac{\partial \ell}{\partial a^{(k+1)}(x)<em>i} \cdot \frac{\partial \sum_j w</em>{ij}^{(k+1)}h^{(k)}(x)_j + b^{(k+1)}_i}{\partial h^{(k)}(x)<em>j} \<br>
-&amp;= \sum_i \frac{\partial \ell}{\partial a^{(k+1)}(x)<em>i} \cdot w</em>{ij}^{(k+1)} \<br>
-&amp;= w</em>{ij}^{(k+1)^T} \cdot \frac{\partial -\log f(x)_y}{\partial a^{(k+1)}(x)}
+&amp;= \sum_i \frac{\partial \ell}{\partial a^{(k+1)}(x)_i} \cdot \frac{\partial a^{(k+1)}(x)_i}{\partial h^{(k)}(x)_j} \\ &amp;= \sum_i \frac{\partial \ell}{\partial a^{(k+1)}(x)_i} \cdot \frac{\partial \sum_j w_{ij}^{(k+1)}h^{(k)}(x)_j + b^{(k+1)}_i}{\partial h^{(k)}(x)_j} \\ &amp;= \sum_i \frac{\partial \ell}{\partial a^{(k+1)}(x)_i} \cdot w_{ij}^{(k+1)} \\ &amp;= w_{ij}^{(k+1)^T} \cdot \frac{\partial -\log f(x)_y}{\partial a^{(k+1)}(x)}
 \end{aligned}
 $$</p>
 <p>where $a^{(k+1)}(x) = w^{(k+1)}h^{(k)}(x) + b^{(k+1)}$.</p>
@@ -381,27 +355,19 @@ $$</p>
 <p>$$
 \begin{aligned}
 \frac{\partial \ell}{\partial a^{(k)}(x)_j}
-&amp;= \frac{\partial \ell}{\partial h^{(k)}(x)_j} \cdot \frac{\partial h^{(k)}(x)_j}{\partial a^{(k)}(x)_j} \<br>
-&amp;= \frac{\partial \ell}{\partial h^{(k)}(x)_j} \cdot g'_k(a^{(k)}(x)_j)
+&amp;= \frac{\partial \ell}{\partial h^{(k)}(x)_j} \cdot \frac{\partial h^{(k)}(x)_j}{\partial a^{(k)}(x)_j} \\ &amp;= \frac{\partial \ell}{\partial h^{(k)}(x)_j} \cdot g'_k(a^{(k)}(x)_j)
 \end{aligned}
 $$</p>
 <p>where $ h^{(k)}(x) = g_k(a^{(k)}(x))$. Now put it into vector form:</p>
 <p>$$
 \begin{aligned}
 \frac{\partial \ell}{\partial a^{(k)}(x)}
-&amp;= \left( \frac{\partial \ell}{\partial h^{(k)}(x)_1} \cdot g'_k(a^{(k)}(x)_1), ,&hellip; , ,,  \frac{\partial \ell}{\partial h^{(k)}(x)_n} \cdot g'_k(a^{(k)}(x)_n) \right) \<br>
-&amp;=
+&amp;= \left( \frac{\partial \ell}{\partial h^{(k)}(x)_1} \cdot g'_k(a^{(k)}(x)_1), \ &hellip; \  ,\   \frac{\partial \ell}{\partial h^{(k)}(x)_n} \cdot g'_k(a^{(k)}(x)_n) \right) \\ &amp;=
 \left(\begin{array}{l}
-\frac{\partial \ell}{\partial h^{(k)}(x)_1} \<br>
-\quad &hellip; \<br>
-\frac{\partial \ell}{\partial h^{(k)}(x)_n}  \<br>
-\end{array}\right) \odot
+\frac{\partial \ell}{\partial h^{(k)}(x)_1} \\ \quad &hellip; \\ \frac{\partial \ell}{\partial h^{(k)}(x)_n}  \\ \end{array}\right) \odot
 \left(\begin{array}{l}
-g'_k(a^{(k)}(x)_1) \<br>
-\quad &hellip; \<br>
-g'_k(a^{(k)}(x)_n) \<br>
-\end{array}\right) \<br>
-&amp;= \frac{\partial \ell}{\partial h^{(k)}(x)} \odot g'(a^{(k)}(x))
+g'_k(a^{(k)}(x)_1) \\ \quad &hellip; \\ g'_k(a^{(k)}(x)_n) \<br>
+\end{array}\right) \\ &amp;= \frac{\partial \ell}{\partial h^{(k)}(x)} \odot g'(a^{(k)}(x))
 \end{aligned} \tag 4
 $$</p>
 <p>where &ldquo;$\odot$&rdquo; means the element-wise product.</p>
@@ -409,21 +375,16 @@ $$</p>
 <p>$$
 \begin{aligned}
 \frac{\partial \ell}{\partial w_{ij}^{(k)}}
-&amp;= \frac{\partial \ell}{\partial a^{(k)}(x)_i} \cdot \frac{\partial a^{(k)}(x)_i}{\partial w_{ij}^{(k)}} \<br>
-&amp;= \frac{\partial \ell}{\partial a^{(k)}(x)_i} \cdot \frac{\sum_j w_{ij}^{(k)}h^{(k-1)}(x)_j + b^{(k)}_i}{\partial w_{ij}^{(k)}} \<br>
-&amp;= \frac{\partial \ell}{\partial a^{(k)}(x)_i} \cdot h^{(k-1)}(x)_j
+&amp;= \frac{\partial \ell}{\partial a^{(k)}(x)_i} \cdot \frac{\partial a^{(k)}(x)_i}{\partial w_{ij}^{(k)}} \\ &amp;= \frac{\partial \ell}{\partial a^{(k)}(x)_i} \cdot \frac{\sum_j w_{ij}^{(k)}h^{(k-1)}(x)_j + b^{(k)}_i}{\partial w_{ij}^{(k)}} \\ &amp;= \frac{\partial \ell}{\partial a^{(k)}(x)_i} \cdot h^{(k-1)}(x)_j
 \end{aligned}
 $$</p>
 <p>put it into vector form:</p>
 <p>$$
 \begin{aligned}
 \frac{\partial \ell}{\partial w^{(k)}}
-&amp;= \frac{\partial -\log f(x)_y}{\partial a^{(k)}(x)} \cdot( h^{(k-1)}(x))^T \<br>
-&amp;=
+&amp;= \frac{\partial -\log f(x)_y}{\partial a^{(k)}(x)} \cdot( h^{(k-1)}(x))^T \\ &amp;=
 \left(\begin{array}{l}
-\frac{\partial -\log f(x)_y}{\partial a^{(k)}(x)_1} \<br>
-\quad &hellip; \<br>
-\frac{\partial -\log f(x)_y}{\partial a^{(k)}(x)_m} \<br>
+\frac{\partial -\log f(x)_y}{\partial a^{(k)}(x)_1} \\ \quad &hellip; \\ \frac{\partial -\log f(x)_y}{\partial a^{(k)}(x)_m} \<br>
 \end{array}\right) \cdot
 \left( h^{(k-1)}(x)_1, ,&hellip; , , , h^{(k-1)}(x)_n\right)
 \end{aligned} \tag 5
@@ -432,9 +393,7 @@ $$</p>
 <p>$$
 \begin{aligned}
 \frac{\partial \ell}{\partial b_{i}^{(k)}}
-&amp;= \frac{\partial \ell}{\partial a^{(k)}(x)_i} \cdot \frac{\partial a^{(k)}(x)_i}{\partial b_i^{(k)}} \<br>
-&amp;= \frac{\partial \ell}{\partial a^{(k)}(x)_i} \cdot 1 \<br>
-&amp;= \frac{\partial \ell}{\partial a^{(k)}(x)_i}
+&amp;= \frac{\partial \ell}{\partial a^{(k)}(x)_i} \cdot \frac{\partial a^{(k)}(x)_i}{\partial b_i^{(k)}} \\ &amp;= \frac{\partial \ell}{\partial a^{(k)}(x)_i} \cdot 1 \\ &amp;= \frac{\partial \ell}{\partial a^{(k)}(x)_i}
 \end{aligned}
 $$</p>
 <p>put it into vector form:</p>
@@ -455,15 +414,13 @@ $$ \nabla_{a^{(L+1)}(x)} -\log f(x)_y = f(x) - e(y)$$</li>
 <li>Compute the gradients of parameters:
 $$
 \begin{aligned}
-\nabla_{w^{(k)}(x)} -\log f(x)_y &amp;= (\nabla_{a^{(k)}(x)}  -\log f(x)_y) \cdot (h^{(k-1)}(x))^T \<br>
-\nabla_{b^{(k)}(x)} -\log f(x)_y &amp;= \nabla_{a^{(k)}(x)}  -\log f(x)_y
+\nabla_{w^{(k)}(x)} -\log f(x)_y &amp;= (\nabla_{a^{(k)}(x)}  -\log f(x)_y) \cdot (h^{(k-1)}(x))^T \\ \nabla_{b^{(k)}(x)} -\log f(x)_y &amp;= \nabla_{a^{(k)}(x)}  -\log f(x)_y
 \end{aligned}
 $$</li>
 <li>Compute the gradients of hidden layers:
 $$
 \begin{aligned}
-\nabla_{h^{(k-1)}(x)} -\log f(x)_y &amp;= (w^{(k)}(x))^T \cdot (\nabla_{a^{(k)}(x)} -\log f(x)_y) \<br>
-\nabla_{a^{(k-1)}(x)} -\log f(x)_y &amp;= (\nabla_{h^{(k-1)}(x)} -\log f(x)_y) \odot g'(a^{(k-1)}(x))
+\nabla_{h^{(k-1)}(x)} -\log f(x)_y &amp;= (w^{(k)}(x))^T \cdot (\nabla_{a^{(k)}(x)} -\log f(x)_y) \\ \nabla_{a^{(k-1)}(x)} -\log f(x)_y &amp;= (\nabla_{h^{(k-1)}(x)} -\log f(x)_y) \odot g'(a^{(k-1)}(x))
 \end{aligned}
 $$</li>
 </ol>
