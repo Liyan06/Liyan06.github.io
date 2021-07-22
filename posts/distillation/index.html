@@ -10,7 +10,6 @@
 <meta name="description" content="Currently, especially in NLP, very large scale models are being trained. A large portion of those can’t even fit on an average person’s hardware. We can train a small network that can run on the limited computational resource of our mobile device. But small models can’t extract many complex features that can be handy in generating predictions unless you devise some elegant algorithm to do so. Plus, due to the Law of diminishing returns, a great increase in the size of model barely maps to a small increase in the accuracy.">
 <meta name="author" content="Theme PaperMod">
 <link rel="canonical" href="https://Liyan06.github.io/posts/distillation/" />
-<meta name="google-site-verification" content="UA-202974782-1" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.35cd0f65a15cafa92372b8313deef5960aae04b90ad722f2bbf509eb0468137e.css" integrity="sha256-Nc0PZaFcr6kjcrgxPe71lgquBLkK1yLyu/UJ6wRoE34=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
     onload="hljs.initHighlightingOnLoad();"></script>
@@ -36,7 +35,19 @@ MathJax = {
   type="text/javascript" id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
 </script>
-<meta property="og:title" content="Knowledge Distillation" />
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-202974782-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="Knowledge Distillation" />
 <meta property="og:description" content="Currently, especially in NLP, very large scale models are being trained. A large portion of those can’t even fit on an average person’s hardware. We can train a small network that can run on the limited computational resource of our mobile device. But small models can’t extract many complex features that can be handy in generating predictions unless you devise some elegant algorithm to do so. Plus, due to the Law of diminishing returns, a great increase in the size of model barely maps to a small increase in the accuracy." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://Liyan06.github.io/posts/distillation/" /><meta property="og:image" content="https://Liyan06.github.io/papermod-cover.png"/><meta property="article:section" content="posts" />

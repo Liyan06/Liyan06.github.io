@@ -11,7 +11,6 @@
 In general, PGM obeys following rules: $$ \begin{aligned} &amp;\text {Sum Rule : } p\left(x_{1}\right)=\int p\left(x_{1}, x_{2}\right) d x_{2}\\ &amp;\text {Product Rule : } p\left(x_{1}, x_{2}\right)=p\left(x_{1} | x_{2}\right) p\left(x_{2}\right)\\ &amp;\text {Chain Rule: } p\left(x_{1}, x_{2}, \cdots, x_{p}\right)=\prod_{i=1}^{p} p\left(x_{i} | x_{i&#43;1, x_{i&#43;2}} \ldots x_{p}\right)\\ &amp;\text {Bayesian Rule: } p\left(x_{1} | x_{2}\right)=\frac{p\left(x_{2} | x_{1}\right) p\left(x_{1}\right)}{p\left(x_{2}\right)} \end{aligned} $$">
 <meta name="author" content="Theme PaperMod">
 <link rel="canonical" href="https://Liyan06.github.io/posts/pgm/" />
-<meta name="google-site-verification" content="UA-202974782-1" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.35cd0f65a15cafa92372b8313deef5960aae04b90ad722f2bbf509eb0468137e.css" integrity="sha256-Nc0PZaFcr6kjcrgxPe71lgquBLkK1yLyu/UJ6wRoE34=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
     onload="hljs.initHighlightingOnLoad();"></script>
@@ -37,7 +36,19 @@ MathJax = {
   type="text/javascript" id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
 </script>
-<meta property="og:title" content="Probabilistic Graphical Model (PGM)" />
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-202974782-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="Probabilistic Graphical Model (PGM)" />
 <meta property="og:description" content="Probabilistic Graphical Model (PGM) Definition: A probabilistic graphical model is a probabilistic model for which a graph expresses the conditional dependence structure between random variables.
 In general, PGM obeys following rules: $$ \begin{aligned} &amp;\text {Sum Rule : } p\left(x_{1}\right)=\int p\left(x_{1}, x_{2}\right) d x_{2}\\ &amp;\text {Product Rule : } p\left(x_{1}, x_{2}\right)=p\left(x_{1} | x_{2}\right) p\left(x_{2}\right)\\ &amp;\text {Chain Rule: } p\left(x_{1}, x_{2}, \cdots, x_{p}\right)=\prod_{i=1}^{p} p\left(x_{i} | x_{i&#43;1, x_{i&#43;2}} \ldots x_{p}\right)\\ &amp;\text {Bayesian Rule: } p\left(x_{1} | x_{2}\right)=\frac{p\left(x_{2} | x_{1}\right) p\left(x_{1}\right)}{p\left(x_{2}\right)} \end{aligned} $$" />
 <meta property="og:type" content="article" />
