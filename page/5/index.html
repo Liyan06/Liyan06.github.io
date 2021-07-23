@@ -7,10 +7,10 @@
 <meta name="robots" content="index, follow">
 <title>Liyan Tang</title>
 
-<meta name="description" content="Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod">
-<meta name="author" content="Theme PaperMod">
+<meta name="description" content="">
+<meta name="author" content="">
 <link rel="canonical" href="https://Liyan06.github.io/" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.35cd0f65a15cafa92372b8313deef5960aae04b90ad722f2bbf509eb0468137e.css" integrity="sha256-Nc0PZaFcr6kjcrgxPe71lgquBLkK1yLyu/UJ6wRoE34=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.d3b4cb44f220ab4d61ebe09c35495ac826d59141264c7e8259e4b54d67754600.css" integrity="sha256-07TLRPIgq01h6&#43;CcNUlayCbVkUEmTH6CWeS1TWd1RgA=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://Liyan06.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://Liyan06.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://Liyan06.github.io/favicon-32x32.png">
@@ -48,7 +48,7 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script><meta property="og:title" content="Liyan Tang" />
-<meta property="og:description" content="Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod" />
+<meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://Liyan06.github.io/" /><meta property="og:image" content="https://Liyan06.github.io/papermod-cover.png"/>
 
@@ -56,7 +56,7 @@ if (!doNotTrack) {
 <meta name="twitter:image" content="https://Liyan06.github.io/papermod-cover.png"/>
 
 <meta name="twitter:title" content="Liyan Tang"/>
-<meta name="twitter:description" content="Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"/>
+<meta name="twitter:description" content=""/>
 
 <script type="application/ld+json">
 {
@@ -64,10 +64,10 @@ if (!doNotTrack) {
   "@type": "Organization",
   "name": "Liyan Tang",
   "url": "https://Liyan06.github.io/",
-  "description": "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod",
+  "description": "",
   "thumbnailUrl": "https://Liyan06.github.io/favicon.ico",
   "sameAs": [
-      
+      "https://github.com/Liyan06"
   ]
 }
 </script>
@@ -156,8 +156,8 @@ if (!doNotTrack) {
                 </a>
             </li>
             <li>
-                <a href="https://Liyan06.github.io/categories/" title="Categories">
-                    <span>Categories</span>
+                <a href="https://Liyan06.github.io/tags/" title="Tags">
+                    <span>Tags</span>
                 </a>
             </li>
             <li>
@@ -165,15 +165,22 @@ if (!doNotTrack) {
                     <span>Search</span>
                 </a>
             </li>
-            <li>
-                <a href="https://Liyan06.github.io/tags/" title="Tags">
-                    <span>Tags</span>
-                </a>
-            </li>
         </ul>
     </nav>
 </header>
 <main class="main"> 
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Probabilistic Graphical Model (PGM)</h2>
+  </header>
+  <section class="entry-content">
+    <p>Probabilistic Graphical Model (PGM) Definition: A probabilistic graphical model is a probabilistic model for which a graph expresses the conditional dependence structure between random variables.
+In general, PGM obeys following rules: $$ \begin{aligned} &amp;\text {Sum Rule : } p\left(x_{1}\right)=\int p\left(x_{1}, x_{2}\right) d x_{2}\\ &amp;\text {Product Rule : } p\left(x_{1}, x_{2}\right)=p\left(x_{1} | x_{2}\right) p\left(x_{2}\right)\\ &amp;\text {Chain Rule: } p\left(x_{1}, x_{2}, \cdots, x_{p}\right)=\prod_{i=1}^{p} p\left(x_{i} | x_{i&#43;1, x_{i&#43;2}} \ldots x_{p}\right)\\ &amp;\text {Bayesian Rule: } p\left(x_{1} | x_{2}\right)=\frac{p\left(x_{2} | x_{1}\right) p\left(x_{1}\right)}{p\left(x_{2}\right)} \end{aligned} $$...</p>
+  </section>
+  <footer class="entry-footer">May 11, 2020&nbsp;·&nbsp;8 min</footer>
+  <a class="entry-link" aria-label="post link to Probabilistic Graphical Model (PGM)" href="https://Liyan06.github.io/posts/pgm/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
@@ -186,7 +193,7 @@ if (!doNotTrack) {
   Let’s get started!
 Conditional independence $A$ and $B$ are conditionally independent given $C$ if and only if, given knowledge that $C$ occurs, knowledge of whether $A$ occurs provides no information on the likelihood of $B$ occurring, and knowledge of whether $B$ occurs provides no information on the likelihood of $A$ occurring....</p>
   </section>
-  <footer class="entry-footer">May 3, 2020&nbsp;·&nbsp;14 min&nbsp;·&nbsp;Theme PaperMod</footer>
+  <footer class="entry-footer">May 3, 2020&nbsp;·&nbsp;14 min</footer>
   <a class="entry-link" aria-label="post link to Hidden Markov Model (HMM)" href="https://Liyan06.github.io/posts/hmm/"></a>
 </article>
 
@@ -199,7 +206,7 @@ Conditional independence $A$ and $B$ are conditionally independent given $C$ if 
 $\quad$ Moreover, if $f$ is strictly convex, then $E[f(X)] = f(E[X])$ holds true if and only if $X$ is a constant.
  Later in the post we are going to use the following fact from the Jensen’s inequality: Suppose $\lambda_j \geq 0$ for all $j$ and $\sum_j \lambda_j = 1$, then  $$ \log \sum_j \lambda_j y_j \geq \sum_j \lambda_j , log , y_j$$...</p>
   </section>
-  <footer class="entry-footer">April 24, 2020&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Theme PaperMod</footer>
+  <footer class="entry-footer">April 24, 2020&nbsp;·&nbsp;8 min</footer>
   <a class="entry-link" aria-label="post link to EM (Expectation–Maximization) Algorithm" href="https://Liyan06.github.io/posts/em/"></a>
 </article>
 
@@ -213,7 +220,7 @@ For CBOW, it learns to predict the word given a context, or to maximize the foll
 $$ p(w_2|w_1,w_3) \cdot P(w_3|w_2,w_4)$$
 This is an issue for infrequent words, since they don’t appear very often in a given context....</p>
   </section>
-  <footer class="entry-footer">April 18, 2020&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Theme PaperMod</footer>
+  <footer class="entry-footer">April 18, 2020&nbsp;·&nbsp;8 min</footer>
   <a class="entry-link" aria-label="post link to Skip-gram" href="https://Liyan06.github.io/posts/skipgram/"></a>
 </article>
 
@@ -225,21 +232,8 @@ This is an issue for infrequent words, since they don’t appear very often in a
     <p>Overview of various word representation and Embedding methods Local Representation v.s. Distributed Representation  One-hot encoding is local representation and is good for local generalization; distributed representation is good for global generalization.  Comparison between local generalization and global generalization:
 Here is an example for better understanding this pair of concepts. Suppose now you have a bunch of ingredients and you’re able to cook 100 different meals with these ingredients....</p>
   </section>
-  <footer class="entry-footer">April 17, 2020&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Theme PaperMod</footer>
+  <footer class="entry-footer">April 17, 2020&nbsp;·&nbsp;7 min</footer>
   <a class="entry-link" aria-label="post link to Distributed representation, Hyperbolic Space, Gaussian/Graph Embedding" href="https://Liyan06.github.io/posts/representation/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>NLP Basics, Spell Correction with Noisy Channel</h2>
-  </header>
-  <section class="entry-content">
-    <p>NLP = NLU &#43; NLG  NLU: Natural Language Understanding NLG: Natural Language Generation  NLG may be viewed as the opposite of NLU: whereas in NLU, the system needs to disambiguate the input sentence to produce the machine representation language, in NLG the system needs to make decisions about how to put a concept into human understandable words.
-Classical applications in NLP   Question Answering
-  Sentiment Analysis...</p>
-  </section>
-  <footer class="entry-footer">April 10, 2020&nbsp;·&nbsp;9 min&nbsp;·&nbsp;Theme PaperMod</footer>
-  <a class="entry-link" aria-label="post link to NLP Basics, Spell Correction with Noisy Channel" href="https://Liyan06.github.io/posts/nlp_basic/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

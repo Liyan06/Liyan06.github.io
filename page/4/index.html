@@ -7,10 +7,10 @@
 <meta name="robots" content="index, follow">
 <title>Liyan Tang</title>
 
-<meta name="description" content="Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod">
-<meta name="author" content="Theme PaperMod">
+<meta name="description" content="">
+<meta name="author" content="">
 <link rel="canonical" href="https://Liyan06.github.io/" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.35cd0f65a15cafa92372b8313deef5960aae04b90ad722f2bbf509eb0468137e.css" integrity="sha256-Nc0PZaFcr6kjcrgxPe71lgquBLkK1yLyu/UJ6wRoE34=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.d3b4cb44f220ab4d61ebe09c35495ac826d59141264c7e8259e4b54d67754600.css" integrity="sha256-07TLRPIgq01h6&#43;CcNUlayCbVkUEmTH6CWeS1TWd1RgA=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://Liyan06.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://Liyan06.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://Liyan06.github.io/favicon-32x32.png">
@@ -48,7 +48,7 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script><meta property="og:title" content="Liyan Tang" />
-<meta property="og:description" content="Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod" />
+<meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://Liyan06.github.io/" /><meta property="og:image" content="https://Liyan06.github.io/papermod-cover.png"/>
 
@@ -56,7 +56,7 @@ if (!doNotTrack) {
 <meta name="twitter:image" content="https://Liyan06.github.io/papermod-cover.png"/>
 
 <meta name="twitter:title" content="Liyan Tang"/>
-<meta name="twitter:description" content="Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"/>
+<meta name="twitter:description" content=""/>
 
 <script type="application/ld+json">
 {
@@ -64,10 +64,10 @@ if (!doNotTrack) {
   "@type": "Organization",
   "name": "Liyan Tang",
   "url": "https://Liyan06.github.io/",
-  "description": "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod",
+  "description": "",
   "thumbnailUrl": "https://Liyan06.github.io/favicon.ico",
   "sameAs": [
-      
+      "https://github.com/Liyan06"
   ]
 }
 </script>
@@ -156,8 +156,8 @@ if (!doNotTrack) {
                 </a>
             </li>
             <li>
-                <a href="https://Liyan06.github.io/categories/" title="Categories">
-                    <span>Categories</span>
+                <a href="https://Liyan06.github.io/tags/" title="Tags">
+                    <span>Tags</span>
                 </a>
             </li>
             <li>
@@ -165,15 +165,24 @@ if (!doNotTrack) {
                     <span>Search</span>
                 </a>
             </li>
-            <li>
-                <a href="https://Liyan06.github.io/tags/" title="Tags">
-                    <span>Tags</span>
-                </a>
-            </li>
         </ul>
     </nav>
 </header>
 <main class="main"> 
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Kaggle: Tweet Sentiment Extraction - common methods</h2>
+  </header>
+  <section class="entry-content">
+    <p>Note This post is the first part of overall summarization of the competition. The second half is here.
+Before we start I attended two NLP competition in June, Tweet Sentiment Extraction and Jigsaw Multilingual Toxic Comment Classification, and I’m happy to be a Kaggle Expert from now on :)
+Tweet Sentiment Extraction Goal:
+The objective in this competition is to “Extract support phrases for sentiment labels”. More precisely, this competition asks kagglers to construct a model that can figure out what word or phrase best supports the given tweet from the labeled sentiment....</p>
+  </section>
+  <footer class="entry-footer">July 1, 2020&nbsp;·&nbsp;11 min</footer>
+  <a class="entry-link" aria-label="post link to Kaggle: Tweet Sentiment Extraction - common methods" href="https://Liyan06.github.io/posts/kaggle_tweet_sent1/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
@@ -187,7 +196,7 @@ if (!doNotTrack) {
  from text sequence to categories.    Music Generation
  from nothing or some simple stuff (character, integer, etc) to wave sequence.    Name entity recognition (NER)...</p>
   </section>
-  <footer class="entry-footer">June 4, 2020&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Theme PaperMod</footer>
+  <footer class="entry-footer">June 4, 2020&nbsp;·&nbsp;5 min</footer>
   <a class="entry-link" aria-label="post link to Recurrent Neural Network (RNN) and Long Short Term Memory (LSTM)" href="https://Liyan06.github.io/posts/lstm/"></a>
 </article>
 
@@ -200,7 +209,7 @@ if (!doNotTrack) {
 Forward Propagation The general procedure is the following:
 $$ \begin{aligned} a^{(1)}(x) &amp;= w^{(1)^T} \cdot x &#43; b^{(1)} \\ h^{(1)}(x) &amp;= g_1(a^{(1)}(x)) \\ a^{(2)}(x) &amp;= w^{(2)^T} \cdot h^{(1)}(x) &#43; b^{(2)} \\ h^{(2)}(x) &amp;= g_2(a^{(2)}(x)) \\ &amp;…… \\ a^{(L&#43;1)}(x) &amp;= w^{(L&#43;1)^T} \cdot h^{(L)}(x) &#43; b^{(L&#43;1)} \\ h^{(L&#43;1)}(x) &amp;= g_{L&#43;1}(a^{(L&#43;1)}(x)) \end{aligned} $$...</p>
   </section>
-  <footer class="entry-footer">May 26, 2020&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Theme PaperMod</footer>
+  <footer class="entry-footer">May 26, 2020&nbsp;·&nbsp;7 min</footer>
   <a class="entry-link" aria-label="post link to Intro to Deep Learning and Backpropagation" href="https://Liyan06.github.io/posts/dl/"></a>
 </article>
 
@@ -216,7 +225,7 @@ $$ Z(x, w)=\sum_{y^{\prime}} \exp [\sum_{j=1}^J w_{j} F_{j}\left(x, y^{\prime}\r
 Note that in $\sum_{y^{\prime}}$, we make a summation over all possible $y$. Therefore, given $x$, the label predicted by the model is
 $$ \hat{y}=\underset{y}{\operatorname{argmax}} p(y | x ; w)=\underset{y}{\operatorname{argmax}} \sum_{j=1}^J w_{j} F_{j}(x, y) $$...</p>
   </section>
-  <footer class="entry-footer">May 19, 2020&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Theme PaperMod</footer>
+  <footer class="entry-footer">May 19, 2020&nbsp;·&nbsp;8 min</footer>
   <a class="entry-link" aria-label="post link to Log-Linear Model, Conditional Random Field(CRF)" href="https://Liyan06.github.io/posts/crf/"></a>
 </article>
 
@@ -232,20 +241,8 @@ Interpretation from mixture model setup:
   The total number of Gaussian distribution $K$.
   $x$, a sample (observed variable)....</p>
   </section>
-  <footer class="entry-footer">May 16, 2020&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Theme PaperMod</footer>
+  <footer class="entry-footer">May 16, 2020&nbsp;·&nbsp;6 min</footer>
   <a class="entry-link" aria-label="post link to Gaussian mixture model (GMM), k-means" href="https://Liyan06.github.io/posts/gmm/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Probabilistic Graphical Model (PGM)</h2>
-  </header>
-  <section class="entry-content">
-    <p>Probabilistic Graphical Model (PGM) Definition: A probabilistic graphical model is a probabilistic model for which a graph expresses the conditional dependence structure between random variables.
-In general, PGM obeys following rules: $$ \begin{aligned} &amp;\text {Sum Rule : } p\left(x_{1}\right)=\int p\left(x_{1}, x_{2}\right) d x_{2}\\ &amp;\text {Product Rule : } p\left(x_{1}, x_{2}\right)=p\left(x_{1} | x_{2}\right) p\left(x_{2}\right)\\ &amp;\text {Chain Rule: } p\left(x_{1}, x_{2}, \cdots, x_{p}\right)=\prod_{i=1}^{p} p\left(x_{i} | x_{i&#43;1, x_{i&#43;2}} \ldots x_{p}\right)\\ &amp;\text {Bayesian Rule: } p\left(x_{1} | x_{2}\right)=\frac{p\left(x_{2} | x_{1}\right) p\left(x_{1}\right)}{p\left(x_{2}\right)} \end{aligned} $$...</p>
-  </section>
-  <footer class="entry-footer">May 11, 2020&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Theme PaperMod</footer>
-  <a class="entry-link" aria-label="post link to Probabilistic Graphical Model (PGM)" href="https://Liyan06.github.io/posts/pgm/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

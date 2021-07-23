@@ -9,22 +9,49 @@
       <link>https://Liyan06.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 08 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>CV</title>
-      <link>https://Liyan06.github.io/tags/cv/</link>
-      <pubDate>Fri, 08 Jan 2021 00:00:00 +0000</pubDate>
+      <title>FEW-SHOT</title>
+      <link>https://Liyan06.github.io/tags/few-shot/</link>
+      <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://Liyan06.github.io/tags/cv/</guid>
+      <guid>https://Liyan06.github.io/tags/few-shot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>NLP</title>
       <link>https://Liyan06.github.io/tags/nlp/</link>
-      <pubDate>Sun, 03 Jan 2021 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://Liyan06.github.io/tags/nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PAPER</title>
+      <link>https://Liyan06.github.io/tags/paper/</link>
+      <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/tags/paper/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SUMMARIZATION</title>
+      <link>https://Liyan06.github.io/tags/summarization/</link>
+      <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/tags/summarization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CV</title>
+      <link>https://Liyan06.github.io/tags/cv/</link>
+      <pubDate>Fri, 08 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/tags/cv/</guid>
       <description></description>
     </item>
     
@@ -52,15 +79,6 @@
       <pubDate>Mon, 28 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://Liyan06.github.io/tags/multi-lingual/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>PAPER</title>
-      <link>https://Liyan06.github.io/tags/paper/</link>
-      <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://Liyan06.github.io/tags/paper/</guid>
       <description></description>
     </item>
     

@@ -9,7 +9,16 @@
       <link>https://Liyan06.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 03 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Improving Zero and Few-Shot Abstractive Summarization with Intermediate Fine-tuning and Data Augmentation</title>
+      <link>https://Liyan06.github.io/posts/improving_zero_and/</link>
+      <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/posts/improving_zero_and/</guid>
+      <description>Authors: Alexander R. Fabbri, Simeng Han, Haoyuan Li, Haoran Li, Marjan Ghazvininejad, Shafiq Joty, Dragomir Radev, Yashar Mehdad</description>
+    </item>
+    
     <item>
       <title>Overlook of Relation Extraction</title>
       <link>https://Liyan06.github.io/posts/relation_extraction/</link>
