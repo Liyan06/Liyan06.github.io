@@ -11,7 +11,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 08 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/cv/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Paper - Decoupling Representation and Classifier for Long-Tailed Recognition</title>
+      <title>Paper Review - Decoupling Representation and Classifier for Long-Tailed Recognition</title>
       <link>https://Liyan06.github.io/posts/decoupling_representation/</link>
       <pubDate>Fri, 08 Jan 2021 00:00:00 +0000</pubDate>
       
@@ -21,7 +21,7 @@ The general scheme for long-tailed recognition is: classifiers are either learne
     </item>
     
     <item>
-      <title>Paper - The More You Know: Using Knowledge Graphs for Image Classification </title>
+      <title>Paper Review- The More You Know: Using Knowledge Graphs for Image Classification </title>
       <link>https://Liyan06.github.io/posts/the_more_you_know/</link>
       <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
       
