@@ -172,6 +172,17 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Knowledge Distillation</h2>
+  </header>
+  <section class="entry-content">
+    <p>Currently, especially in NLP, very large scale models are being trained. A large portion of those can’t even fit on an average person’s hardware. We can train a small network that can run on the limited computational resource of our mobile device. But small models can’t extract many complex features that can be handy in generating predictions unless you devise some elegant algorithm to do so. Plus, due to the Law of diminishing returns, a great increase in the size of model barely maps to a small increase in the accuracy....</p>
+  </section>
+  <footer class="entry-footer">August 5, 2020&nbsp;·&nbsp;7 min</footer>
+  <a class="entry-link" aria-label="post link to Knowledge Distillation" href="https://Liyan06.github.io/posts/distillation/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Kaggle: Tweet Sentiment Extraction - top solutions</h2>
   </header>
   <section class="entry-content">
@@ -227,22 +238,6 @@ $$ \begin{aligned} a^{(1)}(x) &amp;= w^{(1)^T} \cdot x &#43; b^{(1)} \\ h^{(1)}(
   </section>
   <footer class="entry-footer">May 26, 2020&nbsp;·&nbsp;7 min</footer>
   <a class="entry-link" aria-label="post link to Intro to Deep Learning and Backpropagation" href="https://Liyan06.github.io/posts/dl/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Log-Linear Model, Conditional Random Field(CRF)</h2>
-  </header>
-  <section class="entry-content">
-    <p>Log-Linear model Let $x$ be an example, and let $y$ be a possible label for it. A log-linear model assumes that
-$$ p(y | x ; w)=\frac{\exp [\sum_{j=1}^J w_{j} F_{j}(x, y)]}{Z(x, w)} $$
-where the partition function
-$$ Z(x, w)=\sum_{y^{\prime}} \exp [\sum_{j=1}^J w_{j} F_{j}\left(x, y^{\prime}\right)] $$
-Note that in $\sum_{y^{\prime}}$, we make a summation over all possible $y$. Therefore, given $x$, the label predicted by the model is
-$$ \hat{y}=\underset{y}{\operatorname{argmax}} p(y | x ; w)=\underset{y}{\operatorname{argmax}} \sum_{j=1}^J w_{j} F_{j}(x, y) $$...</p>
-  </section>
-  <footer class="entry-footer">May 19, 2020&nbsp;·&nbsp;8 min</footer>
-  <a class="entry-link" aria-label="post link to Log-Linear Model, Conditional Random Field(CRF)" href="https://Liyan06.github.io/posts/crf/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

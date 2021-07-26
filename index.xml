@@ -9,7 +9,16 @@
       <link>https://Liyan06.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 23 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper Review - Learning Neural Templates for Text Generation</title>
+      <link>https://Liyan06.github.io/posts/learning_neural_templates/</link>
+      <pubDate>Mon, 26 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/posts/learning_neural_templates/</guid>
+      <description>Authors: Sam Wiseman, Stuart M. Shieber, Alexander M. Rush</description>
+    </item>
+    
     <item>
       <title>Paper Review - Bottom-Up Abstractive Summarization</title>
       <link>https://Liyan06.github.io/posts/bottom_up_sum/</link>
@@ -34,8 +43,7 @@
       <pubDate>Fri, 08 Jan 2021 00:00:00 +0000</pubDate>
       
       <guid>https://Liyan06.github.io/posts/decoupling_representation/</guid>
-      <description>Introduction When learning with long-tailed data, a common challenge is that instance-rich (or head) classes dominate the training procedure. The learned classification model tends to perform better on these classes, while performance is significantly worse for instance-scarce (or tail) classes (under-fitting).
-The general scheme for long-tailed recognition is: classifiers are either learned jointly with the representations end-to-end, or via a two-stage approach where the classifier and the representation are jointly fine-tuned with variants of class-balanced sampling as a second stage.</description>
+      <description>Authors: Bingyi Kang, Saining Xie, Marcus Rohrbach, Zhicheng Yan, Albert Gordo, Jiashi Feng, Yannis Kalantidis</description>
     </item>
     
     <item>
@@ -55,9 +63,7 @@ Relation extraction (RE) is an important task in IE. It focuses on extracting re
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
       
       <guid>https://Liyan06.github.io/posts/connecting_the_dots/</guid>
-      <description>Relation Extraction (RE) Relation Extraction (RE): The extraction of relations between named entities in text.
-Relation Extraction is an important task of NLP. Most existing works focus on intra-sentence RE. In fact, in real-world scenarios, a large amount of relations are expressed across sentences. The task of identifying these relations is named inter-sentence RE.
-Typically, inter-sentence relations occur in textual snippets with several sentences, such as documents. In these snippets, each entity is usually repeated with the same phrases or aliases, the occurrences of which are often named entity mentions and regarded as instances of the entity.</description>
+      <description>Authors: Fenia Christopoulou, Makoto Miwa, Sophia Ananiadou</description>
     </item>
     
     <item>
@@ -80,25 +86,21 @@ Cross-lingual learning (CLL) is one possible remedy to solve the lack of data fo
     </item>
     
     <item>
-      <title>What Does BERT Look At? An Analysis of BERT’s Attention</title>
+      <title>Paper Review - What Does BERT Look At? An Analysis of BERT’s Attention</title>
       <link>https://Liyan06.github.io/posts/bert_attn/</link>
       <pubDate>Mon, 14 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://Liyan06.github.io/posts/bert_attn/</guid>
-      <description>Before we start In this post, I mainly focus on the conclusions the authors reach in the paper, and I think these conclusions are worth sharing.
-In this paper, the authors study the attention maps of a pre-trained BERT model. Their analysis focuses on the 144 attention heads in BERT.
-Surface-Level Patterns in Attention  There are heads that specialize to attending heavily on the next or previous token, especially in earlier layers of the network.</description>
+      <description>Authors: Kevin Clark, Urvashi Khandelwal, Omer Levy, Christopher D. Manning</description>
     </item>
     
     <item>
-      <title>Paper Review- The More You Know: Using Knowledge Graphs for Image Classification </title>
+      <title>Paper Review - The More You Know: Using Knowledge Graphs for Image Classification</title>
       <link>https://Liyan06.github.io/posts/the_more_you_know/</link>
       <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://Liyan06.github.io/posts/the_more_you_know/</guid>
-      <description>Overview Note: This previous post I wrote might be helpful for reading this paper summary:
- Introduction to Graph Neural Network (GNN)  This paper investigates the use of structured prior knowledge in the form of knowledge graphs and shows that using this knowledge improves performance on image classification.
-It introduce the Graph Search Neural Network (GSNN) as a way of efficiently incorporating large knowledge graphs into a vision classification pipeline, which outperforms standard neural network baselines for multi-label classification.</description>
+      <description>Authors: Kenneth Marino, Ruslan Salakhutdinov, Abhinav Gupta</description>
     </item>
     
     <item>

@@ -176,6 +176,22 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Log-Linear Model, Conditional Random Field(CRF)</h2>
+  </header>
+  <section class="entry-content">
+    <p>Log-Linear model Let $x$ be an example, and let $y$ be a possible label for it. A log-linear model assumes that
+$$ p(y | x ; w)=\frac{\exp [\sum_{j=1}^J w_{j} F_{j}(x, y)]}{Z(x, w)} $$
+where the partition function
+$$ Z(x, w)=\sum_{y^{\prime}} \exp [\sum_{j=1}^J w_{j} F_{j}\left(x, y^{\prime}\right)] $$
+Note that in $\sum_{y^{\prime}}$, we make a summation over all possible $y$. Therefore, given $x$, the label predicted by the model is
+$$ \hat{y}=\underset{y}{\operatorname{argmax}} p(y | x ; w)=\underset{y}{\operatorname{argmax}} \sum_{j=1}^J w_{j} F_{j}(x, y) $$...</p>
+  </section>
+  <footer class="entry-footer">May 19, 2020&nbsp;·&nbsp;8 min</footer>
+  <a class="entry-link" aria-label="post link to Log-Linear Model, Conditional Random Field(CRF)" href="https://Liyan06.github.io/posts/crf/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Gaussian mixture model (GMM), k-means</h2>
   </header>
   <section class="entry-content">
@@ -228,20 +244,6 @@ $\quad$ Moreover, if $f$ is strictly convex, then $E[f(X)] = f(E[X])$ holds true
   </section>
   <footer class="entry-footer">April 24, 2020&nbsp;·&nbsp;8 min</footer>
   <a class="entry-link" aria-label="post link to EM (Expectation–Maximization) Algorithm" href="https://Liyan06.github.io/posts/em/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Skip-gram</h2>
-  </header>
-  <section class="entry-content">
-    <p>Comparison between CBOW and Skip-gram The major difference is that skip-gram is better for infrequent words than CBOW in word2vec. For simplicity, suppose there is a sentence “$w_1w_2w_3w_4$”, and the window size is $1$.
-For CBOW, it learns to predict the word given a context, or to maximize the following probability
-$$ p(w_2|w_1,w_3) \cdot P(w_3|w_2,w_4)$$
-This is an issue for infrequent words, since they don’t appear very often in a given context....</p>
-  </section>
-  <footer class="entry-footer">April 18, 2020&nbsp;·&nbsp;8 min</footer>
-  <a class="entry-link" aria-label="post link to Skip-gram" href="https://Liyan06.github.io/posts/skipgram/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

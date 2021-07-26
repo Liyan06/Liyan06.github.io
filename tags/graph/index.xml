@@ -16,9 +16,7 @@
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
       
       <guid>https://Liyan06.github.io/posts/connecting_the_dots/</guid>
-      <description>Relation Extraction (RE) Relation Extraction (RE): The extraction of relations between named entities in text.
-Relation Extraction is an important task of NLP. Most existing works focus on intra-sentence RE. In fact, in real-world scenarios, a large amount of relations are expressed across sentences. The task of identifying these relations is named inter-sentence RE.
-Typically, inter-sentence relations occur in textual snippets with several sentences, such as documents. In these snippets, each entity is usually repeated with the same phrases or aliases, the occurrences of which are often named entity mentions and regarded as instances of the entity.</description>
+      <description>Authors: Fenia Christopoulou, Makoto Miwa, Sophia Ananiadou</description>
     </item>
     
     <item>
