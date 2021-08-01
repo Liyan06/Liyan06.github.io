@@ -176,6 +176,20 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Skip-gram</h2>
+  </header>
+  <section class="entry-content">
+    <p>Comparison between CBOW and Skip-gram The major difference is that skip-gram is better for infrequent words than CBOW in word2vec. For simplicity, suppose there is a sentence “$w_1w_2w_3w_4$”, and the window size is $1$.
+For CBOW, it learns to predict the word given a context, or to maximize the following probability
+$$ p(w_2|w_1,w_3) \cdot P(w_3|w_2,w_4)$$
+This is an issue for infrequent words, since they don’t appear very often in a given context....</p>
+  </section>
+  <footer class="entry-footer">April 18, 2020&nbsp;·&nbsp;8 min</footer>
+  <a class="entry-link" aria-label="post link to Skip-gram" href="https://Liyan06.github.io/posts/skipgram/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Distributed representation, Hyperbolic Space, Gaussian/Graph Embedding</h2>
   </header>
   <section class="entry-content">
@@ -224,19 +238,6 @@ Set up We first show that the vector $w$ is orthogonal to this hyper-plane. Let 
   </section>
   <footer class="entry-footer">April 1, 2020&nbsp;·&nbsp;7 min</footer>
   <a class="entry-link" aria-label="post link to SVM, Dual SVM, Non-linear SVM" href="https://Liyan06.github.io/posts/svm/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Introduction to Convex Optimization - Primal problem to Dual problem</h2>
-  </header>
-  <section class="entry-content">
-    <p>Consider an optimization problem in the standard form (we call this a primal problem):
-We denote the optimal value of this as $p^\star$. We don’t assume the problem is convex.
-The Lagrange dual function We define the Lagrangian $L$ associated with the problem as $$ L(x,\lambda, v) = f_0(x) &#43; \sum^m_{i=1}\lambda_if_i(x) &#43; \sum^p_{i=1}v_ih_i(x)$$ We call vectors $\lambda$ and $v$ the *dual variables* or *Lagrange multiplier vectors* associated with the problem (1)....</p>
-  </section>
-  <footer class="entry-footer">March 29, 2020&nbsp;·&nbsp;7 min</footer>
-  <a class="entry-link" aria-label="post link to Introduction to Convex Optimization - Primal problem to Dual problem" href="https://Liyan06.github.io/posts/convex2/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
