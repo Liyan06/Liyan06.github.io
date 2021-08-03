@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Liyan Tang</title>
-
+<title>Posts | Liyan Tang</title>
+<meta name="keywords" content="" />
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="canonical" href="https://Liyan06.github.io/" />
+<link rel="canonical" href="https://Liyan06.github.io/posts/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.d3b4cb44f220ab4d61ebe09c35495ac826d59141264c7e8259e4b54d67754600.css" integrity="sha256-07TLRPIgq01h6&#43;CcNUlayCbVkUEmTH6CWeS1TWd1RgA=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://Liyan06.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://Liyan06.github.io/favicon-16x16.png">
@@ -19,8 +19,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <meta name="generator" content="Hugo 0.85.0" />
-<link rel="alternate" type="application/rss+xml" href="https://Liyan06.github.io/index.xml">
-<link rel="alternate" type="application/json" href="https://Liyan06.github.io/index.json">
+<link rel="alternate" type="application/rss+xml" href="https://Liyan06.github.io/posts/index.xml">
 <script>
 MathJax = {
   tex: {
@@ -47,27 +46,29 @@ if (!doNotTrack) {
 	
 	ga('send', 'pageview');
 }
-</script><meta property="og:title" content="Liyan Tang" />
+</script><meta property="og:title" content="Posts" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://Liyan06.github.io/" /><meta property="og:image" content="https://Liyan06.github.io/papermod-cover.png"/>
+<meta property="og:url" content="https://Liyan06.github.io/posts/" /><meta property="og:image" content="https://Liyan06.github.io/papermod-cover.png"/>
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://Liyan06.github.io/papermod-cover.png"/>
 
-<meta name="twitter:title" content="Liyan Tang"/>
+<meta name="twitter:title" content="Posts"/>
 <meta name="twitter:description" content=""/>
+
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Liyan Tang",
-  "url": "https://Liyan06.github.io/",
-  "description": "",
-  "thumbnailUrl": "https://Liyan06.github.io/favicon.ico",
-  "sameAs": [
-      "https://github.com/Liyan06"
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://Liyan06.github.io/posts/"
+    }
   ]
 }
 </script>
@@ -169,78 +170,26 @@ if (!doNotTrack) {
     </nav>
 </header>
 <main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://Liyan06.github.io/">Home</a></div>
+  <h1>Posts</h1>
+</header>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>SVM, Dual SVM, Non-linear SVM</h2>
+    <h2>Logistic Regression, L1, L2 regularization, Gradient/Coordinate descent</h2>
   </header>
   <section class="entry-content">
-    <p>Linear SVM Idea We want to find a hyper-plane $w^\top x &#43; b = 0$ that maximizes the margin.
-Set up We first show that the vector $w$ is orthogonal to this hyper-plane. Let $x_1$, $x_2$ be any element on the hyper-plane. So we have $w^\top x_1 &#43; b = 0$ and $w^\top x_2 &#43; b = 0$. Then $w^\top (x_1 - x_2) = 0$, which implies $w$ is orthogonal to the hyper-plane....</p>
+    <p>Generative model v.s. Discriminative model： Examples:
+ Generative model: Naive Bayes, HMM, VAE, GAN. Discriminative model：Logistic Regression, CRF.  Objective function:
+ Generative model: $max \ p \ (x,y)$ Discriminative model：$max \ p \ (y \ |\ x)$  Difference:
+ Generative model: We first assume a distribution of the data in the consideration of computation efficiency and features of the data. Next, the model will learn the parameters of distribution of the data....</p>
   </section>
-  <footer class="entry-footer">April 1, 2020&nbsp;·&nbsp;7 min</footer>
-  <a class="entry-link" aria-label="post link to SVM, Dual SVM, Non-linear SVM" href="https://Liyan06.github.io/posts/svm/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Introduction to Convex Optimization - Primal problem to Dual problem</h2>
-  </header>
-  <section class="entry-content">
-    <p>Consider an optimization problem in the standard form (we call this a primal problem):
-We denote the optimal value of this as $p^\star$. We don’t assume the problem is convex.
-The Lagrange dual function We define the Lagrangian $L$ associated with the problem as $$ L(x,\lambda, v) = f_0(x) &#43; \sum^m_{i=1}\lambda_if_i(x) &#43; \sum^p_{i=1}v_ih_i(x)$$ We call vectors $\lambda$ and $v$ the *dual variables* or *Lagrange multiplier vectors* associated with the problem (1)....</p>
-  </section>
-  <footer class="entry-footer">March 29, 2020&nbsp;·&nbsp;7 min</footer>
-  <a class="entry-link" aria-label="post link to Introduction to Convex Optimization - Primal problem to Dual problem" href="https://Liyan06.github.io/posts/convex2/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Introduction to Convex Optimization - Basic Concepts</h2>
-  </header>
-  <section class="entry-content">
-    <p>Optimization problem All optimization problems can be written as:
-Optimization Categories   convex v.s. non-convex Deep Neural Network is non-convex
-  continuous v.s.discrete Most are continuous variable; tree structure is discrete
-  constrained v.s. non-constrained We add prior to make it a constrained problem
-  smooth v.s.non-smooth Most are smooth optimization
-  Different initialization brings different optimum (if not convex) Idea: Give up global optimal and find a good local optimal....</p>
-  </section>
-  <footer class="entry-footer">March 28, 2020&nbsp;·&nbsp;8 min</footer>
-  <a class="entry-link" aria-label="post link to Introduction to Convex Optimization - Basic Concepts" href="https://Liyan06.github.io/posts/convex1/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>XGBoost</h2>
-  </header>
-  <section class="entry-content">
-    <p>Bagging v.s. Boosting: Bagging: Leverages unstable base learners that are weak because of overfitting.
-Boosting: Leverages stable base learners that are weak because of underfitting.
-XGBoost Learning Process through XGBoost:
- How to set a objective function. Hard to solve directly, how to approximate. How to add tree structures into the objective function. Still hard to optimize, then have to use greedy algorithms.  Step 1. How to set an objective function Suppose we trained $K$ trees, then the prediction for the ith sample is $$\hat{y}_i = \sum_{k=1}^K f_k(x_i), f_k \in \mathcal{F}$$ where $K$ is the number of trees, $f$ is a function in the functional space $\mathcal{F}$, and $\mathcal{F}$ is the set of all possible CARTs....</p>
-  </section>
-  <footer class="entry-footer">March 27, 2020&nbsp;·&nbsp;4 min</footer>
-  <a class="entry-link" aria-label="post link to XGBoost" href="https://Liyan06.github.io/posts/xgboost/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Maximum Likelihood Estimation (MLE) and Maximum a Posteriori (MAP)</h2>
-  </header>
-  <section class="entry-content">
-    <p>MLE v.s. MAP  MLE: learn parameters from data. MAP: add a prior (experience) into the model; more reliable if data is limited. As we have more and more data, the prior becomes less useful. As data increase, MAP $\rightarrow$ MLE.  Notation: $D = {(x_1, y_1), (x_2, y_2), …, (x_n, y_n)}$
-Framework:
- MLE: $\mathop{\rm arg\ max} P(D \ |\ \theta)$ MAP: $\mathop{\rm arg\ max} P(\theta \ |\ D)$  Note that taking a product of some numbers less than 1 would approaching 0 as the number of those numbers goes to infinity, it would be not practical to compute, because of computation underflow....</p>
-  </section>
-  <footer class="entry-footer">March 26, 2020&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to Maximum Likelihood Estimation (MLE) and Maximum a Posteriori (MAP)" href="https://Liyan06.github.io/posts/mle/"></a>
+  <footer class="entry-footer">March 25, 2020&nbsp;·&nbsp;4 min</footer>
+  <a class="entry-link" aria-label="post link to Logistic Regression, L1, L2 regularization, Gradient/Coordinate descent" href="https://Liyan06.github.io/posts/logistic_regression/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
-    <a class="prev" href="https://Liyan06.github.io/page/8/">« Prev Page</a>
-    <a class="next" href="https://Liyan06.github.io/page/10/">Next Page »</a>
+    <a class="prev" href="https://Liyan06.github.io/posts/page/9/">« Prev Page</a>
   </nav>
 </footer>
     </main>

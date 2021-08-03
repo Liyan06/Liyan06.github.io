@@ -9,7 +9,16 @@
       <link>https://Liyan06.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 01 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper Review - Nutri-bullets Hybrid: Consensual Multi-document Summarization</title>
+      <link>https://Liyan06.github.io/posts/nutri_bullets/</link>
+      <pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/posts/nutri_bullets/</guid>
+      <description>Authors: Darsh Shah, Lili Yu, Tao Lei, Regina Barzilay</description>
+    </item>
+    
     <item>
       <title>Paper Review - CLIP: A Dataset for Extracting Action Items for Physicians from Hospital Discharge Notes</title>
       <link>https://Liyan06.github.io/posts/clip/</link>
