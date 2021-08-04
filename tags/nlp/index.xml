@@ -9,7 +9,16 @@
       <link>https://Liyan06.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 02 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 03 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper Review - GSum: A General Framework for Guided Neural Abstractive Summarization</title>
+      <link>https://Liyan06.github.io/posts/gsum/</link>
+      <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/posts/gsum/</guid>
+      <description>Authors: Zi-Yi Dou, Pengfei Liu, Hiroaki Hayashi, Zhengbao Jiang, Graham Neubig</description>
+    </item>
+    
     <item>
       <title>Paper Review - Nutri-bullets Hybrid: Consensual Multi-document Summarization</title>
       <link>https://Liyan06.github.io/posts/nutri_bullets/</link>
