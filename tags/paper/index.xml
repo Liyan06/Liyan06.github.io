@@ -9,7 +9,16 @@
       <link>https://Liyan06.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 04 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/paper/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/paper/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper Review - LongSumm 2021: Session based automatic summarization model for scientific document</title>
+      <link>https://Liyan06.github.io/posts/long_summ_2021/</link>
+      <pubDate>Thu, 05 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/posts/long_summ_2021/</guid>
+      <description>Authors: Senci Ying, Yanzhao Zheng, Wuhe Zou</description>
+    </item>
+    
     <item>
       <title>Paper Review - Annotating and Modeling Fine-grained Factuality in Summarization</title>
       <link>https://Liyan06.github.io/posts/annotating_and_modeling/</link>
