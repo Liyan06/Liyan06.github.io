@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>MODEL on Liyan Tang</title>
+    <link>https://Liyan06.github.io/tags/model/</link>
+    <description>Recent content in MODEL on Liyan Tang</description>
+    <image>
+      <url>https://Liyan06.github.io/papermod-cover.png</url>
+      <link>https://Liyan06.github.io/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 06 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/model/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper Review - Big Bird: Transformers for Longer Sequences</title>
+      <link>https://Liyan06.github.io/posts/bigbird/</link>
+      <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/posts/bigbird/</guid>
+      <description>Authors: Manzil Zaheer, Guru Guruganesh, Avinava Dubey, Joshua Ainslie, Chris Alberti, Santiago Ontanon, Philip Pham, Anirudh Ravula, Qifan Wang, Li Yang, Amr Ahmed</description>
+    </item>
+    
+  </channel>
+</rss>
