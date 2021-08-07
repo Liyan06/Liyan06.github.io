@@ -9,20 +9,20 @@
       <link>https://Liyan06.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 06 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>MODEL</title>
-      <link>https://Liyan06.github.io/tags/model/</link>
-      <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
+      <title>METRIC</title>
+      <link>https://Liyan06.github.io/tags/metric/</link>
+      <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://Liyan06.github.io/tags/model/</guid>
+      <guid>https://Liyan06.github.io/tags/metric/</guid>
       <description></description>
     </item>
     
     <item>
       <title>NLP</title>
       <link>https://Liyan06.github.io/tags/nlp/</link>
-      <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://Liyan06.github.io/tags/nlp/</guid>
       <description></description>
@@ -31,9 +31,18 @@
     <item>
       <title>PAPER</title>
       <link>https://Liyan06.github.io/tags/paper/</link>
-      <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://Liyan06.github.io/tags/paper/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MODEL</title>
+      <link>https://Liyan06.github.io/tags/model/</link>
+      <pubDate>Fri, 06 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/tags/model/</guid>
       <description></description>
     </item>
     
