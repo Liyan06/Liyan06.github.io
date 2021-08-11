@@ -9,7 +9,16 @@
       <link>https://Liyan06.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 09 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/summarization/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/summarization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper Review - Improving Factual Consistency of Abstractive Summarization via Question Answering</title>
+      <link>https://Liyan06.github.io/posts/improving_factual_consistency/</link>
+      <pubDate>Tue, 10 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/posts/improving_factual_consistency/</guid>
+      <description>Authors: Feng Nan, Cicero Nogueira dos Santos, Henghui Zhu, Patrick Ng, Kathleen McKeown, Ramesh Nallapati, Dejiao Zhang, Zhiguo Wang, Andrew O. Arnold, Bing Xiang</description>
+    </item>
+    
     <item>
       <title>Paper Review - Dissecting Generation Modes for Abstractive Summarization Models via Ablation and Attribution</title>
       <link>https://Liyan06.github.io/posts/dissecting_generation_modes/</link>
