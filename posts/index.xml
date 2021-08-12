@@ -9,7 +9,16 @@
       <link>https://Liyan06.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 10 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper Review - TWAG: A Topic-guided Wikipedia Abstract Generator</title>
+      <link>https://Liyan06.github.io/posts/twag/</link>
+      <pubDate>Wed, 11 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/posts/twag/</guid>
+      <description>Authors: Fangwei Zhu, Shangqing Tu, Jiaxin Shi, Juanzi Li, Lei Hou, Tong Cui</description>
+    </item>
+    
     <item>
       <title>Paper Review - Improving Factual Consistency of Abstractive Summarization via Question Answering</title>
       <link>https://Liyan06.github.io/posts/improving_factual_consistency/</link>
