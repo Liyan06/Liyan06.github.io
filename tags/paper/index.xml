@@ -9,7 +9,16 @@
       <link>https://Liyan06.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 11 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/paper/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/paper/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper Review - Noisy Channel Language Model Prompting for Few-Shot Text Classification</title>
+      <link>https://Liyan06.github.io/posts/noisy_channel_language/</link>
+      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/posts/noisy_channel_language/</guid>
+      <description>Authors: Sewon Min, Mike Lewis, Hannaneh Hajishirzi, Luke Zettlemoyer</description>
+    </item>
+    
     <item>
       <title>Paper Review - TWAG: A Topic-guided Wikipedia Abstract Generator</title>
       <link>https://Liyan06.github.io/posts/twag/</link>
