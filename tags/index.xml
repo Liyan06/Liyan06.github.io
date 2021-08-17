@@ -9,20 +9,20 @@
       <link>https://Liyan06.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 14 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>META-LEARNING</title>
-      <link>https://Liyan06.github.io/tags/meta-learning/</link>
-      <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
+      <title>NLG</title>
+      <link>https://Liyan06.github.io/tags/nlg/</link>
+      <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://Liyan06.github.io/tags/meta-learning/</guid>
+      <guid>https://Liyan06.github.io/tags/nlg/</guid>
       <description></description>
     </item>
     
     <item>
       <title>NLP</title>
       <link>https://Liyan06.github.io/tags/nlp/</link>
-      <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://Liyan06.github.io/tags/nlp/</guid>
       <description></description>
@@ -31,9 +31,18 @@
     <item>
       <title>PAPER</title>
       <link>https://Liyan06.github.io/tags/paper/</link>
-      <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://Liyan06.github.io/tags/paper/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>META-LEARNING</title>
+      <link>https://Liyan06.github.io/tags/meta-learning/</link>
+      <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/tags/meta-learning/</guid>
       <description></description>
     </item>
     
@@ -88,15 +97,6 @@
       <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://Liyan06.github.io/tags/dataset/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>NLG</title>
-      <link>https://Liyan06.github.io/tags/nlg/</link>
-      <pubDate>Fri, 30 Jul 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Liyan06.github.io/tags/nlg/</guid>
       <description></description>
     </item>
     
