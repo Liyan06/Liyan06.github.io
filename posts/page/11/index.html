@@ -176,6 +176,34 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Hidden Markov Model (HMM)</h2>
+  </header>
+  <section class="entry-content">
+    <p>Before reading this post, make sure you are familiar with the EM Algorithm and decent among of knowledge of convex optimization. If not, please check out my previous post
+  EM Algorithm
+  convex optimization primal and dual problem
+  Let’s get started!
+Conditional independence $A$ and $B$ are conditionally independent given $C$ if and only if, given knowledge that $C$ occurs, knowledge of whether $A$ occurs provides no information on the likelihood of $B$ occurring, and knowledge of whether $B$ occurs provides no information on the likelihood of $A$ occurring....</p>
+  </section>
+  <footer class="entry-footer">May 3, 2020&nbsp;·&nbsp;14 min</footer>
+  <a class="entry-link" aria-label="post link to Hidden Markov Model (HMM)" href="https://Liyan06.github.io/posts/hmm/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>EM (Expectation–Maximization) Algorithm</h2>
+  </header>
+  <section class="entry-content">
+    <p>Jensen’s inequality  Theorem: Let $f$ be a convex function, and let $X$ be a random variable. Then:  $$E[f(X)] \geq f(E[X])$$
+$\quad$ Moreover, if $f$ is strictly convex, then $E[f(X)] = f(E[X])$ holds true if and only if $X$ is a constant.
+ Later in the post we are going to use the following fact from the Jensen’s inequality: Suppose $\lambda_j \geq 0$ for all $j$ and $\sum_j \lambda_j = 1$, then  $$ \log \sum_j \lambda_j y_j \geq \sum_j \lambda_j , log , y_j$$...</p>
+  </section>
+  <footer class="entry-footer">April 24, 2020&nbsp;·&nbsp;8 min</footer>
+  <a class="entry-link" aria-label="post link to EM (Expectation–Maximization) Algorithm" href="https://Liyan06.github.io/posts/em/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Skip-gram</h2>
   </header>
   <section class="entry-content">
@@ -211,33 +239,6 @@ Classical applications in NLP   Question Answering
   </section>
   <footer class="entry-footer">April 10, 2020&nbsp;·&nbsp;9 min</footer>
   <a class="entry-link" aria-label="post link to NLP Basics, Spell Correction with Noisy Channel" href="https://Liyan06.github.io/posts/nlp_basic/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Kaggle: Google Quest Q&amp;A Labeling - my solution</h2>
-  </header>
-  <section class="entry-content">
-    <p>Kaggle: Google Quest Q&amp;A Labeling summary General Part Congratulations to all winners of this competition. Your hard work paid off!
-First, I have to say thanks to the authors of the following three published notebooks:
-https://www.kaggle.com/akensert/bert-base-tf2-0-now-huggingface-transformer, https://www.kaggle.com/abhishek/distilbert-use-features-oof, https://www.kaggle.com/codename007/start-from-here-quest-complete-eda-fe.
-These notebooks showed awesome ways to build models, visualize the dataset and extract features from non-text data.
-Our initial plan was to take question title, question body and answer all into a Bert based model....</p>
-  </section>
-  <footer class="entry-footer">April 4, 2020&nbsp;·&nbsp;7 min</footer>
-  <a class="entry-link" aria-label="post link to Kaggle: Google Quest Q&amp;A Labeling - my solution" href="https://Liyan06.github.io/posts/kaggle_google_quest/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>SVM, Dual SVM, Non-linear SVM</h2>
-  </header>
-  <section class="entry-content">
-    <p>Linear SVM Idea We want to find a hyper-plane $w^\top x &#43; b = 0$ that maximizes the margin.
-Set up We first show that the vector $w$ is orthogonal to this hyper-plane. Let $x_1$, $x_2$ be any element on the hyper-plane. So we have $w^\top x_1 &#43; b = 0$ and $w^\top x_2 &#43; b = 0$. Then $w^\top (x_1 - x_2) = 0$, which implies $w$ is orthogonal to the hyper-plane....</p>
-  </section>
-  <footer class="entry-footer">April 1, 2020&nbsp;·&nbsp;7 min</footer>
-  <a class="entry-link" aria-label="post link to SVM, Dual SVM, Non-linear SVM" href="https://Liyan06.github.io/posts/svm/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

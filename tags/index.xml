@@ -9,20 +9,11 @@
       <link>https://Liyan06.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 17 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>EXTERNAL-KNOWLEDGE</title>
-      <link>https://Liyan06.github.io/tags/external-knowledge/</link>
-      <pubDate>Tue, 17 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Liyan06.github.io/tags/external-knowledge/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Sat, 21 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NLP</title>
       <link>https://Liyan06.github.io/tags/nlp/</link>
-      <pubDate>Tue, 17 Aug 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 21 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://Liyan06.github.io/tags/nlp/</guid>
       <description></description>
@@ -31,9 +22,36 @@
     <item>
       <title>PAPER</title>
       <link>https://Liyan06.github.io/tags/paper/</link>
-      <pubDate>Tue, 17 Aug 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 21 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://Liyan06.github.io/tags/paper/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SUMMARIZATION</title>
+      <link>https://Liyan06.github.io/tags/summarization/</link>
+      <pubDate>Sat, 21 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/tags/summarization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IR</title>
+      <link>https://Liyan06.github.io/tags/ir/</link>
+      <pubDate>Thu, 19 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/tags/ir/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EXTERNAL-KNOWLEDGE</title>
+      <link>https://Liyan06.github.io/tags/external-knowledge/</link>
+      <pubDate>Tue, 17 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/tags/external-knowledge/</guid>
       <description></description>
     </item>
     
@@ -61,15 +79,6 @@
       <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://Liyan06.github.io/tags/few-shot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SUMMARIZATION</title>
-      <link>https://Liyan06.github.io/tags/summarization/</link>
-      <pubDate>Wed, 11 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Liyan06.github.io/tags/summarization/</guid>
       <description></description>
     </item>
     
