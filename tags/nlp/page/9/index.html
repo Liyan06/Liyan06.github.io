@@ -161,6 +161,22 @@ if (!doNotTrack) {
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2>Log-Linear Model, Conditional Random Field(CRF)</h2>
+  </header>
+  <section class="entry-content">
+    <p>Log-Linear model Let $x$ be an example, and let $y$ be a possible label for it. A log-linear model assumes that
+$$ p(y | x ; w)=\frac{\exp [\sum_{j=1}^J w_{j} F_{j}(x, y)]}{Z(x, w)} $$
+where the partition function
+$$ Z(x, w)=\sum_{y^{\prime}} \exp [\sum_{j=1}^J w_{j} F_{j}\left(x, y^{\prime}\right)] $$
+Note that in $\sum_{y^{\prime}}$, we make a summation over all possible $y$. Therefore, given $x$, the label predicted by the model is
+$$ \hat{y}=\underset{y}{\operatorname{argmax}} p(y | x ; w)=\underset{y}{\operatorname{argmax}} \sum_{j=1}^J w_{j} F_{j}(x, y) $$...</p>
+  </section>
+  <footer class="entry-footer">May 19, 2020&nbsp;·&nbsp;8 min</footer>
+  <a class="entry-link" aria-label="post link to Log-Linear Model, Conditional Random Field(CRF)" href="https://Liyan06.github.io/posts/crf/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2>Hidden Markov Model (HMM)</h2>
   </header>
   <section class="entry-content">
