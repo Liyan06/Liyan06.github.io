@@ -2,25 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://Liyan06.github.io/tags/clinic/</loc>
+    <lastmod>2021-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Liyan06.github.io/</loc>
+    <lastmod>2021-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Liyan06.github.io/tags/nlp/</loc>
+    <lastmod>2021-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Liyan06.github.io/tags/paper/</loc>
+    <lastmod>2021-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Liyan06.github.io/posts/what_is_in/</loc>
+    <lastmod>2021-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Liyan06.github.io/posts/</loc>
+    <lastmod>2021-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Liyan06.github.io/tags/summarization/</loc>
+    <lastmod>2021-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Liyan06.github.io/tags/</loc>
+    <lastmod>2021-09-07T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://Liyan06.github.io/tags/causal/</loc>
     <lastmod>2021-09-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://Liyan06.github.io/</loc>
-    <lastmod>2021-09-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://Liyan06.github.io/tags/nlp/</loc>
-    <lastmod>2021-09-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://Liyan06.github.io/tags/paper/</loc>
-    <lastmod>2021-09-06T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://Liyan06.github.io/posts/causal_inference_for/</loc>
-    <lastmod>2021-09-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://Liyan06.github.io/posts/</loc>
-    <lastmod>2021-09-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://Liyan06.github.io/tags/</loc>
     <lastmod>2021-09-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://Liyan06.github.io/posts/flexible_operations_for/</loc>
@@ -30,9 +39,6 @@
     <lastmod>2021-09-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://Liyan06.github.io/posts/discourse_aware_neural/</loc>
-    <lastmod>2021-08-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://Liyan06.github.io/tags/summarization/</loc>
     <lastmod>2021-08-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://Liyan06.github.io/tags/ir/</loc>
@@ -103,9 +109,6 @@
   </url><url>
     <loc>https://Liyan06.github.io/posts/nutri_bullets/</loc>
     <lastmod>2021-08-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://Liyan06.github.io/tags/clinic/</loc>
-    <lastmod>2021-08-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://Liyan06.github.io/tags/dataset/</loc>
     <lastmod>2021-08-01T00:00:00+00:00</lastmod>
