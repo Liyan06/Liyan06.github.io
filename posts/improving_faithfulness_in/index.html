@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Paper Review - Improving Faithfulness in Abstractive Summarization with Contrast Candidate Generation and Selection | Liyan Tang</title>
-<meta name="keywords" content="PAPER, NLP, SUMMARIZATION" />
+<meta name="keywords" content="PAPER, NLP, SUMMARIZATION, FACTUAL" />
 <meta name="description" content="Authors: Sihao Chen, Fan Zhang, Kazoo Sone, Dan Roth">
 <meta name="author" content="">
 <link rel="canonical" href="https://Liyan06.github.io/posts/improving_faithfulness_in/" />
@@ -89,7 +89,7 @@ if (!doNotTrack) {
   "name": "Paper Review - Improving Faithfulness in Abstractive Summarization with Contrast Candidate Generation and Selection",
   "description": "Authors: Sihao Chen, Fan Zhang, Kazoo Sone, Dan Roth",
   "keywords": [
-    "PAPER", "NLP", "SUMMARIZATION"
+    "PAPER", "NLP", "SUMMARIZATION", "FACTUAL"
   ],
   "articleBody": "Authors: Sihao Chen, Fan Zhang, Kazoo Sone, Dan Roth\nPaper reference: https://aclanthology.org/2021.naacl-main.475.pdf\nContribution This paper studies contrast candidate generation and selection as a post-processing method to correct extrinsic hallucinations on entities and quantities in abstractive summarization. Specifically, in the generation step, candidate summaries are created by replacing potentially hallucinated entities in a summary by ones with compatible semantic types that are present in the source. In the selection step, all variants of summaries are scored and the one with highest score will be the final summary. The corrected summaries present statistically significant improvements over the original ones.\nThe work points out some limitations of the proposed method. Replacing entities potentially introduces intrinsic hallucinations in the changed summary. Further, it is not sufficient to fully detect all hallucinations by only focusing on entities and quantities, and it might require commonsense reasoning and knowledge retrieval.\nDetails Contrast Candidate Generation The technique in this paper is based on the observation that a large fraction of extrinsic hallucinations is from named entities and quantities.\nIdentify potentially hallucinated entities Potentially hallucinated entities are identified by checking whether entities with similar surface forms have appeared in the source document using an NER system.\nContrast Candidate Selection This paper trains a classifier (BART + a linear layer) to score and rank the summariy variants. The classifier is trained with ground truth and synthetic negative summaries. The candidate with the highest score will be the final summary.\n",
   "wordCount" : "239",
@@ -264,6 +264,7 @@ Paper reference: <a href="https://aclanthology.org/2021.naacl-main.475.pdf">http
       <li><a href="https://Liyan06.github.io/tags/paper/">PAPER</a></li>
       <li><a href="https://Liyan06.github.io/tags/nlp/">NLP</a></li>
       <li><a href="https://Liyan06.github.io/tags/summarization/">SUMMARIZATION</a></li>
+      <li><a href="https://Liyan06.github.io/tags/factual/">FACTUAL</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://Liyan06.github.io/posts/pair/">
@@ -280,7 +281,7 @@ Paper reference: <a href="https://aclanthology.org/2021.naacl-main.475.pdf">http
 
 <div class="share-buttons">
     <a target="_blank" rel="noopener noreferrer" aria-label="share Paper Review - Improving Faithfulness in Abstractive Summarization with Contrast Candidate Generation and Selection on twitter"
-        href="https://twitter.com/intent/tweet/?text=Paper%20Review%20-%20Improving%20Faithfulness%20in%20Abstractive%20Summarization%20with%20Contrast%20Candidate%20Generation%20and%20Selection&amp;url=https%3a%2f%2fLiyan06.github.io%2fposts%2fimproving_faithfulness_in%2f&amp;hashtags=PAPER%2cNLP%2cSUMMARIZATION">
+        href="https://twitter.com/intent/tweet/?text=Paper%20Review%20-%20Improving%20Faithfulness%20in%20Abstractive%20Summarization%20with%20Contrast%20Candidate%20Generation%20and%20Selection&amp;url=https%3a%2f%2fLiyan06.github.io%2fposts%2fimproving_faithfulness_in%2f&amp;hashtags=PAPER%2cNLP%2cSUMMARIZATION%2cFACTUAL">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
