@@ -9,7 +9,16 @@
       <link>https://Liyan06.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 10 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/summarization/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/summarization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper Review - An Exploratory Study on Long Dialogue Summarization: What Works and What’s Next</title>
+      <link>https://Liyan06.github.io/posts/an_exploratory_study/</link>
+      <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/posts/an_exploratory_study/</guid>
+      <description>Authors: Yusen Zhang Ansong Ni Tao Yu Rui Zhang Chenguang Zhu Budhaditya Deb Asli Celikyilmaz Ahmed H. Awadallah Dragomir Radev</description>
+    </item>
+    
     <item>
       <title>Paper Review - Factual Consistency Evaluation for Text Summarization via Counterfactual Estimation</title>
       <link>https://Liyan06.github.io/posts/factual_consistency_evaluation/</link>
