@@ -9,7 +9,16 @@
       <link>https://Liyan06.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 22 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/summarization/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/summarization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper Review - Inspecting the Factuality of Hallucinated Entities in Abstractive Summarization</title>
+      <link>https://Liyan06.github.io/posts/inspecting_the_factuality/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/posts/inspecting_the_factuality/</guid>
+      <description>Authors: Meng Cao, Yue Dong, Jackie Chi Kit Cheung</description>
+    </item>
+    
     <item>
       <title>Paper Review - Decision-Focused Summarization</title>
       <link>https://Liyan06.github.io/posts/decision_focused_sum/</link>
@@ -17,15 +26,6 @@
       
       <guid>https://Liyan06.github.io/posts/decision_focused_sum/</guid>
       <description>Authors: Chao-Chun Hsu, Chenhao Tan</description>
-    </item>
-    
-    <item>
-      <title>Paper Review - A Survey of the State of Explainable AI for Natural Language Processing</title>
-      <link>https://Liyan06.github.io/posts/a_survey_of/</link>
-      <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Liyan06.github.io/posts/a_survey_of/</guid>
-      <description>Authors: Marina Danilevsky, Kun Qian, Ranit Aharonov, Yannis Katsis, Ban Kawas, Prithviraj Sen</description>
     </item>
     
     <item>

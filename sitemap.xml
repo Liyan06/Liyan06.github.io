@@ -2,26 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://Liyan06.github.io/tags/factual/</loc>
+    <lastmod>2021-09-27T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://Liyan06.github.io/</loc>
-    <lastmod>2021-09-22T00:00:00+00:00</lastmod>
+    <lastmod>2021-09-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://Liyan06.github.io/tags/nlp/</loc>
-    <lastmod>2021-09-22T00:00:00+00:00</lastmod>
+    <lastmod>2021-09-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://Liyan06.github.io/tags/paper/</loc>
+    <lastmod>2021-09-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Liyan06.github.io/posts/inspecting_the_factuality/</loc>
+    <lastmod>2021-09-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Liyan06.github.io/posts/</loc>
+    <lastmod>2021-09-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Liyan06.github.io/tags/summarization/</loc>
+    <lastmod>2021-09-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Liyan06.github.io/tags/</loc>
+    <lastmod>2021-09-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Liyan06.github.io/tags/interpretation/</loc>
     <lastmod>2021-09-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://Liyan06.github.io/posts/decision_focused_sum/</loc>
     <lastmod>2021-09-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://Liyan06.github.io/posts/</loc>
-    <lastmod>2021-09-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://Liyan06.github.io/tags/summarization/</loc>
-    <lastmod>2021-09-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://Liyan06.github.io/tags/</loc>
-    <lastmod>2021-09-22T00:00:00+00:00</lastmod>
+    <loc>https://Liyan06.github.io/tags/interpretability/</loc>
+    <lastmod>2021-09-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://Liyan06.github.io/posts/a_survey_of/</loc>
     <lastmod>2021-09-21T00:00:00+00:00</lastmod>
@@ -41,14 +53,8 @@
     <loc>https://Liyan06.github.io/tags/evaluation/</loc>
     <lastmod>2021-09-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://Liyan06.github.io/tags/factual/</loc>
-    <lastmod>2021-09-10T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://Liyan06.github.io/posts/factual_consistency_evaluation/</loc>
     <lastmod>2021-09-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://Liyan06.github.io/tags/interpretation/</loc>
-    <lastmod>2021-09-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://Liyan06.github.io/posts/discretized_integrated_gradients/</loc>
     <lastmod>2021-09-08T00:00:00+00:00</lastmod>
