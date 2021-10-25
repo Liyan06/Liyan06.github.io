@@ -9,20 +9,11 @@
       <link>https://Liyan06.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 27 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>FACTUAL</title>
-      <link>https://Liyan06.github.io/tags/factual/</link>
-      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://Liyan06.github.io/tags/factual/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Mon, 25 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://Liyan06.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NLP</title>
       <link>https://Liyan06.github.io/tags/nlp/</link>
-      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 25 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://Liyan06.github.io/tags/nlp/</guid>
       <description></description>
@@ -31,18 +22,36 @@
     <item>
       <title>PAPER</title>
       <link>https://Liyan06.github.io/tags/paper/</link>
-      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 25 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://Liyan06.github.io/tags/paper/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>PROMPT</title>
+      <link>https://Liyan06.github.io/tags/prompt/</link>
+      <pubDate>Mon, 25 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/tags/prompt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>SUMMARIZATION</title>
       <link>https://Liyan06.github.io/tags/summarization/</link>
-      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://Liyan06.github.io/tags/summarization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FACTUAL</title>
+      <link>https://Liyan06.github.io/tags/factual/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/tags/factual/</guid>
       <description></description>
     </item>
     

@@ -176,6 +176,34 @@ if (!doNotTrack) {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Gaussian mixture model (GMM), k-means</h2>
+  </header>
+  <section class="entry-content">
+    <p>Gaussian mixture model (GMM) A Gaussian mixture model is a probabilistic model that assumes all the data points are generated from a mixture of a finite number of Gaussian distributions with unknown parameters.
+Interpretation from geometry $p(x)$ is a weighted sum of multiple Gaussian distribution.
+$$p(x)=\sum_{k=1}^{K} \alpha_{k} \cdot \mathcal{N}\left(x | \mu_{k}, \Sigma_{k}\right) $$
+Interpretation from mixture model setup:
+  The total number of Gaussian distribution $K$.
+  $x$, a sample (observed variable)....</p>
+  </section>
+  <footer class="entry-footer">May 16, 2020&nbsp;·&nbsp;6 min</footer>
+  <a class="entry-link" aria-label="post link to Gaussian mixture model (GMM), k-means" href="https://Liyan06.github.io/posts/gmm/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Probabilistic Graphical Model (PGM)</h2>
+  </header>
+  <section class="entry-content">
+    <p>Probabilistic Graphical Model (PGM) Definition: A probabilistic graphical model is a probabilistic model for which a graph expresses the conditional dependence structure between random variables.
+In general, PGM obeys following rules: $$ \begin{aligned} &amp;\text {Sum Rule : } p\left(x_{1}\right)=\int p\left(x_{1}, x_{2}\right) d x_{2}\\ &amp;\text {Product Rule : } p\left(x_{1}, x_{2}\right)=p\left(x_{1} | x_{2}\right) p\left(x_{2}\right)\\ &amp;\text {Chain Rule: } p\left(x_{1}, x_{2}, \cdots, x_{p}\right)=\prod_{i=1}^{p} p\left(x_{i} | x_{i&#43;1, x_{i&#43;2}} \ldots x_{p}\right)\\ &amp;\text {Bayesian Rule: } p\left(x_{1} | x_{2}\right)=\frac{p\left(x_{2} | x_{1}\right) p\left(x_{1}\right)}{p\left(x_{2}\right)} \end{aligned} $$...</p>
+  </section>
+  <footer class="entry-footer">May 11, 2020&nbsp;·&nbsp;8 min</footer>
+  <a class="entry-link" aria-label="post link to Probabilistic Graphical Model (PGM)" href="https://Liyan06.github.io/posts/pgm/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Hidden Markov Model (HMM)</h2>
   </header>
   <section class="entry-content">
@@ -214,31 +242,6 @@ This is an issue for infrequent words, since they don’t appear very often in a
   </section>
   <footer class="entry-footer">April 18, 2020&nbsp;·&nbsp;8 min</footer>
   <a class="entry-link" aria-label="post link to Skip-gram" href="https://Liyan06.github.io/posts/skipgram/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Distributed representation, Hyperbolic Space, Gaussian/Graph Embedding</h2>
-  </header>
-  <section class="entry-content">
-    <p>Overview of various word representation and Embedding methods Local Representation v.s. Distributed Representation  One-hot encoding is local representation and is good for local generalization; distributed representation is good for global generalization.  Comparison between local generalization and global generalization:
-Here is an example for better understanding this pair of concepts. Suppose now you have a bunch of ingredients and you’re able to cook 100 different meals with these ingredients....</p>
-  </section>
-  <footer class="entry-footer">April 17, 2020&nbsp;·&nbsp;7 min</footer>
-  <a class="entry-link" aria-label="post link to Distributed representation, Hyperbolic Space, Gaussian/Graph Embedding" href="https://Liyan06.github.io/posts/representation/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>NLP Basics, Spell Correction with Noisy Channel</h2>
-  </header>
-  <section class="entry-content">
-    <p>NLP = NLU &#43; NLG  NLU: Natural Language Understanding NLG: Natural Language Generation  NLG may be viewed as the opposite of NLU: whereas in NLU, the system needs to disambiguate the input sentence to produce the machine representation language, in NLG the system needs to make decisions about how to put a concept into human understandable words.
-Classical applications in NLP   Question Answering
-  Sentiment Analysis...</p>
-  </section>
-  <footer class="entry-footer">April 10, 2020&nbsp;·&nbsp;9 min</footer>
-  <a class="entry-link" aria-label="post link to NLP Basics, Spell Correction with Noisy Channel" href="https://Liyan06.github.io/posts/nlp_basic/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
