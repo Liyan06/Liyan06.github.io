@@ -19,5 +19,14 @@
       <description>Authors: Pengfei Liu, Weizhe Yuan, Jinlan Fu, Zhengbao Jiang, Hiroaki Hayashi, Graham Neubig</description>
     </item>
     
+    <item>
+      <title>Paper Review - Knowledge Neurons in Pretrained Transformers</title>
+      <link>https://Liyan06.github.io/posts/knowledge_neurons/</link>
+      <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://Liyan06.github.io/posts/knowledge_neurons/</guid>
+      <description>Authors: Damai Dai, Li Dong, Yaru Hao, Zhifang Sui, Furu Wei</description>
+    </item>
+    
   </channel>
 </rss>
