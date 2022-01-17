@@ -1,0 +1,15 @@
+title: Liyan Tang
+logo: /assets/img/logo.png
+email: lytang@utexas.edu
+blank_title: true
+favicon: true
+description: "PhD at the University of Texas at Austin doing NLP."
+show_downloads: false
+google_analytics: UA-202974782-1
+remote_theme: BDHU/minimalist
+color-scheme: auto
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jemoji
+  - jekyll-remote-theme
