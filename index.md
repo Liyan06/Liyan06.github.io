@@ -27,7 +27,7 @@ Visit my [blog](https://www.tangliyan.com/blog/) <i class="fa-solid fa-pen"></i>
 
 ## News
 
-08/25/2021: Started my PhD at UT Austin.
+08/25/2021: Started my PhD at UT Austin. \\
 05/14/2021: Completed my bachelor's degree in Mathematics at UT Austin.
 
 <!-- ## Useful Links
