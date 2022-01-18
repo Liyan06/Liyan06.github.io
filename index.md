@@ -7,7 +7,7 @@ My name is Liyan Tang (you can call me Jay). I'm a first year PhD student in the
 
 My research focuses on Natural Language Processing (NLP). I am particularly interested in developing methods for text summarization and factual consistency, and applying NLP techniques to clinical domain.
 
-I have obtained my BS in Mathematics am pursuing MS in Computer Science at [UT Austin](https://www.utexas.edu/).
+I have obtained my BS in Mathematics and I'm pursuing MS in Computer Science at [UT Austin](https://www.utexas.edu/).
 
 Visit my [blog](https://www.tangliyan.com/blog/) <i class="fa-solid fa-pen"></i> to find out what I've been working on recently as well as other updates.
 
@@ -27,10 +27,8 @@ Visit my [blog](https://www.tangliyan.com/blog/) <i class="fa-solid fa-pen"></i>
 
 ## News
 
-08/25/2021: Officially started my PhD.  
-05/14/2021: Completed my bachelor's degree in Mathematics.
-
----
+08/25/2021: Started my PhD at UT Austin.
+05/14/2021: Completed my bachelor's degree in Mathematics at UT Austin.
 
 <!-- ## Useful Links
 
