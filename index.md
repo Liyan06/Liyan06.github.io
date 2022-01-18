@@ -3,7 +3,7 @@ layout: default
 title: "Liyan Tang"
 ---
 
-My name is Liyan Tang (you can call me Jay). I'm a first year PhD student in the [AI Health](https://aihealth.ischool.utexas.edu) lab at [UT Austin](https://www.utexas.edu/). I am advised by [Justin F. Rousseau](https://dellmed.utexas.edu/directory/justin-rousseau) and [Ying Ding](https://yingding.ischool.utexas.edu) and work closely with [Greg Durrett](https://www.cs.utexas.edu/~gdurrett/) and [Yifan Peng](https://pengyifan.com).
+My name is Liyan Tang (唐立言 in Chinese). I'm a first year PhD student in the [AI Health](https://aihealth.ischool.utexas.edu) lab at [UT Austin](https://www.utexas.edu/). I am advised by [Justin F. Rousseau](https://dellmed.utexas.edu/directory/justin-rousseau) and [Ying Ding](https://yingding.ischool.utexas.edu) and work closely with [Greg Durrett](https://www.cs.utexas.edu/~gdurrett/) and [Yifan Peng](https://pengyifan.com).
 
 My research focuses on Natural Language Processing (NLP). I am particularly interested in developing methods for text summarization and factual consistency, and applying NLP techniques to clinical domain.
 
