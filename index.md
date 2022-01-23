@@ -18,6 +18,19 @@ Visit my [blog](https://www.tangliyan.com/blog/) <i class="fa-solid fa-pen"></i>
 (preprint) **Making Document-Level Information Extraction Right for the Right Reasons** [<i class="fa-solid fa-file"></i>](https://arxiv.org/pdf/2110.07686.pdf)  
 <u>Liyan Tang</u>, Dhruv Rajan, Suyash Mohan, Abhijeet Pradhan, R. Nick Bryan, Greg Durrett
 
+**Prior Knowledge Enhances Radiology Report Generation** [<i class="fa-solid fa-file"></i>](https://arxiv.org/pdf/2201.03761.pdf) \\
+Song Wang, <u>Liyan Tang</u>, Mingquan Lin, George Shih, Ying Ding, Yifan Peng \\
+<em>Proceedings of American Medical Informatics Association (AMIA) Informatics Summit, 2022.</em>
+
+**RadBERT-CL: Factually-Aware Contrastive Learning For Radiology Report Classification** [<i class="fa-solid fa-file"></i>](https://arxiv.org/pdf/2110.15426.pdf)  
+Ajay Jaiswal, <u>Liyan Tang</u>, Meheli Ghosh, Justin Rousseau, Yifan Peng, and Ying Ding \\
+<em>Proceedings of Machine Learning for Health, 2021.</em>
+
+**Using Radiomics as Prior Knowledge for Abnormality Classification and Localization in Chest X-rays** [<i class="fa-solid fa-file"></i>](https://arxiv.org/pdf/2011.12506.pdf)  
+Yan Han, Chongyan Chen, <u>Liyan Tang</u>, Mingquan Lin, Ajay Jaiswal, Ying Ding, Yifan Peng \\
+<em>Proceedings of American Medical Informatics Association (AMIA) Annual Symposium, 2021.</em>
+
+
 <!-- In *Proceedings of the 2020 IEEE International Symposium on Performance Analysis of Systems and Software (ISPASS)*. 2020  
 [[video]()] [[code]()] [[website]()] -->
 
