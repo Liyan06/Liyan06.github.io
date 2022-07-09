@@ -16,16 +16,20 @@ Visit my [blog](https://www.tangliyan.com/blog/) <i class="fa-solid fa-pen"></i>
 ## Preprints
 
 **Understanding Factual Errors in Summarization: Errors, Summarizers, Datasets, Error Detectors** [<i class="fa-solid fa-file"></i>](https://arxiv.org/pdf/2205.12854.pdf) \\
-<u>Liyan Tang</u>, Tanya Goyal, Alexander R. Fabbri, Philippe Laban, Jiacheng Xu, Semih Yahvuz, Wojciech Kryściński, Justin F. Rousseau, Greg Durrett
+<u>Liyan Tang</u>, Tanya Goyal, Alexander R. Fabbri, Philippe Laban, Jiacheng Xu, Semih Yavuz, Wojciech Kryściński, Justin F. Rousseau, Greg Durrett
 
 **Making Document-Level Information Extraction Right for the Right Reasons** [<i class="fa-solid fa-file"></i>](https://arxiv.org/pdf/2110.07686.pdf) \\
 <u>Liyan Tang</u>, Dhruv Rajan, Suyash Mohan, Abhijeet Pradhan, R. Nick Bryan, Greg Durrett
 
 ## Publications
 
+**Trustworthy Assertion Classification through Prompting** [<i class="fa-solid fa-file"></i>] \\
+Song Wang, <u>Liyan Tang</u>, Akash Majety, Justin F. Rousseau, George Shih, Ying Ding, Yifan Peng \\
+<em>Journal of Biomedical Informatics, 2022</em>
+
 **EchoGen: Generating Conclusions from Echocardiogram Notes** [<i class="fa-solid fa-file"></i>](https://aclanthology.org/2022.bionlp-1.35.pdf) \\
 <u>Liyan Tang</u>, Shravan Kooragayalu, Yanshan Wang, Ying Ding, Greg Durrett, Justin F. Rousseau, Yifan Peng \\
-<em>Proceedings of the 21st Workshop on Biomedical Language Processing (BioNLP), 2022.</em>
+<em>Proceedings of the 21st Workshop on Biomedical Language Processing (BioNLP @ ACL), 2022.</em>
 
 **Prior Knowledge Enhances Radiology Report Generation** [<i class="fa-solid fa-file"></i>](https://arxiv.org/pdf/2201.03761.pdf) \\
 Song Wang, <u>Liyan Tang</u>, Mingquan Lin, George Shih, Ying Ding, Yifan Peng \\
