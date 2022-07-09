@@ -29,7 +29,7 @@ Song Wang, <u>Liyan Tang</u>, Akash Majety, Justin F. Rousseau, George Shih, Yin
 
 **EchoGen: Generating Conclusions from Echocardiogram Notes** [<i class="fa-solid fa-file"></i>](https://aclanthology.org/2022.bionlp-1.35.pdf) \\
 <u>Liyan Tang</u>, Shravan Kooragayalu, Yanshan Wang, Ying Ding, Greg Durrett, Justin F. Rousseau, Yifan Peng \\
-<em>Proceedings of the 21st Workshop on Biomedical Language Processing (BioNLP @ ACL), 2022.</em>
+<em>Proceedings of the 21st Workshop on Biomedical Language Processing (BioNLP) @ ACL, 2022.</em>
 
 **Prior Knowledge Enhances Radiology Report Generation** [<i class="fa-solid fa-file"></i>](https://arxiv.org/pdf/2201.03761.pdf) \\
 Song Wang, <u>Liyan Tang</u>, Mingquan Lin, George Shih, Ying Ding, Yifan Peng \\
