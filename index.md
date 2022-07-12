@@ -23,9 +23,9 @@ Visit my [blog](https://www.tangliyan.com/blog/) <i class="fa-solid fa-pen"></i>
 
 ## Publications
 
-**Trustworthy Assertion Classification through Prompting** [<i class="fa-solid fa-file"></i>] \\
+**Trustworthy Assertion Classification through Prompting** [<i class="fa-solid fa-file"></i>](https://www.sciencedirect.com/science/article/abs/pii/S1532046422001538?via%3Dihub) \\
 Song Wang, <u>Liyan Tang</u>, Akash Majety, Justin F. Rousseau, George Shih, Ying Ding, Yifan Peng \\
-<em>Journal of Biomedical Informatics, 2022</em>
+<em>Journal of Biomedical Informatics, 2022</em>.
 
 **EchoGen: Generating Conclusions from Echocardiogram Notes** [<i class="fa-solid fa-file"></i>](https://aclanthology.org/2022.bionlp-1.35.pdf) \\
 <u>Liyan Tang</u>, Shravan Kooragayalu, Yanshan Wang, Ying Ding, Greg Durrett, Justin F. Rousseau, Yifan Peng \\
