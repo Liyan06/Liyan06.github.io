@@ -3,13 +3,11 @@ layout: default
 title: "Liyan Tang"
 ---
 
-My name is Liyan Tang (唐立言 in Chinese). I'm a first year PhD student in the [AI Health](https://aihealth.ischool.utexas.edu) lab at [UT Austin](https://www.utexas.edu/). I am advised by [Justin F. Rousseau](https://dellmed.utexas.edu/directory/justin-rousseau) and [Ying Ding](https://yingding.ischool.utexas.edu) and work closely with [Greg Durrett](https://www.cs.utexas.edu/~gdurrett/) and [Yifan Peng](https://pengyifan.com).
+My name is Liyan Tang (唐立言 in Chinese). I'm a second year Ph.D. student in the [AI Health](https://aihealth.ischool.utexas.edu) lab at [UT Austin](https://www.utexas.edu/). I am advised by [Justin F. Rousseau](https://dellmed.utexas.edu/directory/justin-rousseau) and [Ying Ding](https://yingding.ischool.utexas.edu) and work closely with [Greg Durrett](https://www.cs.utexas.edu/~gdurrett/) and [Yifan Peng](https://pengyifan.com).
 
-My research focuses on Natural Language Processing (NLP). I am particularly interested in developing methods for text summarization and factual consistency, and applying NLP techniques to clinical domain.
+My research focuses on Natural Language Processing (NLP). I am particularly interested in text generation, including but not limited to text summarization, factual consistency and controllable text generation.
 
 I have obtained my BS in Mathematics and I'm pursuing MS in Computer Science at [UT Austin](https://www.utexas.edu/) while doing my PhD.
-
-Visit my [blog](https://www.tangliyan.com/blog/) <i class="fa-solid fa-pen"></i> to find out what I've been working on recently as well as other updates.
 
 ---
 
@@ -56,9 +54,4 @@ Yan Han, Chongyan Chen, <u>Liyan Tang</u>, Mingquan Lin, Ajay Jaiswal, Ying Ding
 08/25/2021: Started my PhD at UT Austin. \\
 05/14/2021: Completed my bachelor's degree in Mathematics at UT Austin.
 
-<!-- ## Useful Links
-
-[UTNS Lab](https://utns.cs.utexas.edu/)  
-[SCEA Lab](https://github.com/utcs-scea)  
-[Labotory for Advanced Systems Research](https://www.cs.utexas.edu/lasr/)  
-[Notes](https://pages.github.austin.utexas.edu/bh28324/notes/) -->
+<!-- [](https://) -->
