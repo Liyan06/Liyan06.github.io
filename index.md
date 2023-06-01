@@ -18,7 +18,7 @@ I have obtained my BS in Mathematics and I'm pursuing MS in Computer Science at 
 <u>Liyan Tang</u>, Zhaoyi Sun, Betina Idnay, Jordan G Nestor, Ali Soroush, Pierre A. Elias, Ziyang Xu, Ying Ding, Greg Durrett, Justin Rousseau, Chunhua Weng, Yifan Peng 
 
 
-**Less Likely Brainstorming: Using Language Models to Generate Alternative Hypotheses** \\
+**Less Likely Brainstorming: Using Language Models to Generate Alternative Hypotheses** [<i class="fa-solid fa-file"></i>](https://arxiv.org/pdf/2305.19339.pdf)\\
 <u>Liyan Tang</u>, Yanshan Wang, Ying Ding, Yifan Peng, Greg Durrett and Justin F. Rousseau \\
 <em>Findings of the Annual Meeting of the Association for Computational Linguistics
 (ACL), 2023.<em>
