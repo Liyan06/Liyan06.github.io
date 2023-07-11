@@ -18,18 +18,19 @@ I have obtained my BS in Mathematics and I'm pursuing MS in Computer Science at 
 <u>Liyan Tang</u>, Zhaoyi Sun, Betina Idnay, Jordan G Nestor, Ali Soroush, Pierre A. Elias, Ziyang Xu, Ying Ding, Greg Durrett, Justin Rousseau, Chunhua Weng, Yifan Peng 
 
 
-**Less Likely Brainstorming: Using Language Models to Generate Alternative Hypotheses** [<i class="fa-solid fa-file"></i>](https://arxiv.org/pdf/2305.19339.pdf)\\
+**Less Likely Brainstorming: Using Language Models to Generate Alternative Hypotheses** [<i class="fa-solid fa-file"></i>](https://aclanthology.org/2023.findings-acl.794.pdf)\\
 <u>Liyan Tang</u>, Yanshan Wang, Ying Ding, Yifan Peng, Greg Durrett and Justin F. Rousseau \\
 <em>Findings of the Annual Meeting of the Association for Computational Linguistics
 (ACL), 2023.<em>
 
 
-**Understanding Factual Errors in Summarization: Errors, Summarizers, Datasets, Error Detectors** [<i class="fa-solid fa-file"></i>](https://arxiv.org/pdf/2205.12854.pdf) \\
+**Understanding Factual Errors in Summarization: Errors, Summarizers, Datasets, Error Detectors** [<i class="fa-solid fa-file"></i>](https://aclanthology.org/2023.acl-long.650.pdf) \\
 <u>Liyan Tang</u>, Tanya Goyal, Alexander R. Fabbri, Philippe Laban, Jiacheng Xu, Semih Yavuz, Wojciech Kryściński, Justin F. Rousseau, Greg Durrett \\
 <em>Proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL), 2023.</em>
 
 
-
+**Evaluating GPT4 on Impressions Generation in Radiology Reports** [<i class="fa-solid fa-file"></i>](https://pubs.rsna.org/doi/full/10.1148/radiol.231259) \\
+Zhaoyi Sun, Hanley Ong, Patrick Kennedy, <u>Liyan Tang</u>, Shirley Chen, Jonathan Elias, Eugene Lucas, George Shih, Yifan Peng 
 
 ### 2022
 
