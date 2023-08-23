@@ -3,9 +3,9 @@ layout: default
 title: "Liyan Tang"
 ---
 
-My name is Liyan Tang (唐立言 in Chinese). I'm a second year Ph.D. student in the [AI Health](https://aihealth.ischool.utexas.edu) lab at [UT Austin](https://www.utexas.edu/). I am advised by [Justin F. Rousseau](https://dellmed.utexas.edu/directory/justin-rousseau) and [Ying Ding](https://yingding.ischool.utexas.edu) and work closely with [Greg Durrett](https://www.cs.utexas.edu/~gdurrett/) and [Yifan Peng](https://pengyifan.com). My research focuses on Natural Language Processing (NLP). I am particularly interested in text generation and evaluation.
+My name is Liyan Tang (唐立言 in Chinese). I'm a third-year Ph.D. student in the [AI Health lab](https://aihealth.ischool.utexas.edu) and [TAUR Lab](https://taur.cs.utexas.edu) (Text Analysis, Understanding, and Reasoning) at [UT Austin](https://www.utexas.edu/). I have been working with [Ying Ding](https://yingding.ischool.utexas.edu), [Greg Durrett](https://www.cs.utexas.edu/~gdurrett/), [Yifan Peng](https://pengyifan.com) and [Justin F. Rousseau](https://dellmed.utexas.edu/directory/justin-rousseau) (alphabetical order). My research focuses on text generation and evaluation.
 
-I have obtained my BS in Mathematics and I'm pursuing MS in Computer Science at [UT Austin](https://www.utexas.edu/) while doing my PhD.
+I previously obtained my Bachelor of Science degree in Mathematics at UT Austin.
 
 ---
 
@@ -15,7 +15,8 @@ I have obtained my BS in Mathematics and I'm pursuing MS in Computer Science at 
 ### 2023
 
 **Evaluating Large Language Models on Medical Evidence Summarization** [<i class="fa-solid fa-file"></i>](https://www.medrxiv.org/content/medrxiv/early/2023/04/24/2023.04.22.23288967.full.pdf) \\
-<u>Liyan Tang</u>, Zhaoyi Sun, Betina Idnay, Jordan G Nestor, Ali Soroush, Pierre A. Elias, Ziyang Xu, Ying Ding, Greg Durrett, Justin Rousseau, Chunhua Weng, Yifan Peng 
+<u>Liyan Tang</u>, Zhaoyi Sun, Betina Idnay, Jordan G Nestor, Ali Soroush, Pierre A. Elias, Ziyang Xu, Ying Ding, Greg Durrett, Justin Rousseau, Chunhua Weng, Yifan Peng \\
+<em>npj Digital Medicine, 2023</em>
 
 
 **Less Likely Brainstorming: Using Language Models to Generate Alternative Hypotheses** [<i class="fa-solid fa-file"></i>](https://aclanthology.org/2023.findings-acl.794.pdf)\\
@@ -30,7 +31,8 @@ I have obtained my BS in Mathematics and I'm pursuing MS in Computer Science at 
 
 
 **Evaluating GPT4 on Impressions Generation in Radiology Reports** [<i class="fa-solid fa-file"></i>](https://pubs.rsna.org/doi/full/10.1148/radiol.231259) \\
-Zhaoyi Sun, Hanley Ong, Patrick Kennedy, <u>Liyan Tang</u>, Shirley Chen, Jonathan Elias, Eugene Lucas, George Shih, Yifan Peng 
+Zhaoyi Sun, Hanley Ong, Patrick Kennedy, <u>Liyan Tang</u>, Shirley Chen, Jonathan Elias, Eugene Lucas, George Shih, Yifan Peng  \\
+<em>Radiology, 2023<em>
 
 ### 2022
 
@@ -72,7 +74,7 @@ Yan Han, Chongyan Chen, <u>Liyan Tang</u>, Mingquan Lin, Ajay Jaiswal, Ying Ding
 
 ## News
 
-05/15/2023: Applied Scientist Internship at Amazon, Bellevue, WA. \\
+05/15/2023: Applied Scientist Internship at Amazon, WA. \\
 08/25/2021: Started my PhD at UT Austin. \\
 05/14/2021: Completed my bachelor's degree in Mathematics at UT Austin.
 
