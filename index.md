@@ -14,7 +14,7 @@ I previously obtained my Bachelor of Science degree in Mathematics at UT Austin.
 
 ### 2023
 
-**Evaluating Large Language Models on Medical Evidence Summarization** [<i class="fa-solid fa-file"></i>](https://www.medrxiv.org/content/medrxiv/early/2023/04/24/2023.04.22.23288967.full.pdf) \\
+**Evaluating Large Language Models on Medical Evidence Summarization** [<i class="fa-solid fa-file"></i>](https://www.nature.com/articles/s41746-023-00896-7) \\
 <u>Liyan Tang</u>, Zhaoyi Sun, Betina Idnay, Jordan G Nestor, Ali Soroush, Pierre A. Elias, Ziyang Xu, Ying Ding, Greg Durrett, Justin Rousseau, Chunhua Weng, Yifan Peng \\
 <em>npj Digital Medicine, 2023</em>
 
