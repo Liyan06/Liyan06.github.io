@@ -5,7 +5,7 @@ title: "Liyan Tang"
 
 My name is Liyan Tang (唐立言 in Chinese). I'm a third-year Ph.D. student in the [AI Health lab](https://aihealth.ischool.utexas.edu) and [TAUR Lab](https://taur.cs.utexas.edu) (Text Analysis, Understanding, and Reasoning) at [UT Austin](https://www.utexas.edu/). I have been working with [Ying Ding](https://yingding.ischool.utexas.edu), [Greg Durrett](https://www.cs.utexas.edu/~gdurrett/), [Yifan Peng](https://pengyifan.com) and [Justin F. Rousseau](https://dellmed.utexas.edu/directory/justin-rousseau) (alphabetical order). My research focuses on text generation and evaluation.
 
-I previously obtained my Bachelor of Science degree in Mathematics at UT Austin.
+I have obtained my Bachelor of Science degree in Mathematics and Master of Science degree in Computer Science at UT Austin.
 
 ---
 
