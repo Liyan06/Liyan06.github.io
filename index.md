@@ -12,15 +12,21 @@ I have obtained my Bachelor of Science degree in Mathematics and Master of Scien
 
 ## Publications
 
+### 2024
+
+**TofuEval: Evaluating Hallucinations of LLMs on Topic-Focused Dialogue Summarization** [<i class="fa-solid fa-file"></i>](https://github.com/amazon-science/tofueval) \\
+<u>Liyan Tang</u>, Igor Shalyminov, Amy Wing-mei Wong, Jon Burnsky, Jake W. Vincent, Yu'an Yang, Siffi Singh, Song Feng, Hwanjun Song, Hang Su, Lijia Sun, Yi Zhang, Saab Mansour, Kathleen McKeown
+
+
 ### 2023
 
-**Evaluating Large Language Models on Medical Evidence Summarization** [<i class="fa-solid fa-file"></i>](https://www.nature.com/articles/s41746-023-00896-7) \\
+**Evaluating Large Language Models on Medical Evidence Summarization** [<i class="fa-solid fa-file"></i>](https://www.nature.com/articles/s41746-023-00896-7.pdf) \\
 <u>Liyan Tang</u>, Zhaoyi Sun, Betina Idnay, Jordan G Nestor, Ali Soroush, Pierre A. Elias, Ziyang Xu, Ying Ding, Greg Durrett, Justin Rousseau, Chunhua Weng, Yifan Peng \\
 <em>npj Digital Medicine, 2023</em>
 
 
 **Less Likely Brainstorming: Using Language Models to Generate Alternative Hypotheses** [<i class="fa-solid fa-file"></i>](https://aclanthology.org/2023.findings-acl.794.pdf)\\
-<u>Liyan Tang</u>, Yanshan Wang, Ying Ding, Yifan Peng, Greg Durrett and Justin F. Rousseau \\
+<u>Liyan Tang</u>, Yifan Peng, Yanshan Wang, Ying Ding, Greg Durrett and Justin F. Rousseau \\
 <em>Findings of the Annual Meeting of the Association for Computational Linguistics
 (ACL), 2023.<em>
 
