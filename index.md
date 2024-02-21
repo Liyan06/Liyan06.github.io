@@ -3,9 +3,7 @@ layout: default
 title: "Liyan Tang"
 ---
 
-My name is Liyan Tang (唐立言 in Chinese). I'm a third-year Ph.D. student in the [AI Health lab](https://aihealth.ischool.utexas.edu) and [TAUR Lab](https://taur.cs.utexas.edu) (Text Analysis, Understanding, and Reasoning) at [UT Austin](https://www.utexas.edu/). I have been working with [Ying Ding](https://yingding.ischool.utexas.edu), [Greg Durrett](https://www.cs.utexas.edu/~gdurrett/), [Yifan Peng](https://pengyifan.com) and [Justin F. Rousseau](https://dellmed.utexas.edu/directory/justin-rousseau) (alphabetical order). My research focuses on text generation and evaluation.
-
-I have obtained my Bachelor of Science degree in Mathematics and Master of Science degree in Computer Science at UT Austin.
+My name is Liyan Tang (唐立言 in Chinese). I'm a third-year Ph.D. student in the [AI Health lab](https://aihealth.ischool.utexas.edu) and [TAUR Lab](https://taur.cs.utexas.edu) (Text Analysis, Understanding, and Reasoning) at [UT Austin](https://www.utexas.edu/). I have been working with [Ying Ding](https://yingding.ischool.utexas.edu), [Greg Durrett](https://www.cs.utexas.edu/~gdurrett/), [Yifan Peng](https://pengyifan.com) and [Justin F. Rousseau](https://dellmed.utexas.edu/directory/justin-rousseau) (alphabetical order). My research focuses on text generation and evaluation, as well as their applications in the clinical domain.
 
 ---
 
@@ -14,7 +12,7 @@ I have obtained my Bachelor of Science degree in Mathematics and Master of Scien
 
 ### 2024
 
-**TofuEval: Evaluating Hallucinations of LLMs on Topic-Focused Dialogue Summarization** [<i class="fa-solid fa-file"></i>](https://github.com/amazon-science/tofueval) \\
+**TofuEval: Evaluating Hallucinations of LLMs on Topic-Focused Dialogue Summarization** [<i class="fa-solid fa-file"></i>](https://arxiv.org/pdf/2402.13249.pdf) \\
 <u>Liyan Tang</u>, Igor Shalyminov, Amy Wing-mei Wong, Jon Burnsky, Jake W. Vincent, Yu'an Yang, Siffi Singh, Song Feng, Hwanjun Song, Hang Su, Lijia Sun, Yi Zhang, Saab Mansour, Kathleen McKeown
 
 
@@ -80,8 +78,9 @@ Yan Han, Chongyan Chen, <u>Liyan Tang</u>, Mingquan Lin, Ajay Jaiswal, Ying Ding
 
 ## News
 
+12/16/2023: Completed my Master of Science degree in Computer Science at UT Austin. \\
 05/15/2023: Applied Scientist Internship at Amazon, WA. \\
 08/25/2021: Started my PhD at UT Austin. \\
-05/14/2021: Completed my bachelor's degree in Mathematics at UT Austin.
+05/14/2021: Completed my Bachelor of Science degree in Mathematics at UT Austin.
 
 <!-- [](https://) -->
