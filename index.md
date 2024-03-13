@@ -13,7 +13,8 @@ My name is Liyan Tang (唐立言 in Chinese). I'm a third-year Ph.D. student in 
 ### 2024
 
 **TofuEval: Evaluating Hallucinations of LLMs on Topic-Focused Dialogue Summarization** [<i class="fa-solid fa-file"></i>](https://arxiv.org/pdf/2402.13249.pdf) \\
-<u>Liyan Tang</u>, Igor Shalyminov, Amy Wing-mei Wong, Jon Burnsky, Jake W. Vincent, Yu'an Yang, Siffi Singh, Song Feng, Hwanjun Song, Hang Su, Lijia Sun, Yi Zhang, Saab Mansour, Kathleen McKeown
+<u>Liyan Tang</u>, Igor Shalyminov, Amy Wing-mei Wong, Jon Burnsky, Jake W. Vincent, Yu'an Yang, Siffi Singh, Song Feng, Hwanjun Song, Hang Su, Lijia Sun, Yi Zhang, Saab Mansour, Kathleen McKeown \\
+<em>Proceedings of the North American Chapter of the Association for Computational Linguistic (NAACL), 2024.</em>
 
 
 ### 2023
