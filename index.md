@@ -12,6 +12,10 @@ My name is Liyan Tang (唐立言 in Chinese). I'm a third-year Ph.D. student in 
 
 ### 2024
 
+**MiniCheck: Efficient Fact-Checking of LLMs on Grounding Documents** [<i class="fa-solid fa-file"></i>](https://arxiv.org/pdf/2404.10774.pdf) \\
+<u>Liyan Tang</u>, Philippe Laban, Greg Durrett
+
+
 **TofuEval: Evaluating Hallucinations of LLMs on Topic-Focused Dialogue Summarization** [<i class="fa-solid fa-file"></i>](https://arxiv.org/pdf/2402.13249.pdf) \\
 <u>Liyan Tang</u>, Igor Shalyminov, Amy Wing-mei Wong, Jon Burnsky, Jake W. Vincent, Yu'an Yang, Siffi Singh, Song Feng, Hwanjun Song, Hang Su, Lijia Sun, Yi Zhang, Saab Mansour, Kathleen McKeown \\
 <em>Proceedings of the North American Chapter of the Association for Computational Linguistic (NAACL), 2024.</em>
