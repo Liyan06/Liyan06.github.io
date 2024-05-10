@@ -3,7 +3,7 @@ layout: default
 title: "Liyan Tang"
 ---
 
-My name is Liyan Tang (唐立言 in Chinese). I'm a third-year Ph.D. student in the [AI Health lab](https://aihealth.ischool.utexas.edu) and [TAUR Lab](https://taur.cs.utexas.edu) (Text Analysis, Understanding, and Reasoning) at [UT Austin](https://www.utexas.edu/). I have been working with [Ying Ding](https://yingding.ischool.utexas.edu), [Greg Durrett](https://www.cs.utexas.edu/~gdurrett/), [Yifan Peng](https://pengyifan.com) and [Justin F. Rousseau](https://dellmed.utexas.edu/directory/justin-rousseau) (alphabetical order). My research focuses on text generation and evaluation, as well as their applications in the clinical domain.
+My name is Liyan Tang (唐立言 in Chinese). I'm an upcoming fourth-year Ph.D. student in Computer Science from the [TAUR Lab](https://taur.cs.utexas.edu) (Text Analysis, Understanding, and Reasoning) at [UT Austin](https://www.utexas.edu/) advised by [Greg Durrett](https://www.cs.utexas.edu/~gdurrett/). I have been fortunate to work with [Ying Ding](https://yingding.ischool.utexas.edu) from UT iSchool, [Yifan Peng](https://pengyifan.com) from Weill Cornell Medicine and [Justin F. Rousseau](https://dellmed.utexas.edu/directory/justin-rousseau) from UT Southwestern Medical Center (alphabetical order). My research focuses on text generation and evaluation (especially on hallucination evaluation), as well as their applications in the clinical domain.
 
 ---
 
@@ -73,11 +73,6 @@ Ajay Jaiswal, <u>Liyan Tang</u>, Meheli Ghosh, Justin Rousseau, Yifan Peng, and 
 Yan Han, Chongyan Chen, <u>Liyan Tang</u>, Mingquan Lin, Ajay Jaiswal, Ying Ding, Yifan Peng \\
 <em>Proceedings of American Medical Informatics Association (AMIA) Annual Symposium, 2021.</em>
 
-
-<!-- In *Proceedings of the 2020 IEEE International Symposium on Performance Analysis of Systems and Software (ISPASS)*. 2020  
-[[video]()] [[code]()] [[website]()] -->
-
-<!-- [Complete Publications](./publications) -->
 
 ---
 
