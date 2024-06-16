@@ -12,7 +12,7 @@ My name is Liyan Tang (唐立言 in Chinese). I'm an upcoming fourth-year Ph.D. 
 
 ### 2024
 
-**MiniCheck: Efficient Fact-Checking of LLMs on Grounding Documents** [<i class="fa-solid fa-file"></i>](https://arxiv.org/pdf/2404.10774.pdf) \\
+**MiniCheck: Efficient Fact-Checking of LLMs on Grounding Documents** [<i class="fa-solid fa-file"></i>](https://aclanthology.org/2024.naacl-long.251.pdf) \\
 <u>Liyan Tang</u>, Philippe Laban, Greg Durrett
 
 
