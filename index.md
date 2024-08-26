@@ -78,7 +78,7 @@ Yan Han, Chongyan Chen, <u>Liyan Tang</u>, Mingquan Lin, Ajay Jaiswal, Ying Ding
 
 ## News
 
-06/03/2023: Research Internship at [Bespoke Labs](https://bespokelabs.ai) (start up). \\
+06/03/2023: Research Internship at [Bespoke Labs](https://bespokelabs.ai) (startup). \\
 12/16/2023: Completed my Master of Science degree in Computer Science at UT Austin. \\
 05/15/2023: Applied Scientist Internship at Amazon, WA. \\
 08/25/2021: Started my PhD at UT Austin. \\
