@@ -3,7 +3,7 @@ layout: default
 title: "Liyan Tang"
 ---
 
-My name is Liyan Tang (唐立言 in Chinese). I'm an upcoming fourth-year Ph.D. student in Computer Science from the [TAUR Lab](https://taur.cs.utexas.edu) (Text Analysis, Understanding, and Reasoning) at [UT Austin](https://www.utexas.edu/) advised by [Greg Durrett](https://www.cs.utexas.edu/~gdurrett/). I have been fortunate to work with [Ying Ding](https://yingding.ischool.utexas.edu) from UT iSchool, [Yifan Peng](https://pengyifan.com) from Weill Cornell Medicine and [Justin F. Rousseau](https://dellmed.utexas.edu/directory/justin-rousseau) from UT Southwestern Medical Center (alphabetical order). My research focuses on text generation and evaluation (especially on hallucination evaluation), as well as their applications in the clinical domain.
+My name is Liyan Tang (唐立言 in Chinese). I'm a fourth-year Ph.D. student in Computer Science from the [TAUR Lab](https://taur.cs.utexas.edu) (Text Analysis, Understanding, and Reasoning) at [UT Austin](https://www.utexas.edu/) advised by [Greg Durrett](https://www.cs.utexas.edu/~gdurrett/). I have been fortunate to work with [Ying Ding](https://yingding.ischool.utexas.edu) from UT iSchool, [Yifan Peng](https://pengyifan.com) from Weill Cornell Medicine and [Justin F. Rousseau](https://dellmed.utexas.edu/directory/justin-rousseau) from UT Southwestern Medical Center (alphabetical order). My research focuses on text generation and evaluation (especially on hallucination evaluation), as well as their applications in the clinical domain.
 
 ---
 
@@ -78,9 +78,8 @@ Yan Han, Chongyan Chen, <u>Liyan Tang</u>, Mingquan Lin, Ajay Jaiswal, Ying Ding
 
 ## News
 
+06/03/2023: Research Internship at [Bespoke Labs](https://bespokelabs.ai) (start up). \\
 12/16/2023: Completed my Master of Science degree in Computer Science at UT Austin. \\
 05/15/2023: Applied Scientist Internship at Amazon, WA. \\
 08/25/2021: Started my PhD at UT Austin. \\
 05/14/2021: Completed my Bachelor of Science degree in Mathematics at UT Austin.
-
-<!-- [](https://) -->
