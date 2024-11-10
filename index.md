@@ -15,7 +15,7 @@ Bespoke-MiniCheck-7B](https://huggingface.co/bespokelabs/Bespoke-MiniCheck-7B) o
 
 ### 2024
 
-**MiniCheck: Efficient Fact-Checking of LLMs on Grounding Documents** [<i class="fa-solid fa-file"></i>](https://arxiv.org/pdf/2404.10774) \\
+**MiniCheck: Efficient Fact-Checking of LLMs on Grounding Documents** [<i class="fa-solid fa-file"></i>](https://aclanthology.org/2024.emnlp-main.499.pdf) \\
 <u>Liyan Tang</u>, Philippe Laban, Greg Durrett \\
 <em>Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP), 2024.</em>
 
