@@ -5,7 +5,7 @@ title: "Liyan Tang"
 
 My name is Liyan Tang (唐立言 in Chinese). I'm a fourth-year Ph.D. student in Computer Science from the [TAUR Lab](https://taur.cs.utexas.edu) (Text Analysis, Understanding, and Reasoning) at [UT Austin](https://www.utexas.edu/) advised by [Greg Durrett](https://www.cs.utexas.edu/~gdurrett/). I have been fortunate to work with [Ying Ding](https://yingding.ischool.utexas.edu) from UT iSchool, [Yifan Peng](https://pengyifan.com) from Weill Cornell Medicine and [Justin F. Rousseau](https://dellmed.utexas.edu/directory/justin-rousseau) from UT Southwestern Medical Center (alphabetical order). 
 
-My research mainly focuses on the automatic evaluation of LLMs (especially on hallucination evaluation) and I recently start exploring multi-modality hallucination evaluation and reasoning.
+My research mainly focuses on the automatic evaluation of LLMs (especially on hallucination evaluation) and I recently work on post-training in general, with a focus on improving reasoning ability of LLMs via SFT and RL methods.
 
 I'm having a research internship at [Bespoke Labs](https://bespokelabs.ai) (startup). Check out our SOTA fact-checking model [
 Bespoke-MiniCheck-7B](https://huggingface.co/bespokelabs/Bespoke-MiniCheck-7B) on the [LLM-AggreFact leaderboard](https://llm-aggrefact.github.io) across 11 hulluciantion detection datasets and the real-time [demo](https://playground.bespokelabs.ai) based on my [MiniCheck paper](https://arxiv.org/pdf/2404.10774).
