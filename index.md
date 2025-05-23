@@ -21,21 +21,25 @@ Bespoke-MiniCheck-7B](https://huggingface.co/bespokelabs/Bespoke-MiniCheck-7B) o
 <u>Liyan Tang</u>, Grace Kim, Xinyu Zhao, Thom Lake, Wenxuan Ding, Fangcong Yin, Prasann Singhal, Manya Wadhwa, Zeyu Leo Liu, Zayne Sprague, Ramya Namuduri, Bodun Hu, Juan Diego Rodriguez, Puyuan Peng, Greg Durrett \\
 arXiv preprint 2025
 
-**MiniCheck: Efficient Fact-Checking of LLMs on Grounding Documents** <a href="https://aclanthology.org/2024.emnlp-main.499.pdf"><img alt="Endpoint Badge" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.juleskreuer.eu%2Fcitation-badge.php%3Fshield%26doi%3D10.48550%2FarXiv.2404.10774&style=social&logo=googlescholar&logoSize=amg&label=Paper&labelColor=white&color=white" style="vertical-align: -4px;"></a>\\
+**MiniCheck: Efficient Fact-Checking of LLMs on Grounding Documents** 
+<a href="https://aclanthology.org/2024.emnlp-main.499.pdf"><img alt="Endpoint Badge" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.juleskreuer.eu%2Fcitation-badge.php%3Fshield%26doi%3D10.48550%2FarXiv.2404.10774&style=social&logo=googlescholar&logoSize=amg&label=Paper&labelColor=white&color=white" style="vertical-align: -4px;"></a>\\
 <u>Liyan Tang</u>, Philippe Laban, Greg Durrett \\
 <em>Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP), 2024</em> 
 
-**TofuEval: Evaluating Hallucinations of LLMs on Topic-Focused Dialogue Summarization** <a href="https://aclanthology.org/2024.naacl-long.251.pdf"><img alt="Endpoint Badge" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.juleskreuer.eu%2Fcitation-badge.php%3Fshield%26doi%3D10.48550%2FarXiv.2402.13249&style=social&logo=googlescholar&logoSize=amg&label=Paper&labelColor=white&color=white" style="vertical-align: -4px;"></a> \\
+**TofuEval: Evaluating Hallucinations of LLMs on Topic-Focused Dialogue Summarization**
+<a href="https://aclanthology.org/2024.naacl-long.251.pdf"><img alt="Endpoint Badge" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.juleskreuer.eu%2Fcitation-badge.php%3Fshield%26doi%3D10.48550%2FarXiv.2402.13249&style=social&logo=googlescholar&logoSize=amg&label=Paper&labelColor=white&color=white" style="vertical-align: -4px;"></a> \\
 <u>Liyan Tang</u>, Igor Shalyminov, Amy Wing-mei Wong, Jon Burnsky, Jake W. Vincent, Yu'an Yang, Siffi Singh, Song Feng, Hwanjun Song, Hang Su, Lijia Sun, Yi Zhang, Saab Mansour, Kathleen McKeown \\
 <em>Proceedings of the North American Chapter of the Association for Computational Linguistic (NAACL), 2024</em>
 
 
-**Understanding Factual Errors in Summarization: Errors, Summarizers, Datasets, Error Detectors**  <a href="https://aclanthology.org/2023.acl-long.650.pdf"><img alt="Endpoint Badge" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.juleskreuer.eu%2Fcitation-badge.php%3Fshield%26doi%3D10.48550%2FarXiv.2205.12854&style=social&logo=googlescholar&logoSize=amg&label=Paper&labelColor=white&color=white" style="vertical-align: -4px;"></a>\\
+**Understanding Factual Errors in Summarization: Errors, Summarizers, Datasets, Error Detectors**
+<a href="https://aclanthology.org/2023.acl-long.650.pdf"><img alt="Endpoint Badge" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.juleskreuer.eu%2Fcitation-badge.php%3Fshield%26doi%3D10.48550%2FarXiv.2205.12854&style=social&logo=googlescholar&logoSize=amg&label=Paper&labelColor=white&color=white" style="vertical-align: -4px;"></a>\\
 <u>Liyan Tang</u>, Tanya Goyal, Alexander R. Fabbri, Philippe Laban, Jiacheng Xu, Semih Yavuz, Wojciech Kryściński, Justin F. Rousseau, Greg Durrett \\
 <em>Proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL), 2023</em>
 
 
-**Evaluating Large Language Models on Medical Evidence Summarization** <a href="https://www.nature.com/articles/s41746-023-00896-7.pdf"><img alt="Endpoint Badge" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.juleskreuer.eu%2Fcitation-badge.php%3Fshield%26doi%3D10.1038%2Fs41746-023-00896-7&style=social&logo=googlescholar&logoSize=amg&label=Paper&labelColor=white&color=white" style="vertical-align: -4px;"></a> \\
+**Evaluating Large Language Models on Medical Evidence Summarization** 
+<a href="https://www.nature.com/articles/s41746-023-00896-7.pdf"><img alt="Endpoint Badge" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.juleskreuer.eu%2Fcitation-badge.php%3Fshield%26doi%3D10.1038%2Fs41746-023-00896-7&style=social&logo=googlescholar&logoSize=amg&label=Paper&labelColor=white&color=white" style="vertical-align: -4px;"></a> \\
 <u>Liyan Tang</u>, Zhaoyi Sun, Betina Idnay, Jordan G Nestor, Ali Soroush, Pierre A. Elias, Ziyang Xu, Ying Ding, Greg Durrett, Justin Rousseau, Chunhua Weng, Yifan Peng \\
 <em>npj Digital Medicine, 2023</em>
 
