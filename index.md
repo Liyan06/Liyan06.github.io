@@ -19,10 +19,9 @@ Bespoke-MiniCheck-7B](https://huggingface.co/bespokelabs/Bespoke-MiniCheck-7B) o
 <u>Liyan Tang</u>, Grace Kim, Xinyu Zhao, Thom Lake, Wenxuan Ding, Fangcong Yin, Prasann Singhal, Manya Wadhwa, Zeyu Leo Liu, Zayne Sprague, Ramya Namuduri, Bodun Hu, Juan Diego Rodriguez, Puyuan Peng, Greg Durrett \\
 arXiv preprint 2025
 
-**MiniCheck: Efficient Fact-Checking of LLMs on Grounding Documents** [<i class="fa-solid fa-file"></i>](https://aclanthology.org/2024.emnlp-main.499.pdf) \\
+**MiniCheck: Efficient Fact-Checking of LLMs on Grounding Documents** [<i class="fa-solid fa-file"></i>](https://aclanthology.org/2024.emnlp-main.499.pdf) <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.juleskreuer.eu%2Fcitation-badge.php%3Fshield%26doi%3D10.48550%2FarXiv.2404.10774&style=flat&logo=googlescholar&logoSize=auto&label=%20&labelColor=white&color=white" style="vertical-align: -4px;"> \\
 <u>Liyan Tang</u>, Philippe Laban, Greg Durrett \\
-<em>Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP), 2024</em> <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.juleskreuer.eu%2Fcitation-badge.php%3Fshield%26doi%3D10.48550%2FarXiv.2404.10774&style=flat&logo=googlescholar&logoSize=amg&label=%20&labelColor=white&color=white
-">
+<em>Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP), 2024</em> 
 
 **TofuEval: Evaluating Hallucinations of LLMs on Topic-Focused Dialogue Summarization** [<i class="fa-solid fa-file"></i>](https://aclanthology.org/2024.naacl-long.251.pdf) \\
 <u>Liyan Tang</u>, Igor Shalyminov, Amy Wing-mei Wong, Jon Burnsky, Jake W. Vincent, Yu'an Yang, Siffi Singh, Song Feng, Hwanjun Song, Hang Su, Lijia Sun, Yi Zhang, Saab Mansour, Kathleen McKeown \\
