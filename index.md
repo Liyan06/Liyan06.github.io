@@ -7,7 +7,7 @@ My name is Liyan Tang (唐立言 in Chinese). I'm a fourth-year Ph.D. student in
 
 My research mainly focuses on the automatic evaluation of LLMs (especially on hallucination evaluation) and I recently work on post-training in general, with a focus on improving reasoning ability of LLMs via SFT and RL methods.
 
-I'm having a research internship at [Bespoke Labs](https://bespokelabs.ai) (startup). Check out our SOTA fact-checking model [
+I had a research internship at [Bespoke Labs](https://bespokelabs.ai) (startup) 2024-2025. Check out our SOTA fact-checking model [
 Bespoke-MiniCheck-7B](https://huggingface.co/bespokelabs/Bespoke-MiniCheck-7B) on the [LLM-AggreFact leaderboard](https://llm-aggrefact.github.io) across 11 hulluciantion detection datasets and the real-time [demo](https://playground.bespokelabs.ai) based on my [MiniCheck paper](https://arxiv.org/pdf/2404.10774).
 
 ---
@@ -47,7 +47,8 @@ arXiv preprint 2025
 
 ## News
 
-06/03/2024: Research Internship at [Bespoke Labs](https://bespokelabs.ai) (startup). \\
+06/02/2025: Research Intern at Google DeepMind, CA. \\
+06/03/2024: Research Intern at [Bespoke Labs](https://bespokelabs.ai) (startup), CA. \\
 12/16/2023: Completed my Master of Science degree in Computer Science at UT Austin. \\
 05/15/2023: Applied Scientist Internship at Amazon, WA. \\
 08/25/2021: Started my PhD at UT Austin. \\
