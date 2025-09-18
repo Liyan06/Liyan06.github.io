@@ -19,7 +19,7 @@ Bespoke-MiniCheck-7B](https://huggingface.co/bespokelabs/Bespoke-MiniCheck-7B) o
 
 **ChartMuseum: Testing Visual Reasoning Capabilities of Large Vision-Language Models** [<i class="fa-solid fa-file"></i>](https://arxiv.org/pdf/2505.13444) \\
 <u>Liyan Tang</u>, Grace Kim, Xinyu Zhao, Thom Lake, Wenxuan Ding, Fangcong Yin, Prasann Singhal, Manya Wadhwa, Zeyu Leo Liu, Zayne Sprague, Ramya Namuduri, Bodun Hu, Juan Diego Rodriguez, Puyuan Peng, Greg Durrett \\
-arXiv preprint 2025
+<em>Proceedings of the Conference on Neural Information Processing Systems (NeurIPS), 2025</em> 
 
 **MiniCheck: Efficient Fact-Checking of LLMs on Grounding Documents** \\
 <a href="https://aclanthology.org/2024.emnlp-main.499.pdf"><img alt="Endpoint Badge" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.juleskreuer.eu%2Fcitation-badge.php%3Fshield%26doi%3D10.48550%2FarXiv.2404.10774&style=social&logo=googlescholar&logoSize=amg&label=Paper&labelColor=white&color=white" style="vertical-align: -4px;"></a>\\
