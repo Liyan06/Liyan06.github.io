@@ -40,7 +40,7 @@ Bespoke-MiniCheck-7B](https://huggingface.co/bespokelabs/Bespoke-MiniCheck-7B) o
 <!-- <a href="https://aclanthology.org/2023.acl-long.650.pdf"><img alt="Endpoint Badge" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.juleskreuer.eu%2Fcitation-badge.php%3Fshield%26doi%3D10.48550%2FarXiv.2205.12854&style=social&logo=googlescholar&logoSize=amg&label=Paper&labelColor=white&color=white" style="vertical-align: -4px;"></a>\\ -->
 
 
-**Evaluating Large Language Models on Medical Evidence Summarization** [<i class="fa-solid fa-file"></i>](https://www.nature.com/articles/s41746-023-00896-7.pdf)\\ 
+**Evaluating Large Language Models on Medical Evidence Summarization** [<i class="fa-solid fa-file"></i>](https://www.nature.com/articles/s41746-023-00896-7.pdf)\\
 <u>Liyan Tang</u>, Zhaoyi Sun, Betina Idnay, Jordan G Nestor, Ali Soroush, Pierre A. Elias, Ziyang Xu, Ying Ding, Greg Durrett, Justin Rousseau, Chunhua Weng, Yifan Peng \\
 <em>npj Digital Medicine, 2023</em>
 <!-- <a href="https://www.nature.com/articles/s41746-023-00896-7.pdf"><img alt="Endpoint Badge" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.juleskreuer.eu%2Fcitation-badge.php%3Fshield%26doi%3D10.1038%2Fs41746-023-00896-7&style=social&logo=googlescholar&logoSize=amg&label=Paper&labelColor=white&color=white" style="vertical-align: -4px;"></a> \\ -->
