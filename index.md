@@ -10,6 +10,8 @@ My research focuses on the automatic evaluations of LLMs, with an emphasis on ha
 <!-- I had a research internship at [Bespoke Labs](https://bespokelabs.ai) (startup) 2024-2025. Check out our SOTA fact-checking model [
 Bespoke-MiniCheck-7B](https://huggingface.co/bespokelabs/Bespoke-MiniCheck-7B) on the [LLM-AggreFact leaderboard](https://llm-aggrefact.github.io) across 11 hulluciantion detection datasets and the real-time [demo](https://playground.bespokelabs.ai) based on my [MiniCheck paper](https://arxiv.org/pdf/2404.10774). -->
 
+<span style="color: red; font-weight: bold;">I am currently looking for industry positions starting early 2026.</span>
+
 ---
 
 
@@ -29,7 +31,7 @@ Bespoke-MiniCheck-7B](https://huggingface.co/bespokelabs/Bespoke-MiniCheck-7B) o
 **TofuEval: Evaluating Hallucinations of LLMs on Topic-Focused Dialogue Summarization** [<i class="fa-solid fa-file"></i>](https://aclanthology.org/2024.naacl-long.251.pdf)\\
 <u>Liyan Tang</u>, Igor Shalyminov, Amy Wing-mei Wong, Jon Burnsky, Jake W. Vincent, Yu'an Yang, Siffi Singh, Song Feng, Hwanjun Song, Hang Su, Lijia Sun, Yi Zhang, Saab Mansour, Kathleen McKeown \\
 <em>Proceedings of the North American Chapter of the Association for Computational Linguistic (NAACL), 2024</em>
-<a href="https://aclanthology.org/2024.naacl-long.251.pdf"><img alt="Endpoint Badge" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.juleskreuer.eu%2Fcitation-badge.php%3Fshield%26doi%3D10.48550%2FarXiv.2402.13249&style=social&logo=googlescholar&logoSize=amg&label=Paper&labelColor=white&color=white" style="vertical-align: -4px;"></a> \\
+<!-- <a href="https://aclanthology.org/2024.naacl-long.251.pdf"><img alt="Endpoint Badge" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.juleskreuer.eu%2Fcitation-badge.php%3Fshield%26doi%3D10.48550%2FarXiv.2402.13249&style=social&logo=googlescholar&logoSize=amg&label=Paper&labelColor=white&color=white" style="vertical-align: -4px;"></a> \\ -->
 
 
 **Understanding Factual Errors in Summarization: Errors, Summarizers, Datasets, Error Detectors** [<i class="fa-solid fa-file"></i>](https://aclanthology.org/2023.acl-long.650.pdf)\\
