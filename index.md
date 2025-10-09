@@ -14,6 +14,10 @@ Bespoke-MiniCheck-7B](https://huggingface.co/bespokelabs/Bespoke-MiniCheck-7B) o
 
 ---
 
+## Blog
+
+**Bespoke-MiniChart-7B: Pushing The Frontiers Of Open VLMs For Chart Understanding** [<i class="fa-solid fa-file"></i>](https://www.bespokelabs.ai/blog/bespoke-minichart-7b) \\
+<u>Liyan Tang</u>, Shreyas Pimpalgaonkar, Kartik Sharma, Alexandros G. Dimakis, Mahesh Sathiamoorthy, Greg Durrett \\
 
 ## Selected Papers
 
