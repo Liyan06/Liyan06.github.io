@@ -55,11 +55,11 @@ Bespoke-MiniCheck-7B](https://huggingface.co/bespokelabs/Bespoke-MiniCheck-7B) o
 
 ## News
 
-04/06/2026: I have started my Research Scientist position at Google Research. \\
-03/30/2026: I have passed my CS PhD final oral defense. \\
+04/06/2026: Started the role of Research Scientist at Google Research. \\
+03/30/2026: Passed my final oral defense and received CS PhD degree. \\
 06/02/2025: Research Intern at Google DeepMind, CA. \\
 06/03/2024: Research Intern at [Bespoke Labs](https://bespokelabs.ai) (startup), CA. \\
-12/16/2023: Completed my Master of Science degree in Computer Science at UT Austin. \\
+12/16/2023: Received my Master of Science degree in Computer Science at UT Austin. \\
 05/15/2023: Applied Scientist Internship at Amazon AWS AI, WA. \\
 08/25/2021: Started my PhD at UT Austin. \\
-05/14/2021: Completed my Bachelor of Science degree in Mathematics at UT Austin.
+05/14/2021: Received my Bachelor of Science degree in Mathematics at UT Austin.
