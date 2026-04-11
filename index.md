@@ -3,9 +3,11 @@ layout: default
 title: "Liyan Tang"
 ---
 
-My name is Liyan Tang (唐立言 in Chinese). I'm a fifth-year (final year) Ph.D. candidate in Computer Science from the [TAUR Lab](https://taur.cs.utexas.edu) (Text Analysis, Understanding, and Reasoning) at [UT Austin](https://www.utexas.edu/) advised by [Greg Durrett](https://www.cs.utexas.edu/~gdurrett/). I have been fortunate to work with [Ying Ding](https://yingding.ischool.utexas.edu) from UT iSchool, [Yifan Peng](https://pengyifan.com) from Weill Cornell Medicine and [Justin F. Rousseau](https://dellmed.utexas.edu/directory/justin-rousseau) from UT Southwestern Medical Center (alphabetical order). 
+My name is Liyan Tang (唐立言 in Chinese). I'm currently a Research Scientist at [Google Research](https://research.google).
 
-My research focuses on the automatic evaluations of LLMs, with an emphasis on hallucination detection. I developed [MiniCheck](https://llm-aggrefact.github.io), a state-of-the-art model for detecting hallucinations in LLM outputs. More recently, my interests have expanded to post-training techniques for strengthening the reasoning capabilities of LLMs and LVLMs, particularly through agent-style approaches where models interact with their environment and incorporate feedback to reduce hallucinations and improve the reasoning capability.
+I have obtained my PhD degree in Computer Science from the [TAUR Lab](https://taur.cs.utexas.edu) (Text Analysis, Understanding, and Reasoning) at [UT Austin](https://www.utexas.edu/) advised by [Greg Durrett](https://www.cs.utexas.edu/~gdurrett/). I have been fortunate to work with [Ying Ding](https://yingding.ischool.utexas.edu) from UT iSchool, [Yifan Peng](https://pengyifan.com) from Weill Cornell Medicine and [Justin F. Rousseau](https://dellmed.utexas.edu/directory/justin-rousseau) from UT Southwestern Medical Center (alphabetical order). 
+
+During my PhD, my research focused on the automatic evaluations of LLMs, with an emphasis on hallucination detection. I developed [MiniCheck](https://llm-aggrefact.github.io), a state-of-the-art model for detecting hallucinations in LLM outputs. More recently, my interests have expanded to post-training techniques for strengthening the reasoning capabilities of LLMs and LVLMs, particularly through agent-style approaches where models interact with their environment and incorporate feedback to reduce hallucinations and improve the reasoning capability.
 
 
 <!-- I had a research internship at [Bespoke Labs](https://bespokelabs.ai) (startup) 2024-2025. Check out our SOTA fact-checking model [
@@ -53,6 +55,8 @@ Bespoke-MiniCheck-7B](https://huggingface.co/bespokelabs/Bespoke-MiniCheck-7B) o
 
 ## News
 
+04/06/2026: I have started my Research Scientist position at Google Research. \\
+03/30/2026: I have passed my CS PhD final oral defense. \\
 06/02/2025: Research Intern at Google DeepMind, CA. \\
 06/03/2024: Research Intern at [Bespoke Labs](https://bespokelabs.ai) (startup), CA. \\
 12/16/2023: Completed my Master of Science degree in Computer Science at UT Austin. \\
