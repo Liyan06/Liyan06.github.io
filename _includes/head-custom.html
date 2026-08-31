@@ -1,12 +1,74 @@
 <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+<style>
+  .paper-pdf-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.22rem;
+    margin-left: 0.28rem;
+    padding: 0.12rem 0.38rem;
+    border: 1px solid rgba(180, 35, 24, 0.28);
+    border-radius: 0.35rem;
+    background: rgba(180, 35, 24, 0.07);
+    color: #b42318 !important;
+    font-size: 0.7rem;
+    font-weight: 650;
+    line-height: 1.15;
+    text-decoration: none !important;
+    vertical-align: 0.08rem;
+    white-space: nowrap;
+  }
+
+  .paper-pdf-link:hover,
+  .paper-pdf-link:focus {
+    border-color: rgba(180, 35, 24, 0.48);
+    background: rgba(180, 35, 24, 0.13);
+    color: #8f1d14 !important;
+  }
+
+  .paper-pdf-link .fa-file-pdf {
+    font-size: 0.76rem;
+  }
+
+  .citation-count {
+    display: inline-block;
+    margin-left: 0.35rem;
+    padding: 0.14rem 0.42rem;
+    border: 1px solid var(--clr-code-border);
+    border-radius: 999px;
+    background: var(--clr-code-bg);
+    color: var(--clr-text);
+    font-size: 0.72rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.2;
+    vertical-align: 0.08rem;
+    white-space: nowrap;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .paper-pdf-link {
+      border-color: rgba(255, 180, 171, 0.32);
+      background: rgba(255, 180, 171, 0.09);
+      color: #ffb4ab !important;
+    }
+
+    .paper-pdf-link:hover,
+    .paper-pdf-link:focus {
+      border-color: rgba(255, 180, 171, 0.52);
+      background: rgba(255, 180, 171, 0.16);
+      color: #ffd8d3 !important;
+    }
+  }
+</style>
 
 <!-- Setup Google Analytics -->
 {% include head-custom-google-analytics.html %}
 
 <!-- You can set your favicon here -->
 {% if site.favicon %}
-  <link rel="shortcut icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
+  <link rel="shortcut icon" type="image/x-icon" href="{{ '/favicon.ico?v=google' | relative_url }}">
 {% endif %}
 
 <!-- end custom head snippets -->
