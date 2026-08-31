@@ -1,0 +1,1 @@
+{% assign count = site.data.citations[include.id] | default: 0 %}{% if count > 0 %}<span class="citation-count" title="Google Scholar citations">Citations: {{ count }}</span>{% endif %}
