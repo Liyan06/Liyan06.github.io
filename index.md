@@ -15,41 +15,41 @@ Bespoke-MiniCheck-7B](https://huggingface.co/bespokelabs/Bespoke-MiniCheck-7B) o
 
 ---
 
-## Blog
-
-**Bespoke-MiniChart-7B: Pushing The Frontiers Of Open VLMs For Chart Understanding** [<i class="fa-solid fa-file"></i>](https://www.bespokelabs.ai/blog/bespoke-minichart-7b) \\
-<u>Liyan Tang</u>, Shreyas Pimpalgaonkar, Kartik Sharma, Alexandros G. Dimakis, Mahesh Sathiamoorthy, Greg Durrett 
-
-
 ## Selected Papers
 
-<!-- <a href="https://arxiv.org/pdf/2505.13444"><img alt="Endpoint Badge" src="https://img.shields.io/endpoint?url=https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.juleskreuer.eu%2Fcitation-badge.php%3Fshield%26doi%3D10.48550%2FarXiv.2505.13444&style=social&logo=googlescholar&logoSize=amg&label=Paper&labelColor=white&color=white" style="vertical-align: -4px;"></a> -->
+### Self-Improving Agent
 
-**ChartMuseum: Testing Visual Reasoning Capabilities of Large Vision-Language Models** [<i class="fa-solid fa-file"></i>](https://arxiv.org/pdf/2505.13444) \\
+**WikiSkill: Compiling Agent Experience into Persistent Knowledge for Skill Evolution** <a class="paper-pdf-link" href="https://arxiv.org/pdf/2608.27454" aria-label="Open paper PDF" title="Open PDF"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i><span>PDF</span></a> {% include citation-count.html id="wikiskill" %} \\
+<u>Liyan Tang</u>, Cyrus Rashtchian, Chun-Sung Ferng, Andrew Tomkins, Da-Cheng Juan, Tu Vu \\
+<em>arXiv preprint, 2026</em>
+
+### Visual Reasoning
+
+**Visually Grounded Self-Reflection for Vision-Language Models via Reinforcement Learning** <a class="paper-pdf-link" href="https://arxiv.org/pdf/2607.02490" aria-label="Open paper PDF" title="Open PDF"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i><span>PDF</span></a> {% include citation-count.html id="vrrl" %} \\
+<u>Liyan Tang</u>, Fangcong Yin, Greg Durrett \\
+<em>arXiv preprint, 2026</em>
+
+**ChartMuseum: Testing Visual Reasoning Capabilities of Large Vision-Language Models** <a class="paper-pdf-link" href="https://arxiv.org/pdf/2505.13444" aria-label="Open paper PDF" title="Open PDF"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i><span>PDF</span></a> {% include citation-count.html id="chartmuseum" %} \\
 <u>Liyan Tang</u>, Grace Kim, Xinyu Zhao, Thom Lake, Wenxuan Ding, Fangcong Yin, Prasann Singhal, Manya Wadhwa, Zeyu Leo Liu, Zayne Sprague, Ramya Namuduri, Bodun Hu, Juan Diego Rodriguez, Puyuan Peng, Greg Durrett \\
 <em>Proceedings of the Conference on Neural Information Processing Systems (NeurIPS), 2025</em> 
 
-**MiniCheck: Efficient Fact-Checking of LLMs on Grounding Documents** [<i class="fa-solid fa-file"></i>](https://aclanthology.org/2024.emnlp-main.499.pdf)\\
+### Hallucination Evaluation
+
+**MiniCheck: Efficient Fact-Checking of LLMs on Grounding Documents** <a class="paper-pdf-link" href="https://aclanthology.org/2024.emnlp-main.499.pdf" aria-label="Open paper PDF" title="Open PDF"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i><span>PDF</span></a> {% include citation-count.html id="minicheck" %} \\
 <u>Liyan Tang</u>, Philippe Laban, Greg Durrett \\
 <em>Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP), 2024</em> 
-<!-- <a href="https://aclanthology.org/2024.emnlp-main.499.pdf"><img alt="Endpoint Badge" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.juleskreuer.eu%2Fcitation-badge.php%3Fshield%26doi%3D10.48550%2FarXiv.2404.10774&style=social&logo=googlescholar&logoSize=amg&label=Paper&labelColor=white&color=white" style="vertical-align: -4px;"></a>\\ -->
 
-**TofuEval: Evaluating Hallucinations of LLMs on Topic-Focused Dialogue Summarization** [<i class="fa-solid fa-file"></i>](https://aclanthology.org/2024.naacl-long.251.pdf)\\
+**TofuEval: Evaluating Hallucinations of LLMs on Topic-Focused Dialogue Summarization** <a class="paper-pdf-link" href="https://aclanthology.org/2024.naacl-long.251.pdf" aria-label="Open paper PDF" title="Open PDF"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i><span>PDF</span></a> {% include citation-count.html id="tofueval" %} \\
 <u>Liyan Tang</u>, Igor Shalyminov, Amy Wing-mei Wong, Jon Burnsky, Jake W. Vincent, Yu'an Yang, Siffi Singh, Song Feng, Hwanjun Song, Hang Su, Lijia Sun, Yi Zhang, Saab Mansour, Kathleen McKeown \\
 <em>Proceedings of the North American Chapter of the Association for Computational Linguistic (NAACL), 2024</em>
-<!-- <a href="https://aclanthology.org/2024.naacl-long.251.pdf"><img alt="Endpoint Badge" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.juleskreuer.eu%2Fcitation-badge.php%3Fshield%26doi%3D10.48550%2FarXiv.2402.13249&style=social&logo=googlescholar&logoSize=amg&label=Paper&labelColor=white&color=white" style="vertical-align: -4px;"></a> \\ -->
 
-
-**Understanding Factual Errors in Summarization: Errors, Summarizers, Datasets, Error Detectors** [<i class="fa-solid fa-file"></i>](https://aclanthology.org/2023.acl-long.650.pdf)\\
+**Understanding Factual Errors in Summarization: Errors, Summarizers, Datasets, Error Detectors** <a class="paper-pdf-link" href="https://aclanthology.org/2023.acl-long.650.pdf" aria-label="Open paper PDF" title="Open PDF"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i><span>PDF</span></a> {% include citation-count.html id="factual_errors" %} \\
 <u>Liyan Tang</u>, Tanya Goyal, Alexander R. Fabbri, Philippe Laban, Jiacheng Xu, Semih Yavuz, Wojciech Kryściński, Justin F. Rousseau, Greg Durrett \\
 <em>Proceedings of the Annual Meeting of the Association for Computational Linguistics (ACL), 2023</em>
-<!-- <a href="https://aclanthology.org/2023.acl-long.650.pdf"><img alt="Endpoint Badge" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.juleskreuer.eu%2Fcitation-badge.php%3Fshield%26doi%3D10.48550%2FarXiv.2205.12854&style=social&logo=googlescholar&logoSize=amg&label=Paper&labelColor=white&color=white" style="vertical-align: -4px;"></a>\\ -->
 
-
-**Evaluating Large Language Models on Medical Evidence Summarization** [<i class="fa-solid fa-file"></i>](https://www.nature.com/articles/s41746-023-00896-7.pdf)\\
+**Evaluating Large Language Models on Medical Evidence Summarization** <a class="paper-pdf-link" href="https://www.nature.com/articles/s41746-023-00896-7.pdf" aria-label="Open paper PDF" title="Open PDF"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i><span>PDF</span></a> {% include citation-count.html id="medical_evidence" %} \\
 <u>Liyan Tang</u>, Zhaoyi Sun, Betina Idnay, Jordan G Nestor, Ali Soroush, Pierre A. Elias, Ziyang Xu, Ying Ding, Greg Durrett, Justin Rousseau, Chunhua Weng, Yifan Peng \\
 <em>npj Digital Medicine, 2023</em>
-<!-- <a href="https://www.nature.com/articles/s41746-023-00896-7.pdf"><img alt="Endpoint Badge" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.juleskreuer.eu%2Fcitation-badge.php%3Fshield%26doi%3D10.1038%2Fs41746-023-00896-7&style=social&logo=googlescholar&logoSize=amg&label=Paper&labelColor=white&color=white" style="vertical-align: -4px;"></a> \\ -->
 
 ---
 
